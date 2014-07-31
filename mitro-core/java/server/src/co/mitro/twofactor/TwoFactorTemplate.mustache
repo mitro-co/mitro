@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="description" content="The easiest way to save and share passwords. Remember and share everything from web accounts, credit cards, 2-factor backup codes, security question answers, and WiFi passwords.">
+    <title>Mitro | The easiest way to save and share passwords</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+    </script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="https://www.mitro.co/css/site.css" media="all">
+  </head>
+
+  <body class="no-padding">
+    <header class="simple-header">
+      <a id="logo" class="icon-logo" href="/"></a>
+      <div id="tagline">
+          The easiest way to remember & share passwords securely
+      </div>
+    </header>
+    <div id="wrap">
+      <div id="content">
+{{$content}}
+{{/content}}
+      </div><!--/#content -->
+    </div><!--/#wrap -->
+    <footer>
+      <nav>
+          <a href="http://blog.mitro.co/" target="_blank" onclick="_gaq.push(['_trackEvent', 'Outbound', 'Click', 'http://blog.mitro.co/']);">Blog</a>
+          <a href="mailto:inbound@mitro.co" onclick="_gaq.push(['_trackEvent', 'Outbound', 'Click', 'mailto:inbound@mitro.co']);">Contact</a>
+          <a href="https://mitro.co/press.html" target="_blank">Press</a>
+          <a href="https://mitro.co/faq.html" target="_blank">FAQ</a>
+          <a href="https://mitro.co/privacy.html" target="_blank">Privacy</a>
+          <a href="https://mitro.co/terms.html" target="_blank">Terms</a>
+      </nav>
+      <ul id="social" class="social-list">
+          <li id="twitter"><a href="https://twitter.com/mitroco" target="_blank" class="icon-twitter" onclick="_gaq.push(['_trackEvent', 'Outbound', 'Click', 'https://twitter.com/mitroco']);"></a></li>
+          <li id="facebook"><a href="https://www.facebook.com/Mitro.co" target="_blank" class="icon-facebook" onclick="_gaq.push(['_trackEvent', 'Outbound', 'Click', 'https://www.facebook.com/Mitro.co']);"></a></li>
+          <li id="gplus"><a href="https://plus.google.com/+MitroCo/posts" target="_blank" class="icon-gplus" onclick="_gaq.push(['_trackEvent', 'Outbound', 'Click', 'https://plus.google.com/+MitroCo/posts']);"></a></li>
+      </ul>
+    </footer>
+
+    {{> ga-snippet}}
+
+  </body>
+</html>
+
+
+
+

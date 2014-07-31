@@ -1,0 +1,4 @@
+---
+- name: restart changepwagent
+  service: name=changepwagent state=restarted
+  sudo: yes

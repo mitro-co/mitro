@@ -1,0 +1,50 @@
+{
+  "name": "Mitro Login Manager",
+  "short_name": "Mitro",
+  "manifest_version": 2,
+  "version": "0.10.56",
+  "background": {
+    "scripts": []
+  },
+  "description": "Securely saves passwords and lets you share them with others",
+  "icons" : {
+    "16": "img/mitro_logo-16.png",
+    "128": "img/mitro_logo-128.png"
+  },
+  "browser_action": {
+    "default_icon": {
+      "19": "img/mitro_logo_gray-19.png",
+      "38": "img/mitro_logo_gray-38.png"
+    },
+    "default_title": "Mitro Login Manager",
+    "default_popup": "html/popup.html"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "matches": ["*://*/*"],
+      "js": [],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "tabs",
+    "cookies", "*://*/*",
+    "storage",
+    "clipboardWrite",
+    "contextMenus"
+  ],
+  "web_accessible_resources": [
+    "img/mitro_logo-128.png",
+    "img/close_hover.png",
+    // required so content scripts and the server can open these pages
+    "html/admin-dashboard.html",
+    "html/admin-sync.html",
+    "html/change-password.html",
+    "html/popup.html",
+    "html/install.html",
+    "html/signup.html",
+    "html/secrets.html"
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'"
+}

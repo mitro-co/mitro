@@ -1,0 +1,19 @@
+{
+  "background_scripts": [
+    "config.js",
+    "tester.js",
+    "jquery.min.js",
+    "utils.js",
+    "client.js",
+    "helpers.js",
+    "background_test.js"
+    ],
+
+  "content_scripts": [
+    "tester.js",
+    "jquery.min.js",
+    "utils.js",
+    "client.js",
+    "helpers.js",
+    "content_script_test.js"]
+}

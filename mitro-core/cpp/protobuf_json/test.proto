@@ -1,0 +1,21 @@
+package test;
+
+message DateMessage {
+  required int32 month = 1;
+  required int32 day = 2;
+  required int32 year = 3;
+}
+
+message Test {
+  optional string s = 1;
+}
+
+message PersonMessage {
+  required string name = 1;
+  optional double weight = 2;
+  optional double height = 3;
+  optional DateMessage birthday = 4;
+  repeated int64 phone = 5;
+
+  repeated Test test = 6;
+}

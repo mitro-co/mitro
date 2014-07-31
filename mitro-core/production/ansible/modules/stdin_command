@@ -1,0 +1,55 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import datetime
+import sys
+
+DOCUMENTATION = '''
+---
+module: stdin_command
+short_description: Runs a command with input on stdin.
+'''
+
+EXAMPLES = '''
+'''
+
+def main():
+    module = AnsibleModule(
+        # not checking because of daisy chain to file module
+        argument_spec = dict(
+            command = dict(required=True),
+            stdin = dict(required=True), # used to handle 'dest is a directory' via template, a slight hack
+        ),
+    )
+
+    command = module.params['command']
+    stdin = module.params['stdin']
+
+    args = shlex.split(command)
+    startd = datetime.datetime.now()
+
+    rc, out, err = module.run_command(args, data=stdin, binary_data=True)
+
+    endd = datetime.datetime.now()
+    delta = endd - startd
+
+    if out is None:
+        out = ''
+    if err is None:
+        err = ''
+
+    module.exit_json(
+        cmd     = args,
+        stdout  = out.rstrip("\r\n"),
+        stderr  = err.rstrip("\r\n"),
+        rc      = rc,
+        start   = str(startd),
+        end     = str(endd),
+        delta   = str(delta),
+        changed = True
+    )
+
+
+# import module snippets
+from ansible.module_utils.basic import *
+main()

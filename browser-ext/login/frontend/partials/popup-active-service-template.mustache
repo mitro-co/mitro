@@ -1,0 +1,46 @@
+<div class="secret-item identity" data-secret-id="{{secretId}}">
+  <div class="text">
+    <div class="account" title="{{renderedTitle}}">{{renderedTitle}}</div>
+    <div class="user" title="{{clientData.username}}">{{clientData.username}}</div>
+  </div>
+  <div class="edit secret-edit-action">
+    <a href="#" title="Edit account">
+      <span class="mitro-icon-edit"></span>
+    </a>
+  </div>
+</div>
+<div class="team">
+  <ul>
+    <li class="secret-item" data-secret-id="secretId}}">
+      <!-- <a href="#" class="secret-edit-action toggle" data-open-pane="team">
+        <span class="mitro-icon-invite"></span>
+      </a> -->
+      <a href="#" data-open-pane="team" data-secret-id={{secretId}}>
+        <span class="mitro-icon-invite"></span>
+      </a>
+    </li>
+    {{#flattenedUsersForDisplay}}
+    <li>
+    <div class="image">
+      <img width="35" height="35" class="member-icon" src="{{photo}}" data-icon-text="{{.}}">
+    </div>
+    </li>
+    {{/flattenedUsersForDisplay}}
+
+    {{#flattenedUsersForDisplayCount}}
+    <li title="Shared with {{flattenedUsersForDisplayCount}} more users">+{{flattenedUsersForDisplayCount}}</li>
+    {{/flattenedUsersForDisplayCount}}
+    {{^flattenedUsersForDisplayCount}}
+    <li></li>
+    {{/flattenedUsersForDisplayCount}}
+  </ul>
+</div>
+
+<div class="heading">
+  <div class="left">
+    <a href="#" class="back" data-open-pane="secrets">
+      <span class="mitro-icon-arrow-left"></span>back
+    </a>
+  </div>
+  <h1>Share Access</h1>
+</div>

@@ -1,0 +1,38 @@
+{{<org-template}}
+
+{{$includes}}
+  <script src="../js/teams-template.js"></script>
+  <script src="../js/teams-common.js"></script>
+  <script src="../js/teams-admin.js"></script>
+{{/includes}}
+
+{{$content}}
+  <div class="clearfix">
+    <div class="pull-left">
+      <h1>Organization Teams</h1>
+    </div>
+    <a href="../html/create-team.html" class="create-team-link has-teams btn pull-right btn-primary hide">Create New Team</a>
+  </div>
+
+  <div class="list mt20">
+    <div class="has-teams hide">
+      <div class="title"></div>
+      <div class="teams-list items"></div>
+    </div>
+
+    <div class="has-no-teams hide">
+      <div class="empty-rocket">
+        <div class="title"></div>
+        <div class="text">
+          <p>This organization has no teams. <br/>Create a team and start sharing access to sites and services.</p>
+          <a href="../html/create-team.html" class="btn btn-primary mt20 create-team-link">
+            Create New Team
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="spinny"></div>
+  </div>
+{{/content}}
+{{/org-template}}

@@ -1,0 +1,39 @@
+# Common task for deploying a Java JAR (mitrocore, mitrosync)
+# Required variables:
+#
+# username
+# jar_src
+# jar_link_path
+# version
+# upstart_config
+#
+---
+# Stuff that doesn't change much
+- name: create {{username}} user
+  user: name={{username}} system=yes state=present
+  sudo: yes
+- name: copy {{username}} upstart config
+  copy: src={{upstart_config}} dest=/etc/init owner=root group=root
+  sudo: yes
+# # - name: Copy secrets
+# #   copy: src=../unnamed/crypto_keys/prod/mitrocore_secrets.tar.gz.enc dest=/home/mitrocore
+# # - name: extract secrets
+# #   shell: false # TODO: How to prompt user for password?
+
+# The actual deploy of the new version
+- name: check for versioned JAR
+  stat: path={{jar_link_path}}.{{version}}
+  register: version_stat
+  ignore_errors: True
+- fail: msg="{{jar_link_path}}.{{version}} already exists; deploy a different version?"
+  when: version_stat.stat.exists
+- name: create directory for .jar
+  file: state=directory dest={{jar_link_path | dirname}} owner={{username}} mode=0755
+  sudo: yes
+- name: copy server .jar
+  copy: src={{jar_src}} dest={{jar_link_path}}.{{version}}
+  sudo: yes
+- name: symlink
+  file: state=link src={{jar_link_path}}.{{version}} dest={{jar_link_path}}
+  sudo: yes
+  notify: restart {{username}}

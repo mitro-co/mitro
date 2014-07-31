@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="co.mitro.mitro"
+    android:versionCode="9"
+    android:versionName="1.1.9" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.INTERNET" ></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" ></uses-permission>
+
+    <application
+        android:name="MitroApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/mitro_icon"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Mitro" >
+        <activity
+            android:name="co.mitro.mitro.SecretListActivity"
+            android:configChanges="keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="co.mitro.mitro.SecretViewActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="co.mitro.mitro.LoginActivity"
+            android:label=""
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="co.mitro.mitro.NotificationCopyActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="co.mitro.mitro.AddSecretActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="co.mitro.mitro.AddNotesSecretActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="co.mitro.mitro.TutorialActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

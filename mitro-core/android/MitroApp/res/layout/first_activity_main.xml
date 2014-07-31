@@ -1,0 +1,135 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/rocket" >
+
+<RelativeLayout 
+        android:id = "@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+    
+        <ListView
+            android:id="@+id/example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dp"
+            android:background="#FFFFFF" >
+
+    </ListView>
+       <TextView
+        android:id="@+id/right_swipe_text_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/example"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="Above is a secret."
+        android:textColor="#6aa6f8"
+        android:textSize="30sp"
+        android:paddingLeft="16dp"
+         android:paddingRight="16dp" 
+         />
+
+    <ImageView
+        android:id="@+id/notificationImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/right_swipe_text_title"
+        android:layout_marginTop="10dp"
+        android:maxWidth="40dp"
+        android:src="@drawable/notification_example" />
+
+    <TextView
+        android:id="@+id/right_swipe_text_bullet3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@+id/right_swipe_text_title"
+        android:layout_marginTop="10dp"
+        android:text="3.Have the password waiting to be copied in the notification bar"
+        android:textColor="#6aa6f8"
+        android:textSize="30sp" 
+        android:gravity = "center"
+        android:background="#FFFFFF"/>
+
+    <TextView
+        android:id="@+id/right_swipe_text_bullet2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@+id/right_swipe_text_title"
+        android:layout_marginTop="10dp"
+        android:text="2.Automatically copy the username to your clipboard"
+        android:textColor="#6aa6f8"
+        android:textSize="30sp" 
+        android:gravity = "center"
+        android:background="#FFFFFF"/>
+
+     <Button
+         android:id="@+id/next"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/right_swipe_text_title"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="20dp"
+         android:background="@drawable/round_shaped_button"
+         android:clickable="true"
+         android:onClick="next"
+         android:text="What's a secret?"
+         android:paddingLeft="5dp"
+         android:paddingRight="5dp"
+         android:textColor="#f6f7f9" />
+ <Button
+         android:id="@+id/howToPaste"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/next"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="20dp"
+         android:background="@drawable/round_shaped_button"
+         android:clickable="true"
+         android:onClick="pasteInfo"
+         android:text="How do I paste?"
+         android:paddingLeft="5dp"
+         android:paddingRight="5dp"
+         android:textColor="#f6f7f9" />
+ 
+  <Button
+         android:id="@+id/goToLogin"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_below="@+id/notificationImage"
+         android:layout_centerHorizontal="true"
+         android:layout_marginTop="20dp"
+         android:background="@drawable/round_shaped_button"
+         android:clickable="true"
+         android:onClick="goToLogin"
+         android:text="Go to Login"
+         android:paddingLeft="5dp"
+         android:paddingRight="5dp"
+         android:textColor="#f6f7f9" />
+    <TextView
+        android:id="@+id/right_swipe_text_bullet1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below= "@+id/right_swipe_text_title"
+        android:layout_marginTop="10dp"
+        android:text="1.Open the website in your browser"
+        android:textColor="#6aa6f8"
+        android:textSize="30sp" 
+        android:gravity="center"
+        android:background="#FFFFFF"/>
+
+    <ImageView
+        android:id="@+id/arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/example"
+        android:adjustViewBounds="true"
+        android:maxHeight="60dp"
+        android:maxWidth="60dp"
+        android:src="@drawable/right_arrow" />
+
+</RelativeLayout>
+</ScrollView>

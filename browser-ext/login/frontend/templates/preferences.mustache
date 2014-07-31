@@ -1,0 +1,32 @@
+{{<template}}
+{{$title}}Mitro Preferences{{/title}}
+
+{{$includes}}
+    <script type="text/javascript" src="../js/preferences.js"></script>
+{{/includes}}
+
+{{$content}}
+<div class="left-col">
+
+<h2>Preferences</h2>
+
+<ul>
+<li><input type="checkbox" name="hideNotLoggedInOnLoginPages" value="true"> Hide the "Not Logged In" infobar on login pages</li>
+<li><input type="checkbox" name="neverAskToSavePasswords" value="true"> Never ask to save any passwords</li>
+<li><input type="checkbox" name="highlightSelectedForms" value="false"> Highlight selected form elements</li>
+<li>Server hostname: <input type="text" name="serverHostnameOverride" value=""></li>
+</ul>
+
+<button id="savebutton" type="button">Save Changes</button>
+
+<p id="saveOutput" style="font-weight: bold; font-style: oblique;">&nbsp;</p>
+
+<p><button id="clearBlacklistButton" type="button">Clear the "Never save passwords" site blacklist</button></p>
+
+<p id="clearOutput" style="font-weight: bold; font-style: oblique;">&nbsp;</p>
+
+<p><button id="reloadButton" type="button" disabled="disabled">Reload extension</button></p>
+
+</div>
+{{/content}}
+{{/template}}

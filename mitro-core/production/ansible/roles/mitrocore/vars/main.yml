@@ -1,0 +1,4 @@
+---
+username: mitrocore
+jar_src: ../../build/mitrocore.jar
+jar_link_path: "{{mitrocore_link_path}}"

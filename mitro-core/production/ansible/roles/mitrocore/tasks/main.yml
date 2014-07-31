@@ -1,0 +1,6 @@
+# Required variables:
+# mitrocore_link_path
+# version
+# upstart_config
+---
+- include: ../../../jar_deploy_task.yml

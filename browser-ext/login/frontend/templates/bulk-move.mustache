@@ -1,0 +1,48 @@
+{{<template}}
+{{$includes}}
+    <script type="text/javascript" src="../js/URI.js"></script>
+    <script type="text/javascript" src="../js/domain.js"></script>
+    <script type="text/javascript" src="../js/hogan-template.js"></script>
+    <script type="text/javascript" src="../js/modal-dialog-template.js"></script>
+    <script type="text/javascript" src="../js/acl-entry-template.js"></script>
+    <script type="text/javascript" src="../js/admin-common.js"></script>
+    <script type="text/javascript" src="../js/secrets-common.js"></script>
+    <script src="../kew.js"></script>
+    <script src="../js/org-info.js"></script>
+    <script type="text/javascript" src="../js/bulk-move.js"></script>
+    <script type="text/javascript" src="../js/bulk-move-services-template.js"></script>
+    <script type="text/javascript" src="../js/bulk-move-groups-template.js"></script>
+{{/includes}}
+
+{{$content}}
+<div id="everything" style="margin-left: 20px;">
+
+<h2> Secrets</h2>
+
+<div id="all-secrets">
+</div>
+<br>
+<br>
+<br>
+
+<h2> Actions </h2>
+<div id="acl-chooser">
+<div id="org-transfer" style="display:none">
+<input type="checkbox" id="transfer-to-my-org"> Transfer ownership to my organization, <b><span id="org-name"></span></b>
+</div>
+<br>
+Overwrite all existing ACLS with:
+<br>
+<div id="acl-groups">
+</div>
+
+</div>
+<button id="commit-acls">Commit ACLs (warning this could be slow) </button>
+<br>
+<br>
+</div>
+
+<div id="messages"></div>
+
+{{/content}}
+{{/template}}

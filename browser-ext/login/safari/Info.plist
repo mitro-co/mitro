@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Author</key>
+    <string>Lectorius, Inc.</string>
+    <key>Builder Version</key>
+    <string>534.57.2</string>
+    <key>CFBundleDisplayName</key>
+    <string>Mitro Password Manager</string>
+    <key>CFBundleIdentifier</key>
+    <string>co.mitro.login</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleShortVersionString</key>
+    <string>0.10.56</string>
+    <key>CFBundleVersion</key>
+    <string>59</string>
+    <key>Chrome</key>
+    <dict>
+        <key>Database Quota</key>
+        <real>52428800</real>
+        <key>Global Page</key>
+        <string>background.html</string>
+        <key>Popovers</key>
+        <array>
+            <dict>
+                <key>Filename</key>
+                <string>html/popup.html</string>
+                <key>Height</key>
+                <real>370</real>
+                <key>Identifier</key>
+                <string>Popup</string>
+                <key>Width</key>
+                <real>290</real>
+            </dict>
+        </array>
+        <key>Toolbar Items</key>
+        <array>
+            <dict>
+                <key>Identifier</key>
+                <string>mitro-button</string>
+                <key>Image</key>
+                <string>img/mitro_logo_safari.png</string>
+                <key>Label</key>
+                <string>Login with Mitro</string>
+                <key>Popover</key>
+                <string>Popup</string>
+            </dict>
+        </array>
+    </dict>
+    <key>Content</key>
+    <dict>
+        <key>Scripts</key>
+        <dict>
+            <key>Start</key>
+            <array>
+            </array>
+        </dict>
+        <key>Blacklist</key>
+        <array>
+            <string>http://selenium.mitro.co/*</string>
+            <string>safari-extension://*/*</string>
+        </array>
+    </dict>
+    <key>ExtensionInfoDictionaryVersion</key>
+    <string>1.0</string>
+    <key>Permissions</key>
+    <dict>
+        <key>Website Access</key>
+        <dict>
+            <key>Include Secure Pages</key>
+            <true/>
+            <key>Level</key>
+            <string>All</string>
+        </dict>
+    </dict>
+    <key>Update Manifest URL</key>
+    <string>https://www.mitro.co/safari/update-manifest.plist</string>
+    <key>Website</key>
+    <string>https://www.mitro.co</string>
+</dict>
+</plist>

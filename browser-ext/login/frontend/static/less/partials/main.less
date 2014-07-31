@@ -1,0 +1,630 @@
+.search {
+
+  color: @text-hybrid;
+  height: @search-content-height;
+  margin: @search-margin;
+  overflow: hidden;
+  position: relative;
+
+  .left,
+  .right {
+    height: 100%;
+    text-align: center;
+    position: absolute;
+    width: 30px;
+    top: 0;
+    z-index: 1;
+    span {
+      display: block;
+      font-size: 16px;
+    }
+  }
+
+  .left {
+    left: 0;
+    span {
+      margin-top: 7px;
+    }
+  }
+
+  .right {
+    right: 0;
+    a {
+      color: rgba(red(@text-hybrid), green(@text-hybrid), blue(@text-hybrid), 0.6);
+      text-decoration: none;
+      &.hide {
+        .show;
+        color: rgba(red(@text-hybrid), green(@text-hybrid), blue(@text-hybrid), 0);
+        cursor: default;
+      }
+      &:hover,
+      &:focus {
+        color: @text-hybrid;
+      }
+      span {
+        margin-top: 7px;
+      }
+    }
+  }
+
+  .input {
+
+    height: 100%;
+    width: 100%;
+
+    input {
+      .border-radius(4px);
+      font-size: 13px;
+      height: 100%;
+      padding: 0 30px;
+      width: 100%;
+      &:focus {
+        padding: 0 29px;
+      }
+    }
+
+  }
+
+  [data-pane="secrets"] & {
+    input {
+      background-color: @bg-color-alt-light;
+      color: @text-dark;
+      .placeholder-color(rgba(red(@text-dark), green(@text-dark), blue(@text-dark), 0.4));
+      &:focus {
+        border: solid 1px rgba(red(@text-hybrid), green(@text-hybrid), blue(@text-hybrid), 0.4);
+      }
+    }
+  }
+
+  [data-pane="team"] & {
+    input {
+      background-color: @bg-color-alt-dark;
+      color: @text-light;
+      .placeholder-color(rgba(red(@text-light), green(@text-light), blue(@text-light), 0.4));
+      &:focus {
+        border: solid 1px rgba(red(@text-hybrid), green(@text-hybrid), blue(@text-hybrid), 1);
+      }
+    }
+  }
+
+}
+
+.people {
+  max-height: @scroll-area-height;
+  overflow-y: scroll;
+}
+
+.secrets .list {
+  height: @scroll-area-height;
+}
+
+.secrets,
+.people {
+
+  font-size: 13px;
+  position: relative;
+
+  .border {
+
+    height: 1px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+
+    &.top {
+      top: 0;
+    }
+
+    &.bottom {
+      background-color: @quaternary;
+      bottom: 0;
+      .box-shadow(0 -1px 1px 0 rgba(0, 0, 0, 0.15));
+    }
+
+  }
+
+  &.secrets {
+    .border {
+      &.top {
+        background-color: rgba(red(@bg-color-alt-dark), green(@bg-color-alt-dark), blue(@bg-color-alt-dark), 0.2);
+        .box-shadow(0 1px 2px 0 rgba(red(@bg-color-alt-dark), green(@bg-color-alt-dark), blue(@bg-color-alt-dark), 0.06));
+      }
+    }
+  }
+
+  &.people {
+    .border {
+      &.top {
+        background-color: rgba(red(@bg-color-alt-dark), green(@bg-color-alt-dark), blue(@bg-color-alt-dark), 0.6);
+        .box-shadow(0 1px 2px 0 rgba(red(@bg-color-alt-dark), green(@bg-color-alt-dark), blue(@bg-color-alt-dark), 0.2));
+      }
+    }
+  }
+
+  .list {  
+    position: relative;
+    z-index: 0;
+
+    .jspPane {
+      width: 100% !important;
+    }
+
+    .item-actions {
+      display: none;
+      height: 60px;
+      ul {
+        height: inherit;
+        .clear;
+        li {
+          height: inherit;
+          display: block;
+          float: left;
+          width: 20%;
+          padding: 14px 0px;
+          margin: 0px;
+          text-transform: lowercase;
+          font-family: @montserrat-regular;
+          text-align: center;
+          color: fade(@text-light, 70%);
+          &:hover, &.active {
+            color: @text-light;
+            cursor: pointer;
+          }
+          [class^="icon-"], [class*=" icon-"] {
+            margin-bottom: 5px;
+          }
+          .button-color(@main-color) {
+            .box-shadow(1px 1px 2px 0 rgba(0, 0, 0, 0.15));
+            .background-vertical-linear-gradient(fade(@main-color, 80%), 0%, fade(@main-color, 60%), 100%, fade(@main-color, 80%));
+            &:hover, &.active {
+              .background-vertical-linear-gradient(@main-color, 0%, fade(@main-color, 70%), 100%, @main-color);
+            }
+          }
+          &[data-item-action="launch"] {
+            .button-color(@magenta);
+          }
+          &[data-item-action="copy-user"] {
+            .button-color(@primary-dk);
+          }
+          &[data-item-action="copy-pw"] {
+            .button-color(@primary);
+          }
+          &[data-item-action="share-secret"] {
+            .button-color(@dk-royal-blue);
+          }
+          &[data-item-action="edit-secret"] {
+            .button-color(@emerald-green);
+          }
+          .copy-msg {
+            &:before {
+              content: "Copy";
+            }
+            &.copied {
+              &:before {
+                content: "Copied!";
+              }
+            }
+          }
+        }
+      }
+      &.item-note {
+        ul li {
+          width: 33%;
+        }
+      }
+    }
+
+    .item {
+
+      position: relative;
+
+      .details {
+        .clear;
+        cursor: pointer;
+        height: @item-row-height;
+        margin-left: -10px;
+
+        .image {
+          float: left;
+          img {
+            display: block;
+            height: 100%;
+            width: 100%;
+          }
+          .small-icon {
+            .border-radius(2px);
+            display: block;
+            font-family: @montserrat-regular;
+            font-size: 13px;
+            height: 100%;
+            line-height: 16px;
+            width: 100%;
+          }
+        }
+        .text {
+          width: 200px;
+          float: left;
+          .truncate();
+
+          span {
+            .border-radius(4px);
+            padding: 0 2px;
+          }
+
+        }
+      }
+
+      .action {
+        position: absolute;
+        right: 12px;
+        top: 11px;
+        z-index: 2;
+        a {
+          display: block;
+          font-size: 18px;
+          text-decoration: none;
+          span {
+            display: block;
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+
+      .overlay {
+        background-color: @quinary;
+        .border-radius(4px);
+        bottom: 4px;
+        .clear;
+        color: @text-light;
+        left: 4px;
+        padding: 6px 35px 0 10px;
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        z-index: 1;
+        .left {
+          float: left;
+          cursor: pointer;
+          .revoke-msg {
+            display:inline-block;
+            overflow:hidden;
+            margin-right: 4px;
+          }
+          .revoke-name {
+            display: inline-block;
+            max-width: 95px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+          }
+        }
+        .right {
+          float: right;
+          a {
+            color: rgba(red(@text-light), green(@text-light), blue(@text-light), 0.6);
+            text-decoration: none;
+            &:hover {
+              color: @text-light;
+            }
+          }
+        }
+      }
+
+      &.secret-item {
+
+        // border-left: solid 2px #666;
+        + .item {
+          // .box-shadow(inset 0 2px 2px -2px rgba(0, 0, 0, 0.15));
+          .box-shadow(inset 0 1px 0 0 rgba(red(@bg-color-alt-dark), green(@bg-color-alt-dark), blue(@bg-color-alt-dark), 0.10));
+          &:hover,
+          &:focus,
+          &.selected {
+            .box-shadow(inset 0 1px 0 0 rgba(red(@bg-color-alt-dark), green(@bg-color-alt-dark), blue(@bg-color-alt-dark), 0.14));
+            // .box-shadow(inset 0 2px 2px -2px rgba(0, 0, 0, 0.25));
+          }
+        }
+        &:hover,
+        &:focus,
+        &.selected {
+          background-color: fade(@quaternary, 60%);
+          .details {
+              color: @text-light;
+          }
+        }
+
+        .details {
+          color: rgba(red(@text-dark), green(@text-dark), blue(@text-dark), 0.7);
+          cursor: pointer;
+          padding: 11px 10px 0;
+          .image {
+            height: 16px;
+            margin: 0 13px 0 10px;
+            width: 16px;
+          }
+          .text {
+            width: 92px;
+            span {
+              background-color: rgba(0, 0, 0, 0.2);
+              color: @text-dark;
+            }
+          }
+        }
+
+        .action {
+          visibility: hidden;
+          right: 5px;
+          top: 0px;
+          a {
+            width: 20px;
+            height: 20px;
+            background-color: fadeout(@quaternary, 50%);
+            font-size: 14px;
+            text-align: center;
+            padding-top: 2px;
+            span {
+              color: @text-light;
+            }
+            &.secret-edit-action {
+              background-color: rgba(red(@quaternary), green(@quaternary), blue(@quaternary), 0.9);
+            }
+            &:hover,
+            &:focus {
+              span {
+                color: @text-white;
+              }
+            }
+          }
+        }
+
+      }
+
+      &.person-item, &.group-item {
+
+        &.shared {
+          background-color: fade(@bg-color-success, 10%);
+          &:hover {
+            background-color: rgba(32, 50, 72, .2);
+          }
+        }
+
+        &:hover {
+          background-color: rgba(32, 50, 72, .2);
+        }
+
+        + .item {
+          .box-shadow(inset 0 1px 0 0 rgba(255, 255, 255, 0.1));
+        }
+
+        .details {
+          color: rgba(red(@text-light), green(@text-light), blue(@text-light), 0.7);
+          padding: 7px 10px 0;
+          .image {
+            width: 26px;
+            height: 26px;
+            margin: 0 8px 0 6px;
+            line-height: 26px;
+          }
+          .text {
+            margin-top: 5px;
+            span {
+              background-color: rgba(255, 255, 255, 0.2);
+              color: @text-light;
+            }
+          }
+
+          .user-icon {
+            font-family: @montserrat-regular;
+            border-radius: 50%;
+          }
+
+          .group-icon {
+            font-family: @montserrat-regular;
+            border-radius: 10%;
+          }
+        }
+
+        .action {
+          a {
+            span {
+              color: rgba(red(@text-light), green(@text-light), blue(@text-light), 0.4);
+            }
+            &:hover {
+              span {
+                color: @text-light;
+                &.icon-check {
+                  color: @quinary;
+                  &:before {
+                    content: "\e601";
+                  }
+                }
+              }
+            }
+            &.confirm {
+              span {
+                color: rgba(red(@text-light), green(@text-light), blue(@text-light), 0.8);
+                &:before {
+                  content: "\e601";
+                }
+              }
+              &:hover {
+                span {
+                  color: @text-light;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.msg-item {
+
+         + .item {
+          .box-shadow(inset 0 1px 0 0 rgba(255, 255, 255, 0.1));
+        }
+
+        padding: 5px;
+
+        .success-msg {
+          background-color: @bg-color-success;
+          color: @text-alt-dark;
+          text-align: center;
+          .border-radius(4px);
+          padding: 6px 0px;
+        }
+      }
+    }
+  }
+
+  // used to make the list the full popup when there is no active account
+  .list-no-site {
+    height: @scroll-area-height-no-site;
+  }
+}
+
+[data-pane="team"] #invite-item {
+    .box-shadow(inset 0 1px 0 0 rgba(255, 255, 255, 0.1));
+    position: relative;
+
+    .details {
+      .clear;
+      color: rgba(red(@text-light), green(@text-light), blue(@text-light), 0.7);
+      padding: 7px 10px 0;
+      cursor: pointer;
+      height: @item-row-height;
+      margin-left: -10px;
+      .image {
+        float: left;
+        width: 26px;
+        height: 26px;
+        margin: 0 8px 0 6px;
+        line-height: 26px;
+      }
+      .text {
+        margin-top: 5px;
+        float: left;
+        span {
+          background-color: rgba(255, 255, 255, 0.2);
+          color: @text-light;
+        }
+      }
+    }
+
+    &:hover {
+      background-color: rgba(32, 50, 72, .2);
+    }
+
+    .icon-usercircle {
+        font-size: 24px;
+        margin-left: 1px;
+    }
+}
+
+[data-pane="secrets"] {
+  .heading {
+    display: none;
+  }
+}
+
+[data-pane="team"],
+[data-pane="invite"] {
+
+  .heading {
+
+    background-color: @bg-color-dark;
+    padding: 20px 10px;
+    position: relative;
+    text-align: center;
+    border-bottom: solid 1px rgba(red(@off-white), green(@off-white), blue(@off-white), 0.1);
+
+    .left {
+
+      font-size: 13px;
+      position: absolute;
+      top: 17px;
+      left: 10px;
+      z-index: 1;
+
+      a {
+        color: rgba(red(@text-light), green(@text-light), blue(@text-light), 0.6);
+        text-decoration: none;
+        span {
+          font-size: 10px;
+          margin-right: 5px;
+        }
+        &:hover {
+          color: @text-light;
+        }
+      }
+
+    }
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+  }
+
+}
+
+[data-pane="invite"] {
+
+  .field {
+
+    background-color: rgba(red(@bg-color-alt-dark), green(@bg-color-alt-dark), blue(@bg-color-alt-dark), 0.6);
+    .border-radius(3px);
+    .clear;
+    color: @off-white;
+    padding: 11px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    + .field {
+      margin-top: 5px;
+    }
+
+    label {
+      float: left;
+      font-size: 14px;
+      width: 50px;
+    }
+
+    input {
+      background-color: transparent;
+      color: @off-white;
+      font-size: 14px;
+      height: 100%;
+      float: left;
+      .placeholder-color(rgba(red(@off-white), green(@off-white), blue(@off-white), 0.6));
+      width: 198px;
+    }
+
+    textarea {
+      background-color: transparent;
+      height: 70px;
+      border: none;
+      resize: none;
+      color: @off-white;
+      .placeholder-color(rgba(red(@off-white), green(@off-white), blue(@off-white), 0.6));
+      font-size: 14px; 
+    }
+  }
+
+  .button {
+    background-color: @brand-color;
+    font-family: @montserrat-bold;
+    color: fadeout(@text-light, 30%);
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 5px 10px 0px 10px;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+    width: auto;
+    &:hover {
+      color: @text-light;
+    }
+  }
+
+}
+

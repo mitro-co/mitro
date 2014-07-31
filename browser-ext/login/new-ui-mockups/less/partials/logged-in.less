@@ -1,0 +1,36 @@
+#logged-in {
+  height: @total-popup-height;
+  position: relative;
+}
+
+.pane {
+
+  height: 100%;
+
+  &[data-pane="secrets"],
+  &[data-pane="team"],
+  &[data-pane="invite"] {
+    background-color: @bg-color-light;
+  }
+
+  &[data-pane="team"],
+  &[data-pane="invite"],
+  &[data-pane="settings"],
+  &[data-pane="generate-password"] {
+    background-color: @bg-color-dark;
+  }
+
+  &[data-pane="settings"],
+  &[data-pane="generate-password"] {
+    background-color: @bg-color-dark;
+    padding-bottom: @footer-height;
+  }
+
+}
+
+/* web wrapper for extension panes inside browser window */
+&.web-wrap {
+  #logged-in {
+    display: none;
+  }
+}

@@ -1,0 +1,11 @@
+[primary]
+mitro-www
+
+[secondary]
+secondary.mitro.ca
+
+[dev]
+mitro-dev
+
+[mitroaccess]
+mitroaccess

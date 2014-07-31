@@ -1,0 +1,4 @@
+LABEL=cloudimg-rootfs	/	 ext4	defaults,discard	0 0
+/dev/xvdb	/mnt	auto	defaults,nobootwait,comment=cloudconfig	0	2
+/dev/xvdf  /large ext4 defaults 0 0
+/dev/xvdg /archive ext4 defaults 0 0

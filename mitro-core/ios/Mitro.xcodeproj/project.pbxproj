@@ -1,0 +1,710 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4012E52617E65F2000B1F252 /* mitro_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4012E52417E65F2000B1F252 /* mitro_logo.png */; };
+		4012E52717E65F2000B1F252 /* mitro_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4012E52517E65F2000B1F252 /* mitro_logo@2x.png */; };
+		4012E52A17E65F8400B1F252 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4012E52917E65F8400B1F252 /* LoginViewController.m */; };
+		4012E52D17E660E300B1F252 /* MitroTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4012E52C17E660E300B1F252 /* MitroTextField.m */; };
+		4012E53017E66BE300B1F252 /* MitroColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4012E52F17E66BE300B1F252 /* MitroColor.m */; };
+		4012E53317E696F800B1F252 /* rocket.png in Resources */ = {isa = PBXBuildFile; fileRef = 4012E53117E696F800B1F252 /* rocket.png */; };
+		4012E53417E696F800B1F252 /* rocket@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4012E53217E696F800B1F252 /* rocket@2x.png */; };
+		4012E53717E69C4B00B1F252 /* MitroButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4012E53617E69C4A00B1F252 /* MitroButton.m */; };
+		4012E53917E6A36E00B1F252 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4012E53817E6A36E00B1F252 /* QuartzCore.framework */; };
+		4012E53D17E7777800B1F252 /* title_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4012E53C17E7777800B1F252 /* title_logo.png */; };
+		4012E53F17E779E200B1F252 /* title_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4012E53E17E779E200B1F252 /* title_logo@2x.png */; };
+		4012E54217E79F8200B1F252 /* SecretsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4012E54117E79F8100B1F252 /* SecretsTableViewCell.m */; };
+		401A3A1C18A39C2A00347B90 /* ProgressOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 401A3A1B18A39C2A00347B90 /* ProgressOverlayView.m */; };
+		401D5347180D074B00B78549 /* MitroTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 401D5346180D074B00B78549 /* MitroTextView.m */; };
+		401D5349180E472800B78549 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401D5348180E472800B78549 /* SystemConfiguration.framework */; };
+		4020C4F41807311400E9A6DC /* mitro_api.cc in Sources */ = {isa = PBXBuildFile; fileRef = 4020C4D11807311400E9A6DC /* mitro_api.cc */; };
+		4020C4F81807311400E9A6DC /* mitro_api_constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4020C4D61807311400E9A6DC /* mitro_api_constants.cpp */; };
+		4020C4FE1807311400E9A6DC /* mitro_api_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4020C4DD1807311400E9A6DC /* mitro_api_types.cpp */; };
+		4020C50218073F7B00E9A6DC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4020C50118073F7B00E9A6DC /* libz.dylib */; };
+		4044870F17FDB1F500F0F76E /* libchromiumbase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4044870E17FDB1F500F0F76E /* libchromiumbase.a */; };
+		4044871317FDB37B00F0F76E /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4044871217FDB37B00F0F76E /* CoreText.framework */; };
+		40534BBC180E4C7B00F13036 /* libFlurry_4.2.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40534BBB180E4C7B00F13036 /* libFlurry_4.2.4.a */; };
+		407CA40F17DA745D0098D080 /* rocket_light.png in Resources */ = {isa = PBXBuildFile; fileRef = 407CA40E17DA745D0098D080 /* rocket_light.png */; };
+		407CA41117DB20D40098D080 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 407CA41017DB20D40098D080 /* Default-568h@2x.png */; };
+		407CA41417DB25300098D080 /* SecretDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 407CA41317DB25300098D080 /* SecretDetailViewController.m */; };
+		4083DD0118A3C7DB00B63D77 /* search_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 4083DD0018A3C7DB00B63D77 /* search_background.png */; };
+		4095337F1817AE3D003F9FE9 /* OpenInChromeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4095337E1817AE3D003F9FE9 /* OpenInChromeController.m */; };
+		40964F9A17FE02660068E4A5 /* libthrift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40964F9917FE02660068E4A5 /* libthrift.a */; };
+		40964F9C17FE02A30068E4A5 /* libchromiumjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40964F9B17FE02A30068E4A5 /* libchromiumjson.a */; };
+		40964FA117FE0D270068E4A5 /* libkeyczar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40964F9F17FE09740068E4A5 /* libkeyczar.a */; };
+		40964FA317FE0D7F0068E4A5 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40964FA217FE0D7F0068E4A5 /* libcrypto.a */; };
+		40C8352218064EF90087C168 /* SessionManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40C8352118064EF90087C168 /* SessionManager.mm */; };
+		40D1F9A018074352000ABBE5 /* libhttpclient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D1F99F18074352000ABBE5 /* libhttpclient.a */; };
+		40D1F9A218074374000ABBE5 /* libkeyczarjson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D1F9A118074374000ABBE5 /* libkeyczarjson.a */; };
+		40D1F9A81807559B000ABBE5 /* Mitro.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D1F9A71807559B000ABBE5 /* Mitro.m */; };
+		40D1F9AA18075824000ABBE5 /* MitroApi.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40D1F9A918075824000ABBE5 /* MitroApi.mm */; };
+		40D1F9AD1808526A000ABBE5 /* SecretManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40D1F9AC1808526A000ABBE5 /* SecretManager.mm */; };
+		40D1F9B0180CCB37000ABBE5 /* NoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D1F9AF180CCB37000ABBE5 /* NoteDetailViewController.m */; };
+		40D1F9B3180CCB6E000ABBE5 /* PasswordDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D1F9B2180CCB6E000ABBE5 /* PasswordDetailViewController.m */; };
+		40EC7B7117E8F52400EE3900 /* mitro_icon_58.png in Resources */ = {isa = PBXBuildFile; fileRef = 40EC7B6E17E8F52400EE3900 /* mitro_icon_58.png */; };
+		40EC7B7217E8F52400EE3900 /* mitro_icon_80.png in Resources */ = {isa = PBXBuildFile; fileRef = 40EC7B6F17E8F52400EE3900 /* mitro_icon_80.png */; };
+		40EC7B7317E8F52400EE3900 /* mitro_icon_120.png in Resources */ = {isa = PBXBuildFile; fileRef = 40EC7B7017E8F52400EE3900 /* mitro_icon_120.png */; };
+		990F279417BAAE1000435734 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 999ACDCA17BA893A00649AF6 /* MainStoryboard.storyboard */; };
+		990F27EE17BABAFD00435734 /* SecretsTableViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = 99AA6A9C17B98B96005B3496 /* SecretsTableViewController.h */; };
+		991E9BC717BABD9B001CB6DA /* SecretsTableViewController.m in Resources */ = {isa = PBXBuildFile; fileRef = 99AA6A9D17B98B96005B3496 /* SecretsTableViewController.m */; };
+		9954B61E17AADAEC0084C486 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9954B61D17AADAEC0084C486 /* UIKit.framework */; };
+		9954B62017AADAEC0084C486 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9954B61F17AADAEC0084C486 /* Foundation.framework */; };
+		9954B62217AADAEC0084C486 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9954B62117AADAEC0084C486 /* CoreGraphics.framework */; };
+		9954B64517AADAEC0084C486 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9954B64417AADAEC0084C486 /* SenTestingKit.framework */; };
+		9954B64617AADAEC0084C486 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9954B61D17AADAEC0084C486 /* UIKit.framework */; };
+		9954B64717AADAEC0084C486 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9954B61F17AADAEC0084C486 /* Foundation.framework */; };
+		9954B64F17AADAEC0084C486 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9954B64D17AADAEC0084C486 /* InfoPlist.strings */; };
+		999ACDD617BA8BE500649AF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 999ACDD517BA8BE500649AF6 /* main.m */; };
+		999ACDDB17BA8DD000649AF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 999ACDDA17BA8DD000649AF6 /* AppDelegate.m */; };
+		99AA6A9E17B98B96005B3496 /* SecretsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AA6A9D17B98B96005B3496 /* SecretsTableViewController.m */; };
+		99AA6A9F17B98B96005B3496 /* SecretsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99AA6A9D17B98B96005B3496 /* SecretsTableViewController.m */; };
+		99F90FE417B9750300A6A786 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99F90FE317B9750300A6A786 /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9954B64817AADAEC0084C486 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9954B61017AADAEC0084C486 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9954B61817AADAEC0084C486;
+			remoteInfo = Mitro;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4012E52417E65F2000B1F252 /* mitro_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mitro_logo.png; path = Images/mitro_logo.png; sourceTree = "<group>"; };
+		4012E52517E65F2000B1F252 /* mitro_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mitro_logo@2x.png"; path = "Images/mitro_logo@2x.png"; sourceTree = "<group>"; };
+		4012E52817E65F8400B1F252 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4012E52917E65F8400B1F252 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4012E52B17E660E300B1F252 /* MitroTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MitroTextField.h; sourceTree = "<group>"; };
+		4012E52C17E660E300B1F252 /* MitroTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MitroTextField.m; sourceTree = "<group>"; };
+		4012E52E17E66BE300B1F252 /* MitroColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MitroColor.h; sourceTree = "<group>"; };
+		4012E52F17E66BE300B1F252 /* MitroColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MitroColor.m; sourceTree = "<group>"; };
+		4012E53117E696F800B1F252 /* rocket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rocket.png; path = Images/rocket.png; sourceTree = "<group>"; };
+		4012E53217E696F800B1F252 /* rocket@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "rocket@2x.png"; path = "Images/rocket@2x.png"; sourceTree = "<group>"; };
+		4012E53517E69C4A00B1F252 /* MitroButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MitroButton.h; sourceTree = "<group>"; };
+		4012E53617E69C4A00B1F252 /* MitroButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MitroButton.m; sourceTree = "<group>"; };
+		4012E53817E6A36E00B1F252 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4012E53C17E7777800B1F252 /* title_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title_logo.png; path = Images/title_logo.png; sourceTree = "<group>"; };
+		4012E53E17E779E200B1F252 /* title_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "title_logo@2x.png"; path = "Images/title_logo@2x.png"; sourceTree = "<group>"; };
+		4012E54017E79F8100B1F252 /* SecretsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretsTableViewCell.h; sourceTree = "<group>"; };
+		4012E54117E79F8100B1F252 /* SecretsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretsTableViewCell.m; sourceTree = "<group>"; };
+		401A3A1A18A39C2900347B90 /* ProgressOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressOverlayView.h; sourceTree = "<group>"; };
+		401A3A1B18A39C2A00347B90 /* ProgressOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressOverlayView.m; sourceTree = "<group>"; };
+		401D5345180D074B00B78549 /* MitroTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MitroTextView.h; sourceTree = "<group>"; };
+		401D5346180D074B00B78549 /* MitroTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MitroTextView.m; sourceTree = "<group>"; };
+		401D5348180E472800B78549 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4020C4D11807311400E9A6DC /* mitro_api.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mitro_api.cc; sourceTree = "<group>"; };
+		4020C4D21807311400E9A6DC /* mitro_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mitro_api.h; sourceTree = "<group>"; };
+		4020C4D61807311400E9A6DC /* mitro_api_constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mitro_api_constants.cpp; sourceTree = "<group>"; };
+		4020C4D71807311400E9A6DC /* mitro_api_constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mitro_api_constants.h; sourceTree = "<group>"; };
+		4020C4DD1807311400E9A6DC /* mitro_api_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mitro_api_types.cpp; sourceTree = "<group>"; };
+		4020C4DE1807311400E9A6DC /* mitro_api_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mitro_api_types.h; sourceTree = "<group>"; };
+		4020C50118073F7B00E9A6DC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4044870917FDB00E00F0F76E /* libmitroapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmitroapi.a; sourceTree = "<group>"; };
+		4044870E17FDB1F500F0F76E /* libchromiumbase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchromiumbase.a; sourceTree = "<group>"; };
+		4044871217FDB37B00F0F76E /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		40534BBB180E4C7B00F13036 /* libFlurry_4.2.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry_4.2.4.a; path = Flurry/libFlurry_4.2.4.a; sourceTree = "<group>"; };
+		407CA40E17DA745D0098D080 /* rocket_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rocket_light.png; path = Images/rocket_light.png; sourceTree = "<group>"; };
+		407CA41017DB20D40098D080 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		407CA41217DB25300098D080 /* SecretDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretDetailViewController.h; sourceTree = "<group>"; };
+		407CA41317DB25300098D080 /* SecretDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretDetailViewController.m; sourceTree = "<group>"; };
+		4083DD0018A3C7DB00B63D77 /* search_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = search_background.png; path = Images/search_background.png; sourceTree = "<group>"; };
+		4095337D1817AE3D003F9FE9 /* OpenInChromeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInChromeController.h; sourceTree = "<group>"; };
+		4095337E1817AE3D003F9FE9 /* OpenInChromeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenInChromeController.m; sourceTree = "<group>"; };
+		40964F9917FE02660068E4A5 /* libthrift.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libthrift.a; sourceTree = "<group>"; };
+		40964F9B17FE02A30068E4A5 /* libchromiumjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchromiumjson.a; sourceTree = "<group>"; };
+		40964F9F17FE09740068E4A5 /* libkeyczar.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libkeyczar.a; sourceTree = "<group>"; };
+		40964FA217FE0D7F0068E4A5 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		40C8352018064EF90087C168 /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
+		40C8352118064EF90087C168 /* SessionManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SessionManager.mm; sourceTree = "<group>"; };
+		40D1F99F18074352000ABBE5 /* libhttpclient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libhttpclient.a; sourceTree = "<group>"; };
+		40D1F9A118074374000ABBE5 /* libkeyczarjson.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libkeyczarjson.a; sourceTree = "<group>"; };
+		40D1F9A418074714000ABBE5 /* MitroApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MitroApi.h; sourceTree = "<group>"; };
+		40D1F9A61807559B000ABBE5 /* Mitro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mitro.h; sourceTree = "<group>"; };
+		40D1F9A71807559B000ABBE5 /* Mitro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mitro.m; sourceTree = "<group>"; };
+		40D1F9A918075824000ABBE5 /* MitroApi.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MitroApi.mm; sourceTree = "<group>"; };
+		40D1F9AB1808526A000ABBE5 /* SecretManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretManager.h; sourceTree = "<group>"; };
+		40D1F9AC1808526A000ABBE5 /* SecretManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SecretManager.mm; sourceTree = "<group>"; };
+		40D1F9AE180CCB37000ABBE5 /* NoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteDetailViewController.h; sourceTree = "<group>"; };
+		40D1F9AF180CCB37000ABBE5 /* NoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteDetailViewController.m; sourceTree = "<group>"; };
+		40D1F9B1180CCB6E000ABBE5 /* PasswordDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordDetailViewController.h; sourceTree = "<group>"; };
+		40D1F9B2180CCB6E000ABBE5 /* PasswordDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordDetailViewController.m; sourceTree = "<group>"; };
+		40EC7B6E17E8F52400EE3900 /* mitro_icon_58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mitro_icon_58.png; path = Images/mitro_icon_58.png; sourceTree = "<group>"; };
+		40EC7B6F17E8F52400EE3900 /* mitro_icon_80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mitro_icon_80.png; path = Images/mitro_icon_80.png; sourceTree = "<group>"; };
+		40EC7B7017E8F52400EE3900 /* mitro_icon_120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mitro_icon_120.png; path = Images/mitro_icon_120.png; sourceTree = "<group>"; };
+		40F1C99517DB37D600A38CE3 /* Mitro-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Mitro-Prefix.pch"; sourceTree = "<group>"; };
+		40F1C99617DB387800A38CE3 /* Mitro_Tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mitro_Tests.h; sourceTree = "<group>"; };
+		40F1C99717DB387800A38CE3 /* Mitro_Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mitro_Tests.m; sourceTree = "<group>"; };
+		9954B61917AADAEC0084C486 /* Mitro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mitro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9954B61D17AADAEC0084C486 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9954B61F17AADAEC0084C486 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9954B62117AADAEC0084C486 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9954B64317AADAEC0084C486 /* MitroTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MitroTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9954B64417AADAEC0084C486 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		9954B64C17AADAEC0084C486 /* MitroTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MitroTests-Info.plist"; sourceTree = "<group>"; };
+		9954B64E17AADAEC0084C486 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		999ACDC717BA890600649AF6 /* info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		999ACDCA17BA893A00649AF6 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		999ACDD517BA8BE500649AF6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		999ACDD717BA8BFA00649AF6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		999ACDDA17BA8DD000649AF6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		99AA6A9C17B98B96005B3496 /* SecretsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretsTableViewController.h; sourceTree = "<group>"; };
+		99AA6A9D17B98B96005B3496 /* SecretsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretsTableViewController.m; sourceTree = "<group>"; };
+		99F90FE317B9750300A6A786 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9954B61617AADAEC0084C486 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40534BBC180E4C7B00F13036 /* libFlurry_4.2.4.a in Frameworks */,
+				40D1F9A218074374000ABBE5 /* libkeyczarjson.a in Frameworks */,
+				40D1F9A018074352000ABBE5 /* libhttpclient.a in Frameworks */,
+				40964F9C17FE02A30068E4A5 /* libchromiumjson.a in Frameworks */,
+				4020C50218073F7B00E9A6DC /* libz.dylib in Frameworks */,
+				40964FA317FE0D7F0068E4A5 /* libcrypto.a in Frameworks */,
+				40964FA117FE0D270068E4A5 /* libkeyczar.a in Frameworks */,
+				40964F9A17FE02660068E4A5 /* libthrift.a in Frameworks */,
+				4044870F17FDB1F500F0F76E /* libchromiumbase.a in Frameworks */,
+				4012E53917E6A36E00B1F252 /* QuartzCore.framework in Frameworks */,
+				99F90FE417B9750300A6A786 /* Security.framework in Frameworks */,
+				9954B61E17AADAEC0084C486 /* UIKit.framework in Frameworks */,
+				401D5349180E472800B78549 /* SystemConfiguration.framework in Frameworks */,
+				9954B62017AADAEC0084C486 /* Foundation.framework in Frameworks */,
+				9954B62217AADAEC0084C486 /* CoreGraphics.framework in Frameworks */,
+				4044871317FDB37B00F0F76E /* CoreText.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9954B63F17AADAEC0084C486 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9954B64517AADAEC0084C486 /* SenTestingKit.framework in Frameworks */,
+				9954B64617AADAEC0084C486 /* UIKit.framework in Frameworks */,
+				9954B64717AADAEC0084C486 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4020C4BB1807311400E9A6DC /* mitro_api */ = {
+			isa = PBXGroup;
+			children = (
+				4020C4D11807311400E9A6DC /* mitro_api.cc */,
+				4020C4D21807311400E9A6DC /* mitro_api.h */,
+				4020C4D61807311400E9A6DC /* mitro_api_constants.cpp */,
+				4020C4D71807311400E9A6DC /* mitro_api_constants.h */,
+				4020C4DD1807311400E9A6DC /* mitro_api_types.cpp */,
+				4020C4DE1807311400E9A6DC /* mitro_api_types.h */,
+			);
+			name = mitro_api;
+			path = ../../cpp/mitro_api;
+			sourceTree = "<group>";
+		};
+		407CA40C17DA731A0098D080 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				407CA41017DB20D40098D080 /* Default-568h@2x.png */,
+				999ACDC717BA890600649AF6 /* info.plist */,
+				999ACDD517BA8BE500649AF6 /* main.m */,
+				40F1C99517DB37D600A38CE3 /* Mitro-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		407CA40D17DA73DE0098D080 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4083DD0018A3C7DB00B63D77 /* search_background.png */,
+				40EC7B6E17E8F52400EE3900 /* mitro_icon_58.png */,
+				40EC7B6F17E8F52400EE3900 /* mitro_icon_80.png */,
+				40EC7B7017E8F52400EE3900 /* mitro_icon_120.png */,
+				4012E52417E65F2000B1F252 /* mitro_logo.png */,
+				4012E52517E65F2000B1F252 /* mitro_logo@2x.png */,
+				4012E53117E696F800B1F252 /* rocket.png */,
+				4012E53217E696F800B1F252 /* rocket@2x.png */,
+				407CA40E17DA745D0098D080 /* rocket_light.png */,
+				4012E53C17E7777800B1F252 /* title_logo.png */,
+				4012E53E17E779E200B1F252 /* title_logo@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		409533801817AE48003F9FE9 /* Chrome */ = {
+			isa = PBXGroup;
+			children = (
+				4095337D1817AE3D003F9FE9 /* OpenInChromeController.h */,
+				4095337E1817AE3D003F9FE9 /* OpenInChromeController.m */,
+			);
+			name = Chrome;
+			sourceTree = "<group>";
+		};
+		99366A2517B9880F0077B0F1 /* Mitro */ = {
+			isa = PBXGroup;
+			children = (
+				409533801817AE48003F9FE9 /* Chrome */,
+				4020C4BB1807311400E9A6DC /* mitro_api */,
+				999ACDD717BA8BFA00649AF6 /* AppDelegate.h */,
+				999ACDDA17BA8DD000649AF6 /* AppDelegate.m */,
+				4012E52817E65F8400B1F252 /* LoginViewController.h */,
+				4012E52917E65F8400B1F252 /* LoginViewController.m */,
+				999ACDCA17BA893A00649AF6 /* MainStoryboard.storyboard */,
+				40D1F9A61807559B000ABBE5 /* Mitro.h */,
+				40D1F9A71807559B000ABBE5 /* Mitro.m */,
+				40D1F9A418074714000ABBE5 /* MitroApi.h */,
+				40D1F9A918075824000ABBE5 /* MitroApi.mm */,
+				4012E53517E69C4A00B1F252 /* MitroButton.h */,
+				4012E53617E69C4A00B1F252 /* MitroButton.m */,
+				4012E52E17E66BE300B1F252 /* MitroColor.h */,
+				4012E52F17E66BE300B1F252 /* MitroColor.m */,
+				4012E52B17E660E300B1F252 /* MitroTextField.h */,
+				4012E52C17E660E300B1F252 /* MitroTextField.m */,
+				401D5345180D074B00B78549 /* MitroTextView.h */,
+				401D5346180D074B00B78549 /* MitroTextView.m */,
+				40D1F9AE180CCB37000ABBE5 /* NoteDetailViewController.h */,
+				40D1F9AF180CCB37000ABBE5 /* NoteDetailViewController.m */,
+				40D1F9B1180CCB6E000ABBE5 /* PasswordDetailViewController.h */,
+				40D1F9B2180CCB6E000ABBE5 /* PasswordDetailViewController.m */,
+				401A3A1A18A39C2900347B90 /* ProgressOverlayView.h */,
+				401A3A1B18A39C2A00347B90 /* ProgressOverlayView.m */,
+				40D1F9AB1808526A000ABBE5 /* SecretManager.h */,
+				40D1F9AC1808526A000ABBE5 /* SecretManager.mm */,
+				407CA41217DB25300098D080 /* SecretDetailViewController.h */,
+				407CA41317DB25300098D080 /* SecretDetailViewController.m */,
+				99AA6A9C17B98B96005B3496 /* SecretsTableViewController.h */,
+				99AA6A9D17B98B96005B3496 /* SecretsTableViewController.m */,
+				4012E54017E79F8100B1F252 /* SecretsTableViewCell.h */,
+				4012E54117E79F8100B1F252 /* SecretsTableViewCell.m */,
+				40C8352018064EF90087C168 /* SessionManager.h */,
+				40C8352118064EF90087C168 /* SessionManager.mm */,
+				407CA40D17DA73DE0098D080 /* Images */,
+				407CA40C17DA731A0098D080 /* Supporting Files */,
+			);
+			path = Mitro;
+			sourceTree = "<group>";
+		};
+		9954B60E17AADAEC0084C486 = {
+			isa = PBXGroup;
+			children = (
+				4012E53817E6A36E00B1F252 /* QuartzCore.framework */,
+				99366A2517B9880F0077B0F1 /* Mitro */,
+				99F90FE317B9750300A6A786 /* Security.framework */,
+				9954B64A17AADAEC0084C486 /* Mitro Tests */,
+				9954B61C17AADAEC0084C486 /* Frameworks */,
+				9954B61A17AADAEC0084C486 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9954B61A17AADAEC0084C486 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9954B61917AADAEC0084C486 /* Mitro.app */,
+				9954B64317AADAEC0084C486 /* MitroTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9954B61C17AADAEC0084C486 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40534BBB180E4C7B00F13036 /* libFlurry_4.2.4.a */,
+				401D5348180E472800B78549 /* SystemConfiguration.framework */,
+				40D1F9A118074374000ABBE5 /* libkeyczarjson.a */,
+				40D1F99F18074352000ABBE5 /* libhttpclient.a */,
+				4020C50118073F7B00E9A6DC /* libz.dylib */,
+				40964FA217FE0D7F0068E4A5 /* libcrypto.a */,
+				40964F9F17FE09740068E4A5 /* libkeyczar.a */,
+				40964F9B17FE02A30068E4A5 /* libchromiumjson.a */,
+				40964F9917FE02660068E4A5 /* libthrift.a */,
+				4044871217FDB37B00F0F76E /* CoreText.framework */,
+				4044870E17FDB1F500F0F76E /* libchromiumbase.a */,
+				4044870917FDB00E00F0F76E /* libmitroapi.a */,
+				9954B61D17AADAEC0084C486 /* UIKit.framework */,
+				9954B61F17AADAEC0084C486 /* Foundation.framework */,
+				9954B62117AADAEC0084C486 /* CoreGraphics.framework */,
+				9954B64417AADAEC0084C486 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9954B64A17AADAEC0084C486 /* Mitro Tests */ = {
+			isa = PBXGroup;
+			children = (
+				40F1C99617DB387800A38CE3 /* Mitro_Tests.h */,
+				40F1C99717DB387800A38CE3 /* Mitro_Tests.m */,
+				9954B64B17AADAEC0084C486 /* Supporting Files */,
+			);
+			path = "Mitro Tests";
+			sourceTree = "<group>";
+		};
+		9954B64B17AADAEC0084C486 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9954B64C17AADAEC0084C486 /* MitroTests-Info.plist */,
+				9954B64D17AADAEC0084C486 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9954B61817AADAEC0084C486 /* Mitro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9954B65517AADAEC0084C486 /* Build configuration list for PBXNativeTarget "Mitro" */;
+			buildPhases = (
+				9954B61517AADAEC0084C486 /* Sources */,
+				9954B61617AADAEC0084C486 /* Frameworks */,
+				9954B61717AADAEC0084C486 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mitro;
+			productName = Mitro;
+			productReference = 9954B61917AADAEC0084C486 /* Mitro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9954B64217AADAEC0084C486 /* MitroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9954B65817AADAEC0084C486 /* Build configuration list for PBXNativeTarget "MitroTests" */;
+			buildPhases = (
+				9954B63E17AADAEC0084C486 /* Sources */,
+				9954B63F17AADAEC0084C486 /* Frameworks */,
+				9954B64017AADAEC0084C486 /* Resources */,
+				9954B64117AADAEC0084C486 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9954B64917AADAEC0084C486 /* PBXTargetDependency */,
+			);
+			name = MitroTests;
+			productName = "Mitro Tests";
+			productReference = 9954B64317AADAEC0084C486 /* MitroTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9954B61017AADAEC0084C486 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Lectorius, Inc.";
+				TargetAttributes = {
+					9954B61817AADAEC0084C486 = {
+						DevelopmentTeam = 2JVEB8KWV2;
+					};
+				};
+			};
+			buildConfigurationList = 9954B61317AADAEC0084C486 /* Build configuration list for PBXProject "Mitro" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9954B60E17AADAEC0084C486;
+			productRefGroup = 9954B61A17AADAEC0084C486 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9954B61817AADAEC0084C486 /* Mitro */,
+				9954B64217AADAEC0084C486 /* MitroTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9954B61717AADAEC0084C486 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				991E9BC717BABD9B001CB6DA /* SecretsTableViewController.m in Resources */,
+				990F27EE17BABAFD00435734 /* SecretsTableViewController.h in Resources */,
+				990F279417BAAE1000435734 /* MainStoryboard.storyboard in Resources */,
+				40EC7B7117E8F52400EE3900 /* mitro_icon_58.png in Resources */,
+				40EC7B7217E8F52400EE3900 /* mitro_icon_80.png in Resources */,
+				407CA40F17DA745D0098D080 /* rocket_light.png in Resources */,
+				407CA41117DB20D40098D080 /* Default-568h@2x.png in Resources */,
+				4012E52617E65F2000B1F252 /* mitro_logo.png in Resources */,
+				4012E52717E65F2000B1F252 /* mitro_logo@2x.png in Resources */,
+				4012E53317E696F800B1F252 /* rocket.png in Resources */,
+				40EC7B7317E8F52400EE3900 /* mitro_icon_120.png in Resources */,
+				4012E53417E696F800B1F252 /* rocket@2x.png in Resources */,
+				4083DD0118A3C7DB00B63D77 /* search_background.png in Resources */,
+				4012E53D17E7777800B1F252 /* title_logo.png in Resources */,
+				4012E53F17E779E200B1F252 /* title_logo@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9954B64017AADAEC0084C486 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9954B64F17AADAEC0084C486 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9954B64117AADAEC0084C486 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9954B61517AADAEC0084C486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40D1F9B0180CCB37000ABBE5 /* NoteDetailViewController.m in Sources */,
+				99AA6A9E17B98B96005B3496 /* SecretsTableViewController.m in Sources */,
+				4095337F1817AE3D003F9FE9 /* OpenInChromeController.m in Sources */,
+				999ACDD617BA8BE500649AF6 /* main.m in Sources */,
+				999ACDDB17BA8DD000649AF6 /* AppDelegate.m in Sources */,
+				40D1F9AA18075824000ABBE5 /* MitroApi.mm in Sources */,
+				407CA41417DB25300098D080 /* SecretDetailViewController.m in Sources */,
+				4012E52A17E65F8400B1F252 /* LoginViewController.m in Sources */,
+				4012E52D17E660E300B1F252 /* MitroTextField.m in Sources */,
+				4012E53017E66BE300B1F252 /* MitroColor.m in Sources */,
+				40C8352218064EF90087C168 /* SessionManager.mm in Sources */,
+				40D1F9A81807559B000ABBE5 /* Mitro.m in Sources */,
+				4020C4F81807311400E9A6DC /* mitro_api_constants.cpp in Sources */,
+				40D1F9AD1808526A000ABBE5 /* SecretManager.mm in Sources */,
+				4012E53717E69C4B00B1F252 /* MitroButton.m in Sources */,
+				40D1F9B3180CCB6E000ABBE5 /* PasswordDetailViewController.m in Sources */,
+				401A3A1C18A39C2A00347B90 /* ProgressOverlayView.m in Sources */,
+				4020C4F41807311400E9A6DC /* mitro_api.cc in Sources */,
+				4012E54217E79F8200B1F252 /* SecretsTableViewCell.m in Sources */,
+				4020C4FE1807311400E9A6DC /* mitro_api_types.cpp in Sources */,
+				401D5347180D074B00B78549 /* MitroTextView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9954B63E17AADAEC0084C486 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99AA6A9F17B98B96005B3496 /* SecretsTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9954B64917AADAEC0084C486 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9954B61817AADAEC0084C486 /* Mitro */;
+			targetProxy = 9954B64817AADAEC0084C486 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9954B64D17AADAEC0084C486 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9954B64E17AADAEC0084C486 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9954B65317AADAEC0084C486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Adam Hilss (WY3XY6GZS7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Adam Hilss (WY3XY6GZS7)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Flurry $(SRCROOT)/Mitro";
+			};
+			name = Debug;
+		};
+		9954B65417AADAEC0084C486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lectorius, Inc. (2JVEB8KWV2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lectorius, Inc. (2JVEB8KWV2)";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/Flurry $(SRCROOT)/Mitro";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9954B65617AADAEC0084C486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Adam Hilss (WY3XY6GZS7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Adam Hilss (WY3XY6GZS7)";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mitro/Mitro-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Mitro/info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Flurry";
+				"LIBRARY_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"$(inherited)",
+					"$(SRCROOT)/build/iPhoneOS7.0/lib",
+				);
+				"LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"$(inherited)",
+					"$(SRCROOT)/build/iPhoneSimulator7.0/lib",
+				);
+				PRODUCT_NAME = Mitro;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/build/iPhoneOS7.0/include";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9954B65717AADAEC0084C486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lectorius, Inc. (2JVEB8KWV2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lectorius, Inc. (2JVEB8KWV2)";
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mitro/Mitro-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INFOPLIST_FILE = "$(SRCROOT)/Mitro/info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/Flurry";
+				"LIBRARY_SEARCH_PATHS[sdk=iphoneos*]" = (
+					"$(inherited)",
+					"$(SRCROOT)/build/iPhoneOS7.0/lib",
+				);
+				"LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*]" = (
+					"$(inherited)",
+					"$(SRCROOT)/build/iPhoneSimulator7.0/lib",
+				);
+				PRODUCT_NAME = Mitro;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(SRCROOT)/build/iPhoneOS7.0/include";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9954B65917AADAEC0084C486 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mitro.app/Mitro";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mitro/Mitro-Prefix.pch";
+				INFOPLIST_FILE = "Mitro Tests/MitroTests-Info.plist";
+				PRODUCT_NAME = MitroTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		9954B65A17AADAEC0084C486 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mitro.app/Mitro";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mitro/Mitro-Prefix.pch";
+				INFOPLIST_FILE = "Mitro Tests/MitroTests-Info.plist";
+				PRODUCT_NAME = MitroTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9954B61317AADAEC0084C486 /* Build configuration list for PBXProject "Mitro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9954B65317AADAEC0084C486 /* Debug */,
+				9954B65417AADAEC0084C486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9954B65517AADAEC0084C486 /* Build configuration list for PBXNativeTarget "Mitro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9954B65617AADAEC0084C486 /* Debug */,
+				9954B65717AADAEC0084C486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9954B65817AADAEC0084C486 /* Build configuration list for PBXNativeTarget "MitroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9954B65917AADAEC0084C486 /* Debug */,
+				9954B65A17AADAEC0084C486 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9954B61017AADAEC0084C486 /* Project object */;
+}

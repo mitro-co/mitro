@@ -1,0 +1,56 @@
+# Redirect http://www.mitroaccess.com/ to https://mitroaccess.com/
+server {
+    listen 80;
+    server_name www.mitroaccess.com;
+    rewrite ^ https://mitroaccess.com$request_uri?;
+}
+
+# Redirect http://mitroaccess.com to https://*
+server {
+    listen 80;
+    server_name mitroaccess.com;
+    rewrite ^ https://$http_host$request_uri? permanent;
+}
+
+# https://www.mitroaccess.com/ redirects to https://mitroaccess.com
+server {
+    listen 443 ssl;
+    server_name www.mitroaccess.com;
+    ssl_certificate /etc/nginx/star_mitroaccess_com.crt;
+    ssl_certificate_key /etc/nginx/star_mitroaccess_com.pem;
+    rewrite ^ https://mitroaccess.com$request_uri?;
+}
+
+server {
+    listen 443 ssl;
+    server_name mitroaccess.com;
+    ssl_certificate /etc/nginx/star_mitroaccess_com.crt;
+    ssl_certificate_key /etc/nginx/star_mitroaccess_com.pem;
+
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    # DISABLE cbc-mode ciphers. See: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3389
+    #ssl_ciphers RC4:HIGH:!aNULL:!MD5;
+    #ssl_prefer_server_ciphers on;
+    ssl_prefer_server_ciphers on;
+    ssl_session_timeout 10m;
+    ssl_session_cache shared:SSL:10m;
+
+    ssl_ciphers ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!LOW:!MD5;
+
+    access_log /var/log/nginx/mitroaccess_com.log combined;
+
+    gzip on;
+    gzip_comp_level 7;
+    gzip_proxied any;
+    gzip_min_length 150;
+    gzip_types text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+    error_page 404 /404.html;
+
+    location / {
+        alias /home/ubuntu/mitroaccess/;
+        autoindex off;
+        # Default for resources that accidentally don't have Tornado's query string
+        # TODO: Remove this once we make caching "correct"?
+        expires 24h;
+    }
+}

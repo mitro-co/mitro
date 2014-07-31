@@ -1,0 +1,9 @@
+# Copies upstart script for mitroaccess
+---
+- name: create changepwagent user
+  user: name=changepwagent system=yes state=present
+  sudo: yes
+- name: copy changepwagent upstart config
+  copy: src=changepwagent/init/changepwagent.conf dest=/etc/init owner=root group=root
+  sudo: yes
+  notify: restart changepwagent

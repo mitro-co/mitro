@@ -1,0 +1,6 @@
+PACKAGE_NAME=keyczar-cpp
+URL=https://keyczar.googlecode.com/files/keyczar-cpp-0.71-09062013.tar.gz
+LICENSE=CUSTOM:LICENSE
+BUILD_OS=linux
+DEPENDS=(openssl zlib)
+SHA1=c7bc0fce0cdd6a150a6fdf457bb8aec28dcece8a

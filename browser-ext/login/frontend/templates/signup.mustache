@@ -1,0 +1,79 @@
+{{<basic-web-template}}
+
+{{$includes}}
+  <script src="../js/bloomfilter.js"></script>
+  <script src="../js/bad_password_bloom_data.js"></script>
+  <script src="../js/passwords.js"></script>
+  <script src="../js/querystring.js"></script>
+  <script src="../js/userpass.js"></script>
+  <script src="../js/signup-error-template.js"></script>
+  <script src="../js/forms.js"></script>
+  <script src="../js/signup.js"></script>
+  <script src="../utils.js"></script>
+{{/includes}}
+
+{{$header}}
+    {{<header-basic-template}}
+    {{$header-title}}Sign up{{/header-title}}
+    {{/header-basic-template}}
+{{/header}}
+
+{{$content}}
+    <div class="basic-form-container">
+      <form id="signup-form" method="post" autocomplete="off">
+          <div class="text-error" id="signup-error"></div>
+          <div class="form-group">
+            <label>Email:</label>
+            <input type="email" id="email" name="email" placeholder="email address" tabindex="1" autofocus>
+          </div>
+          <div class="form-group" id="password-form-group">
+            <label>Password:</label>
+            <input type="password" id="password" name="password" placeholder="password" tabindex="2">
+             <a title="Show Password" id="show-password" class="icon-eye show-password" href="#"></a>
+            <div id="password-hints-box" class="arrow-box">
+              <div class="arrow-right"></div>
+              <h3>Create a strong password:</h3>
+              <ul>
+                <li id="min">Minimum 8 characters</li>
+                <li id="up">One uppercase</li>
+                <li id="num">One number</li>
+                <li id="sp">One special character<br/>(symbol/punctuation)</li>
+                <!--<li id="common">Not commonly used<br/>e.g. "12345678" or "password1"</li>-->
+              </ul>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Confirm Password:</label>
+            <input type="password" id="confirm-password" name="password2" placeholder="confirm password" tabindex="3">
+            <div id="remember-password-alert" class="arrow-box arrow-box-alert">
+              <div class="arrow-left"></div>
+              <h3>Remember your password</h3>
+              <div>To protect your privacy and data, we do not store your password, so we can't recover it for you. If you forget it, you will lose all your saved data.</div>
+            </div>
+          </div>
+          <div id="progress">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+            </div>
+            <div class="progress-msg">&nbsp;</div>
+          </div>
+          <div class="form-group">
+            <div id="remember-me" class="checkbox" tabindex="4">
+              <div id="remember-me-icon" class="checkbox-icon icon-logomini"></div>
+              <input id="remember-me-input" name="remember-me" type="checkbox">
+            </div>
+            <label for="remember-me">stay logged in</label>
+          </div>
+          <div id="remember-me-alert" class="alert-box">
+            <em>If you stay logged in, anyone with access to your computer can access your passwords.</em>
+          </div>
+          <button type="submit" id="signup-form-button" tabindex="5">Sign Up</button>
+      </form>
+    </div>
+    <div id="signin-existing-user">
+        Already have an account? <a id="signin-link" href="popup.html">Sign In</a>
+    </div>
+  </div>
+{{/content}}
+
+{{/basic-web-template}}

@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:configChanges="keyboardHidden|orientation"
+    tools:context=".SecretListActivity" >
+
+    <ListView
+        android:id="@+id/titles"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_color"
+        android:textAlignment="center"
+        android:focusable="false"
+        android:clickable="true" />
+
+    <ProgressBar
+        android:id="@+id/decrypting_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/wait"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/titles"
+        android:layout_below="@+id/decrypting_progress"
+        android:layout_marginTop="17dp"
+        android:gravity="center"
+        android:text="@string/wait"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#6B7279" />
+
+</RelativeLayout>

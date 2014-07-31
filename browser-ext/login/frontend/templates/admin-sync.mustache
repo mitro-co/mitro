@@ -1,0 +1,45 @@
+{{<org-template}}
+{{$includes}}
+    <script type="text/javascript" src="../js/URI.js"></script>
+    <script type="text/javascript" src="../js/domain.js"></script>
+    <script type="text/javascript" src="../js/admin-sync.js"></script>
+    <script type="text/javascript" src="../js/admin-sync-group-template.js"></script>
+    <script type="text/javascript" src="../js/acl-entry-template.js"></script>
+{{/includes}}
+
+{{$content}}
+  <div class="clearfix">
+    <div>
+      <h1>Sync Status</h1>
+    </div>
+
+    <div class="show-diffs mt20" style="display:none;">
+        <h2>Members added to the organization</h2>
+        <div id="new-members">
+        </div>
+
+        <h2><strong>Not Synced:</strong> Removed members</h2>
+        <p><strong>We do not currently automatically remove these users!</strong> Please <a href="admin-members.html">manually review and remove them</a>:</p>
+        <div id="del-members">
+        </div>
+
+        <h2>New organization-owned groups</h2>
+        <div id="new-org-groups">
+        </div>
+
+        <h2>Deleted organization-owned groups</h2>
+        <div id="del-org-groups">
+        </div>
+
+        <h2>Modified organization-owned groups</h2>
+        <div id="modified-org-groups">
+        </div>
+        <br><br>
+        <button id="sync-memberships"> Sync memberships </button>
+    </div>
+    <div class="result mt20">
+    Loading ...
+    </div>
+  </div>
+{{/content}}
+{{/org-template}}

@@ -1,0 +1,69 @@
+{{<org-template}}
+
+{{$includes}}
+  <script src="../js/dashboard.js"></script>
+{{/includes}}
+
+{{$content}}
+  <div class="clearfix">
+    <div class="pull-left">
+      <h1>Organization Overview</h1>
+    </div>
+    <div class="pull-right">
+      <div class="btn-group">
+        <a href="https://mitro.co/sync">
+          <button class="btn btn-primary">Sync with Google Apps</button>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="stats stats-data clearfix">
+    <a href="../html/admin-members.html">
+      <div class="item">
+        <div class="members-count num">&nbsp;</div>
+        <div class="members-label">MEMBERS</div>
+      </div>
+    </a>
+    <a href="../html/admin-teams.html">
+      <div class="item">
+        <div class="teams-count num">&nbsp;</div>
+        <div class="teams-label">TEAMS</div>
+      </div>
+    </a>
+    <a href="../html/admin-secrets.html">
+      <div class="item">
+        <div class="secrets-count num">&nbsp;</div>
+        <div class="secrets-label">SECRETS</div>
+      </div>
+    </a>
+  </div>
+  <!--
+  <div class="row list">
+    <div class="col-xs-6">
+      <div class="clearfix title">
+        <div class="pull-left">Teams</div>
+      </div>
+      <div class="items">
+        <div class="empty">
+          <p>You currently have no teams.<br/> 
+            Create a team and start sharing access to sites and services.</p>
+          <a href="#" class="btn btn-primary">Create New Team</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <div class="clearfix title">
+        <div class="pull-left">Secrets</div>
+      </div>
+      <div class="items">
+        <div class="empty">
+          <p>You currently have no secrets.<br/>
+            Let's add one!</p>
+          <a href="../html/admin-create-secret.html" class="btn btn-primary">Create New Secret</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+{{/content}}
+{{/org-template}}

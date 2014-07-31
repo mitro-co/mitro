@@ -1,0 +1,4 @@
+---
+- name: restart mitrocore
+  service: name=mitrocore state=restarted
+  sudo: yes

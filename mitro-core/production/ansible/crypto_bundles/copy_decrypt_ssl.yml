@@ -1,0 +1,14 @@
+# Copies and installs an SSL certificate/key pair
+
+# ssl_name: Descriptive name
+# ssl_prefix: Prefix to the .{crt,pem.enc} files
+# ssl_dest_name: File name for the destination in /etc/nginx
+# crypto_password: Password for the encrypted file
+---
+- name: "{{ssl_name}} SSL certificate"
+  copy: src={{ssl_prefix}}.crt dest=/etc/nginx/{{ssl_dest_name}}.crt owner=root group=root
+- include: copy_decrypt_file.yml
+  vars:
+    encrypted_description: "{{ssl_name}} SSL key"
+    encrypted_src: "{{ssl_prefix}}.pem.enc"
+    encrypted_dest: "/etc/nginx/{{ssl_dest_name}}.pem"

@@ -1,0 +1,87 @@
+{{<template}}
+{{$includes}}
+    <script type="text/javascript" src="../js/URI.js"></script>
+    <script type="text/javascript" src="../js/querystring.js"></script>
+    <script type="text/javascript" src="../js/install.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/install_style.css" />
+{{/includes}}
+
+{{$content}}
+      <div class="left-col">
+        <div class="chrome-no-extension" style="display:none">
+          <h1>Getting started with Mitro</h1>
+          <ul class="onboard-list">
+            <li class="step-one">
+              <a class="install-extension">
+                <div class="onboard-step">
+                  <img class="check-image" src="../img/icon_check.png" width="24">STEP 1
+                </div>
+                <div class="onboard-title">Install the extension</div>
+                <div class="onboard-description">
+                  The Mitro extension is available in the Chrome Web Store.
+                </div>
+                <div class="clearing-div"></div>
+              </a>
+            </li>
+            <li class="step-active for-new-users step-two">
+              <a class="extension-signup" target="_blank">
+                <div class="onboard-step">
+                  <img class="check-image" width="24">STEP 2
+                </div>
+                <div class="onboard-title">Create an account</div>
+                <div class="onboard-description">
+                  Sign up with Mitro to begin using the extension.
+                </div>
+                <div class="clearing-div"></div>
+              </a>
+            </li>
+            <li class="for-new-users step-three">
+                <div class="onboard-step">
+                  <img class="check-image" width="24">STEP 3
+                </div>
+                <div class="onboard-title">Save your passwords</div>
+                <div class="onboard-description">
+                  Mitro will ask you to save your credentials as you log in to services.
+                </div>
+                <div class="clearing-div"></div>
+            </li>
+            <li class="step-active for-invited-users step-two">
+              <a class="extension-login" target="_blank">
+                <div class="onboard-step">
+                  <img class="check-image" width="24">STEP 2
+                </div>
+                <div class="onboard-title">Log in to the extension</div>
+                <div class="onboard-description">
+                  Log in to begin using the extension.
+                </div>
+                <div class="clearing-div"></div>
+              </a>
+            </li>
+            <li class="for-invited-users step-three">
+              <a class="extension-services">
+                <div class="onboard-step">
+                  <img class="check-image" width="24">STEP 3
+                </div>
+                <div class="onboard-title">View your services</div>
+                <div class="onboard-description">
+                  Edit, share, and sign in to your saved services.
+                </div>
+                <div class="clearing-div"></div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="chrome-with-extension" style="display:none">
+          <h1>Getting started with Mitro</h1>
+          You already have installed the extension.  Please click <a class="open-extension">here</a> to use it.
+        </div>
+
+        <div class="non-chrome" style="display:none">
+          <h1>Getting started with Mitro</h1>
+          Unfortunately, your browser is not yet supported. For now, please
+          use <a target="_blank" href="http://www.google.com/chrome/">Google Chrome</a> to access Mitro.
+        </div>
+      </div>
+{{/content}}
+{{/template}}

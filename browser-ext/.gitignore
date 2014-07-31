@@ -1,0 +1,18 @@
+# Remove extension output directories
+/api/build/
+/cookiediff/bin/
+/login/build/
+/login/frontend/gen-files/
+# symlink to mitro-core
+/api/server
+
+/login/test/mitro-test.crx
+
+# Mac temp file annoyances
+.DS_Store
+
+# Ensure we include everything in third_party checkins
+!/third_party/**
+
+# Ignore compiled Python
+*.pyc

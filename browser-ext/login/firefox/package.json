@@ -1,0 +1,15 @@
+{
+  "name": "mitro-login-manager",
+  "fullName": "Mitro Login Manager",
+  "id": "mitro-login-manager",
+  "description": "Mitro Login Manager",
+  "author": "Lectorius, Inc.",
+  "license": "",
+  "version": "0.10.56",
+  "icon": "data/img/icon96.png",
+  "icon64": "data/img/icon128.png",
+  "dependencies": ["toolbarwidget"],
+  "permissions": {
+    "unsafe-content-script": true
+  }
+}

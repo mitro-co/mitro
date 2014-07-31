@@ -1,0 +1,16 @@
+{
+  "_comment": "// IMPORTANT: config.js and logging.js must be first on this list",
+  "background_scripts": [
+    "config.js", "logging.js",
+    "testkeys.js",
+    "jsbn.js", "asn1.js", "pkcs1.js", "rsa.js", "oids.js", "pki.js", "util.js", "sha1.js", "sha256.js", "prng.js", "aes.js", "random.js", "pbkdf2.js", "hmac.js",
+    "keyczar_util.js", "keyczar.js",
+    "lru_cache.js",
+    "jquery.min.js", "URI.js", "utils.js", "domain.js", "cookielib.js", "install_redirect.js",
+    "rpc.js", "crypto.js", "keycache.js", "helpers_common.js", "helpers_background.js", "helpers.js", "mitro_legacyapi.js", "mitro_lib.js", "mitro_fe.js", "js/client.js", "background_api.js", "password_generator.js", "background.js"],
+
+  "_comment": "IMPORTANT: config.js and contentlog.js must be first on this list",
+  "content_scripts": [
+    "config.js", "contentlog.js", 
+    "jquery.min.js", "utils.js", "URI.js", "domain.js", "install_redirect.js", "js/client.js", "helpers.js", "infobar_api.js", "infobar_html.js", "loginpage.js", "contentscriptbase.js", "content.js"]
+}

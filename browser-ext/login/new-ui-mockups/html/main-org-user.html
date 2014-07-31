@@ -1,0 +1,217 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The easiest way to save and share passwords. Remember and share everything from web accounts, credit cards, 2-factor backup codes, security question answers, and WiFi passwords.">
+    <title>Mitro</title>
+
+    <!--[if lte IE 8]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" /> -->
+    <link href="../less/main-org.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header"></div>
+      <div id="wrapper">
+        <div id="sidebar">
+          <div class="sb-section" id="profile">
+            <a href="https://www.mitro.co" class="icon-logo"></a>
+            <div id="username">username</div>
+          </div>
+          <div class="sb-section" id="acct-nav">
+            <ul>
+              <li>
+                <div class="acct-name">
+                  <div class="nav-icon icon-user"></div><a href="index.html">Personal</a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="index.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="personal-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                    <li><a class="acct-logs" href="personal-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="org-icon" style="background-color: yellowgreen;"></div><div class="nav-icon icon-users"></div><a href="index-org.html">Lectorius <span class="admin-tag">Admin<span></a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-home" href="index-org.html"><div class="nav-icon icon-home"></div>Overview</a></li>
+                    <li><a class="acct-secrets" href="org-secrets.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-members" href="org-members.html"><div class="nav-icon icon-usercircle"></div>Members</a></li>
+                    <li><a class="acct-teams" href="org-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                    <li><a class="acct-logs" href="org-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+                </ul>
+              </li>
+              <li class="selected">
+                <div class="acct-name">
+                  <div class="org-icon" style="background-color: pink;"></div><div class="nav-icon icon-users"></div><a href="main-org-user.html">Essence Digital</a>
+                </div>
+                <ul class="acct-info">
+                    <li class="selected"><a class="acct-secrets" href="main-org-user.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="org-user-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="nav-icon icon-users"></div>Stack Exchange
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="main-org-user.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="org-user-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="sb-section" id="tool-nav">
+            <ul>
+              <li><a href="import-secrets.html"><div class="nav-icon icon-download"></div>Import Secrets</a></li>
+              <!--<li><div class="nav-icon icon-wrench"></div>Tools</li>-->
+              <!--<li><a href="settings.html"><div class="nav-icon icon-gear"></div>Settings</a></li>-->
+              <li><a href="feedback-form.html"><div class="nav-icon icon-bubble"></div>Feedback</a></li>
+              <li><a href="mailto:inbound@mitro.co"><div class="nav-icon icon-question"></div>Help</a></li>
+              <li><div class="nav-icon icon-switch"></div>Sign Out</li>
+            </ul>
+          </div>
+          <div class="sb-section" id="policy-nav">
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="content">
+          <div id="content-header">
+            <div id="acct-name-header">Essence Digital</div>
+          </div>
+          <div id="content-body">
+            <div id="tabs">
+              <ul>
+                <li><a href="#tab-secrets"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                <li><a href="#tab-teams"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+              </ul>
+              <div id="tab-secrets">
+                <div class="tab-content">
+                </div>
+              </div> <!-- /#tab-secrets-->
+              <div id="tab-teams">
+              </div> <!-- /#tab-teams -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/mustache.js"></script>
+    <script>
+      $(function() {
+        $( "#tabs" ).tabs();
+      });
+
+      var data = {
+        secrets: [
+          {   name: "Dropbox",
+              loginUrl: "https://www.dropbox.com/login",
+              url: "dropbox.com",
+              img: "https://dt8kf6553cww8.cloudfront.net/static/images/dropbox_webclip-vflO8tEZ4.png",
+              id: 88370,
+              username: "usertest@yahoo.com",
+              isNote: false,
+              numTeams: 0,
+              numMembers: 3
+          },
+          {   name: "Dropbox",
+              loginUrl: "https://www.dropbox.com/login",
+              url: "dropbox.com",
+              img: "https://dt8kf6553cww8.cloudfront.net/static/images/dropbox_webclip-vflO8tEZ4.png",
+              id: 88370,
+              username: "usertest@work.com",
+              isNote: false,
+              numTeams: 1,
+              numMembers: 4
+          }        
+        ],
+        "hasSecrets": function() {
+          return ((this.secrets.length > 0) ? true : false);
+        },
+        "initial": function() {
+          return this.name.charAt(0).toUpperCase();
+        }
+      }; 
+
+      function loadSecrets() {
+        var template = $('#secret-list-template').html();
+        var output = Mustache.render(template, data);
+        $('#tab-secrets .tab-content').html(output);
+      }     
+
+      $(document).ready(function() {
+        loadSecrets();
+        $('a[href="#tab-members"]').click(function() {
+          window.location.href = 'org-members.html';
+        });
+        $('a[href="#tab-teams"]').click(function() {
+          window.location.href = 'org-teams.html';
+        });
+        $('a[href="#tab-logs"]').click(function() {
+          window.location.href = 'org-logs.html';
+        });
+        $('a[href="#tab-secrets"]').click(function() {
+          window.location.href = 'org-secrets.html';
+        });
+        $('a[href="#tab-home"]').click(function() {
+          window.location.href = 'index-org.html';
+        });
+      });
+    </script>
+
+    <script id="secret-list-template" type="text/html">
+      {{#hasSecrets}}
+        <div id="search">
+          <button id="search-btn"><div class="icon-search"></div></button>
+          <input id="secret-filter-string" type="text" class="form-control search" placeholder="search secrets">
+        </div>
+        <ul class="item-list secret-list">
+          {{#secrets}}
+          <li class="item" data-secret-id="{{ id }}">
+            <div class="item-org"></div>
+            {{#isNote}}
+            <div class="item-icon icon-document" title="{{ name }}" data-icon-text="{{ name }}"></div>
+            {{/isNote}}
+            {{^isNote}}
+              {{#img}}
+              <a class="item-icon" href="{{ loginUrl }}" title="{{ name }}"><img src="{{ img }}" data-icon-text="{{ name }} ({{ username }})"></a>
+              {{/img}}
+              {{^img}}
+              <a class="item-icon secret-icon-placeholder" href="{{ loginUrl }}" title="{{ name }}" data-icon-text="{{ name }}" style="background-color: {{ color }}">{{ initial }}</a>
+              {{/img}}
+            {{/isNote}}
+            <div class="item-info">
+              {{#name}}<a href="{{ loginUrl }}" class="item-name search-this-value">{{ name }}</a>{{/name}}
+              {{#url}}<a class="item-link search-this-value">{{ url }}</a>{{/url}}
+              {{#username}}<div class="item-username search-this-value">{{ username }}</div>{{/username}}
+            </div>
+            <ul class="item-actions">
+              <li><a class="action-icon icon-enter" href="secret-org-info.html" title="Sign In"></a><div class="action-name">Sign In</div></li>
+              <li><a class="action-icon icon-user" href="secret-org-info.html" title="Copy Username"></a><div class="action-name">Copy</div></li>
+              <li><a class="action-icon icon-lock" href="secret-org-info.html" title="Copy Password"></a><div class="action-name">Copy</div></li>
+              <li><a class="action-icon icon-invitesolo" href="secret-org-info.html" title="Share Password"></a><div class="action-name">Share</div></li>
+              <li><a class="action-icon icon-edit" href="secret-org-info.html" title="Edit Details"></a><div class="action-name">Edit</div></li>
+            </ul>
+          </li>
+          {{/secrets}}
+        </ul>
+      {{/hasSecrets}}
+      {{^hasSecrets}}
+        No secrets yet.
+      {{/hasSecrets}}       
+    </script>
+
+  </body>
+</html>

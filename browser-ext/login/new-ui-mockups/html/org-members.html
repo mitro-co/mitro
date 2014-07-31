@@ -1,0 +1,251 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The easiest way to save and share passwords. Remember and share everything from web accounts, credit cards, 2-factor backup codes, security question answers, and WiFi passwords.">
+    <title>Mitro</title>
+
+    <!--[if lte IE 8]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" /> -->
+    <link href="../less/main-org.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header"></div>
+      <div id="wrapper">
+        <div id="sidebar">
+          <div class="sb-section" id="profile">
+            <a href="https://www.mitro.co" class="icon-logo"></a>
+            <div id="username">username</div>
+          </div>
+          <div class="sb-section" id="acct-nav">
+            <ul>
+              <li>
+                <div class="acct-name">
+                  <div class="nav-icon icon-user"></div><a href="index.html">Personal</a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="index.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="personal-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                    <li><a class="acct-logs" href="personal-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+                </ul>
+              </li>
+              <li class="selected">
+                <div class="acct-name">
+                  <div class="org-icon" style="background-color: yellowgreen;"></div><div class="nav-icon icon-users"></div><a href="index-org.html">Lectorius <span class="admin-tag">Admin<span></a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-home" href="index-org.html"><div class="nav-icon icon-home"></div>Overview</a></li>
+                    <li><a class="acct-secrets" href="org-secrets.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li class="selected"><a class="acct-members" href="org-members.html"><div class="nav-icon icon-usercircle"></div>Members</a></li>
+                    <li><a class="acct-teams" href="org-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                    <li><a class="acct-logs" href="org-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="org-icon" style="background-color: pink;"></div><div class="nav-icon icon-users"></div><a href="main-org-user.html">Essence Digital</a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="main-org-user.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="org-user-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="nav-icon icon-users"></div>Stack Exchange
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="main-org-user.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="org-user-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="sb-section" id="tool-nav">
+            <ul>
+              <li><a href="import-secrets.html"><div class="nav-icon icon-download"></div>Import Secrets</a></li>
+              <!--<li><div class="nav-icon icon-wrench"></div>Tools</li>-->
+              <!--<li><a href="settings.html"><div class="nav-icon icon-gear"></div>Settings</a></li>-->
+              <li><a href="feedback-form.html"><div class="nav-icon icon-bubble"></div>Feedback</a></li>
+              <li><a href="mailto:inbound@mitro.co"><div class="nav-icon icon-question"></div>Help</a></li>
+              <li><div class="nav-icon icon-switch"></div>Sign Out</li>
+            </ul>
+          </div>
+          <div class="sb-section" id="policy-nav">
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="content">
+          <div id="content-header">
+            <div id="acct-name-header">Lectorius</div>
+            <a href="add-member.html" class="button button-med button-gray add-btn" data-action="add" data-action-target="member">+ Member</a>
+          </div>
+          <div id="content-body">
+            <div id="tabs">
+              <ul>
+                <li><a href="#tab-home"><div class="nav-icon icon-home"></div>Overview</a></li>
+                <li><a href="#tab-secrets"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                <li><a href="#tab-members"><div class="nav-icon icon-usercircle"></div>Members</a></li>
+                <li><a href="#tab-teams"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                <li><a href="#tab-logs"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+              </ul>
+              <div id="tab-secrets">
+              </div> <!-- /#tab-secrets-->
+              <div id="tab-members">
+                <div class="tab-content">
+                </div>
+              </div> <!-- /#tab-members -->
+              <div id="tab-teams">
+              </div> <!-- /#tab-teams -->
+              <div id="tab-logs">
+              </div> <!-- /#tab-logs -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="delete-modal" role="dialog" class="modal">
+        <div class="modal-dialog">
+          <a title="Close" href="#" class="modal-close close">X</a>
+          <h3>Remove Member</h3>
+          <div>Are you sure you want to remove <span id="username"></span> from the organization?</div>
+          <a class="button button-med close" href="#">Cancel</a>
+          <a class="button button-med" id="delete">Remove</a>
+        </div>
+      </div>
+    </div>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/mustache.js"></script>
+    <script>
+      $(function() {
+        $('#tabs').tabs();
+
+        $('#tab-members').on('click', 'a[href="#delete-modal"]', function(e) {
+          e.preventDefault();
+          var username = $(this).parents('.item').attr('data-username');
+          var targetID = $(this).attr('href');
+          var $target = $(targetID).addClass('in');
+          $(targetID).find('#username').html(username);
+        });
+
+        $('.modal .close').click(function(e) {
+          e.preventDefault();
+          $modalEl = $(this).parents('.modal');
+          $modalEl.removeClass('in');
+          $modalEl.addClass('out');
+        });
+
+        $('.modal #delete').click(function(e) {
+          e.preventDefault();
+          alert('delete');
+          $modalEl = $(this).parents('.modal');
+          $modalEl.removeClass('in');
+          $modalEl.addClass('out');
+        });
+      });
+
+    var data = {
+      users: [
+        {   name: "usertest+100@work.com",
+            color: "rgb(188, 189, 34)",
+            isAdmin: false
+        },
+        {   name: "user@user.com",
+            color: "rgb(148, 103, 189)",
+            isAdmin: false
+        },
+        {   name: "usertest@gmail.com",
+            color: "rgb(31, 119, 180)",
+            isAdmin: true
+        } /*,
+        {   name: "usertest+100@work.com",
+            color: "rgb(188, 189, 34)",
+            isAdmin: false
+        },
+        {   name: "user@user.com",
+            color: "rgb(148, 103, 189)",
+            isAdmin: false
+        },
+        {   name: "usertest@gmail.com",
+            color: "rgb(31, 119, 180)",
+            isAdmin: true
+        }*/
+      ],
+      "initial": function() {
+        return this.name.charAt(0).toUpperCase();
+      },
+      "hasUsers": function() {
+        return ((this.users.length > 0) ? true : false);
+      }
+    };
+
+      function loadUsers() {
+        var template = $('#user-list-template').html();
+        var output = Mustache.render(template, data);
+        $('#tab-members .tab-content').html(output);
+      }
+
+      $(document).ready(function() {
+        loadUsers();
+        $('a[href="#tab-members"]').click();
+        $('a[href="#tab-members"]').click(function() {
+          window.location.href = 'org-members.html';
+        });
+        $('a[href="#tab-teams"]').click(function() {
+          window.location.href = 'org-teams.html';
+        });
+        $('a[href="#tab-logs"]').click(function() {
+          window.location.href = 'org-logs.html';
+        });
+        $('a[href="#tab-secrets"]').click(function() {
+          window.location.href = 'org-secrets.html';
+        });
+        $('a[href="#tab-home"]').click(function() {
+          window.location.href = 'index-org.html';
+        });
+      });
+    </script>
+
+    <script id="user-list-template" type="text/html">
+      {{#hasUsers}}
+        <div id="search">
+          <button id="search-btn"><div class="icon-search"></div></button>
+          <input id="secret-filter-string" type="text" class="form-control search" placeholder="search organization members">
+        </div>
+        <ul class="item-list">
+          {{#users}}
+          <li class="item" data-username="{{ name }}" data-matches="true">
+            <a class="item-icon user-icon-placeholder" href="user-info.html" title="{{ name }}" data-icon-text="{{ name }}" style="background-color: {{ color }}">{{ initial }}</a>
+            <div class="item-info">
+              <a href="user-info.html" class="item-name search-this-value">{{ name }}</a>
+              <select class="user-access-level">
+                <option value="user"{{^isAdmin}} selected{{/isAdmin}}>User</option>
+                <option value="admin"{{#isAdmin}} selected{{/isAdmin}}>Admin</option>
+              </select>
+            </div>
+            <ul class="item-actions">
+              <li><a class="action-icon icon-close" href="#delete-modal" title="Remove User"></a><div class="action-name">Remove</div></li>
+              <li><a class="action-icon icon-infosolo" href="user-info.html" title="User Details"></a><div class="action-name">Details</div></li>
+            </ul>
+          </li>
+          {{/users}}
+        </ul>
+        <a href="add-member.html" class="button button-med button-gray add-btn" data-action="add" data-action-target="member">+ Member</a>
+      {{/hasUsers}}
+      {{^hasUsers}}
+        No members yet.
+        <a href="add-member.html" class="button button-med button-gray add-btn" data-action="add" data-action-target="member">+ Member</a>
+      {{/hasUsers}}
+    </script>
+  </body>
+</html>

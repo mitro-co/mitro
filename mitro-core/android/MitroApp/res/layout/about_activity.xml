@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/rocket_light" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp" >
+
+        <ImageView
+            android:id="@+id/intro_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mitro_original_logo" />
+
+        <TextView
+            android:id="@+id/viewPasswordsTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Securely View And Use Your Passwords"
+            android:textColor="#6aa6f8"
+            android:textSize="30sp" />
+
+        <requestFocus />
+
+        <TextView
+            android:id="@+id/viewPasswordsSubtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="View all your secure passwords and notes from the Mitro browser extension. You can easily copy the secret information to your clipboard for use on the web. " />
+
+        <TextView
+            android:id="@+id/addSecretsTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Add Secrets to Your Mitro Account."
+            android:textColor="#6aa6f8"
+            android:textSize="30sp" />
+
+        <requestFocus />
+
+        <TextView
+            android:id="@+id/addSecretSubText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Add secret passwords and notes to your Mitro account that can be later viewed in both the Mitro mobile app and the Mitro browser extension." />
+
+        <TextView
+            android:id="@+id/swipeToGoTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Swipe To Go"
+            android:textColor="#6aa6f8"
+            android:textSize="30sp" />
+
+        <requestFocus />
+
+        <TextView
+            android:id="@+id/swipeToGoPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Swipe on a secret password, or click copy and go, and you will be taken to the address with the username in your clipboard. The password will be waiting in the notification bar to be copied so that you don&apos;t need to leave your browser.\n\n" />
+    </LinearLayout>
+
+</ScrollView>

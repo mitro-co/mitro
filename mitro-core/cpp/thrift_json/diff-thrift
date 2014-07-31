@@ -1,0 +1,14 @@
+diff -rupN \
+-x Makefile \
+-x *.pc -x stamp-h1 -x stamp-h2 -x libtool \
+-x aclocal.m4 -x autom4te.cache \
+-x *.a -x *.o -x *.lo -x *.la -x *.swp \
+-x .deps -x .libs \
+-x configure -x config.h -x config.log -x config.status \
+-x thriftl.cc -x thrifty.cc -x thrifty.h \
+-x version.h -x moc_TQTcpServer.cpp \
+-x gen-* -x build -x test -x test-driver \
+-x mkmf.log -x conftest.dSYM -x Gemfile.lock -x thrift_native.bundle \
+-x thrift.egg-info -x TutorialClient -x TutorialServer \
+-x TChromiumJSONProtocol.* \
+thrift-orig thrift-json

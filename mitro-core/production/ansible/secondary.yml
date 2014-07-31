@@ -1,0 +1,109 @@
+---
+- hosts: secondary
+  sudo: yes
+  tasks:
+    # - name: upgrade packages if older than 1 day
+    #   apt: update_cache=yes upgrade=safe cache_valid_time=86400
+    - name: check for upstart (IT MUST BE INSTALLED MANUALLY)
+      apt: pkg=upstart state=present
+    - name: install less (more is really annoying)
+      apt: pkg=less state=present
+    - name: remove unneeded default packages
+      apt: pkg={{item}} state=absent
+      with_items:
+        - libmysqlclient18
+        - mysql-common
+        - python-mysqldb
+
+    - name: check java version
+      file: state=link src=/opt/java/jdk1.7.0_51/bin/java dest=/etc/alternatives/java
+      register: use_oracle_java
+    - name: create /opt/java
+      file: path=/opt/java state=directory mode=755 owner=root
+      when: use_oracle_java.changed
+    - name: Copy Oracle Java
+      copy: src=third_party/jdk-7u51-linux-x64.gz dest=/tmp mode=700
+      when: use_oracle_java.changed
+    - name: Extract Oracle Java
+      shell: tar --no-same-owner -xzf /tmp/jdk-7u51-linux-x64.gz -C /opt/java
+      when: use_oracle_java.changed
+    - name: Set Oracle Java as default
+      shell: update-alternatives --install /usr/bin/java java /opt/java/jdk1.7.0_51/bin/java 20000
+      when: use_oracle_java.changed
+    - name: Clean up tar
+      file: path=/tmp/jdk-7u51-linux-x64.gz state=absent
+
+    - name: Update /etc/fstab
+      copy: src=secondary/fstab dest=/etc/fstab owner=root group=root
+      register: etc_fstab
+    - name: Mount all filesystems
+      shell: mount -a
+      when: etc_fstab.changed
+
+    - name: create mitrocore user
+      user: name=mitrocore system=yes state=present
+    # - name: Copy server
+    #   copy: src=../mitro-core/build/mitrocore.jar dest=/home/mitrocore/mitrocore.jar.20140121 
+    # - name: symlink
+    #   file: state=link src=mitrocore.jar.20140121 dest=/home/mitrocore/mitrocore.jar 
+    - name: mitrocore upstart config
+      copy: src=secondary/init/mitrocore.conf dest=/etc/init owner=root group=root
+    # # - name: Copy secrets
+    # #   copy: src=../unnamed/crypto_keys/prod/mitrocore_secrets.tar.gz.enc dest=/home/mitrocore
+    # # - name: extract secrets
+    # #   shell: false # TODO: How to prompt user for password?
+
+    - name: set kernel.shmmax for postgres (max shared memory segment in bytes)
+      sysctl: name=kernel.shmmax value=17179869184
+    - name: setup sysctl for postgres (max total shared memory in 4096-byte pages)
+      sysctl: name=kernel.shmall value=4194304
+    - name: install postgresql
+      apt: pkg=postgresql state=present
+    - name: create postgres_replication user
+      user: name=postgres_replication system=yes state=present
+    - name:  Add user postgres to postgres_replication group
+      user: name=postgres append=yes groups=postgres_replication
+    - name: Create .ssh directory
+      file: path=/home/postgres_replication/.ssh state=directory owner=postgres_replication group=postgres_replication mode=700
+    - name: Copy authorized ssh key
+      copy: src=secondary/postgres/id_rsa.pub dest=/home/postgres_replication/.ssh/authorized_keys mode=400 owner=postgres_replication group=postgres_replication
+
+    - name: install nginx
+      apt: pkg=nginx state=present
+    - name: nginx config
+      copy: src=secondary/nginx/sites-enabled/mitro dest=/etc/nginx/sites-enabled
+      notify: reload nginx
+    - name: secondary cert
+      file: dest=/etc/nginx/server.crt owner=root group=root mode=0444
+    - name: check secondary key
+      file: state=file path=/etc/nginx/server.pem owner=root group=root mode=0400
+    - name: Remove nginx default
+      file: path=/etc/nginx/sites-enabled/default state=absent
+
+    - name: install Datadog signing key
+      apt_key: data="{{lookup('file', 'secondary/dd-agent/datadog_public_apt.gpg')}}" state=present
+    # Could use apt_repository but it needs pycurl
+    - name: add Datadog repository
+      copy: dest=/etc/apt/sources.list.d/datadog.list owner=root group=root content="deb http://apt.datadoghq.com/ unstable main"
+      register: datadog_apt_repository
+    - name: Update apt repository
+      apt: update_cache=yes
+      when: datadog_apt_repository.changed
+    - name: install Datadog agent
+      apt: pkg=datadog-agent
+    - name: install python-psycopg2 (for Datadog Postgres integration)
+      apt: pkg=python-psycopg2
+    - name: copy datadog config
+      copy: src=secondary/dd-agent/datadog.conf dest=/etc/dd-agent/datadog.conf owner=root group=root
+      notify: restart datadog
+    - name: datadog integrations
+      copy: src={{item}} dest=/etc/dd-agent/conf.d owner=root group=root
+      with_fileglob: secondary/dd-agent/conf.d/*.yaml
+      notify: restart datadog
+
+  handlers:
+    - name: reload nginx
+      service: name=nginx state=reloaded
+      # datadog doesn't support reloading
+    - name: restart datadog
+      service: name=datadog-agent state=restarted

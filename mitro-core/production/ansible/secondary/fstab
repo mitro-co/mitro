@@ -1,0 +1,3 @@
+# UNCONFIGURED FSTAB FOR BASE SYSTEM
+LABEL=/   /     ext4    defaults,barrier=0 1 1
+/dev/disk/by-id/google-secondary-large2 /large ext4 defaults 1 1

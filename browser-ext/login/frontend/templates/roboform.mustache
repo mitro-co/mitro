@@ -1,0 +1,52 @@
+{{<template}}
+{{$title}}Mitro: Roboform Importer{{/title}}
+
+{{$includes}}
+    <script type="text/javascript" src="../js/URI.js"></script>
+    <script type="text/javascript" src="../js/domain.js"></script>
+    <script type="text/javascript" src="../js/hogan-template.js"></script>
+    <script type="text/javascript" src="../js/modal-dialog-template.js"></script>
+    <script type="text/javascript" src="../js/acl-entry-template.js"></script>
+    <script type="text/javascript" src="../js/admin-common.js"></script>
+    <script type="text/javascript" src="../js/import-template.js"></script>
+    <script type="text/javascript" src="../kew.js"></script>
+    <script type="text/javascript" src="../js/org-info.js"></script>
+    <script type="text/javascript" src="../js/userdata.js"></script>
+    <script type="text/javascript" src="../js/import-common.js"></script>
+    <script type="text/javascript" src="../js/roboform.js"></script>
+{{/includes}}
+
+{{$content}}
+<div class="left-col">
+
+<a class="nav-button" href="../html/importer.html">
+  <img src="../img/left_arrow.png" width="14" height="13">
+  Back to Importer
+</a>
+
+<h2>RoboForm Importer</h2>
+
+Export your Roboform database to an HTML file  and then upload it  to select which secrets you wish to upload to Mitro.
+<br><br>
+<input type = "file" id = "files" name = "files[]" single /><hr>
+
+<div id="password-list" >
+
+</div>
+
+ <button id="add-to-mitro-button" class="btn-primary btn-large" type="button" hidden="true" >
+    <img src="../img/plus.png" width="21" height="23">Add to Mitro
+  </button>
+
+<div id='upload-progress'>
+
+</div>
+
+</div>
+<!-- end left-col -->
+
+<div class="sidebar">
+</div>
+
+{{/content}}
+{{/template}}

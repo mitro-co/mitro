@@ -1,0 +1,51 @@
+{{<basic-web-template}}
+
+{{$includes}}
+    <script src="../js/URI.js"></script>
+    <script src="../js/issue.js"></script>
+{{/includes}}
+
+{{$header}}
+    {{<header-basic-template}}
+    {{$header-title}}Report Issue{{/header-title}}
+    {{/header-basic-template}}
+{{/header}}
+
+{{$content}}
+    <div class="basic-form-container">
+      <form id="issue-form">
+        <div class="form-group">
+          <label>Select an issue:</label>
+          <select name="type" tabindex="1" autofocus>
+            <option value="none"></option>
+            <option value="badsave">Mitro asked me to save a password when I did not log in</option>
+            <option value="badusername">Mitro asked me to save a password for the wrong username</option>
+            <option value="missedsave">Mitro failed to ask me to save a password</option>
+            <option value="falselogin">Mitro asked me to log in when there was no login form on the page</option>
+            <option value="missedlogin">Mitro failed to ask me to log in to one of my saved services</option>
+            <option value="failedlogin">Mitro attempted and failed to log in to one of my services</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>URL:</label>
+          <input type="text" name="url" placeholder="URL" tabindex="2">
+        </div>
+
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea name="description" placeholder="description" rows="4" tabindex="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Your e-mail address:</label>
+          <input type="text" name="email" placeholder="email" tabindex="4">
+        </div>
+        <button type="submit" id="issue-form-button" tabindex="5">Submit Issue</button>
+      </form>
+    </div>
+  </div>
+{{/content}}
+
+{{/basic-web-template}}

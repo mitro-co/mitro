@@ -1,0 +1,55 @@
+{{<org-template}}
+
+{{$includes}}
+  <script src="../js/querystring.js"></script>
+  <script src="../js/create-team.js"></script>
+{{/includes}}
+
+{{$content}}
+  <h1 class="mb40">Create Team</h1>
+  <div class="row">
+      <!--
+    <div class="col-xs-2">
+      <div class="team bbn pn">
+        <div class="type type-lg">T</div>
+      </div>
+      <div class="text-center"><a href="#" class="btn btn-sm btn-white">UPLOAD</a></div>
+    </div>
+      -->
+    <div class="col-xs-6">
+      <form id="create-team-form" role="form">
+        <div class="form-group">
+          <label>Team Name</label>
+          <input type="text" name="name" class="form-control" placeholder="Enter Team Name">
+        </div>
+        <div class="org-dropdown-group form-group hide">
+          <label>Organization</label>
+          <div class="org-dropdown dropdown mt5">
+            <a data-toggle="dropdown" class="form-control select" href="#"></a>
+            <ul class="dropdown-select dropdown-menu category-dropdown">
+            </ul>
+          </div>
+        </div>
+        <div class="form-group hidden">
+          <label>Team Description</label>
+          <textarea name="description" class="form-control" placeholder="Enter Team Description"></textarea>
+          <span class="help-block"><span>250</span> Characters Remain</span>
+        </div>
+        <div class="buttons clearfix">
+          <div class="pull-right">
+            <input type="submit" id="create-team-button" class="btn btn-primary btn-sm" value="CREATE">
+          </div>
+        </div>
+      </form>
+    </div>
+<!--
+    <div class="col-xs-4">
+      <div class="well">
+        <p>Tips:</p>
+        <p>Did you know you can <a class="under" href="#">Import Members &amp; Teams</a>?</p>
+      </div>
+    </div>
+-->
+  </div>
+{{/content}}
+{{/org-template}}

@@ -1,0 +1,17 @@
+# Copies upstart script for mitroaccess
+---
+- name: create mitroaccess user
+  user: name=mitroaccess system=yes state=present
+  sudo: yes
+- name: copy access_proxy upstart config
+  copy: src=mitroaccess/init/access_proxy.conf dest=/etc/init owner=root group=root
+  sudo: yes
+  notify: restart access_proxy
+
+- name: create access_frontend user
+  user: name=access_frontend system=yes state=present
+  sudo: yes
+- name: copy access_proxy upstart config
+  copy: src=mitroaccess/init/access_frontend.conf dest=/etc/init owner=root group=root
+  sudo: yes
+  notify: restart access_frontend

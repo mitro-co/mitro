@@ -1,0 +1,196 @@
+<project name="mitro-core" default="compile">
+
+<property name="src" value="java/server/src" />
+<property name="testsrc" value="java/server/test" />
+<property name="lib" location="java/server/lib" />
+<property name="build" value="build" />
+<property name="depcache" value="${build}/depcache" />
+<property name="source_version" value="1.7"/>
+<property name="javac_args" value="-Xlint"/>
+
+<property name="build.src" location="${build}/java/src" />
+<property name="build.test" location="${build}/java/test" />
+<property name="compile.debug" value="true"/>
+<property name="outjar" value="${build}/mitrocore.jar"/>
+<property name="cryptojar" value="${build}/mitro-crypto.jar"/>
+
+<path id="classpath.base">
+    <pathelement location="${build.src}" />
+    <pathelement location="${lib}/commons-codec-1.8.jar" />
+    <pathelement location="${lib}/gson-2.2.4.jar" />
+    <pathelement location="${lib}/guava-17.0.jar" />
+    <pathelement location="${lib}/jackson-annotations-2.1.4.jar" />
+    <pathelement location="${lib}/jackson-core-2.1.4.jar" />
+    <pathelement location="${lib}/jackson-databind-2.1.4.jar" />
+    <pathelement location="${lib}/javax.servlet-api-3.0.1.jar" />
+    <pathelement location="${lib}/jetty-http-9.0.3.v20130506.jar" />
+    <pathelement location="${lib}/jetty-io-9.0.3.v20130506.jar" />
+    <pathelement location="${lib}/jetty-security-9.0.3.v20130506.jar" />
+    <pathelement location="${lib}/jetty-server-9.0.3.v20130506.jar" />
+    <pathelement location="${lib}/jetty-servlet-9.0.3.v20130506.jar" />
+    <pathelement location="${lib}/jetty-util-9.0.3.v20130506.jar" />
+    <pathelement location="${lib}/keyczar-0.71f-040513.jar" />
+    <pathelement location="${lib}/log4j-1.2.17.jar" />
+    <pathelement location="${lib}/metrics-core-3.0.0-BETA3.jar"/>
+    <pathelement location="${lib}/metrics-healthchecks-3.0.0-BETA3.jar"/>
+    <pathelement location="${lib}/metrics-jetty9-3.0.0-BETA3.jar"/>
+    <pathelement location="${lib}/metrics-json-3.0.0-BETA3.jar"/>
+    <pathelement location="${lib}/metrics-jvm-3.0.0-BETA3.jar"/>
+    <pathelement location="${lib}/metrics-servlets-3.0.0-BETA3.jar"/>
+    <pathelement location="${lib}/mustache-compiler-0.8.13.jar" />
+    <pathelement location="${lib}/ormlite-core-4.45.jar" />
+    <pathelement location="${lib}/ormlite-jdbc-4.45.jar" />
+    <pathelement location="${lib}/postgresql-9.2-1002.jdbc4.jar"/>
+    <pathelement location="${lib}/qrgen-1-0.jar" />
+    <pathelement location="${lib}/slf4j-api-1.7.5.jar" />
+    <pathelement location="${lib}/slf4j-log4j12-1.7.5.jar" />
+    <pathelement location="${lib}/stripe-1.12.0.jar" />
+    <pathelement location="${lib}/zxing-core-1-7.jar" />
+    <pathelement location="${lib}/zxing-j2se-1-7.jar" />
+    <pathelement location="${lib}/fluent-hc-4.3.4.jar" />
+    <pathelement location="${lib}/httpclient-4.3.4.jar" />
+    <pathelement location="${lib}/httpclient-cache-4.3.4.jar" />
+    <pathelement location="${lib}/httpcore-4.3.2.jar" />
+    <pathelement location="${lib}/httpmime-4.3.4.jar" />
+    <pathelement location="${lib}/commons-logging-1.1.3.jar" />
+</path>
+
+<path id="classpath.test">
+    <path refid="classpath.base"/>
+    <pathelement location="${build.test}"/>
+    <pathelement location="${lib}/h2-1.3.175.jar"/>
+    <pathelement location="${lib}/hamcrest-core-1.3.jar"/>
+    <pathelement location="${lib}/junit-4.11.jar"/>
+</path>
+
+<!-- Common macro for compiling Java source -->
+<macrodef name="Compile">
+    <attribute name="srcdir"/>
+    <attribute name="destdir"/>
+    <element name="compileoptions" implicit="true" optional="true"/>
+    <sequential>
+        <mkdir dir="@{destdir}"/>
+        <!-- avoids needing ant clean when changing interfaces -->
+        <depend srcdir="@{srcdir}" destdir="@{destdir}" cache="${depcache}"/>
+        <javac srcdir="@{srcdir}" destdir="@{destdir}" includeAntRuntime="no"
+                debug="${compile.debug}" source="${source_version}">
+            <compilerarg value="${javac_args}" />
+            <compileoptions/>
+            <!-- treat warnings as errors -->
+            <compilerarg value="-Werror"/>
+        </javac>
+
+        <!-- copy any resources to the output directory -->
+        <copy todir="@{destdir}">
+            <fileset dir="@{srcdir}" excludes="**/*.java" />
+        </copy>
+    </sequential>
+</macrodef>
+
+<!-- Common macro for running junit tests in both the test and runtest targets -->
+<macrodef name="RunJunit">
+    <attribute name="haltonfailure" default="yes" />
+    <element name="testspecification" implicit="yes" />
+    <sequential>
+        <junit printsummary="on" haltonfailure="@{haltonfailure}" failureproperty="junit.failed" fork="true" forkmode="once">
+            <classpath refid="classpath.test" />
+            <formatter type="plain" usefile="false"/>
+            <assertions><enable/></assertions>
+            <testspecification/>
+        </junit>
+    </sequential>
+</macrodef>
+
+<target name="compile" description="Compiles code, output goes to the build dir.">
+    <Compile srcdir="${src}" destdir="${build.src}">
+        <classpath refid="classpath.base"/>
+    </Compile>
+</target>
+
+<target name="jar" description="Make output jar." depends="compile">
+    <!-- TODO: Make this do a dependency check? -->
+    <delete file="${outjar}" />
+
+    <!-- Output the git revision and other metadata into a property file -->
+    <exec executable="git" outputproperty="git_commit">
+        <arg value="rev-parse"/>
+        <arg value="HEAD"/>
+    </exec>
+    <exec executable="git" outputproperty="git_describe">
+        <arg value="describe"/>
+        <arg value="--dirty"/>
+    </exec>
+    <tstamp>
+        <format property="now" pattern="yyyy-MM-dd'T'HH:mm:ss'Z'" timezone="UTC"/>
+    </tstamp>
+    <propertyfile file="${build.src}/build.properties" comment="Generated by ant">
+        <entry key="buildTime" value="${now}"/>
+        <entry key="gitCommit" value="${git_commit}"/>
+        <entry key="gitDescribe" value="${git_describe}"/>
+    </propertyfile>
+
+    <!-- package all dependencies together -->
+    <exec executable="tools/jarpackager.py">
+        <arg value="--main=co.mitro.core.server.Main" />
+        <arg value="--outjar=${outjar}" />
+        <arg value="--classpath" />
+        <arg pathref="classpath.base" />
+    </exec>
+    <echo>Built ${outjar}</echo>
+</target>
+
+<target name="server" depends="jar" description="Runs the server.">
+    <!-- Echos the classpath to stdout -->
+    <!-- <property name="myclasspath" refid="classpath.base"/>
+    <echo message="classpath = ${myclasspath}"/> -->
+
+    <!-- Change to root dir to prevent accidentally accessing resources from source tree -->
+    <java jar="${outjar}" fork="true" dir="/">
+        <assertions><enable/></assertions>
+        <sysproperty key="generateSecretsForTest" value="true"/>
+    </java>
+</target>
+
+<target name="testcompile" depends="compile" description="Compile all tests">
+    <Compile srcdir="${testsrc}" destdir="${build.test}">
+        <classpath refid="classpath.test"/>
+    </Compile>
+</target>
+
+<target name="test" depends="testcompile" description="Run all unit tests">
+    <RunJunit>
+        <batchtest>
+            <fileset dir="${build.test}">
+                <include name="**/*Test.class"/>
+                <include name="**/Test*.class"/>
+                <exclude name="**/*$*.class"/>
+            </fileset>
+        </batchtest>
+    </RunJunit>
+</target>
+
+<target name="testone" depends="testcompile"
+        description="Run one test; pass argument with -Dtest=(classname)">
+    <RunJunit>
+        <test name="${test}"/>
+    </RunJunit>
+</target>
+
+<target name="clean" description="Destroys all generated files and dirs.">
+    <delete dir="${build.src}"/>
+    <delete dir="${build.test}"/>
+</target>
+
+<target name="help" description="print this help">
+    <exec executable="ant"><arg value="-projecthelp"/></exec>
+</target>
+
+<target name="crypto" description="Jar up crypto support (without dependencies)" depends="compile">
+    <jar destfile="${cryptojar}">
+        <fileset dir="${build.src}" includes="co/mitro/core/crypto/**/*.class"/>
+        <fileset dir="${build.src}" includes="co/mitro/keyczar/**/*.class"/>
+    </jar>
+    <echo>Built ${cryptojar}</echo>
+</target>
+
+</project>

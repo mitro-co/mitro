@@ -1,0 +1,11 @@
+init_config:
+  notify:
+    - all
+    - ej@lectorius.com
+
+instances:
+  - name: mitrocore_healthcheck
+    url: http://localhost:8080/mitro-core/admin/healthcheck
+
+  - name: nginx_static
+    url: https://www.mitro.co/favicon.ico

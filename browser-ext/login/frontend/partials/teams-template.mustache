@@ -1,0 +1,26 @@
+{{#teams}}
+<div class="team" data-id="{{groupId}}">
+  <div class="clearfix">
+    <div class="type">
+      <img class="team-icon" src="" width="50" height="50" alt="" data-icon-text="{{name}}">
+    </div>
+    <div class="text-full">
+      <div class="name">{{name}}</div>
+    </div>
+    <a href="../html/manage-team.html?id={{groupId}}" class="action">
+      <button class="manage-team-button btn btn-mini btn-white">MANAGE</button>
+    </a>
+  </div>
+  <div class="clearfix">
+    <div class="arrow"></div>
+    <div class="members">
+      <a class="under" href="../html/manage-team.html?id={{groupId}}">
+        {{userCountString}}
+      </a>
+      <a class="secret-count ml20 under" href="../html/manage-team.html?id={{groupId}}">
+        {{secretCountString}}
+      </a>
+    </div>
+  </div>
+</div>
+{{/teams}}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta name="description" content="">
+  <title>{{$title}}Mitro{{/title}}</title>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/logging.js"></script>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/underscore-min.js"></script>
+  <script src="../js/jquery.validate.min.js"></script>
+  <script src="../js/jquery.mousewheel.js"></script>
+  <script src="../js/jquery.jscrollpane.min.js"></script>
+  <script src="../js/hogan-template.js"></script>
+  <script src="../js/modal-dialog-template.js"></script>
+  <script src="../js/admin-common.js"></script>
+  <script src="../js/client.js"></script>
+  <script src="../helpers_common.js"></script>
+  <script src="../js/helpers.js"></script>
+  <script src="../js/background_interface.js"></script>
+  <script src="../js/background-init.js"></script>
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link href="../css/new-style.css" rel="stylesheet" media="all">
+{{$includes}}
+{{/includes}}
+</head>
+
+<body>
+  <div class="navbar">
+    <a class="navbar-brand" href="index.html"><img src="../img/mitro_logo_dark_small@2x.png" width="62" height="20" alt=""/></a>
+  </div>
+{{$content}}
+{{/content}}
+</body>
+</html>

@@ -1,0 +1,18 @@
+<table class="import-passwords-table">
+<tr>
+  <th>Import</th>
+  <th>Title</th>
+  <th>Username</th>
+  <th>Login URL</th>
+</tr>
+{{#passwords}}
+<tr>
+  <td style="text-align: center;">
+    <input id="{{id}}" type="checkbox" checked>
+  </td>
+  <td style="width: 250px">{{title}}</td>
+  <td style="width: 150px">{{username}}</td>
+  <td style="width: 250px">{{loginurl}}</td>
+</tr>
+{{/passwords}}
+</table>

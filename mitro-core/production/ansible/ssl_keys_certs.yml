@@ -1,0 +1,67 @@
+# Copies SSL keys and certificates
+---
+- hosts: primary
+  # TODO: Switch to ansible vault
+  vars_prompt:
+  - name: crypto_password
+    prompt: "Enter Lectorius crypto password (will prompt three times)"
+    private: yes
+  gather_facts: no
+  sudo: yes
+  tasks:
+    - include: crypto_bundles/copy_decrypt_ssl.yml
+      vars:
+        ssl_name: www.mitro.co
+        ssl_dest_name: mitro_co
+        ssl_prefix: ../../../unnamed/crypto_keys/prod/mitro/server
+    - include: crypto_bundles/copy_decrypt_ssl.yml
+      vars:
+        ssl_name: mitroweb.com
+        ssl_dest_name: mitroweb_com
+        ssl_prefix: ../../../unnamed/crypto_keys/prod/mitroweb_com/server
+    - include: crypto_bundles/copy_decrypt_ssl.yml
+      vars:
+        ssl_name: mitroaccess.com
+        ssl_dest_name: star_mitroaccess_com
+        ssl_prefix: ../../../unnamed/crypto_keys/prod/mitroaccess_com/server
+    - name: mkdir mitrocore
+      file: path=/home/ubuntu/mitrocore state=directory
+    - name: copy mitrocore secrets
+      copy: dest=/home/ubuntu/mitrocore src=../../../unnamed/crypto_keys/prod/mitrocore_secrets.tar.gz.enc
+    - name: decrypt mitrocore secrets
+      shell: "openssl enc -aes256 -d -pass 'pass:{{crypto_password}}' -in mitrocore_secrets.tar.gz.enc | (umask 0077 && sudo -u mitrocore tar -xzf -)"
+      args:
+        chdir: /home/ubuntu/mitrocore
+        creates: /home/ubuntu/mitrocore/mitrocore_secrets
+
+- hosts: secondary
+  vars_prompt:
+  - name: crypto_password
+    prompt: "Enter Lectorius crypto password (second prompt; sorry)"
+    private: yes
+  gather_facts: no
+  sudo: yes
+  tasks:
+    - include: crypto_bundles/copy_decrypt_ssl.yml
+      vars:
+        ssl_name: secondary.mitro.ca
+        ssl_dest_name: secondary_mitro_ca
+        ssl_prefix: ../../../unnamed/crypto_keys/prod/secondary_mitro_ca/server
+    - include: crypto_bundles/copy_decrypt_ssl.yml
+      vars:
+        ssl_name: secondary.mitro.co
+        ssl_dest_name: server
+        ssl_prefix: ../../../unnamed/crypto_keys/prod/secondary_mitro/server
+- hosts: mitroaccess
+  vars_prompt:
+  - name: crypto_password
+    prompt: "Enter Lectorius crypto password (third prompt; sorry)"
+    private: yes
+  gather_facts: no
+  sudo: yes
+  tasks:
+    - include: crypto_bundles/copy_decrypt_ssl.yml
+      vars:
+        ssl_name: mitroaccess.com
+        ssl_dest_name: star_mitroaccess_com
+        ssl_prefix: ../../../unnamed/crypto_keys/prod/mitroaccess_com/server

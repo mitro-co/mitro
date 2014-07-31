@@ -1,0 +1,14 @@
+# pip required packages file
+# Processed by build.sh into a virtualenv in build/venv
+# http://www.pip-installer.org/en/latest/requirements.html
+
+# All packages must have sha1 hashes to avoid things like the rubygems hack
+# TODO: pip 1.2.1 has something broken this this doesn't actually work at the moment!
+# pip is run with --no-deps, so we must manually list dependencies (to ensure we checksum all packages)
+# To get dependencies:
+# virtualenv test_venv
+# mkdir cache
+# ./test_venv/bin/pip install --download-cache cache (package)
+# Calculate sha256 with shasum -a 256 filename
+
+selenium == 2.33.0

@@ -1,0 +1,286 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The easiest way to save and share passwords. Remember and share everything from web accounts, credit cards, 2-factor backup codes, security question answers, and WiFi passwords.">
+    <title>Mitro</title>
+
+    <!--[if lte IE 8]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" /> -->
+    <link href="../less/main-org.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header"></div>
+      <div id="wrapper">
+        <div id="sidebar">
+          <div class="sb-section" id="profile">
+            <a href="https://www.mitro.co" class="icon-logo"></a>
+            <div id="username">username</div>
+          </div>
+          <div class="sb-section" id="acct-nav">
+            <ul>
+              <li>
+                <div class="acct-name">
+                  <div class="nav-icon icon-user"></div><a href="index.html">Personal</a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="index.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="personal-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                    <li><a class="acct-logs" href="personal-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+                </ul>
+              </li>
+              <li class="selected">
+                <div class="acct-name">
+                  <div class="org-icon" style="background-color: yellowgreen;"></div><div class="nav-icon icon-users"></div><a href="index-org.html">Lectorius <span class="admin-tag">Admin<span></a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-home" href="index-org.html"><div class="nav-icon icon-home"></div>Overview</a></li>
+                    <li><a class="acct-secrets" href="org-secrets.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li class="selected"><a class="acct-members" href="org-members.html"><div class="nav-icon icon-usercircle"></div>Members</a></li>
+                    <li><a class="acct-teams" href="org-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                    <li><a class="acct-logs" href="org-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="org-icon" style="background-color: pink;"></div><div class="nav-icon icon-users"></div><a href="main-org-user.html">Essence Digital</a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="main-org-user.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="org-user-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="nav-icon icon-users"></div>Stack Exchange
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="main-org-user.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="org-user-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="sb-section" id="tool-nav">
+            <ul>
+              <li><a href="import-secrets.html"><div class="nav-icon icon-download"></div>Import Secrets</a></li>
+              <!--<li><div class="nav-icon icon-wrench"></div>Tools</li>-->
+              <!--<li><a href="settings.html"><div class="nav-icon icon-gear"></div>Settings</a></li>-->
+              <li><a href="feedback-form.html"><div class="nav-icon icon-bubble"></div>Feedback</a></li>
+              <li><a href="mailto:inbound@mitro.co"><div class="nav-icon icon-question"></div>Help</a></li>
+              <li><div class="nav-icon icon-switch"></div>Sign Out</li>
+            </ul>
+          </div>
+          <div class="sb-section" id="policy-nav">
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="content">
+          <div id="content-header">
+            <ul class="breadcrumb">
+              <li><div class="nav-icon icon-usercircle"></div><a href="org-members.html">Members</a></li>
+              <li><div title="usertest+100@work.com" data-icon-text="usertest+100@work.com" class="user-icon-placeholder" style="background-color: rgb(188, 189, 34);">C</div>usertest+100@work.com</li>
+            </ul>
+          </div>
+          <div id="content-body">
+            <div id="tabs">
+              <ul>
+                <li><a href="#tab-member-teams"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                <li><a href="#tab-member-secrets"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+              </ul>
+              <div id="tab-member-teams">
+                <div class="tab-content">
+                </div>
+              </div> <!-- /#tab-member-teams -->
+              <div id="tab-member-secrets">
+                <div class="tab-content">
+                </div>
+              </div> <!-- /#tab-member-secrets -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/mustache.js"></script>
+    <script>
+      $(function() {
+        $('#tabs').tabs();
+      });
+
+      var data = {
+        teams: [
+          {   name: "Sales",
+              id: 25784,
+              color: "rgb(255, 127, 14)",
+              numSecrets: 5,
+              numMembers: 4
+          },
+          {   name: "Management",
+              id: 25784,
+              color: "rgb(31, 119, 180)",
+              numSecrets: 3,
+              numMembers: 2
+          }
+        ],
+        "initial": function() {
+          return this.name.charAt(0).toUpperCase();
+        },
+        "hasTeams": function() {
+          return ((this.teams.length > 0) ? true : false);
+        },
+        secrets: [
+          {   name: "Dropbox",
+              loginUrl: "https://www.dropbox.com/login",
+              url: "dropbox.com",
+              img: "https://dt8kf6553cww8.cloudfront.net/static/images/dropbox_webclip-vflO8tEZ4.png",
+              id: 88370,
+              username: "usertest@yahoo.com",
+              isNote: false
+
+          },
+          {   name: "Dropbox",
+              loginUrl: "https://www.dropbox.com/login",
+              url: "dropbox.com",
+              img: "https://dt8kf6553cww8.cloudfront.net/static/images/dropbox_webclip-vflO8tEZ4.png",
+              id: 88370,
+              username: "usertest@work.com",
+              isNote: false
+          },
+          {   name: "Ebay Online Auctions and Shopping",
+              loginUrl: "https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&amp;FYPReset=1&amp;ru=http%3A%2F%2Fmy.ebay.com%2Fws%2FeBayISAPI.dll%3FMyEbayBeta%26MyEbay%3D%26gbh%3D1%26guest%3D1&amp;input=tsaitsee",
+              url: "signin.ebay.com",
+              img: "https://signin.ebay.com/favicon.ico",
+              id: 88370,
+              username: "usertest@gmail.com",
+              isNote: false
+          },
+          {   name: "epicurious.com",
+              loginUrl: "http://www.epicurious.com/user/login",
+              url: "epicurious.com",
+              color: "rgb(255, 127, 14)",
+              id: 109991,
+              username: "usertest@gmail.com",
+              isNote: false
+          },
+          {   name: "Secret Test",
+              loginUrl: "",
+              url: "",
+              img: "",
+              id: 120019,
+              username: "",
+              isNote: true
+          }  
+        ],
+        "hasSecrets": function() {
+          return ((this.secrets.length > 0) ? true : false);
+        }
+      };
+
+      function loadTeams() {
+        var template = $('#team-list-template').html();
+        var output = Mustache.render(template, data);
+        $('#tab-member-teams .tab-content').html(output);
+      }
+
+      function loadSecrets() {
+        var template = $('#secret-list-template').html();
+        var output = Mustache.render(template, data);
+        $('#tab-member-secrets .tab-content').html(output);
+      }
+
+      $(document).ready(function() {
+        loadTeams();
+        loadSecrets();
+        $('a[href="#tab-members"]').click();
+        $('a[href="#tab-members"]').click(function() {
+          window.location.href = 'org-members.html';
+        });
+        $('a[href="#tab-teams"]').click(function() {
+          window.location.href = 'org-teams.html';
+        });
+        $('a[href="#tab-logs"]').click(function() {
+          window.location.href = 'org-logs.html';
+        });
+        $('a[href="#tab-secrets"]').click(function() {
+          window.location.href = 'org-secrets.html';
+        });
+        $('a[href="#tab-home"]').click(function() {
+          window.location.href = 'index-org.html';
+        });
+      });
+    </script>
+
+    <script id="team-list-template" type="text/html">
+      {{#hasTeams}}
+        <ul class="item-list">
+          {{#teams}}
+          <li class="item" data-id="{{ id }}">
+            <a class="item-icon team-icon-placeholder" href="team-info.html" title="{{ name }}" data-icon-text="{{ name }}" style="background-color: {{ color }}">{{ initial }}</a>
+            <div class="item-info">
+              <a href="team-info.html" class="item-name search-this-value">{{ name }}</a>
+              <div class="team-stats">
+                <a class="team-secrets" href="team-info.html">{{ numSecrets }}<div class="icon-lock" title="Team Secrets"></div></a>
+                <a class="team-members" href="team-info.html">{{ numMembers }}<div class="icon-usercircle" title="Team Members"></div></a>
+              </div>
+            </div>
+            <ul class="item-actions">
+              <li><a class="action-icon icon-close" title="Revoke Access"></a><div class="action-name">Revoke</div></li>
+            </ul>
+          </li>
+          {{/teams}}
+        </ul>
+      {{/hasTeams}}
+      {{^hasTeams}}
+        No teams yet.
+      {{/hasTeams}}     
+    </script>
+
+
+    <script id="secret-list-template" type="text/html">
+      {{#hasSecrets}}
+        <ul class="item-list">
+          {{#secrets}}
+          <li class="item" data-secret-id="{{ id }}">
+            <div class="item-org"></div>
+            {{#isNote}}
+            <div class="item-icon icon-document" title="{{ name }}" data-icon-text="{{ name }}"></div>
+            {{/isNote}}
+            {{^isNote}}
+              {{#img}}
+              <a class="item-icon" href="{{ loginUrl }}" title="{{ name }}"><img src="{{ img }}" data-icon-text="{{ name }} ({{ username }})"></a>
+              {{/img}}
+              {{^img}}
+              <a class="item-icon secret-icon-placeholder" href="{{ loginUrl }}" title="{{ name }}" data-icon-text="{{ name }}" style="background-color: {{ color }}">{{ initial }}</a>
+              {{/img}}
+            {{/isNote}}
+            <div class="item-info">
+              {{#name}}<a href="{{ loginUrl }}" class="item-name search-this-value">{{ name }}</a>{{/name}}
+              {{#url}}<a class="item-link search-this-value">{{ url }}</a>{{/url}}
+              {{#username}}<div class="item-username search-this-value">{{ username }}</div>{{/username}}
+            </div>
+            <ul class="item-actions">
+              <li><a class="action-icon icon-close" title="Revoke Access"></a><div class="action-name">Revoke</div></li>
+            </ul>
+          </li>
+          {{/secrets}}
+        </ul>
+      {{/hasSecrets}}
+      {{^hasSecrets}}
+        No secrets yet.
+      {{/hasSecrets}}     
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,66 @@
+{{<template}}
+{{$title}}Mitro: LastPass Importer{{/title}}
+
+{{$includes}}
+    <script type="text/javascript" src="../js/URI.js"></script>
+    <script type="text/javascript" src="../js/domain.js"></script>
+    <script type="text/javascript" src="../js/hogan-template.js"></script>
+    <script type="text/javascript" src="../js/modal-dialog-template.js"></script>
+    <script type="text/javascript" src="../js/acl-entry-template.js"></script>
+    <script type="text/javascript" src="../js/admin-common.js"></script>
+    <script type="text/javascript" src="../js/jquery-csv.js"></script>
+    <script type="text/javascript" src="../js/import-template.js"></script>
+    <script type="text/javascript" src="../kew.js"></script>
+    <script type="text/javascript" src="../js/org-info.js"></script>
+    <script type="text/javascript" src="../js/userdata.js"></script>
+    <script type="text/javascript" src="../js/import-common.js"></script>
+    <script type="text/javascript" src="../js/lastpass.js"></script>
+{{/includes}}
+
+{{$content}}
+<div class="left-col">
+
+<a class="nav-button" href="../html/importer.html">
+  <img src="../img/left_arrow.png" width="14" height="13">
+  Back to Importer
+</a>
+
+<h2>LastPass Importer</h2>
+
+<p>First, export your LastPass database to a CSV file:</p>
+
+<ol>
+<li>Click the LastPass button next to the URL bar.</li>
+<li>From the menu, choose Tools → Advanced Tools → Export To → LastPass CSV File.</li>
+<li>When it shows all your passwords, from the browser's menu choose Edit → Select All then Edit → Copy.</li>
+<li>Open a text editing program, paste into a new document, and save it somewhere.</li>
+<li>Upload the .csv file using this form.</li>
+</ol>
+
+<br><br>
+<input type = "file" id = "files" name = "files[]" single />
+<p>Destination team:
+<select id="group-select"></select> <button id="toggle-checked">Select/unselect all</button></p>
+
+<hr>
+
+<div id="password-list" >
+
+</div>
+
+ <button id="add-to-mitro-button" class="btn-primary btn-large" type="button" hidden="true" >
+    <img src="../img/plus.png" width="21" height="23">Add to Mitro
+  </button>
+
+<div id='upload-progress'>
+
+</div>
+
+</div>
+<!-- end left-col -->
+
+<div class="sidebar">
+</div>
+
+{{/content}}
+{{/template}}

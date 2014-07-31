@@ -1,0 +1,80 @@
+// fonts
+
+@verdana: verdana, geneva, sans-serif;
+@pt-sans-regular: 'PT-Sans-Regular';
+@pt-sans-bold: 'PT-Sans-Bold';
+@montserrat-regular: 'Montserrat-Regular';
+@montserrat-bold: 'Montserrat-Bold';
+@diamond: 'Mitro-Diamond';
+@icomoon: 'icomoon';
+
+// brand colors
+
+@primary: rgb(29, 150, 164); // #1d96a4
+@secondary: rgb(33, 50, 71); // #213247
+@tertiary: rgb(176, 186, 196); // #b0bac4
+@quaternary: rgb(130, 147, 164); // #8293a4
+@quinary: rgb(163, 20, 81); // #a31451
+@purple: rgb(91, 27, 128); // #5b1b80
+@royal-blue: rgb(13, 99, 165); // #0d63a5
+@dk-royal-blue: rgb(18, 74, 121); // #124a79
+@green: rgb(13, 165, 130); // #0da532
+@emerald-green: rgb(14, 108, 101); // #0e6c65
+@orange: rgb(165, 69, 13); // #a5450d
+@chartreuse: rgb(160, 165, 13); //#a0a50d
+@magenta: rgb(100, 29, 78); //#641d4e
+@primary-dk: rgb(15, 100, 120); //#0f6478
+@lt-gray: rgb(217, 226, 232); // #d9e2e8
+
+// background colors
+
+@bg-color-light: rgb(238, 243, 247); // #eef3f7
+@bg-color-dark: rgb(92, 110, 130); // #5c6e82;
+@bg-color-alt-light: rgb(255, 255, 255); // #fff
+@bg-color-alt-dark: rgb(57, 74, 95); // #394a5f
+@bg-color-success: rgb(19, 215, 236);
+@bg-color-blue-green: rgb(10,65,94); // 0a415e
+@bg-color-blue: rgb(12,37,79); // #0C254F
+@bg-color-dark-blue: rgb(8,27,58); // #081b3a
+@bg-color-darker-blue: rgb(6,20,44); // #06142c
+@bg-color-lt-gray: rgb(217, 226, 232); // #d9e2e8
+
+// text colors
+
+@text-white: rgb(255, 255, 255); // #fff
+@text-light: rgb(238, 243, 247); // #eef3f7
+@text-lt-gray: rgb(217, 226, 232); // #d9e2e8
+@text-dark: rgb(91, 110, 131); // #5b6e83
+@text-blue: rgb(19,215,236); // #13d7ec
+@text-hybrid: rgb(144, 159, 174); // #909fae
+@text-alt-dark: rgb(56, 74, 96); // #384a60
+
+// layout
+
+@active-account-padding: 10px;
+@active-account-height: 110px;
+
+@no-active-account-height: 40px;
+
+@search-content-height: 30px;
+@search-margin: 5px;
+@search-total-height: (@search-content-height + (2 * @search-margin));
+
+@item-row-height: 40px;
+@scroll-area-height: 198px; // active site
+@scroll-area-height-no-site: (@scroll-area-height + @active-account-height - @no-active-account-height); // no active site
+@footer-height: 30px;
+
+@pane-height: (@active-account-height + @search-total-height + @scroll-area-height);
+@total-popup-height: (@pane-height + @footer-height);
+
+// If this value is changed, the value of the popup width in popup.js must also be changed
+// var POPUP_WIDTH = 290;
+@total-popup-width: 290px;
+
+@generate-password-width: (@total-popup-width - @active-account-padding * 2);
+
+@brand-color: @primary;
+@off-white: @text-light;
+@sprite: url(../img/sprite@2x.png);
+@sprite-background-size: 135px 761px;

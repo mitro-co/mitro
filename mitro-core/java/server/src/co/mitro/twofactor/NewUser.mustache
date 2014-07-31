@@ -1,0 +1,30 @@
+{{<TwoFactorTemplate}}
+{{$content}}
+        <div class="banner">
+          <h1 class="title-main">Set Up Two Factor Authentication</h1>
+        </div>
+        <div id="two-factor">
+          <div class="bordered-content"> 
+            <p class="error-msg">{{errorMessage}}</p>
+            <ol>
+              <li>Install Google Authenticator on your <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">Apple product</a> or on your <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en"> Android product</a></li>
+              <li>Open the Google Authenticator app.</li>
+              <li>Tap menu, then tap "+", then tap "Scan a barcode".</li>
+              <li>Your phone will now be in a "scanning" mode.</li>
+              <li>When you are in this mode, scan the barcode below:
+                <img id="qrcode" src= "./QRGenerator?username={{encodedUsername}}&secret={{encodedSecret}}"></img>
+              </li>
+              <li>Once you have scanned the barcode, enter the 6-digit code below:
+                <form method="post" action="./TempVerify">
+                  <input id="secret" name="secret" type="hidden" value="{{secret}}">
+                  <input id="token" name="token" type="hidden" value="{{token}}">
+                  <input id="signature" name="signature" type="hidden" value="{{signature}}">
+                  <input id="code" name="code" type="text" placeholder="123456">
+                  <button type="submit" value="Enable">Enable</button>
+                </form>
+              </li>
+            </ol>
+          </div>
+        </div>
+{{/content}}
+{{/TwoFactorTemplate}}

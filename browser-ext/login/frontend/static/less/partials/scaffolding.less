@@ -1,0 +1,73 @@
+.clear {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
+}
+.container,
+.row {
+  .clear;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 940px;
+}
+.row {
+  margin-left: -20px;
+}
+[class*="span"] {
+  float: left;
+  margin-left: 20px;
+}
+.span1 {
+  width: 60px;
+}
+.span2 {
+  width: 140px;
+}
+.span3 {
+  width: 220px;
+}
+.span4 {
+  width: 300px;
+}
+.span5 {
+  width: 380px;
+}
+.span6 {
+  width: 460px;
+}
+.span7 {
+  width: 540px;
+}
+.span8 {
+  width: 620px;
+}
+.span9 {
+  width: 700px;
+}
+.span10 {
+  width: 780px;
+}
+.span11 {
+  width: 860px;
+}
+.span12 {
+  width: 940px;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.hidden {
+  display: none;
+}

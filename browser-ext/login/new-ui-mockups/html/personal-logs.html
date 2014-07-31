@@ -1,0 +1,216 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The easiest way to save and share passwords. Remember and share everything from web accounts, credit cards, 2-factor backup codes, security question answers, and WiFi passwords.">
+    <title>Mitro</title>
+
+    <!--[if lte IE 8]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" /> -->
+    <link href="../less/main-org.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header"></div>
+      <div id="wrapper">
+        <div id="sidebar">
+          <div class="sb-section" id="profile">
+            <a href="https://www.mitro.co" class="icon-logo"></a>
+            <div id="username">username</div>
+          </div>
+          <div class="sb-section" id="acct-nav">
+            <ul>
+              <li class="selected">
+                <div class="acct-name">
+                  <div class="nav-icon icon-user"></div><a href="index.html">Personal</a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="index.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="personal-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                    <li class="selected"><a class="acct-logs" href="personal-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="org-icon" style="background-color: yellowgreen;"></div><div class="nav-icon icon-users"></div><a href="index-org.html">Lectorius <span class="admin-tag">Admin<span></a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-home" href="index-org.html"><div class="nav-icon icon-home"></div>Overview</a></li>
+                    <li><a class="acct-secrets" href="org-secrets.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-members" href="org-members.html"><div class="nav-icon icon-usercircle"></div>Members</a></li>
+                    <li><a class="acct-teams" href="org-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                    <li><a class="acct-logs" href="org-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="org-icon" style="background-color: pink;"></div><div class="nav-icon icon-users"></div><a href="main-org-user.html">Essence Digital</a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="main-org-user.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="org-user-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="nav-icon icon-users"></div>Stack Exchange
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="main-org-user.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="org-user-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="sb-section" id="tool-nav">
+            <ul>
+              <li><a href="import-secrets.html"><div class="nav-icon icon-download"></div>Import Secrets</a></li>
+              <!--<li><div class="nav-icon icon-wrench"></div>Tools</li>-->
+              <!--<li><a href="settings.html"><div class="nav-icon icon-gear"></div>Settings</a></li>-->
+              <li><a href="feedback-form.html"><div class="nav-icon icon-bubble"></div>Feedback</a></li>
+              <li><a href="mailto:inbound@mitro.co"><div class="nav-icon icon-question"></div>Help</a></li>
+              <li><div class="nav-icon icon-switch"></div>Sign Out</li>
+            </ul>
+          </div>
+          <div class="sb-section" id="policy-nav">
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="content">
+          <div id="content-header">
+            <div id="acct-name-header">Personal</div>
+          </div>
+          <div id="content-body">
+            <div id="tabs">
+              <ul>
+                <li><a href="#tab-secrets"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                <li><a href="#tab-teams"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                <li><a href="#tab-logs"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+              </ul>
+              <div id="tab-secrets">
+              </div> <!-- /#tab-secrets-->
+              <div id="tab-teams">
+              </div> <!-- /#tab-teams -->
+              <div id="tab-logs">
+                <table id="log-table" class="tablesorter">
+                  <thead>
+                    <tr>
+                      <th id="log-user">User<div class="arrow-up"></div><div class="arrow-down"></div></th>
+                      <th id="log-action">Action<div class="arrow-up"></div><div class="arrow-down"></div></th>
+                      <th id="log-account">Account<div class="arrow-up"></div><div class="arrow-down"></div></th>
+                      <th id="log-ts">Timestamp<div class="arrow-up"></div><div class="arrow-down"></div></th>
+                      <th id="log-ip">IP Address<div class="arrow-up"></div><div class="arrow-down"></div></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><a href="user-info.html">usertest77234234254254252@yahoo.com</a></td>
+                      <td>Logged in</td>
+                      <td></td>
+                      <td>6/30/2014 2:10:34 PM</td>
+                      <td>98.207.206.235</td>                   
+                    </tr>
+                    <tr>
+                      <td><a href="user-info.html">usertest@gmail.com</a></td>
+                      <td>Accessed secret</td>
+                      <td><div class="icon-vault"></div><a href="team-info.html">usertest.myshopify.com</a></td>
+                      <td>6/30/2014 8:30:58 AM</td>
+                      <td>98.207.206.235</td>                   
+                    </tr>
+                    <tr>
+                      <td>usertest@gmail.com</td>
+                      <td>Edited secret</td>
+                      <td><div class="icon-vault"></div><a href="team-info.html">PayPal</a></td>
+                      <td>6/24/2014 2:19:22 PM</td>
+                      <td>38.104.247.242</td>                   
+                    </tr>
+                    <tr>
+                      <td>usertest@gmail.com</td>
+                      <td>Deleted secret</td>
+                      <td></td>
+                      <td>7/1/2014 11:37:23 AM</td>
+                      <td>38.104.247.242</td>                   
+                    </tr>
+                    <tr>
+                      <td>usertest@gmail.com</td>
+                      <td>Granted access to <a href="user-info.html">usertest+100@work.com</a></td>
+                      <td><div class="icon-vault"></div><a href="team-info.html">usertest.myshopify.com</a></td>
+                      <td>6/24/2014 12:39:43 PM</td>
+                      <td>38.104.247.242</td>                   
+                    </tr>
+                    <tr>
+                      <td>usertest@gmail.com</td>
+                      <td>Edited Group</td>
+                      <td><div class="icon-vault2"></div><a href="team-info.html">Management</a></td>
+                      <td>6/24/2014 10:56:18 AM</td>
+                      <td>38.104.247.242</td>                   
+                    </tr>
+                    <tr>
+                      <td><a href="user-info.html">usertest+100@work.com</a></td>
+                      <td>Changed password</td>
+                      <td></td>
+                      <td>6/24/2014 8:42:20 AM</td>
+                      <td>38.104.247.242</td>                   
+                    </tr>
+                    <tr>
+                      <td><a href="user-info.html">usertest+100@work.com</a></td>
+                      <td>Invited user usertest@gmail.com</td>
+                      <td></td>
+                      <td>6/24/2014 8:38:10 AM</td>
+                      <td>38.104.247.242</td>                   
+                    </tr>
+                    <tr>
+                      <td>usertest@gmail.com</td>
+                      <td>Revoked access from <a href="user-info.html">usertest+100@work.com</a></td>
+                      <td><div class="icon-vault"></div><a href="team-info.html">usertest.myshopify.com</a></td>
+                      <td>6/24/2014 12:39:43 PM</td>
+                      <td>38.104.247.242</td>                   
+                    </tr>
+                    <tr>
+                      <td>usertest@gmail.com</td>
+                      <td>Created group</td>
+                      <td><div class="icon-vault2"></div><a href="team-info.html">Sales</a></td>
+                      <td>6/24/2014 8:48:57 AM</td>
+                      <td>38.104.247.242</td>                   
+                    </tr>
+                  </tbody>
+                </table>
+              </div> <!-- /#tab-logs -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/mustache.js"></script>
+    <script type="text/javascript" src="../js/jquery.tablesorter.min.js"></script> 
+    <script>
+      $(function() {
+        $('#tabs').tabs();
+      });
+      $(document).ready(function() {
+        $('a[href="#tab-logs"]').click();
+        $('a[href="#tab-teams"]').click(function() {
+          window.location.href = 'personal-teams.html';
+        });
+        $('a[href="#tab-logs"]').click(function() {
+          window.location.href = 'personal-logs.html';
+        });
+        $('a[href="#tab-secrets"]').click(function() {
+          window.location.href = 'index.html';
+        });
+        $("#log-table").tablesorter({sortList: [[3,1]]});
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<resources>
+
+    <!--
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    -->
+    <style name="Theme.Mitro" parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_mitro</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Mitro</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Mitro</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Mitro</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Mitro</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Mitro</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_mitro</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_mitro</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Mitro</item>
+    </style>
+
+    <style name="ActionBar.Solid.Mitro" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_solid_mitro</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_mitro</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_mitro</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Mitro</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Mitro" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_mitro</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Mitro</item>
+    </style>
+    
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Mitro.Widget" parent="@style/Theme.AppCompat">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Mitro</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Mitro</item>
+    </style>
+
+</resources>

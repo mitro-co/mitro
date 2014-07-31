@@ -1,0 +1,4 @@
+---
+- name: restart mitrosync
+  service: name=mitrosync state=restarted
+  sudo: yes

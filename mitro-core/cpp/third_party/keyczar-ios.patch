@@ -1,0 +1,173 @@
+diff -rupN -x config.log -x '*.pyc' -x '*.swp' -x scons-out keyczar-old/keyczar-cpp/src/keyczar/base/file_util_posix.cc keyczar-new/keyczar-cpp/src/keyczar/base/file_util_posix.cc
+--- keyczar-old/keyczar-cpp/src/keyczar/base/file_util_posix.cc	2013-07-01 11:16:31.000000000 -0400
++++ keyczar-new/keyczar-cpp/src/keyczar/base/file_util_posix.cc	2013-09-08 22:45:32.000000000 -0400
+@@ -21,7 +21,7 @@
+ 
+ namespace {
+ 
+-#if defined(OS_BSD)
++#if defined(OS_BSD) || defined(OS_IOS)
+ typedef struct stat stat_s;
+ 
+ static int Stat(const char* path, stat_s* buf) {
+diff -rupN -x config.log -x '*.pyc' -x '*.swp' -x scons-out keyczar-old/keyczar-cpp/src/keyczar/base_test/base_paths_mac.mm keyczar-new/keyczar-cpp/src/keyczar/base_test/base_paths_mac.mm
+--- keyczar-old/keyczar-cpp/src/keyczar/base_test/base_paths_mac.mm	2013-07-01 11:16:31.000000000 -0400
++++ keyczar-new/keyczar-cpp/src/keyczar/base_test/base_paths_mac.mm	2013-09-08 22:45:57.000000000 -0400
+@@ -4,7 +4,11 @@
+ 
+ #include <keyczar/base_test/base_paths_mac.h>
+ 
++#if defined(OS_IOS)
++#import <Foundation/Foundation.h>
++#else
+ #import <Cocoa/Cocoa.h>
++#endif
+ 
+ #include <keyczar/base/file_path.h>
+ #include <keyczar/base/logging.h>
+diff -rupN -x config.log -x '*.pyc' -x '*.swp' -x scons-out keyczar-old/keyczar-cpp/src/keyczar/build.scons keyczar-new/keyczar-cpp/src/keyczar/build.scons
+--- keyczar-old/keyczar-cpp/src/keyczar/build.scons	2013-09-05 16:26:39.000000000 -0400
++++ keyczar-new/keyczar-cpp/src/keyczar/build.scons	2013-10-10 14:43:17.000000000 -0400
+@@ -134,7 +134,7 @@ if env.Bit('bsd'):
+ lib_sources = base_sources + keyczar_sources + openssl_sources + \
+               rw_sources + keyczar_tool_sources
+ out_lib = keyczar_lib_env.ComponentLibrary(lib_name, lib_sources,
+-                                           COMPONENT_STATIC=False)
++                                           COMPONENT_STATIC=True)
+ 
+ # Install the library components
+ installer.AddLibrary(out_lib[0])
+@@ -394,7 +394,8 @@ rw_unittests = [
+     'rw/keyset_reader_unittest.cc',
+     ]
+ 
+-unittests_env.ComponentTestProgram('base_unittests', base_unittests)
+-unittests_env.ComponentTestProgram('keyczar_unittests', keyczar_unittests)
+-unittests_env.ComponentTestProgram('openssl_unittests', openssl_unittests)
+-unittests_env.ComponentTestProgram('rw_unittests', rw_unittests)
++if not env.Bit('ios') and not env.Bit('mac'):
++  unittests_env.ComponentTestProgram('base_unittests', base_unittests)
++  unittests_env.ComponentTestProgram('keyczar_unittests', keyczar_unittests)
++  unittests_env.ComponentTestProgram('openssl_unittests', openssl_unittests)
++  unittests_env.ComponentTestProgram('rw_unittests', rw_unittests)
+diff -rupN -x config.log -x '*.pyc' -x '*.swp' -x scons-out keyczar-old/keyczar-cpp/src/main.scons keyczar-new/keyczar-cpp/src/main.scons
+--- keyczar-old/keyczar-cpp/src/main.scons	2013-10-02 12:19:44.000000000 -0400
++++ keyczar-new/keyczar-cpp/src/main.scons	2013-10-16 17:39:30.000000000 -0400
+@@ -19,7 +19,7 @@ base_env.Append(
+     CPPPATH = ['$MAIN_DIR'],
+ 
+     # The list of components common to all platforms.
+-    BUILD_SCONSCRIPTS = ['testing', 'keyczar'],
++    BUILD_SCONSCRIPTS = ['keyczar'],
+ 
+     # Sets architecture byte order
+     CPPDEFINES = [
+@@ -210,6 +210,64 @@ bsd_optimized_env['INSTALLER'] = install
+ 
+ 
+ 
++#### iOS environment
++
++PLATFORM = os.environ.get('PLATFORM', '')
++SDK_VERSION = os.environ.get('SDK_VERSION', '')
++ARCH = os.environ.get('ARCH', '')
++
++DEVELOPER_ROOT = '/Applications/Xcode.app/Contents/Developer'
++TOOLCHAIN_ROOT = DEVELOPER_ROOT + '/Toolchains/XcodeDefault.xctoolchain'
++PLATFORM_ROOT = DEVELOPER_ROOT + '/Platforms/' + PLATFORM + '.platform/Developer'
++SDK_ROOT = PLATFORM_ROOT + '/SDKs/' + PLATFORM + SDK_VERSION + '.sdk'
++
++PREFIX = ARGUMENTS.get('prefix', '/usr/local')
++LIB_DIR = PREFIX + '/lib'
++INCLUDE_DIR = PREFIX + '/include'
++
++# iOS environnment
++#
++# TODO: Building for iOS is very similar to building on the Mac.  We currently
++# modify the mac env, but the proper way is to provide a target_platform_ios
++# script.
++ios_env = base_env.Clone()
++ios_env.Tool('target_platform_mac')
++ios_env.SetBits('ios')
++
++# TODO: We define OS_IOS to handle a few differences with mac, but we
++# should also be undefining OS_MACOSX and then adding OS_IOS in all those cases
++# where OS_MACOSX is needed.
++ios_env.Replace(
++    TARGET_PLATFORM = 'IOS',
++    CXX = TOOLCHAIN_ROOT + '/usr/bin/c++',
++    CXXFLAGS = ['-arch', ARCH, '-isysroot', SDK_ROOT, '-DOS_IOS=1', '-miphoneos-version-min=7.0'],
++    LINKFLAGS = ['-arch', ARCH, '-isysroot', SDK_ROOT, '-miphoneos-version-min=7.0'],
++)
++ios_env.Append(
++    CPPPATH = [SDK_ROOT + '/usr/include', INCLUDE_DIR],
++    LIBPATH = [SDK_ROOT + '/usr/lib', LIB_DIR],
++)
++
++
++# Debug iOS environment
++ios_debug_env = ios_env.Clone(
++    BUILD_TYPE = 'opt-dbg',
++    BUILD_TYPE_DESCRIPTION = 'iOS debug build',
++)
++ios_debug_env.Tool('target_debug')
++ios_debug_env['INSTALLER'] = installer.Installer(ios_debug_env)
++
++
++# Optimized iOS environment
++ios_optimized_env = ios_env.Clone(
++    BUILD_TYPE = 'opt-ios',
++    BUILD_TYPE_DESCRIPTION = 'iOS optimized build',
++)
++ios_optimized_env.Tool('target_optimized')
++ios_optimized_env['INSTALLER'] = installer.Installer(ios_optimized_env)
++
++
++
+ #### Build the variants listed above.
+ matched_env = BuildComponents([
+     linux_debug_env,
+@@ -218,5 +276,7 @@ matched_env = BuildComponents([
+     mac_optimized_env,
+     bsd_debug_env,
+     bsd_optimized_env,
++    ios_debug_env,
++    ios_optimized_env
+ ])
+ assert(len(matched_env) == 1)
+diff -rupN -x config.log -x '*.pyc' -x '*.swp' -x scons-out keyczar-old/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/component_bits.py keyczar-new/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/component_bits.py
+--- keyczar-old/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/component_bits.py	2013-07-01 11:16:31.000000000 -0400
++++ keyczar-new/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/component_bits.py	2013-10-02 12:06:19.000000000 -0400
+@@ -278,6 +278,7 @@ def generate(env):
+   # Declare other common bits from target_ tools
+   DeclareBit('debug', 'Build is debug, not optimized.')
+   DeclareBit('posix', 'Target platform is posix.')
++  DeclareBit('ios', 'Target platform is ios.')
+ 
+   # Set the appropriate host platform bit
+   host_platform_to_bit = {
+diff -rupN -x config.log -x '*.pyc' -x '*.swp' -x scons-out keyczar-old/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/component_builders.py keyczar-new/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/component_builders.py
+--- keyczar-old/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/component_builders.py	2013-07-01 11:16:31.000000000 -0400
++++ keyczar-new/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/component_builders.py	2013-09-09 05:55:45.000000000 -0400
+@@ -311,6 +311,9 @@ def ComponentTestProgramDeferred(env):
+ 
+   Sets up the aliases to compile and run the test program.
+   """
++  # Don't run test when cross-compiling.
++  if env.get('TARGET_PLATFORM', '') != HOST_PLATFORM:
++    return
+   prog_name = env['PROGRAM_BASENAME']
+ 
+   # Install program and resources
+diff -rupN -x config.log -x '*.pyc' -x '*.swp' -x scons-out keyczar-old/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/target_optimized.py keyczar-new/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/target_optimized.py
+--- keyczar-old/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/target_optimized.py	2013-07-01 11:16:31.000000000 -0400
++++ keyczar-new/keyczar-cpp/src/tools/swtoolkit/site_scons/site_tools/target_optimized.py	2013-10-10 14:20:58.000000000 -0400
+@@ -44,7 +44,7 @@ def generate(env):
+   env['TARGET_DEBUG'] = False
+ 
+   env.Append(
+-      CPPDEFINES=['NDEBUG'] + env.get('CPPDEFINES_OPTIMIZED', []),
++      CPPDEFINES=env.get('CPPDEFINES_OPTIMIZED', []),
+       CCFLAGS=env.get('CCFLAGS_OPTIMIZED', []),
+       LINKFLAGS=env.get('LINKFLAGS_OPTIMIZED', []),
+   )

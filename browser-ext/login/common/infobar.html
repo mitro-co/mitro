@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Infobar</title>
+<style type="text/css">
+/*
+Infobar is a total of 36 pixels tall:
+http://dev.chromium.org/user-experience/infobars
+
+2px top border: #dddace and #fdf6dd
+33px content: gradient from #fdf0bc to #fbe9a7
+1px bottom border: #7a7a7a
+
+See:
+http://src.chromium.org/svn/trunk/src/chrome/browser/infobars/infobar.cc
+http://src.chromium.org/svn/trunk/src/chrome/browser/ui/cocoa/infobars/infobar_gradient_view.mm
+
+Test warning:
+http://www.java.com/en/download/testjava.jsp
+
+Test translate:
+http://www.radio-canada.ca/
+*/
+
+body {
+    padding: 0;
+    margin: 0;
+    /* font: message-box should give us the system font
+    http://www.w3.org/TR/css3-fonts/#font-prop */
+    font: message-box;
+    color: black;
+    border-top: 1px solid #dddace;
+}
+
+#content {
+    width: 100%;
+    height: 31px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #7a7a7a;
+    border-top: 1px solid #fdf6dd;
+    background-image: linear-gradient(270deg, #fdf0bc, #fbe9a7);
+}
+
+#content.safari {
+    background-image: -webkit-linear-gradient(270deg, #fdf0bc, #fbe9a7);
+}
+
+#icon-wrapper {
+  float: left;
+  line-height: 31px;
+}
+
+#icon {
+    padding-right: 11px;
+    padding-left: 12px;
+    vertical-align: middle;
+}
+
+#text {
+    display:inline;
+    /* forces plain text to be the same height as with a button */
+    height: 31px;
+    line-height: 31px;
+}
+
+#message {
+  vertical-align: middle;
+}
+
+form {
+  float: left;
+  height: 31px;
+}
+
+select {
+    font: message-box;
+    font-size: 16px;
+
+    margin: 0;
+    margin-left: 3px;
+    margin-right: 3px;
+
+    vertical-align: middle;
+}
+
+@-moz-document url-prefix() {
+  select {
+    font-size: 14px;
+  }
+}
+
+button {
+    font: message-box;
+    background-image: linear-gradient(180deg, #fefbf0, #fbebaf);
+    border-radius: 4px;
+    border: 1px solid #988f66;
+
+    margin: 0;
+    margin-left: 4px;
+    margin-right: 4px;
+    padding-bottom: 2px;
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-top: 1px;
+
+    vertical-align: middle;
+}
+
+button.safari {
+    background-image: -webkit-linear-gradient(270deg, #fefbf0, #fbebaf);
+}
+
+button:active {
+    /* reverse the direction of the gradient */
+    background-image: linear-gradient(0deg, #fefbf0, #fbebaf);
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.15);
+    /* makes the button a bit darker */
+    -webkit-filter: brightness(0.94);
+}
+
+button.safari:active {
+    background-image: -webkit-linear-gradient(90deg, #fefbf0, #fbebaf);
+}
+
+#right-button {
+    float: right;
+
+    margin-right: 8px;
+    margin-top: 5px;
+}
+
+#close {
+    float: right;
+    /* the image is 10x10; this makes the click target bigger */
+    width: 16px;
+    height: 16px;
+    margin-top: 10px;
+    margin-right: 10px;
+    background-image: url(%BASE_HTML%img/close_hover.png);
+    background-repeat: no-repeat;
+    background-position: 3px 2px;
+    opacity: 0.39;
+}
+
+#close:hover {
+    /* TODO: on click the background image should be black */
+    opacity: 1;
+}
+</style>
+</head>
+<body>
+<div id="content" %CLASS%>
+<div id="icon-wrapper">
+<img id="icon" src="%BASE_HTML%img/mitro_logo-128.png" width="20" height="20">
+</div>
+
+<!-- IMPORTANT: This is replaced by JS; leave it here! -->
+<form>
+<span id="text"><span id="message">Log in with Mitro as:</span>
+
+<select id="login" name="login">
+<option value="42">Service (user@example.com)</option>
+</select>
+
+<!-- <button type="submit">Log In</button> -->
+</span>
+</form>
+
+<div id="close"></div>
+<!-- <button id="right-button">Run this time</button> -->
+</div>
+</form>
+</body>
+</html>

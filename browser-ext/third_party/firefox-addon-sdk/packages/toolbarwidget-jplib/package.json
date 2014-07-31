@@ -1,0 +1,8 @@
+{
+    "name": "toolbarwidget",
+    "description": "Create widgets and place it on a toolbar using Jetpack",
+    "keywords": ["toolbar", "toolbarwidget", "widget", "ui"],
+    "author": "Rob Wu (https://robwu.nl/) <gwnRob@gmail.com>",
+    "version": "1.3.3",
+    "license": "MIT"
+}

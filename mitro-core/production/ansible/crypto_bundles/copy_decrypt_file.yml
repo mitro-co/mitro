@@ -1,0 +1,15 @@
+# Decrypts an encrypted file and copies it to the destination, readable only by
+# root. It attempts to hide the password and the encrypted file contents.
+# Depends on opensl and a custom stdin_command module.
+
+# crypto_password: Password for the encrypted file
+# encrypted_description: User-visible description of the encrypted file
+# encrypted_src: Path to the encrypted file
+# encrypted_dest: Destination for the decrypted file (owner=root group=root mode=0400)
+---
+- name: Locally decrypt {{encrypted_description}}
+  local_action: stdin_command stdin="{{crypto_password}}" command="openssl enc -aes256 -d -pass stdin -in {{encrypted_src}}"
+  sudo: no
+  register: encrypted_data
+- name: Copy {{encrypted_description}}
+  copy: dest={{encrypted_dest}} content="{{encrypted_data.stdout}}" mode=0400 owner=root group=root

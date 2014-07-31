@@ -1,0 +1,52 @@
+{{<template}}
+{{$includes}}
+    <script type="text/javascript" src="../js/URI.js"></script>
+    <script type="text/javascript" src="../js/domain.js"></script>
+    <script type="text/javascript" src="../js/hogan-template.js"></script>
+    <script type="text/javascript" src="../js/modal-dialog-template.js"></script>
+    <script type="text/javascript" src="../js/acl-entry-template.js"></script>
+    <script type="text/javascript" src="../js/admin-common.js"></script>
+    <script type="text/javascript" src="../js/importer.js"></script>
+{{/includes}}
+
+{{$content}}
+<div class="left-col">
+
+<a class="nav-button" href="../html/secrets.html">
+  <img src="../img/left_arrow.png" width="14" height="13">
+  Back to Dashboard
+</a>
+
+<h2>Password Manager Importer</h2>
+Select the password manager from which you wish to import from. 
+<br><br>
+<select id='import-format'>
+  <option value="lastpass">LastPass</option>
+  <option value="keypass">Keepass</option>
+  <option value="roboform">Roboform</option>
+  <option value="passpack">Passpack</option>
+  </select>
+<br><br>
+<button id="select-import-format-button" class="btn-primary btn-large" type="button">Select format</button>
+
+<br><br>
+<input hidden="true" type = "file" id = "files" name = "files[]" single /><hr>
+
+<div id="password-list" >
+
+</div>
+
+<button id="add-roboform-to-mitro-button" class="btn-primary btn-large" type="button" hidden="true" >
+  <img src="../img/plus.png" width="21" height="23">Add to Mitro
+</button>
+
+<div id='upload-progress'></div>
+
+</div>
+<!-- end left-col -->
+
+<div class="sidebar">
+</div>
+
+{{/content}}
+{{/template}}

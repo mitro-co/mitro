@@ -1,0 +1,5 @@
+PACKAGE_NAME=thrift-0.9.1
+URL=http://mirrors.ibiblio.org/apache/thrift/0.9.1/thrift-0.9.1.tar.gz
+LICENSE=CUSTOM:LICENSE
+DEPENDS=(boost)
+SHA1=dc54a54f8dc706ffddcd3e8c6cd5301c931af1cc

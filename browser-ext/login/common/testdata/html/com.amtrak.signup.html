@@ -1,0 +1,1974 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+<!--
+"Amtrak Release 6.14.02a"
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible" />
+
+
+<head ><title>Amtrak - Create User Profile</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="robots" content="noindex,nofollow" />
+<meta http-equiv="imagetoolbar" content="no" />
+<style type="text/css">
+<!--
+@import url(/css/amtrak.css);
+-->
+</style>
+
+<!-- IE8 renders as IE7 to spare ourselves another column in the compatability matrix -->
+<style type="text/css">
+<!--
+@import url(/css/base.css);
+@import url(/css/base_screen.css);
+@import url(/css/basic_booking.css);
+@import url(/css/special_booking.css);
+@import url(/css/basic_booking_screen.css);
+@import url(/css/ib_misc.css);
+@import url(/css/popup.css);
+@import url(/css/profile.css);
+@import url(/css/amtrak_autocomplete.css);
+-->
+</style>
+<!-- Diginet script(when USE_ESI=true) introduces 'c_root' form and this is causing orange bar to display on all pages.
+Following lines are added to get rid of the orange bar.-->
+<style type="text/css">
+form#c_root {
+display: none;
+}
+</style>
+<link href="/css/basic_booking_print.css" rel="stylesheet" type="text/css" media="print" />
+<link href="/css/base_print.css" rel="stylesheet" type="text/css" media="print" />
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-23218774-1']);
+_gaq.push(['_setDomainName', '.amtrak.com']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</head>
+
+
+<body class="profile">
+
+<link href="/css/header.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/prototype.js"></script>
+<div id="top_nav_wrapper">
+<div id="top_nav_left_cover">&nbsp;</div>
+<div id="top_navigation_body"></div>
+</div>
+<script language="JavaScript" type="text/javascript">
+<!--
+var url = "/" + "itd/amtrak" + "/DisplayCmsContent";
+new Ajax.Request(url,
+{ method: 'post',
+parameters: {'functionName':'topNavigation'},
+onSuccess: function (transport) {
+if(transport.responseText!='') {
+$('top_navigation_body').update(transport.responseText);
+} else {
+$('top_nav_wrapper').hide();
+}
+},
+onFailure: function (transport) {
+$('top_nav_wrapper').hide();
+}
+}
+);
+//-->
+</script>
+
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/prototype.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/scriptaculous.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/effects.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/controls.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/formutils.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/popups.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/profile_rewrite.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/external/yui/2.7.0/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/external/yui/2.7.0/calendar-min.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/yuicalendar.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/calendar_farefinder.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/farefinderrequest.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/header.js"></script>
+<script type="text/javascript" src="/itd/project/scripts/en/motionpoint/motionpoint.js"></script>
+<script type="text/javascript">
+<!--
+var pageName='amtrak/profile/registerpage.jsp';
+/* if the subPageName has been defined use it to prefix the page name */
+if (typeof subPageName != 'undefined'){
+var path=pageName.substr(0,pageName.lastIndexOf("/")+1);
+var page=pageName.substr(pageName.lastIndexOf("/")+1);
+pageName=path+subPageName+page;
+}
+//-->
+</script>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/jquery-1.4.2.min.js"></script>
+<script type="text/javascript">
+jQuery.noConflict();
+</script>
+
+<div id="outer_wrapper_confirmation">
+<div id="top_level_wrapper_confirmation">
+<div id="lower_wrapper_confirmation">
+<div style="position: relative;"><div id="shoulder">&nbsp;</div></div>
+<div id="top_bar">&nbsp;</div>
+
+<div id="left_column_wrapper_confirmation">
+
+
+<style type="text/css">
+<!--
+@import url(/css/base.css);
+-->
+</style>
+<script language="JavaScript" type="text/javascript" src="/itd/project/scripts/en/amtrak/base.js"></script>
+<script language="JavaScript" type="text/javascript" src="/itd/project/scripts/en/amtrak/basic_booking_left.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/external/yui/2.7.0/calendar.css?nocache=v3_50_000" media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/external/yui/2.7.0/container.css?nocache=v3_50_000" media="screen" />
+<link rel="stylesheet" type="text/css" href="/css/amtrak-calendar.css" media="screen" />
+
+
+<div id="persistent_info_wrapper">
+
+
+
+<ul id="pi_actions_list">
+<li><a href="javascript:LoginPopout.show()">Login</a></li>
+<li><a href="https://tickets.amtrak.com/itd/amtrak/Register">Register</a></li>
+</ul>
+
+
+
+<script type="text/javascript">
+document.observe('dom:loaded', function() {
+$("login_popout").hide();
+});
+</script>
+<div class="popout" id="login_popout" style="display: block">
+
+
+
+<style type="text/css">
+#loading {
+position: fixed;
+top: 30%;
+left: 25%;
+background:url(/images/en/superpnr/image_loader_blue.gif) no-repeat center #fff;
+padding:7px;
+}
+#overlay {
+background-color:#EEE;
+}
+.link_item {
+float:left;
+width:65%;
+}
+</style>
+<style type="text/css">
+.submit_image {
+float:right;
+vertical-align:top;
+background-color: transparent;
+border: none;
+font-size:1px;
+width: 70px;
+height: 24px;
+background-image: url(/images/en/btn_login.gif);
+background-repeat: no-repeat;
+}
+</style>
+<script>
+function enterKeyPress(event) {
+if (Event.KEY_RETURN == event.keyCode) {
+// do something usefull
+LoginPopout.doLogon();
+return false;
+}
+return true;
+}
+</script>
+
+
+<div id="loading"></div>
+<script>
+$('loading').hide();
+</script>
+<div id="overlay" style="background-color: white;">
+<div class="popout_inner" id="login_popout_inner">
+<a href="javascript:LoginPopout.hide()" class="close_btn button"><img src="/images/en/btn_closeXorange.gif" alt="X" /></a>
+<div id="login_form_header"><h3 style="margin-top:0px;">Log In to Amtrak.com</h3></div>
+
+<div class="form_holder" id="login_form_holder">
+<form action="https://tickets.amtrak.com/itd/amtrak" class="std_form clearfix" id="login_ajax_form" onsubmit="doRegularLogon(); return true;" method="post"><input type="hidden" name="requestor" value="amtrak.presentation.handler.page.profile.AmtrakProfileRegisterPageHandler" />
+<div class="form_line">
+<div class="form_label"><label for="login_email_address">E-Mail Address</label></div>
+<div class="form_item"><input type="hidden" name="xwdf_username" value="/sessionWorkflow/userWorkflow/profileAccountRequirements/userName" /><input autocomplete="off" maxlength="64" type="text" class="text" id="login_email_address" name="wdf_username" /></div>
+</div>
+<div class="form_line">
+<div class="form_label"><label for="login_password">Password</label></div>
+<div class="form_item"><input type="hidden" name="xwdf_password" value="/sessionWorkflow/userWorkflow/profileAccountRequirements/password" /><input maxlength="20" type="password" class="text password" id="login_password" name="wdf_password" /></div>
+</div>
+<div class="form_line" id="login_go">
+<div class="link_item  submit_item">
+<a href="javascript:fieldName='wdf_RequestUserID'; openRequestUserID();" title="Click here to request your Password" class="forgot_pass">Forgot password?</a>
+</div>
+
+<input value="" type="submit" class="submit_image" name="_handler=amtrak.presentation.handler.request.profile.AmtrakProfileLogonRequestHandler/_xpath=/sessionWorkflow/userWorkflow/profileAccountRequirements" />
+</div>
+</form>
+</div>
+</div>
+<hr/>
+<div class="popout_inner">
+<div><img src="/images/en/linkaccounts_Popup.gif" /></div>
+
+<h4 style="color:#1375B3">Link your Amtrak.com and Amtrak Guest Rewards accounts</h4>
+<p> Make your booking experience even easier by linking your accounts - you&#39;ll be able to navigate between both sites without having to log in twice.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+areCookiesEnabled();
+function createCookie(name, value, days) {
+var expires;
+if (days) {
+var date = new Date();
+date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+expires = "; expires=" + date.toGMTString();
+}
+else expires = "";
+document.cookie = name + "=" + value + expires + "; path=/";
+}
+function readCookie(name) {
+var nameEQ = name + "=";
+var ca = document.cookie.split(';');
+for (var i = 0; i < ca.length; i++) {
+var c = ca[i];
+while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+}
+return null;
+}
+function eraseCookie(name) {
+createCookie(name, "", -1);
+}
+function areCookiesEnabled() {
+createCookie("test", "Hello", 1);
+if (readCookie("test") == null) {
+// No stored cookie, therefore client cannot (or will not) accept
+// cookies - display error msg
+var output = '<tr class="errorrow">'
++ '<td class="error">'
++ '<table cellspacing="0" cellpadding="0" border="0" class="errorimagetable">'
++ '<tr class="errorimagerow">'
++ '<td class="errorimagecell">'
++ '<img class="errorimage" src="/images/en/warn.gif" />'
++ '</td>'
++ '<td class="errortextcell" >'
++ '<span class="error">'
++ 'Cookies Must Be Enabled: To use advanced features of Amtrak.com, your browser must be capable of accepting session cookies. Please <a href="javascript:var child=window.open(\'http://www.amtrak.com/servlet/ContentServer?pagename=am/AM_Snippet_C/IBLegacy&help=cookies\',\'help\',\'directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1\');child.focus();">click here</a> to learn more about how to accept cookies.'
++ '</span></td></tr>'
++ '</table>'
++ '</td></tr>'
++ '<tr><td>&nbsp;</td></tr>';
+document.write(output);
+}
+eraseCookie("test");
+}
+</script>
+
+
+
+
+
+
+<!--[if IE]>
+<script type="text/javascript">
+function isCalendarEvent(e) {
+var element = Event.element(e);
+var names = element.classNames();
+if (names.include('selector')) {
+return true;
+}
+if (names.include('calnavright')) {
+return true;
+}
+if (names.include('calnavleft')) {
+return true;
+}
+if (names.include('link-close')) {
+return true;
+}
+return false;
+}
+function addFormSubmitEvent(form) {
+form.onkeydown = function(e) {
+e = e || window.event;
+if (e.keyCode == 13) {
+// If this is a Calendar return key entry then do not
+// call form.submit()
+if (isCalendarEvent(e)) {
+return;
+}
+if (form.name == 'ff_status_form') {
+if(CheckMandatoryTrainStatusFields(form)) {
+form.submit();
+return true;
+}
+return false;
+}
+if (form.name == 'mytrip_acct') {
+if (CheckMandatoryLoginFields(form)) {
+form.submit();
+return false;
+}
+return true;
+}
+if (form.name == 'mytrip_res') {
+if (CheckMandatoryMyTripFields(form)) {
+form.submit();
+return false;
+}
+return true;
+}
+if (form.name == 'ff_schedules_form') {
+if (CheckMandatoryScheduleFields(form)) {
+form.submit();
+return false;
+}
+return true;
+}
+}
+};
+}
+document.observe('dom:loaded', function() {
+var forms = document.getElementsByTagName('form');
+for (var i=0;i < forms.length;i++) {
+if (forms[i].name == 'mytrip_res' || forms[i].name == 'mytrip_acct' || forms[i].name == 'ff_schedules_form' || forms[i].name == 'ff_status_form') {
+addFormSubmitEvent(forms[i]);
+}
+}
+});
+</script>
+<![endif]-->
+<!-- Begin HTML for Fare Finder -->
+<div id="farefinder">
+<div id="ff_tabbar">
+<div class="active" id="ff_tabbar_tickets">Tickets<span onclick="compare_dates('wdfdate1');show_ff_tab('tickets');showHideRedeemTabBarSection('ff_sub_tabbar', true);"></span></div>
+<div id="ff_tabbar_status">Status<span onclick="set_status_date('wdfdate10');show_ff_tab('status');"></span></div>
+<div id="ff_tabbar_schedules">Schedules<span onclick="compare_dates('wdfdate5');show_ff_tab('schedules');"></span></div>
+<div id="ff_tabbar_mytrip">My Trip<span onclick="show_ff_tab('mytrip');"></span></div>
+</div>
+
+
+<div id="ff_sub_tabbar" class="show_section">
+<div class="active" id="ff_sub_tabbar_bookatrip">Book<span onclick="show_ff_sub_tab('bookatrip');"></span></div>
+<div id="ff_sub_tabbar_redeem">Redeem<span onclick="show_ff_sub_tab('redeem');"></span></div>
+</div>
+
+<div id="farefinder_tabbody_tickets" class="farefinder_tabbody ff_active">
+<form action="https://tickets.amtrak.com/itd/amtrak" name="form" method="post"><input type="hidden" name="requestor" value="amtrak.presentation.handler.page.rail.AmtrakRailFareFinderPageHandler" />
+<h2>Tickets</h2>
+
+<div id="ff_tickets_tt_cities_subdiv" class="subdiv level6">
+<div id="tickets_trip_type"><p>
+<input type="hidden" name="xwdf_TripType" value="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/tripType" /><input value="OneWay" type="radio" onclick="javascript:blankReturnDate(false)" id="oneway" checked="checked" name="wdf_TripType" />&nbsp;<label for="oneway">One-Way</label>
+<input type="hidden" name="xwdf_TripType" value="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/tripType" /><input value="Return" type="radio" onclick="javascript:setReturnDate(false)" id="return" name="wdf_TripType" />&nbsp;<label for="return">Round-Trip</label>
+<a href="/itd/amtrak/ComplexRail">Multi-City</a> &gt;</p>
+</div>
+<div id="tickets_dep_city" class="ff_city_wrapper">
+<label for="departs">From</label>
+<input type="hidden" name="xwdf_origin" value="/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/departLocation/search" /><input autocomplete="off" maxlength="150" type="text" id="departs" name="wdf_origin" />
+<p><span class="find_a_station"><a href="javascript:fieldName='departs'; openStationList();" title="Click for a list of stations.">Find a Station</a></span></p>
+</div>
+<div id="tickets_arr_city" class="ff_city_wrapper level3">
+<label for="arrives">To</label>
+<input type="hidden" name="xwdf_destination" value="/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/arriveLocation/search" /><input autocomplete="off" maxlength="150" type="text" id="arrives" name="wdf_destination" />
+<p><span class="find_a_station"><a href="javascript:fieldName='arrives'; openStationList();" title="Click for a list of stations.">Find a Station</a></span></p>
+</div>
+<div id="autocomplete_availability_from" class="autocomplete level5" style="display:none"></div>
+<div id="autocomplete_availability_to" class="autocomplete level5" style="display:none"></div>
+</div>
+<div id="ff_tickets_dep_ret_date_subdiv" class="subdiv level3" style="position:static;">
+<div id="tickets_dep_date_time" class="level5">
+<div class="ff_date_wrapper">
+<label for="tickets_dep_date">Departs</label>
+<input value="Wed, Aug 21, 2013" maxlength="22" type="text" class="wdfDate" id="wdfdate1" readonly="readonly" onfocus="dateChangedTimer(1)" size="22" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate.date" onblur="dateChangedComplete(1,1)" /><script language="JavaScript" type="text/javascript">
+<!--
+document.write('<a class="calLink noloading" id="calLink1">&nbsp;</a>');//-->
+</script>
+<br /><div id="calContainer1"  class="calContainer" ></div></div><div class="ff_time_wrapper"><label for="wdftime1"><b>Time</b></label><select onchange="timeChanged(1);setTripTypeIfReturnDateSelected(false)" id="wdftime1" onfocus="updateTimeState()" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departTime.hourmin"><option value="">Anytime</option><option value="07:00">Morning</option><option value="14:00">Afternoon</option><option value="19:00">Evening</option><option value="23:59">Midnight</option><option value="01:00">1 AM</option><option value="02:00">2 AM</option><option value="03:00">3 AM</option><option value="04:00">4 AM</option><option value="05:00">5 AM</option><option value="06:00">6 AM</option><option value="07:00">7 AM</option><option value="08:00">8 AM</option><option value="09:00">9 AM</option><option value="10:00">10 AM</option><option value="11:00">11 AM</option><option value="12:00">Noon</option><option value="13:00">1 PM</option><option value="14:00">2 PM</option><option value="15:00">3 PM</option><option value="16:00">4 PM</option><option value="17:00">5 PM</option><option value="18:00">6 PM</option><option value="19:00">7 PM</option><option value="20:00">8 PM</option><option value="21:00">9 PM</option><option value="22:00">10 PM</option><option value="23:00">11 PM</option></select>
+</div>
+</div>
+
+
+<div id="tickets_ret_date_time" class="hide_section level4">
+<div class="ff_date_wrapper">
+
+<label for="tickets_ret_date">Returns</label>
+<input maxlength="22" type="text" class="wdfDate" id="wdfdate2" readonly="readonly" onfocus="dateChangedTimer(2)" size="22" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[2]/departDate.date" onblur="dateChangedComplete(2,1)" /><script language="JavaScript" type="text/javascript">
+<!--
+document.write('<a class="calLink noloading" id="calLink2">&nbsp;</a>');//-->
+</script>
+<br /><div id="calContainer2"  class="calContainer" ></div></div><div class="ff_time_wrapper"><label for="wdftime2"><b>Time</b></label><select onchange="timeChanged(2);setTripTypeIfReturnDateSelected(false)" id="wdftime2" onfocus="updateTimeState()" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[2]/departTime.hourmin"><option value="">Anytime</option><option value="07:00">Morning</option><option value="14:00">Afternoon</option><option value="19:00">Evening</option><option value="23:59">Midnight</option><option value="01:00">1 AM</option><option value="02:00">2 AM</option><option value="03:00">3 AM</option><option value="04:00">4 AM</option><option value="05:00">5 AM</option><option value="06:00">6 AM</option><option value="07:00">7 AM</option><option value="08:00">8 AM</option><option value="09:00">9 AM</option><option value="10:00">10 AM</option><option value="11:00">11 AM</option><option value="12:00">Noon</option><option value="13:00">1 PM</option><option value="14:00">2 PM</option><option value="15:00">3 PM</option><option value="16:00">4 PM</option><option value="17:00">5 PM</option><option value="18:00">6 PM</option><option value="19:00">7 PM</option><option value="20:00">8 PM</option><option value="21:00">9 PM</option><option value="22:00">10 PM</option><option value="23:00">11 PM</option></select>
+</div>
+</div>
+
+</div>
+<div id="ff_tickets_passengers_subdiv" class="subdiv level1">
+<div id="tickets_passengers">
+<div id="ff_adults_wrapper">
+<label style="line-height:1.1;" for="ff_adults"><a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=Adult','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">Adults</a><br /> (16+)</label>
+<select id="adults" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/allJourneyRequirements/numberOfTravellers[@key='Adult']"><option value="1" selected="selected">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
+</div>
+<div id="ff_kids_wrapper">
+<label style="line-height:1.1;" for="ff_kids"><a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=Child','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">Children</a><br /> (2-15)</label>
+<select onchange="showChildPopup(this.options[this.selectedIndex].value, document.getElementById('infants').options[document.getElementById('infants').selectedIndex].value, 'child_popup')" id="children" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/allJourneyRequirements/numberOfTravellers[@key='Child']"><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+</div>
+<div id="ff_infants_wrapper">
+<label style="line-height:1.1;" for="ff_infants"><a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=Infant','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">Infants</a><br /> (under 2)</label>
+<select onchange="showChildPopup(this.options[this.selectedIndex].value, document.getElementById('children').options[document.getElementById('children').selectedIndex].value, 'child_popup')" id="infants" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/allJourneyRequirements/numberOfTravellers[@key='Infant']"><option value="0" selected="selected">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select>
+</div>
+<div id="ff_submit_button">
+
+
+<input type="image" onclick="javascript:return preFareFinderSubmitActions('The following information is needed to process your request:', 'Problem Pricing the Itinerary: Atlantic City Express Service offers adult fares only for all passengers.  Please modify your selection to continue. \n[Error ID: 1121S]')" src="/images/en/btn_ff_go.gif" alt="Click to Find Tickets" border="0" name="_handler=amtrak.presentation.handler.request.rail.AmtrakRailSearchRequestHandler/_xpath=/sessionWorkflow/productWorkflow[@product='Rail']" />
+
+</div>
+</div>
+</div>
+<br/>
+
+
+
+<div id="child_popup" class="info_childpopup_ff hide_section">Children and infants must travel with an adult who is at least 18 years or older.</div>
+
+
+<div id="ada_link" class="subdiv">
+<label for="ff_ada_link" style="line-height: 1.1;cursor: pointer;font-weight: normal;"><a href="/itd/amtrak/ada">Passengers with a Disability</a></label>
+</div>
+
+</form>
+</div>
+
+
+
+
+
+
+       <div id="farefinder_tabbody_redeem" class="farefinder_tabbody">
+       	<h2>Redeem Points</h2>
+       	
+       	<form action="https://tickets.amtrak.com/itd/amtrak" name="ff_redeem_form" method="post"><input type="hidden" name="requestor" value="amtrak.presentation.handler.page.rail.redeem.PresAmtrakRailRedeemFindATicketReqsPageHandler" />
+       		<div id="ff_redeem_step_1" class="subdiv">         		
+	    	<div id="ff_member_wrapper">
+	      		
+	      		
+	        		
+	        		
+			           
+			      	
+			      	
+			          	<div class="form_line_wrapper first">
+			            	<label for="ff_membernumber">Member Number</label>
+			            	<span class="form_entry">
+			                	<input maxlength="10" type="text" id="ff_membernumber" name="/sessionWorkflow/profileWorkflow/schemeAccount/membershipNumber" />
+			                </span>
+			            </div>
+			            <div class="form_line_wrapper">
+			            	<label for="ff_memberpassword">Member Password</label>
+			                <span class="form_entry">	
+			                	<input maxlength="29" type="password" id="ff_memberpassword" name="/sessionWorkflow/profileWorkflow/schemeAccount/@password" />
+			                </span>	                    
+			            </div>
+			            <br class="clear_both" />			                       
+			        
+	        		
+	      		  
+	      	</div>
+     	</div>
+	      
+	    <div id="ff_tickets_redeem_cities_subdiv" class="subdiv">
+			
+		    	<div id="tickets_dep_city" class="ff_city_wrapper">			      						         
+		        	<input value="departTime" type="hidden" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate/@radioSelect" />
+		        	<input value="redeem" type="hidden" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/@bookpath" />			      			
+		      		<label for="agrdeparts">From</label>				                
+		        	<input type="hidden" name="xwdf_origin" value="/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/departLocation/search" /><input type="text" class="text" id="agrdeparts" name="wdf_origin" />
+		        	<p><span class="find_a_station"><a href="javascript:fieldName='agrdeparts'; openStationList();" title="Click for a list of stations.">Find a Station</a></span></p>            				                        
+	          	</div>
+	          
+	          	<div id="tickets_arr_city" class="ff_city_wrapper level3">
+	          		<label for="agrarrives">To</label>
+	          		<input type="hidden" name="xwdf_destination" value="/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/arriveLocation/search" /><input type="text" class="text" id="agrarrives" name="wdf_destination" />
+	          		<p><span class="find_a_station"><a href="javascript:fieldName='agrarrives'; openStationList();" title="Click for a list of stations.">Find a Station</a></span></p>		
+	          	</div>	
+	      	  	<div id="redeem_from_auto" class="autocomplete level5" style="display:none"></div>
+                 	<div id="redeem_to_auto" class="autocomplete level5" style="display:none"></div>		
+	      	
+	      </div>
+      
+             <div id="ff_redeem_dep_date_subdiv" class="subdiv">
+          	<div id="redeem_dep_date_time">
+            	<div class="ff_date_wrapper">                                
+                	<label for="wdfdate15">Departs</label>
+                    	<input value="Wed, Aug 21, 2013" maxlength="22" type="text" class="wdfDate" id="wdfdate15" readonly="readonly" onfocus="dateChangedTimer(15)" size="22" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate.date" onblur="dateChangedComplete(15,1)" /><script language="JavaScript" type="text/javascript">
+<!--
+document.write('<a class="calLink noloading" id="calLink15">&nbsp;</a>');//-->
+</script>
+<br /><div id="calContainer15"  class="calContainer" ></div></div><div class="ff_time_wrapper"><label for="wdftimenull"><b>Time</b></label><select onchange="timeChanged(15);setTripTypeIfReturnDateSelected(false)" id="wdftime15" onfocus="updateTimeState()" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departTime.hourmin"><option value="">Anytime</option><option value="07:00">Morning</option><option value="14:00">Afternoon</option><option value="19:00">Evening</option><option value="23:59">Midnight</option><option value="01:00">1 AM</option><option value="02:00">2 AM</option><option value="03:00">3 AM</option><option value="04:00">4 AM</option><option value="05:00">5 AM</option><option value="06:00">6 AM</option><option value="07:00">7 AM</option><option value="08:00">8 AM</option><option value="09:00">9 AM</option><option value="10:00">10 AM</option><option value="11:00">11 AM</option><option value="12:00">Noon</option><option value="13:00">1 PM</option><option value="14:00">2 PM</option><option value="15:00">3 PM</option><option value="16:00">4 PM</option><option value="17:00">5 PM</option><option value="18:00">6 PM</option><option value="19:00">7 PM</option><option value="20:00">8 PM</option><option value="21:00">9 PM</option><option value="22:00">10 PM</option><option value="23:00">11 PM</option></select>                                                                            
+                </div>                            
+	            </div>
+          </div>
+            
+             <div id="ff_redeem_passengers_subdiv" class="subdiv">
+             	<div id="redeem_passengers">
+              	<div id="passenger_wrapper">
+                	<label for="redeemadults">Passengers</label><br> (Max. of 8)	                	                    
+                </div>	                
+                <div id="ff_redeem_passenger_select_wrapper">
+                	<select id="redeemadults" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/allJourneyRequirements/numberOfTravellers[@key='Adult']"><option value="1" selected="selected">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select>
+                </div>
+                <div id="ff_submit_button">                	
+                    <input type="image" onclick="javascript:return preRedeemSubmitActions('The following information is needed to process your request:')" src="/images/en/btn_ff_go.gif" alt="Click to Find Tickets" border="0" name="_handler=amtrak.presentation.handler.request.rail.redeem.PresAmtrakRailRedeemSearchRequestHandler" />                            
+                </div>
+               </div> 
+               <br/>
+               <p><a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&help=agrFindTicket','help','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();"  CLASS="smallblue">Learn more</a> about redeeming points online for Amtrak travel.</p>                  
+             </div>
+      	<br class="clear_both" />            
+	</form>
+ </div>     
+		 <script language="JavaScript" type="text/javascript">        
+		 <!--
+			 if( $('ff_sub_tabbar_bookatrip').hasClassName("active") ){
+				show_ff_sub_tab('bookatrip');
+	 		 } else if( $('ff_sub_tabbar_redeem').hasClassName("active") ){
+		 		show_ff_sub_tab('redeem');
+	 		 }
+		 //-->
+		 </script>
+		  
+<div id="farefinder_tabbody_status" class="farefinder_tabbody">
+
+<form action="https://tickets.amtrak.com/itd/amtrak" onsubmit="javascript:return CheckMandatoryTrainStatusFields(this)" name="ff_status_form" method="post"><input type="hidden" name="requestor" value="amtrak.presentation.handler.page.profile.AmtrakProfileRegisterPageHandler" />
+<h2>Status</h2>
+<div id="ff_status_step_1" class="subdiv1">
+<h3>Check Status of a Train</h3>
+<div class="form_line_wrapper first">
+<label for="status_date">
+Date:
+</label>
+<span class="form_entry">
+<input value="Wed, Aug 21, 2013" maxlength="22" type="text" class="wdfDate" id="wdfdate10" readonly="readonly" onfocus="dateChangedTimer(10)" size="22" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate.date" onblur="dateChangedComplete(10,1)" /><script language="JavaScript" type="text/javascript">
+<!--
+document.write('<a class="calLink noloading" id="calLink10">&nbsp;</a>');//-->
+</script>
+<br /><div id="calContainer10"  class="calContainer" ></div>
+</span>
+</div>
+<div class="form_line_wrapper">
+<label for="status_train_num">
+Train No.
+</label>
+<span class="form_entry">
+<input type="hidden" name="xwdf_trainNumber" value="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/segmentRequirements[1]/serviceCode" /><input value="optional" maxlength="8" type="text" id="status_train_num" onfocus="if (this.value=='optional') { this.value=''; updateMaxLength(); };" size="4" name="wdf_trainNumber" />
+</span>
+</div>
+<br class="clear_both" />
+</div>
+<div id="ff_status_step_2" class="subdiv">
+<div id="ff_status_footnote_submit_wrapper">
+<p>One city is required if train number is used.</p>
+</div>
+<div id="status_dep_city" class="ff_city_wrapper">
+<label for="status_from">
+From
+</label>
+<!-- itd:locationinput id="status_dep" wdfxpath="travelSelection/journeySelection[1]/departLocation" wdfhtmlname="wdf_origin" wdflimitedlocations="resource:TRAVEL_USE_LIMITED_LOCATIONS" size="25" / -->
+<input type="hidden" name="xwdf_origin" value="/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/departLocation/search" /><input autocomplete="off" maxlength="150" type="text" id="status_from" name="wdf_origin" />
+<p><span class="find_a_station">
+<a href="javascript:fieldName='status_from'; openStationList();" title="Click for a list of stations.">Find a Station</a>
+</span></p>
+</div>
+<div id="status_arr_city" class="ff_city_wrapper">
+<label for="status_to">
+To
+</label>
+<!-- itd:locationinput id="status_to" wdfxpath="travelSelection/journeySelection[1]/arriveLocation" wdfhtmlname="wdf_destination" wdflimitedlocations="resource:TRAVEL_USE_LIMITED_LOCATIONS" size="25" / -->
+<input type="hidden" name="xwdf_destination" value="/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/arriveLocation/search" /><input autocomplete="off" maxlength="150" type="text" id="status_to" name="wdf_destination" />
+<p><span class="find_a_station">
+<a href="javascript:fieldName='status_to'; openStationList();" title="Click for a list of stations.">Find a Station</a>
+</span></p>
+</div>
+</div>
+<div id="ff_status_step_3" class="subdiv">
+<div id="status_from_auto" class="autocomplete" style="display:none"></div>
+<div id="status_to_auto" class="autocomplete" style="display:none"></div>
+<div id="status_arr_or_dep_wrapper">
+
+
+<input type="hidden" name="xwdf_SortBy" value="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate/@radioSelect" /><input value="arrivalTime" type="radio" id="status_arr" checked="checked" name="wdf_SortBy" />
+<label for="status_arr">
+Scheduled Arrive
+</label>
+&nbsp;&nbsp;
+<input type="hidden" name="xwdf_SortBy" value="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate/@radioSelect" /><input value="departTime" type="radio" id="status_dep" name="wdf_SortBy" />
+<label for="status_dep">
+Scheduled Depart
+</label>
+
+</div>
+<div class="form_line_wrapper">
+<label for="status_time">
+Time
+</label>
+<span class="form_entry">
+<select onchange="timeChanged(10);setTripTypeIfReturnDateSelected(false)" id="wdftime10" onfocus="updateTimeState()" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departTime.hourmin"><option value="">Anytime</option><option value="07:00">Morning</option><option value="14:00">Afternoon</option><option value="19:00">Evening</option><option value="23:59">Midnight</option><option value="01:00">1 AM</option><option value="02:00">2 AM</option><option value="03:00">3 AM</option><option value="04:00">4 AM</option><option value="05:00">5 AM</option><option value="06:00">6 AM</option><option value="07:00">7 AM</option><option value="08:00">8 AM</option><option value="09:00">9 AM</option><option value="10:00">10 AM</option><option value="11:00">11 AM</option><option value="12:00">Noon</option><option value="13:00">1 PM</option><option value="14:00">2 PM</option><option value="15:00">3 PM</option><option value="16:00">4 PM</option><option value="17:00">5 PM</option><option value="18:00">6 PM</option><option value="19:00">7 PM</option><option value="20:00">8 PM</option><option value="21:00">9 PM</option><option value="22:00">10 PM</option><option value="23:00">11 PM</option></select>
+</span>
+</div>
+</div>
+<div id="ff_status_submit_wrapper" class="subdiv">
+<input type="hidden" name="_handler=amtrak.presentation.handler.request.rail.AmtrakRailTrainStatusSearchRequestHandler/_xpath=/sessionWorkflow/productWorkflow[@product='Rail']" />
+<input type="image" src="/images/en/btn_checkStatus.gif" alt="Check Status" border="0" name="_handler=amtrak.presentation.handler.request.rail.AmtrakRailTrainStatusSearchRequestHandler/_xpath=/sessionWorkflow/productWorkflow[@product='Rail']" />
+</div>
+</form>
+
+</div>
+<div id="farefinder_tabbody_schedules" class="farefinder_tabbody">
+
+<form action="https://tickets.amtrak.com/itd/amtrak" onsubmit="javascript:return CheckMandatoryScheduleFields(this);" name="ff_schedules_form" method="post"><input type="hidden" name="requestor" value="amtrak.presentation.handler.page.profile.AmtrakProfileRegisterPageHandler" />
+<h2>Schedules</h2>
+<div id="ff_schedules_tt_cities_subdiv" class="subdiv">
+<div id="schedules_dep_city" class="ff_city_wrapper">
+<label for="schedules_from">From</label>
+<input type="hidden" name="xwdf_origin" value="/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/departLocation/search" /><input autocomplete="off" maxlength="150" type="text" id="schedules_from" name="wdf_origin" />
+<p><span class="find_a_station"><a href="javascript:fieldName='schedules_from'; openStationList();" title="Click for a list of stations.">Find a Station</a></span></p>
+<!-- itd:locationinput id="schedules_from" wdfxpath="travelSelection/journeySelection[1]/departLocation" wdfhtmlname="wdf_origin" wdflimitedlocations="resource:TRAVEL_USE_LIMITED_LOCATIONS" size="40" / -->
+
+</div>
+<div id="schedules_arr_city" class="ff_city_wrapper">
+<label for="schedules_to">To</label>
+<!-- itd:locationinput id="schedules_to" wdfxpath="travelSelection/journeySelection[1]/arriveLocation" wdfhtmlname="wdf_destination" wdflimitedlocations="resource:TRAVEL_USE_LIMITED_LOCATIONS" size="40" / -->
+<input type="hidden" name="xwdf_destination" value="/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/arriveLocation/search" /><input autocomplete="off" maxlength="150" type="text" id="schedules_to" name="wdf_destination" />
+<p><span class="find_a_station"><a href="javascript:fieldName='schedules_to'; openStationList();" title="Click for a list of stations.">Find a Station</a></span></p>
+
+</div>
+</div>
+<div id="ff_schedules_dep_ret_date_subdiv" class="subdiv">
+<div id="schedule_from_auto" class="autocomplete" style="display:none"></div>
+<div id="schedule_to_auto" class="autocomplete" style="display:none"></div>
+<div id="schedules_dep_date_time">
+<div class="ff_date_wrapper">
+<label for="schedules_dep_date">Depart</label>
+<input value="Wed, Aug 21, 2013" maxlength="22" type="text" class="wdfDate" id="wdfdate5" readonly="readonly" onfocus="dateChangedTimer(5)" size="22" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate.date" onblur="dateChangedComplete(5,1)" /><script language="JavaScript" type="text/javascript">
+<!--
+document.write('<a class="calLink noloading" id="calLink5">&nbsp;</a>');//-->
+</script>
+<br /><div id="calContainer5"  class="calContainer" ></div></div><div class="ff_time_wrapper"><label for="wdftimenull"><b>Time</b></label><select onchange="timeChanged(5);setTripTypeIfReturnDateSelected(false)" id="wdftime5" onfocus="updateTimeState()" name="/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departTime.hourmin"><option value="">Anytime</option><option value="07:00">Morning</option><option value="14:00">Afternoon</option><option value="19:00">Evening</option><option value="23:59">Midnight</option><option value="01:00">1 AM</option><option value="02:00">2 AM</option><option value="03:00">3 AM</option><option value="04:00">4 AM</option><option value="05:00">5 AM</option><option value="06:00">6 AM</option><option value="07:00">7 AM</option><option value="08:00">8 AM</option><option value="09:00">9 AM</option><option value="10:00">10 AM</option><option value="11:00">11 AM</option><option value="12:00">Noon</option><option value="13:00">1 PM</option><option value="14:00">2 PM</option><option value="15:00">3 PM</option><option value="16:00">4 PM</option><option value="17:00">5 PM</option><option value="18:00">6 PM</option><option value="19:00">7 PM</option><option value="20:00">8 PM</option><option value="21:00">9 PM</option><option value="22:00">10 PM</option><option value="23:00">11 PM</option></select>
+</div>
+</div>
+</div>
+<div id="ff_schedules_timetables_submit_wrapper" class="subdiv">
+<input type="hidden" name="_handler=amtrak.presentation.handler.request.rail.AmtrakCMSRailSchedulesSearchRequestHandler/_xpath=/sessionWorkflow/productWorkflow[@product='Rail']" />
+<input type="image" src="/images/en/btn_findSchedules.gif" alt="Find Schedules" border="0" name="_handler=amtrak.presentation.handler.request.rail.AmtrakCMSRailSchedulesSearchRequestHandler/_xpath=/sessionWorkflow/productWorkflow[@product='Rail']" />
+</div>
+<div id="ff_schedules_timetables_footer_wrapper">
+<p><a href="http://www.amtrak.com/servlet/Satellite/Page/1237405732505/1237405732505">Download printable timetables</a></p>
+</div>
+</form>
+
+</div>
+<div id="farefinder_tabbody_mytrip" class="farefinder_tabbody">
+<h2>My Trip</h2>
+<div id="ff_mytrip_step_1" class="subdiv">
+<form action="https://tickets.amtrak.com/itd/amtrak" onsubmit="javascript:return CheckMandatoryMyTripFields(this)" name="mytrip_res" method="post"><input type="hidden" name="requestor" value="amtrak.presentation.handler.page.profile.AmtrakProfileRegisterPageHandler" />
+<h3>Find a Reservation</h3>
+<div class="form_line_wrapper first">
+<label for="mytrip_res_num">Reservation Number</label><span class="form_entry">
+<input value="" type="text" id="mytrip_res_num" name="/sessionWorkflow/itineraryWorkflow/basket/booking/reference" />
+</span>
+</div>
+<div class="form_line_wrapper">
+<strong>and</strong>
+</div>
+<div class="form_line_wrapper">
+<label for="mytrip_res_email">E-mail Address</label><span class="form_entry">
+<input value="" type="text" id="mytrip_res_email" name="/sessionWorkflow/itineraryWorkflow/basket/booking/bookingOptions/bookingFulfilment/contact/contactEmailAddress/emailAddress" />
+</span>
+</div>
+<div class="form_line_wrapper">
+<div class="separator">-or-</div>
+</div>
+<div class="form_line_wrapper">
+<label for="mytrip_res_zip">Telephone Number</label><span class="form_entry">
+<input value="" type="text" id="mytrip_res_zip" name="/sessionWorkflow/itineraryWorkflow/basket/booking/bookingOptions/bookingFulfilment/contact/contactTelephone/number" />
+</span>
+</div>
+<div id="ff_mytrip_res_submit">
+<input type="hidden" name="_handler=com.sita.ats.amtrak.presentation.handler.request.itinerary.AmtrakLoggedOutTripDetailsRequestHandler" />
+<input type="image" class="image" src="/images/en/btn_find.gif" alt="Find Reservation" name="_handler=com.sita.ats.amtrak.presentation.handler.request.itinerary.AmtrakLoggedOutTripDetailsRequestHandler" />
+</div>
+</form>
+</div>
+
+<div id="ff_mytrip_step_2" class="subdiv">
+<div id="mytrip_or"><span>Or</span></div>
+
+<form action="https://tickets.amtrak.com/itd/amtrak" onsubmit="javascript:return CheckMandatoryLoginFields(this)" name="mytrip_acct" method="post"><input type="hidden" name="requestor" value="amtrak.presentation.handler.page.profile.AmtrakProfileRegisterPageHandler" />
+<input value="mytrip" type="hidden" name="/sessionWorkflow/userWorkflow/profileAccountRequirements/@logontype" />
+<h3>Log in to your Amtrak.com Account</h3>
+<div class="form_line_wrapper">
+<label for="mytrip_acct_email">E-mail Address</label><span class="form_entry">
+<input type="hidden" name="xwdf_username" value="/sessionWorkflow/userWorkflow/profileAccountRequirements/userName" /><input autocomplete="off" maxlength="64" type="text" id="mytrip_acct_email" name="wdf_username" />
+</span>
+</div>
+<div class="form_line_wrapper">
+<label for="mytrip_acct_pwd">Password</label><span class="form_entry">
+<input type="hidden" name="xwdf_password" value="/sessionWorkflow/userWorkflow/profileAccountRequirements/password" /><input maxlength="20" type="password" id="mytrip_acct_pwd" name="wdf_password" />
+</span>
+</div>
+<div id="ff_mytrip_acct_submit">
+<a href="javascript:fieldName='wdf_RequestUserID'; openRequestUserID();" title="Click here to request your Password" class="forgot_pass">Forgot password?</a>
+<input type="hidden" name="_handler=com.sita.ats.amtrak.presentation.handler.request.profile.AmtrakProfileLogonRequestHandler/_xpath=/sessionWorkflow/userWorkflow/profileAccountRequirements" />
+<input type="image" onclick="" src="/images/en/btn_login.gif" alt="Log In" name="_handler=com.sita.ats.amtrak.presentation.handler.request.profile.AmtrakProfileLogonRequestHandler/_xpath=/sessionWorkflow/userWorkflow/profileAccountRequirements" />
+</div>
+</form>
+
+</div>
+
+</div>
+</div>
+
+
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+new Ajax.Autocompleter('departs','autocomplete_availability_from', '/itd/amtrak/AutoComplete', {
+paramName: "_origin",
+minChars: 2,
+frequency: 0.5
+}
+);
+new Ajax.Autocompleter('arrives','autocomplete_availability_to','/itd/amtrak/AutoComplete', {
+paramName: "_destination",
+minChars: 2,
+frequency: 0.5
+}
+);
+new Ajax.Autocompleter('agrdeparts','redeem_from_auto', '/itd/amtrak/AutoComplete', {
+paramName: "_origin",
+minChars: 2,
+frequency: 0.5
+}
+);
+new Ajax.Autocompleter('agrarrives','redeem_to_auto','/itd/amtrak/AutoComplete', {
+paramName: "_destination",
+minChars: 2,
+frequency: 0.5
+}
+);
+new Ajax.Autocompleter('schedules_from','schedule_from_auto','/itd/amtrak/AutoComplete', {
+paramName: "_origin",
+minChars: 2,
+frequency: 0.5
+}
+);
+new Ajax.Autocompleter('schedules_to','schedule_to_auto','/itd/amtrak/AutoComplete', {
+paramName: "_destination",
+minChars: 2,
+frequency: 0.5
+}
+);
+new Ajax.Autocompleter('status_from','status_from_auto','/itd/amtrak/AutoComplete', {
+paramName: "_origin",
+minChars: 2,
+frequency: 0.5
+}
+);
+new Ajax.Autocompleter('status_to','status_to_auto','/itd/amtrak/AutoComplete', {
+paramName: "_destination",
+minChars: 2,
+frequency: 0.5
+}
+);
+// ]]>
+</script>
+
+<!-- End HTML for Fare Finder -->
+<script language="JavaScript" type="text/javascript">
+<!--
+function CheckMandatoryTrainStatusFields(statusForm) {
+var errorMsg ="";
+var fieldList = "";
+var origin = statusForm.wdf_origin.value;
+var destination = statusForm.wdf_destination.value;
+var trainNumber = statusForm.wdf_trainNumber.value;
+if(eval("statusForm.wdf_trainNumber.value") == "optional") {
+trainNumber = "";
+}
+if (trainNumber == "" && origin == "" && destination == "")
+fieldList = "Problem with Departure and Arrival Station/City: Please provide a valid departure and arrival station or city name and resubmit. \n[Error ID: 573S]" + "\n";
+if (trainNumber == "" && origin != "" && destination == "")
+fieldList = fieldList + "Problem with Arrival Station/City or Train Number: Please provide a valid arrival station/city or train number and resubmit. \n[Error ID: 574S]" + "\n";
+if (trainNumber == "" && origin == "" && destination != "")
+fieldList = fieldList + "Problem with Departure Station/City or Train Number: Please provide a valid departure station/city or train number and resubmit. \n[Error ID: 575S]" + "\n";
+if (trainNumber != "" && origin == "" && destination == "")
+fieldList = fieldList + "Problem with Departure or Arrival Station/City: Please provide a valid departure or arrival station or city name and resubmit. \n[Error ID: 576S]" + "\n";
+if ((trainNumber != "") && (!IsNumber(trainNumber)))
+fieldList = fieldList + "Problem with Train Number: Sorry, we cannot find the train number you provided. Please check for accuracy and re-enter. Or, delete the train number and provide a departure and arrival station/city. To find a specific station, please click on the \'Find a Station\' link and select a station from the list provided. \n[Error ID: 577S]" + "\n";
+if (fieldList != "") {
+errorMsg = "The following information is needed to process your request:" + "\n\n" + fieldList;
+}
+if (errorMsg != "") {
+alert(errorMsg);
+return false;
+}
+return true;
+}
+function CheckMandatoryScheduleFields(statusForm) {
+var errorMsg ="";
+var fieldList = "";
+var origin = statusForm.wdf_origin.value;
+var destination = statusForm.wdf_destination.value;
+if (origin == "" && destination == "")
+fieldList = "Problem with Departure and Arrival Station/City: Please provide a valid departure and arrival station or city name and resubmit. \n[Error ID: 573S]" + "\n";
+if (origin != "" && destination == "")
+fieldList = fieldList + "Problem with Departure and Arrival Station/City: Please provide a valid departure and arrival station or city name and resubmit. \n[Error ID: 573S]" + "\n";
+if (origin == "" && destination != "")
+fieldList = fieldList + "Problem with Departure and Arrival Station/City: Please provide a valid departure and arrival station or city name and resubmit. \n[Error ID: 573S]" + "\n";
+if (fieldList != "") {
+errorMsg = "The following information is needed to process your request:" + "\n\n" + fieldList;
+}
+if (errorMsg != "") {
+alert(errorMsg);
+return false;
+}
+return true;
+}
+function CheckMandatoryMyTripFields(theForm) {
+var errorMsg ="";
+var fieldList = "";
+if ($('mytrip_res_num').value.empty()) {
+fieldList += " -- reservation number\n";
+}
+if ($('mytrip_res_email').value.empty() && $('mytrip_res_zip').value.empty()) {
+fieldList += " -- email address or telephone number\n";
+}
+if (fieldList != "") {
+errorMsg="The following information is needed to process your request:" + "\n" + fieldList+ "\n\n";
+alert(errorMsg);
+return false;
+}
+return true;
+}
+function CheckMandatoryMyTripFields(theForm) {
+var errorMsg ="";
+var fieldList = "";
+if ($('mytrip_res_num').value.empty()) {
+fieldList += " -- reservation number\n";
+}
+if ($('mytrip_res_email').value.empty() && $('mytrip_res_zip').value.empty()) {
+fieldList += " -- email address or telephone number\n";
+}
+if (fieldList != "") {
+errorMsg="The following information is needed to process your request:" + "\n" + fieldList+ "\n\n";
+alert(errorMsg);
+return false;
+}
+return true;
+}
+function CheckMandatoryLoginFields(theForm) {
+var errorMsg ="";
+var fieldList = "";
+if(eval("theForm.wdf_username.value") == "") {
+fieldList += " -- username\n";
+}
+if(eval("theForm.wdf_password.value") == "") {
+fieldList += " -- password\n";
+}
+if (fieldList != "") {
+errorMsg="The following information is needed to process your request:" + "\n" + fieldList+ "\n\n";
+alert(errorMsg);
+return false;
+}
+return true;
+}
+//Aibe-2026,Mac safari issue.
+function updateMaxLength()
+{
+trainNum = document.getElementById('status_train_num');
+trainNum.setAttribute("maxLength", 4);
+}
+function validatePasswordSize() {
+var memberPwd = document.getElementById('ff_memberpassword');
+if((memberPwd != null) && (memberPwd.value != "")) {
+if ((memberPwd.value.length < '6') ||
+(memberPwd.value.length > '29') ) {
+return 'The password you entered is invalid. Please try again or call 1-800-307-5000 for assistance (Sunday - Saturday, 5 am - midnight ET). [Error ID: 1114R]';
+}
+}
+return "";
+}
+function checkRedeemMandatoryFields(theForm) {
+var errorMsg ="";
+var fieldList = "";
+var origin = document.ff_redeem_form.agrdeparts.value;
+var destination = document.ff_redeem_form.agrarrives.value;
+var startDate = document.getElementById('wdfdate15').value;
+var memberNo = document.getElementById('ff_membernumber');
+var memberPwd = document.getElementById('ff_memberpassword');
+if (memberNo != null) { //member number null means login was already validated
+if (memberNo.value == "") {
+fieldList = fieldList + " -- Member Number\n";
+}
+}
+if(memberPwd != null) {//member password null means login was already validated
+if (memberPwd.value == "") {
+fieldList = fieldList + " -- Member Passsword\n";
+}
+}
+if (origin == "") {
+fieldList = fieldList + " -- From\n";
+}
+if(destination == "") {
+fieldList = fieldList + " -- To\n";
+}
+if (startDate == "") {
+fieldList = fieldList + " -- Day\n";
+}
+if (fieldList != "") {
+errorMsg="The following information is needed to process your request:" + "\n" + fieldList+ "\n\n";
+alert(errorMsg);
+return false;
+}
+return fieldList;
+}
+//-->
+</script>
+
+
+<meta name="WT.cg_s" content="book" />
+
+
+
+
+
+</div>
+
+<div id="special_booking_menu">
+
+</div>
+
+
+
+
+<style type="text/css">
+<!--
+@import url(/css/basic_booking.css);
+-->
+</style>
+
+
+
+<span id="IB_diginet_div">
+
+</span>
+
+
+
+
+</div>
+
+<div id="mb_column_1_confirmation">
+
+
+
+
+<script language="JavaScript" type="text/javascript" src="/itd/project/scripts/en/amtrak/profile.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+function CheckMandatoryFields(){
+var errorMsg ="";
+var fieldList = checkRegisterFields();
+if (fieldList!=""){
+errorMsg="The following information is needed to process your request:"+"\n"+fieldList ;
+alert(errorMsg);
+return false;
+}
+}
+//-->
+</script>
+
+
+<script type="text/javascript">
+areCookiesEnabled();
+function createCookie(name, value, days) {
+var expires;
+if (days) {
+var date = new Date();
+date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+expires = "; expires=" + date.toGMTString();
+}
+else expires = "";
+document.cookie = name + "=" + value + expires + "; path=/";
+}
+function readCookie(name) {
+var nameEQ = name + "=";
+var ca = document.cookie.split(';');
+for (var i = 0; i < ca.length; i++) {
+var c = ca[i];
+while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+}
+return null;
+}
+function eraseCookie(name) {
+createCookie(name, "", -1);
+}
+function areCookiesEnabled() {
+createCookie("test", "Hello", 1);
+if (readCookie("test") == null) {
+// No stored cookie, therefore client cannot (or will not) accept
+// cookies - display error msg
+var output = '<tr class="errorrow">'
++ '<td class="error">'
++ '<table cellspacing="0" cellpadding="0" border="0" class="errorimagetable">'
++ '<tr class="errorimagerow">'
++ '<td class="errorimagecell">'
++ '<img class="errorimage" src="/images/en/warn.gif" />'
++ '</td>'
++ '<td class="errortextcell" >'
++ '<span class="error">'
++ 'Cookies Must Be Enabled: To use advanced features of Amtrak.com, your browser must be capable of accepting session cookies. Please <a href="javascript:var child=window.open(\'http://www.amtrak.com/servlet/ContentServer?pagename=am/AM_Snippet_C/IBLegacy&help=cookies\',\'help\',\'directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1\');child.focus();">click here</a> to learn more about how to accept cookies.'
++ '</span></td></tr>'
++ '</table>'
++ '</td></tr>'
++ '<tr><td>&nbsp;</td></tr>';
+document.write(output);
+}
+eraseCookie("test");
+}
+</script>
+
+<h1 class="register">Register<span></span></h1>
+<div id="page_tools_by_header" class="page_tools"><span><a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&help=reg','help','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();"  CLASS="smallblue"><img src="/images/en/tool_help.gif" alt="Help" /></a></span></div>
+
+<p id="register_form_description" class="form_description page_intro">
+Make reservations faster by saving your basic travel-related information in a secure format; you won&#39;t have to re-enter mailing and billing address information each time you make a reservation. We&#39;ll remember your favorite departure and arrival stations, Amtrak Guest Rewards number and any membership discount numbers you may use. Plus, you can review reservations made while logged in to Amtrak.com; reprint eTickets; and upgrade, change or cancel reservations. You must be at least 16 years old to create a profile. Fields marked <span class="mandatory">*</span> are mandatory.
+</p>
+<form action="https://tickets.amtrak.com/itd/amtrak" class="std_form" id="profile_form" onsubmit="javascript:return CheckMandatoryFields()" name="profile_form" method="post"><input type="hidden" name="requestor" value="amtrak.presentation.handler.page.profile.AmtrakProfileRegisterPageHandler" />
+
+
+<h3>User Information</h3>
+
+<fieldset id="register_user_information">
+<legend>User Information</legend>
+<div class="form_line">
+<div class="form_label"><label for="register_title">Title</label></div>
+<div class="form_item">
+<select id="register_title" name="sessionWorkflow/profileWorkflow/profilePerson/person/title"><option value="" selected="selected"></option><option value="Mr">Mr</option><option value="Mrs">Mrs</option><option value="Ms">Ms</option><option value="Miss">Miss</option></select>
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_first_name">
+First Name<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_forename" value="sessionWorkflow/profileWorkflow/profilePerson/person/forename" /><input maxlength="30" type="text" class="text name" id="register_first_name" size="20" name="wdf_forename" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_middle_initial">
+MI
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_middleinitial" value="sessionWorkflow/profileWorkflow/profilePerson/person/middleName" /><input maxlength="1" type="text" class="text name" id="register_middle_initial" size="2" name="wdf_middleinitial" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_last_name">
+Last Name<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_surname" value="sessionWorkflow/profileWorkflow/profilePerson/person/surname" /><input maxlength="30" type="text" class="text name" id="register_last_name" size="20" name="wdf_surname" />
+</div>
+</div>
+
+
+
+<div class="form_line">
+<div class="form_label">
+<label for="register_primary_phone">
+Primary Phone Number<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_primaryphonenumber" value="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactTelephone[@telephonecontacttype='primary']/@NUMBER" /><input maxlength="32" type="text" class="text phone" id="register_primary_phone" size="25" name="wdf_primaryphonenumber" />
+<label class="phone_type" for="register_primary_phone_ext">Ext</label>
+<input type="hidden" name="xwdf_primaryphoneextension" value="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactTelephone[@telephonecontacttype='primary']/extension" /><input maxlength="4" type="text" class="text phone_ext" id="register_primary_phone_ext" size="6" name="wdf_primaryphoneextension" />
+<label class="phone_type" for="register_primary_phone_type">
+Type
+<span class="mandatory">*</span>
+</label>
+<input type="hidden" name="xwdf_primaryphonetype" value="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactTelephone[@telephonecontacttype='primary']/contactPurposeType" /><select id="register_primary_phone_type" name="wdf_primaryphonetype"><option value="Select">Select</option><option value="Home">Home</option><option value="Work">Business</option><option value="Mobile">Mobile</option><option value="International">International</option></select>
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_alternate_phone">
+Mobile Phone Number
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_alternatephonenumber" value="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactTelephone[@telephonecontacttype='alternate']/@NUMBER" /><input maxlength="32" type="text" class="text phone" id="register_alternate_phone" size="25" name="wdf_alternatephonenumber" />
+<input value="Mobile" type="hidden" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactTelephone[@telephonecontacttype='alternate']/contactPurposeType" />
+</div>
+</div>
+<div class="form_line"><img alt=">" src="/images/en/bullet_triangle_blue_ltgray.gif" />
+<a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&ibsref=phoneformat','ibsref','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">Sample Phone Format</a>
+</div>
+
+<br class="clear_both"/>
+</fieldset>
+
+<h3>E-mail and Password</h3>
+<fieldset id="register_email_and_password">
+<legend>E-mail and Password</legend>
+
+<div class="form_line">
+<div class="form_label">
+<label for="register_email_address">
+E-Mail Address
+<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_emailAddress" value="/sessionWorkflow/profileWorkflow/profilePerson/contact/contactEmailAddress[contactPurposeType='Home']/emailAddress" /><input maxlength="64" type="text" class="text email" id="register_email_address" size="25" name="wdf_emailAddress" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_confirm_email_address">
+Confirm E-Mail Address
+<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_confirmEmailAddress" value="/sessionWorkflow/profileWorkflow/profilePerson/contact/contactEmailAddress[contactPurposeType='Home']/@emailaddressconfirmation" /><input oncut="return false;" maxlength="64" type="text" class="text email" onpaste="return false;" id="register_confirm_email_address" oncopy="return false;" size="25" name="wdf_confirmEmailAddress" />
+</div>
+</div>
+
+
+<div id="register_password_section">
+<div class="fields">
+<div class="form_line">
+<div class="form_label">
+<label for="register_password">
+Password
+<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_password" value="sessionWorkflow/profileWorkflow/profileAccount/password" /><input autocomplete="off" maxlength="20" type="password" class="text password" id="register_password" style="height: 16px;" name="wdf_password" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_confirm_password">
+Confirm Password
+<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_repeatpassword" value="sessionWorkflow/profileWorkflow/profileAccount/@repeatPassword" /><input oncut="return false;" autocomplete="off" maxlength="20" type="password" class="text password" onpaste="return false;" id="register_confirm_password" style="height: 16px;" oncopy="return false;" size="20" name="wdf_repeatpassword" />
+</div>
+</div>
+</div>
+<div class="helper">
+
+<div id="password_help_box">
+<ul style="margin-left: 10px;">
+<li class="passwordLengthMessage">Your password must be at least 8 characters.</li>
+<li class="alphaCharacterMessage">Must include at least 1 alpha character.</li>
+<li class="numberCharacterMessage">Must include at least 1 number or special character.</li>
+</ul>
+</div>
+
+</div>
+<script type="text/javascript" src="/itd/project/scripts/en/amtrak/jquery.passwordhelper.js"></script>
+<script type="text/javascript">
+(function($) {
+$(function() {
+$("#password_help_box").passwordhelper();
+})
+})(jQuery);
+</script>
+</div>
+
+<br class="clear_both"/>
+</fieldset>
+
+
+
+<h3>Billing Address</h3>
+<p>This address must match the address on your credit card statement.</p>
+
+<fieldset id="register_billing_address">
+<legend>Billing Address</legend>
+<div class="form_line">
+<div class="form_label">
+<label for="register_billing_street_address">
+Street Address
+<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_billingAddressLine1" value="sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactAddress[contactPurposeType='Billing']/line[1]" /><input maxlength="32" type="text" class="text address" id="register_billing_street_address" size="35" name="wdf_billingAddressLine1" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_billing_street_address_continued">
+Street Address 2
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_billingAddressLine2" value="sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactAddress[contactPurposeType='Billing']/line[2]" /><input maxlength="32" type="text" class="text address" id="register_billing_street_address_continued" size="35" name="wdf_billingAddressLine2" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_billing_city">
+City
+<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_billingCity" value="sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactAddress[contactPurposeType='Billing']/city" /><input maxlength="32" type="text" class="text address" id="register_billing_city" size="35" name="wdf_billingCity" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_billing_state">
+US State/Canadian<br />Province
+<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_billingArea" value="sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactAddress[contactPurposeType='Billing']/area" /><select id="register_billing_state" name="wdf_billingArea"><option value=""></option><optgroup label="US States" ><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></optgroup><optgroup label="Canadian Provinces" ><option value="AB">Alberta</option><option value="BC">British Columbia</option><option value="MB">Manitoba</option><option value="NB">New Brunswick</option><option value="NF">Newfoundland</option><option value="NS">Nova Scotia</option><option value="NT">Northwest Territories</option><option value="NU">Nunavut</option><option value="ON">Ontario</option><option value="PE">Prince Edward Island</option><option value="QC">Quebec</option><option value="SK">Saskatchewan</option><option value="YT">Yukon</option></optgroup><optgroup label="Military Addresses" ><option value="AA">Armed Forces AA</option><option value="AE">Armed Forces AE</option><option value="AP">Armed Forces AP</option></optgroup></select>
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_billing_zip">
+ZIP/Postal Code
+<span class="mandatory">*</span>
+</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_billingPostcode" value="sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactAddress[contactPurposeType='Billing']/postcode" /><input maxlength="16" type="text" class="text zip" id="register_billing_zip" size="5" name="wdf_billingPostcode" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label"><label for="register_billing_country">Country<span class="mandatory">*</span></label></div>
+<div class="form_item">
+<input type="hidden" name="xwdf_billingCountry" value="sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@paymentType='CreditCard']/paymentMethod/contact/contactAddress[contactPurposeType='Billing']/country" /><select id="register_billing_country" name="wdf_billingCountry"><option value="US" selected="selected">United States</option><option value="CA">Canada</option><option value="">-------------------------</option><option value="AF">Afghanistan</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctica</option><option value="AG">Antigua and Barbuda</option><option value="AN">Antilles (Netherlands)</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BA">Bosnia and Herzegovina</option><option value="BW">Botswana</option><option value="BV">Bouvet Island</option><option value="BR">Brazil</option><option value="IO">British Indian Ocean Territory</option><option value="BN">Brunei Darussalam</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="MM">Burma</option><option value="BI">Burundi</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="CT">Canton and Enderbury Islands</option><option value="CV">Cape Verde</option><option value="KY">Cayman Islands</option><option value="CF">Central African Republic</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CG">Congo</option><option value="CD">Congo, Democratic Republic of (Zaire)</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="CI">Cote D'ivoire</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CY">Cyprus</option><option value="CZ">Czech Republic</option><option value="DK">Denmark</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="TL">East Timor</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="GQ">Equatorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="ET">Ethiopia</option><option value="FK">Falkland Islands</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="TF">French Southern Territories</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HM">Heard Island and McDonald Islands</option><option value="HN">Honduras</option><option value="HK">Hong Kong SAR</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JT">Johnston Island</option><option value="JO">Jordan</option><option value="KZ">Kazakstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KP">Korea, Democratic Republic of (North)</option><option value="KR">Korea, Republic of (South)</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Laos</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macau</option><option value="MK">Macedonia</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia</option><option value="MI">Midway Islands</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="MP">Northern Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestine</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn Island</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RE">Reunion Island (French)</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="RW">Rwanda</option><option value="SH">Saint Helena</option><option value="KN">Saint Kitts and Nevis</option><option value="LC">Saint Lucia</option><option value="PM">Saint Pierre and Miquelon</option><option value="VC">Saint Vincent and the Grenadines</option><option value="WS">Samoa</option><option value="SM">San Marino</option><option value="ST">Sao Tome and Principe</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="CS">Serbia and Montenegro</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa, Republic of</option><option value="GS">South Georgia and the South Sandwich Islands</option><option value="ES">Spain and Canary Islands</option><option value="LK">Sri Lanka</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard and Jan Mayen Islands</option><option value="SZ">Swaziland</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syria</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TG">Togo</option><option value="TK">Tokelau Islands</option><option value="TO">Tonga</option><option value="TT">Trinidad and Tobago</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks and Caicos Islands</option><option value="TV">Tuvalu</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US" selected="selected">United States</option><option value="UM">United States Minor Outlying Islands</option><option value="UY">Uruguay</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VA">Vatican City</option><option value="VE">Venezuela</option><option value="VN">Viet Nam</option><option value="VG">Virgin Islands, British</option><option value="VI">Virgin Islands, U.S.</option><option value="WF">Wallis and Futuna</option><option value="EH">Western Sahara</option><option value="YE">Yemen</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option></select>
+</div>
+</div>
+<br class="clear_both"/>
+</fieldset>
+
+
+
+
+<h3>Mailing Address (US/Canada Only)</h3>
+<p>If you choose to have your tickets delivered you must complete all the fields in this section.</p>
+<fieldset id="register_shipping_address">
+
+<legend>Mailing Address (US/Canada Only)</legend>
+<div class="form_line">
+<script language="JavaScript" type="text/javascript">
+<!--
+var errorMailingAddressNotInUSCA = "Problem with Mailing Address: We are able to mail tickets to US and Canadian addresses only. If you cannot provide a US or Canadian address, please select an alternate ticket delivery option and resubmit. [Error ID: 559S]";
+var errorMailingAddressWithMilitaryAddressIsNotPayment = "Problem with Mailing Address: Our Ticket-by-Mail Service is not available to Military barracks and APO/FPO addresses. Please provide an alternate mailing address. [Error ID: 748S]";
+document.write('<input id="register_shipping_same_as_billing" type="checkbox" name="same_as_billing" onclick="copyDeliveryAddressRW(errorMailingAddressNotInUSCA, errorMailingAddressWithMilitaryAddressIsNotPayment);" /><label for="register_shipping_same_as_billing">Same as Billing Address</label>');
+//-->
+</script>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_shipping_first_name">First Name</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_delivery_forename" value="sessionWorkflow/profileWorkflow/profilePerson/contact/person/forename" /><input maxlength="30" type="text" class="text name" id="register_shipping_first_name" size="20" name="wdf_delivery_forename" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label">
+<label for="register_shipping_last_name">Last Name</label>
+</div>
+<div class="form_item">
+<input type="hidden" name="xwdf_delivery_surname" value="sessionWorkflow/profileWorkflow/profilePerson/contact/person/surname" /><input maxlength="30" type="text" class="text name" id="register_shipping_last_name" size="20" name="wdf_delivery_surname" />
+</div>
+</div>
+
+
+<div class="form_line">
+<div class="form_label"><label for="register_shipping_street_address">Street Address</label></div>
+<div class="form_item">
+<input type="hidden" name="xwdf_addressline1" value="sessionWorkflow/profileWorkflow/profilePerson/contact/contactAddress[contactPurposeType='Delivery']/line[1]" /><input maxlength="32" type="text" class="text address" id="register_shipping_street_address" size="35" name="wdf_addressline1" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label"><label for="register_shipping_street_address_continued">Street Address 2</label></div>
+<div class="form_item">
+<input type="hidden" name="xwdf_addressline2" value="sessionWorkflow/profileWorkflow/profilePerson/contact/contactAddress[contactPurposeType='Delivery']/line[2]" /><input maxlength="32" type="text" class="text address" id="register_shipping_street_address_continued" size="35" name="wdf_addressline2" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label"><label for="register_shipping_city">City</label></div>
+<div class="form_item">
+<input type="hidden" name="xwdf_city" value="sessionWorkflow/profileWorkflow/profilePerson/contact/contactAddress[contactPurposeType='Delivery']/city" /><input maxlength="32" type="text" class="text address" id="register_shipping_city" size="20" name="wdf_city" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label"><label for="register_shipping_state">US State/Canadian<br />Province</label></div>
+<div class="form_item">
+<input type="hidden" name="xwdf_area" value="sessionWorkflow/profileWorkflow/profilePerson/contact/contactAddress[contactPurposeType='Delivery']/area" /><select id="register_shipping_state" name="wdf_area"><option value="" selected="selected"></option><optgroup label="US States" ><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></optgroup><optgroup label="Canadian Provinces" ><option value="AB">Alberta</option><option value="BC">British Columbia</option><option value="MB">Manitoba</option><option value="NB">New Brunswick</option><option value="NF">Newfoundland</option><option value="NS">Nova Scotia</option><option value="NT">Northwest Territories</option><option value="NU">Nunavut</option><option value="ON">Ontario</option><option value="PE">Prince Edward Island</option><option value="QC">Quebec</option><option value="SK">Saskatchewan</option><option value="YT">Yukon</option></optgroup></select>
+</div>
+</div>
+<div class="form_line">
+<div class="form_label"><label for="register_shipping_zip">ZIP/Postal Code</label></div>
+<div class="form_item">
+<input type="hidden" name="xwdf_postcode" value="sessionWorkflow/profileWorkflow/profilePerson/contact/contactAddress[contactPurposeType='Delivery']/postcode" /><input maxlength="16" type="text" class="text zip" id="register_shipping_zip" size="5" name="wdf_postcode" />
+</div>
+</div>
+<div class="form_line">
+<div class="form_label"><label for="register_shipping_country">Country</label></div>
+<div class="form_item">
+<input type="hidden" name="xwdf_country" value="sessionWorkflow/profileWorkflow/profilePerson/contact/contactAddress[contactPurposeType='Delivery']/country" /><select id="register_shipping_country" name="wdf_country"><option value=""></option><option value="CA">Canada</option><option value="US" selected="selected">United States</option></select>
+</div>
+</div>
+
+<br class="clear_both"/>
+</fieldset>
+
+
+
+
+<script language="JavaScript" type="text/javascript" src="/itd/project/scripts/en/amtrak/popups.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+function checkunlinkstatus(accountslinked) {
+var conf = "";
+checkBoxId = 'ssoagrlinkingchkbox';
+checkBox = document.getElementById(checkBoxId);
+if (checkBox.checked != true && accountslinked) {
+var msg = 'Your Amtrak.com and AmtrakGuestRewards.com accounts are currently linked. If you unlink these accounts you will have to log in to each site separately.\n\nAre you sure you want to continue?';
+conf= confirm(msg);
+if (conf){
+checkBox.checked = false;
+} else{
+checkBox.checked = true;
+}
+}
+return true;
+}
+//-->
+</script>
+<h3>Travel Profile (Optional)</h3>
+<fieldset id="register_travel_profile" class="optional">
+<legend>Travel Profile (Optional)</legend>
+<p>
+Once you've created a user profile, the next time you log in, information you provide in your user profile will be used in the booking process. You can always make changes to this information while booking your reservation, or by making changes to your user profile.
+</p>
+
+
+<div class="city_entry dep_city_entry">
+<label for="register_fav_departure_point">Favorite Departure Station</label>
+<!-- wdf:input wdftype="text" id="register_fav_departure_point" wdfclass="text fav_point" wdfhtmlname="wdf_origin" maxlength="150" autocomplete="off"/ -->
+<input type="hidden" name="xwdf_origin" value="sessionWorkflow/profileWorkflow/profileSelection/travelSelection/journeySelection[1]/departLocation/search" /><input type="text" class="text fav_point" id="register_fav_departure_point" name="wdf_origin" />&nbsp;&nbsp;
+<div class="station_list_link">
+<a href="javascript:fieldName='register_fav_departure_point'; openStationList();">Find a Station</a>
+</div>
+</div>
+
+
+<div class="city_entry arr_city_entry">
+<label for="register_fav_arrival_point">Favorite Arrival Station</label>
+<!-- wdf:input wdftype="text" id="register_fav_arrival_point" wdfclass="text fav_point" wdfhtmlname="wdf_destination" maxlength="150" autocomplete="off"/ -->
+<input type="hidden" name="xwdf_destination" value="sessionWorkflow/profileWorkflow/profileSelection/travelSelection/journeySelection[1]/arriveLocation/search" /><input type="text" class="text fav_point" id="register_fav_arrival_point" size="25" name="wdf_destination" />&nbsp;&nbsp;
+<div class="station_list_link">
+<a href="javascript:fieldName='register_fav_arrival_point'; openStationList();">Find a Station</a>
+</div>
+</div>
+
+
+<div id="autocomplete_profile_from" class="autocomplete level5" style="display:none"></div>
+<div id="autocomplete_profile_to" class="autocomplete level5" style="display:none"></div>
+<div class="form_line">
+<a class="" href="#"><a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&ibsref=preffare','ibsref','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">Passenger Type Comparison Chart</a></a>
+<div>Select your preferred discount type and provide any membership discount numbers.</div>
+</div>
+
+<div id="register_aaa_club_code_holder" class="form_line line_holder">
+<div class="form_col minor_col">
+<div class="form_line">
+<input value="Adult" type="radio" class="radio" id="register_profile_type_radio_adult" checked="checked" name="/sessionWorkflow/profileWorkflow/profilePerson/person/personType" />
+<a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=Adult','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">Adult</a>
+</div>
+<div class="form_line">
+<input value="Senior" type="radio" class="radio" id="register_profile_type_radio_senior" name="/sessionWorkflow/profileWorkflow/profilePerson/person/personType" />
+<a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=Senior','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">Senior (62+)</a>
+</div>
+<div class="form_line">
+<input value="Military" type="radio" class="radio" id="register_profile_type_radio_military" name="/sessionWorkflow/profileWorkflow/profilePerson/person/personType" />
+<a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=Military','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">Military Adult (Active)</a>
+</div>
+</div>
+<label id="register_profile_aaa_club_code_label" for="register_profile_aaa_club_code">AAA Club<br>Code</label>
+</div>
+<div class="form_line">
+<div class="form_col minor_col">
+<input value="AAA Adult" type="radio" class="radio" id="register_profile_type_radio_aaaadult" name="/sessionWorkflow/profileWorkflow/profilePerson/person/personType" />
+<a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=AAAAdult','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">AAA Adult</a>
+</div>
+<div class="form_col major_col">
+
+<div class="form_label"><label for="register_profile_aaa_member_code">AAA ID Number</label></div>
+<div class="form_item">
+<input value="Scheme" type="hidden" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='AAA Adult']/@paymentType" /><input type="text" class="text" id="register_profile_aaa_club_code" size="4" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='AAA Adult']/paymentMethod[@provider='AAA Adult']/operatorType" />
+<input type="text" class="text" id="register_profile_aaa_member_code" size="10" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='AAA Adult']/paymentMethod[@provider='AAA Adult']/number" />
+</div>
+
+</div>
+</div>
+<div class="form_line">
+<div class="form_col minor_col">
+<input value="Student Advantage" type="radio" class="radio" id="studentadvantage" name="/sessionWorkflow/profileWorkflow/profilePerson/person/personType" />
+<a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=StudentAdvantage','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">Student Advantage</a>
+</div>
+<div class="form_col major_col">
+
+<div class="form_label"><label for="register_profile_student_adv">Student Advantage ID Number</label></div>
+<div class="form_item">
+<input value="Scheme" type="hidden" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='Student Advantage']/@paymentType" /><input type="text" class="text" id="register_profile_student_adv" size="20" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='Student Advantage']/paymentMethod[@provider='Student Advantage']/number" />
+</div>
+
+</div>
+</div>
+<div class="form_line">
+<div class="form_col minor_col">
+<input value="ISIC" type="radio" class="radio" id="isic" name="/sessionWorkflow/profileWorkflow/profilePerson/person/personType" />
+<a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=ISIC','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">ISIC</a>
+</div>
+<div class="form_col major_col">
+
+<div class="form_label"><label for="register_profile_isic">ISIC Number</label></div>
+<div class="form_item">
+<input value="Scheme" type="hidden" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='ISIC']/@paymentType" /><input type="text" class="text" id="register_profile_isic" size="20" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='ISIC']/paymentMethod[@provider='ISIC']/number" />
+</div>
+
+</div>
+</div>
+<div class="form_line">
+<div class="form_col minor_col">
+<input value="Veterans Advantage" type="radio" class="radio" id="veteransadvantage" name="/sessionWorkflow/profileWorkflow/profilePerson/person/personType" />
+<a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=VeteransAdvantage','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">Veterans Advantage</a>
+</div>
+<div class="form_col major_col">
+
+<div class="form_label"><label for="register_profile_vet_adv">Veterans Advantage ID Number</label></div>
+<div class="form_item">
+<input value="Scheme" type="hidden" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='Veterans Advantage']/@paymentType" /><input type="text" class="text" id="register_profile_vet_adv" size="20" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='Veterans Advantage']/paymentMethod[@provider='Veterans Advantage']/number" />
+</div>
+
+</div>
+</div>
+<div class="form_line">
+<div class="form_col minor_col">
+<input value="NARP" type="radio" class="radio" id="narp" name="/sessionWorkflow/profileWorkflow/profilePerson/person/personType" />
+<a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&pass=NARP','pass','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">NARP</a>
+</div>
+<div class="form_col major_col">
+
+<div class="form_label"><label for="register_profile_narp_adv">NARP Advantage ID Number</label></div>
+<div class="form_item"><input value="Scheme" type="hidden" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='NARP']/@paymentType" /><input type="text" class="text" id="register_profile_narp_adv" size="20" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='NARP']/paymentMethod[@provider='NARP']/number" /></div>
+
+</div>
+</div>
+
+<br class="clear_both"/>
+</fieldset>
+<h3>Amtrak Guest Rewards</h3>
+<fieldset class="optional">
+
+<div>
+<h4 style="color:#328ACC">Link your Amtrak.com and Amtrak Guest Rewards accounts</h4>
+<div class="form_line"><img src="/images/en/linkaccounts_greybg.gif" alt="Amtrak Single Sign On" style="float:left;" /></div>
+<p> Make your booking experience even easier by linking your accounts - you&#39;ll be able to navigate between both sites without having to log in twice.</p>
+</div>
+<div class="agr_fields">
+
+<div class="agr_member_fields">
+<label for="membernumber">Member Number</label>
+<input value="Scheme" type="hidden" name="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='AmtrakGuestNumber']/@paymentType" />
+
+
+<input type="hidden" name="xwdf_membernumber" value="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='AmtrakGuestNumber']/paymentMethod[@provider='AmtrakGuestNumber']/number" /><input maxlength="10" type="text" class="text ie6-text" onchange="keyfieldschangedforsso(false)" id="membernumber" size="20" name="wdf_membernumber" />
+
+</div>
+
+<div class="agr_password_fields">
+<label for="memberpassword">Password</label>
+
+<input type="hidden" name="xwdf_memberpassword" value="/sessionWorkflow/profileWorkflow/profilePerson/paymentAccount[@provider='AmtrakGuestNumber']/paymentMethod[@provider='AmtrakGuestNumber']/@password" /><input maxlength="29" type="password" id="memberpassword" name="wdf_memberpassword" />
+</div>
+
+
+<br class="clear_both">
+</div>
+<br class="clear_both">
+<p>
+
+
+<input value="true" type="checkbox" onclick="checkunlinkstatus(false)" id="ssoagrlinkingchkbox" name="/sessionWorkflow/profileWorkflow/profileAccount/information[@key='agrssoenabled'].cbxvisible" /><input value="false" type="hidden" name="/sessionWorkflow/profileWorkflow/profileAccount/information[@key='agrssoenabled'].cbxhidden" />
+
+<input type="hidden" name="/sessionWorkflow/profileWorkflow/profileAccount/information[@key='agrssouniqueid']" />
+<b>Yes.</b> Link my Amtrak.com and AmtrakGuestRewards.com accounts.
+</p>
+<p style="margin-top:10px">Earn free travel fast with  <a href="javascript:openWindowList(&#39;http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&ibsref=agr&#39;,&#39;ibsref&#39;,&#39;width=680,height=600,directories=no,location=no,menubar=no,scrollbars=yes,status=yes,toolbar=no,resizable=yes&#39;)"> Amtrak Guest Rewards</a>.  Not a member? <a href="javascript:openWindowList(&#39;http://www.amtrakguestrewards.com/enroll/quick_enroll_amtrak.cfm&#39;,&#39;&#39;,&#39;width=680,height=600,directories=no,location=no,menubar=yes,scrollbars=yes,status=yes,toolbar=yes,resizable=yes&#39;)">Get your new member number now</a> with just your name and e-mail address.</p>
+
+</fieldset>
+
+
+<script type="text/javascript" language="javascript" charset="utf-8">
+// <![CDATA[
+new Ajax.Autocompleter('register_fav_departure_point','autocomplete_profile_from', '/itd/amtrak/AutoComplete', {
+paramName: "_origin",
+minChars: 2,
+frequency: 0.5
+}
+);
+new Ajax.Autocompleter('register_fav_arrival_point','autocomplete_profile_to','/itd/amtrak/AutoComplete', {
+paramName: "_destination",
+minChars: 2,
+frequency: 0.5
+}
+);
+// ]]>
+</script>
+
+
+<h3>Amtrak Updates</h3>
+<p>We invite you to sign-up to receive information by e-mail regarding special offers, new services, and important information from Amtrak.</p>
+<p id="register_updates">
+<input value="true" type="checkbox" id="register_receive_updates" name="/sessionWorkflow/profileWorkflow/profilePerson/profileCapability[@key='Profile.ReceiveMailings'].cbxvisible" /><input value="false" type="hidden" name="/sessionWorkflow/profileWorkflow/profilePerson/profileCapability[@key='Profile.ReceiveMailings'].cbxhidden" />
+<b>Yes.</b> I&#39;d like to receive e-mail updates from Amtrak. (You may stop receiving e-mail at any time by clearing this check box.) For more information, please review our <a href="javascript:var child=window.open('http://www.amtrak.com/servlet/Satellite?SnippetName=IBLegacy&pagename=am/AM_Snippet_C/SnippetWrapper&ibsref=privacy','ibsref','directories=0,dependent=1,menubar=0,top=20,left=20,width=680,height=600,scrollbars=1');child.focus();" CLASS="smallblue">privacy policy</a>.
+</p>
+
+<input width="0" type="image" src="/images/en/single_pixel.gif" alt="" height="0" border="0" name="_handler=amtrak.presentation.handler.request.profile.AmtrakPresProfileRegisterRequestHandler" />
+<div id="register_form_buttons" class="form_buttons">
+<div class="left_col"><input type="image" class="image" onclick="javascript:setManCheckOff()" src="/images/en/btn_cancel_back.gif" alt="Cancel" id="register_cancel_btn" name="_handler=amtrak.presentation.handler.request.profile.AmtrakProfileCancelRegisterRequestHandler" /></div>
+<div class="center_col"><input type="image" class="image" onclick="javascript:setManCheckOff()" src="/images/en/btn_resetform.gif" alt="Reset Form" id="register_reset_btn" name="_handler=amtrak.presentation.handler.request.profile.AmtrakPresProfileRequestHandler" /></div>
+<div class="right_col"><input type="image" class="image" src="/images/en/btn_saveuserprofile.gif" alt="Save Profile" id="register_save" name="_handler=amtrak.presentation.handler.request.profile.AmtrakPresProfileRegisterRequestHandler" /></div>
+<br class="clear_both"/>
+</div>
+</form>
+
+<meta name="WT.cg_s" content="member" />
+
+
+</div>
+<br class="clear_both" />
+</div>
+</div>
+</div>
+
+
+<script language="JavaScript">
+<!--
+function getProfileStr(){
+return 'amtrak';
+}
+document.write('<meta name="DCSext.PROFILE" content="'+getProfileStr()+'" />');
+// -->
+</script>
+<meta name="WT.cg_n" content="booking" />
+
+
+
+<!-- START OF SmartSource Data Collector TAG -->
+<!-- Copyright (c) 1996-2011 WebTrends Inc.  All rights reserved. -->
+<!-- Version: 9.3.0 -->
+<!-- Tag Builder Version: 3.1  -->
+<!-- Created: 2/11/2011 4:14:35 PM -->
+<script src="/itd/project/scripts/en/sitewise/webtrends_session.js" type="text/javascript"></script>
+<!-- ----------------------------------------------------------------------------------- -->
+<!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
+<!-- JavaScript include file can cause serious problems with cross-domain tracking.      -->
+<!-- ----------------------------------------------------------------------------------- -->
+<script type="text/javascript">
+//<![CDATA[
+var _tag=new WebTrends();
+var defSiteWiseParams = "&PROFILE=amtrak&WT.cg_n=booking";
+var CMS_dcsqry = window.location.search + defSiteWiseParams;
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+_tag.dcsCustom=function(){
+// Add custom parameters here.
+//_tag.DCSext.param_name=param_value;
+}
+_tag.dcsCollect();
+//]]>
+</script>
+<noscript>
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="http://statse.webtrendslive.com/dcsn42u4k11e5hyzziz7zntl5_1j8l/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;DCS.dcscfg=1&amp;WT.tv=9.3.0&amp;WT.dcssip=www.amtrak.com"/></div>
+</noscript>
+<!-- END OF SmartSource Data Collector TAG -->
+
+
+<!-- javascript for SSO -->
+<script type="text/javascript">
+var agrHost = (("https:"== document.location.protocol) ? "https://agr.amtrak.com/m/js":"http://agr.amtrak.com/m/js");
+document.write(
+unescape("%3Cscript src='" + agrHost + "/shoebox-simple.js' type='text/javascript'%3E%3C/script%3E")
+);
+</script>
+<!-- mp_trans_remove_start --><script type="text/javascript" language="javascript" src='https://askjulie.amtrak.com/ui/includes/NIT.Embed.js' id="agentScript"></script><!-- mp_trans_remove_end -->
+<script language="JavaScript" type="text/javascript">
+<!--
+
+function getField(name,id){
+ return document.getElementById(name+id);
+}
+
+function fieldExists(id){
+ return (document.getElementById('wdfdate'+id)!=null);
+}
+
+function setDateDate(id,dt){
+ setDate(id,dt.getFullYear(),dt.getMonth()+1,dt.getDate());
+}
+
+function setDate(id,year,month,day){
+ var dateInput=getField('wdfdate',id);
+ if (year==0 || month==0 || day==0){
+   dateInput.value="";
+ }else{
+     var inputFieldName = dateInput.name;
+      var dateInputFormat = inputFieldName.substring(inputFieldName.lastIndexOf(".") + 1, inputFieldName.length);
+       if (dateInputFormat == "eudate") { // DMY
+           dateInput.value=leadingZero(day)+'/'+leadingZero(month)+'/'+year;
+       }
+       if (dateInputFormat == "usdate") { // MDY
+        dateInput.value=leadingZero(month)+'/'+leadingZero(day)+'/'+year;
+       }
+       if (dateInputFormat == "isodate") { // YMD
+        dateInput.value=year+'/'+leadingZero(month)+'/'+leadingZero(day);
+       }
+     }
+}
+
+function leadingZero(value){
+ if (value<10) value="0"+value;
+ return value;
+}
+
+function getValidatedDateArray(id){
+ var array=getDateArray(id);
+ var year = parseInt(array[0],10);
+ var month = parseInt(array[1],10);
+ var day = parseInt(array[2],10);
+ if (year!=-1 && year<100){
+  year += 2000;
+ }
+ if (isNaN(year)||year<1900||year>9999){
+  year=0;
+ }
+ if (isNaN(month)||month<1||month>12){
+  month=0;
+ }
+ if (isNaN(day)||day<1||day>31){
+  day=0;
+ }
+ 
+  
+ var Tdt=new Date(year,month-1,day,0,0,0,1);
+ 
+ var iCal = window['itd_cal'+id];
+ if (iCal.toString().include('CalendarGroup')) {
+   // Do we need to check isDateOOB for the CalendarGroup
+ }
+ else {
+   // use the relevant calendar instance to check if the date is within the valid range for that calendar control
+   if( iCal.isDateOOB(Tdt) ) {
+	 // set year to zero, this will trigger the setErrorOn display
+	 year = 0;
+   }
+  }
+ return new Array(year,month,day);
+}
+
+function getDateArray(id){
+ var date=getField('wdfdate',id).value;
+ var amdate = date;
+ date=date.replace(/[^0-9]/g,"/");   // only allow numbers and slashes
+ date=date.replace(/[\/]+/g,"/");   // only single slashes
+ var values = date.split("/");
+
+ var inputFieldName = getField('wdfdate',id).name;
+ var dateInputFormat = inputFieldName.substring(inputFieldName.lastIndexOf(".") + 1, inputFieldName.length);
+   if (dateInputFormat == "eudate") { // DMY
+    return new Array(values[2],values[1],values[0]);
+   }
+   if (dateInputFormat == "usdate") { // MDY
+    return new Array(values[2],values[0],values[1]);
+   }
+   if (dateInputFormat == "isodate") { // YMD
+    return new Array(values[0],values[1],values[2]);
+   }
+   if (dateInputFormat == "date") { // YMD
+    if (date.blank()) {
+      return new Array(values[0],values[1],values[2]);
+    }
+    else {
+      values = amdate.split(", ");
+      var dvalues = values[1].split(" ");
+      var month = gsMonthNamesAbbr.indexOf(dvalues[0]) + 1;
+    
+      return new Array(values[2],month,dvalues[1]);
+    }
+   }
+}
+
+function isValidDate(array) {
+ return (array[2]!=0 && array[1]!=0 && array[0]!=0);
+}
+
+var timer=false;
+function dateChangedTimer(id){
+ doDateChanged(id,-1);
+ if (!timer){
+  window.setTimeout('timer=false;dateChangedTimer('+id+');',1000);
+  timer=true;
+ }
+}
+
+function dateChangedComplete(id,daysGap){
+ var returnradio = document.getElementById('wdfreturnradio');
+ if (returnradio!=null && returnradio.checked){
+  doDateChanged(id,daysGap);
+ }
+}
+
+function doDateChanged(id,daysGap){
+ if (id == 1) {
+     var str=getField('wdfdate',id).value;
+	 if (str.length>0){
+		  var array=getValidatedDateArray(id);
+			  if (!isValidDate(array)){
+			    setErrorOn(id);
+			  }else{
+				   var dt=new Date(array[0],array[1]-1,array[2],0,0,0,1);
+				   if (array[2]!=dt.getDate()){
+				     setErrorOn(id);
+				   }else{
+				    setErrorOff(id);
+				        // The second field is not updated at all if -1 is found.
+				        // if zero or greater is found, then the second field would be updated to the value of the firstField plus daysGap
+					    if (daysGap>=0){
+					    	// setDate function does not do anything...
+					     setDate(id,array[0],array[1],array[2]);
+					     var returnradio = document.getElementById('return');
+						 if (returnradio!=null && returnradio.checked){
+						     if (getField('wdfdate',id+1)!=null){
+
+						    	 // AIBE-2103 Get the return date and only update if depart date is > than return.
+						    	 var rtnArray=getValidatedDateArray(id+1);
+						    	 var rtnDt=new Date(rtnArray[0],rtnArray[1]-1,rtnArray[2],0,0,0,1);
+						    	 if(dt > rtnDt) {
+								     dt=new Date(dt.getFullYear(),dt.getMonth(),dt.getDate()+daysGap,0,0,0,1);
+								     var retDate = $('wdfdate2');
+									 retDate.value = formatDate(dt);
+						    	 }
+						     }
+						  }
+					  }
+				  }
+		      }
+	     }
+	 }
+ updateDateState();
+}
+
+function setErrorOn(id){
+ var cls=getField('wdfdate',id).className;
+ if (cls.indexOf('invalid')==-1){
+  getField('wdfdate',id).className=cls+' invalid';
+ }
+}
+
+function setErrorOff(id){
+ var cls=getField('wdfdate',id).className;
+ if (cls.indexOf('invalid')>=0){
+  getField('wdfdate',id).className=cls.substring(0,cls.indexOf('invalid'));
+ }
+}
+
+function updateDateState(){
+ if (self.updateRadioState) updateRadioState();
+ if (self.updateDowState) updateDowState();
+ if (self.updateTimeState) updateTimeState();
+}
+
+//-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+var booking_min_date = new Date();
+var booking_max_date = new Date(2014, 6, 28);
+function calConfig(itdUniqueId, cal, minDate, maxDate) {
+cal.cfg.setProperty("close", true);
+cal.cfg.setProperty("iframe", true);
+cal.cfg.setProperty("START_WEEKDAY", "0");
+cal.itdIdLink = itdUniqueId;
+cal.cfg.setProperty("DATE_FIELD_DELIMITER", "/");
+cal.cfg.setProperty("LOCALE_MONTHS", "long");
+cal.cfg.setProperty("MONTHS_LONG", ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
+cal.cfg.setProperty("LOCALE_WEEKDAYS", "short");
+cal.cfg.setProperty("WEEKDAYS_SHORT", ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"]);
+var itd_cal = cal;
+YAHOO.util.Event.addListener("wdfdate"+itdUniqueId, "focus", calShow, itd_cal, true);
+YAHOO.util.Event.addListener("calLink"+itdUniqueId, "click", calShow, itd_cal, true);
+itd_cal.selectEvent.subscribe(handleSelect, itd_cal, true);
+itd_cal.showEvent.subscribe(handleShow, itd_cal, true);
+itd_cal.hideEvent.subscribe(handleHide, itd_cal, true);
+if (itdUniqueId!=2) {
+cal.cfg.setProperty("title", "Departure Date");
+} else {
+cal.cfg.setProperty("title", "Return Date");
+}
+cal.cfg.setProperty("mindate", minDate)
+cal.cfg.setProperty("maxdate", maxDate)
+}
+var returnDaysAhead = 1;
+//-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+var itd_cal1 = new YAHOO.widget.CalendarGroup("itd_cal1", "calContainer1", {PAGES:2});
+calConfig("1", itd_cal1, new Date(), new Date(2014, 6, 28));
+//-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+var defTime=null;
+function updateTimeState() {
+	
+ if (defTime==null){
+  // this block of code stores off the default values of any timefields present on the page, 
+  //  this is only done once for a page, and only if the user changes a date field (now amended to also call this if they change a time field)
+  defTime=new Array("");
+  // Caution!
+  // remember that the id of the first time field on the page is >> "wdftime1"
+  // Starting with an id of zero, >> var id=0;
+  // preIncrement to 1, then check if field exists >> getField('wdftime',++id)!=null
+  // or >> ||
+  // again preIncrement, so value goes to 2, then check if field exists >> getField('wdftime',++id)!=null
+  // loop continues as long as condition evaluates to true.
+  // the double condition means time fields 1,2,4 can be saved off.. so if one number is missing from the sequence it will still work. I'm not sure why this is required.
+  //  It may be used to break up field pairs, so one does not advance the next field. A missing digit could be used as a pair separator.
+  for (var id=0; getField('wdftime',++id)!=null || getField('wdftime',++id)!=null; ) {
+   defTime[id]=getField('wdftime',id).value;
+  }
+ }
+
+ for (var id=0; getField('wdftime',++id)!=null || getField('wdftime',++id)!=null; ) {
+  var select=getField('wdftime',id);
+
+  // this returns the contents of the specified DATE field in Y,M,D format.. it is not concerned with the time field.
+  // it validates crudely that the month is 1-12, and days are 1-31, if a value is invalid it is set to zero.
+  var array=getValidatedDateArray(id);
+
+  // this checks if a zero was returned for any of the Y,M,D values..
+  // an empty date field is considered invalid
+  if (!isValidDate(array)){
+    // set to default value which we stored earlier
+    setTimeField(select,defTime[id]);
+  }
+  
+ }
+}
+
+function setTimeField(fld,val) {
+ for (var i=0; i<fld.options.length; i++) {
+  if (fld.options[i].value==val) {
+   fld.selectedIndex=i;
+   break;
+  }
+ }
+}
+
+function timeChanged() {
+ 
+}
+
+//-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+var itd_cal2 = new YAHOO.widget.CalendarGroup("itd_cal2", "calContainer2", {PAGES:2});
+calConfig("2", itd_cal2, new Date(), new Date(2014, 6, 28));
+//-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+var itd_cal15 = new YAHOO.widget.CalendarGroup("itd_cal15", "calContainer15", {PAGES:2});
+calConfig("15", itd_cal15, new Date(), new Date(2014, 6, 28));
+//-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+var itd_cal10 = new YAHOO.widget.Calendar("itd_cal10", "calContainer10");
+calConfig("10", itd_cal10, new Date(2013, 7, 16), new Date(2013, 7, 26));
+//-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+var itd_cal5 = new YAHOO.widget.CalendarGroup("itd_cal5", "calContainer5", {PAGES:2});
+calConfig("5", itd_cal5, new Date(), new Date(2014, 6, 28));
+//-->
+</script>
+</body>
+</html>

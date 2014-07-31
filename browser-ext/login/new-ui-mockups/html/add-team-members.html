@@ -1,0 +1,621 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The easiest way to save and share passwords. Remember and share everything from web accounts, credit cards, 2-factor backup codes, security question answers, and WiFi passwords.">
+    <title>Mitro</title>
+
+    <!--[if lte IE 8]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" /> -->
+    <link href="../less/main-org.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header"></div>
+      <div id="wrapper">
+        <div id="sidebar">
+          <div class="sb-section" id="profile">
+            <a href="https://www.mitro.co" class="icon-logo"></a>
+            <div id="username">username</div>
+          </div>
+          <div class="sb-section" id="acct-nav">
+            <ul>
+              <li>
+                <div class="acct-name">
+                  <div class="nav-icon icon-user"></div><a href="index.html">Personal</a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="index.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="personal-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                    <li><a class="acct-logs" href="personal-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+                </ul>
+              </li>
+              <li class="selected">
+                <div class="acct-name">
+                  <div class="org-icon" style="background-color: yellowgreen;"></div><div class="nav-icon icon-users"></div><a href="index-org.html">Lectorius <span class="admin-tag">Admin<span></a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-home" href="index-org.html"><div class="nav-icon icon-home"></div>Overview</a></li>
+                    <li><a class="acct-secrets" href="org-secrets.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-members" href="org-members.html"><div class="nav-icon icon-usercircle"></div>Members</a></li>
+                    <li class="selected"><a class="acct-teams" href="org-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                    <li><a class="acct-logs" href="org-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="org-icon" style="background-color: pink;"></div><div class="nav-icon icon-users"></div><a href="main-org-user.html">Essence Digital</a>
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="main-org-user.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="org-user-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                </ul>
+              </li>
+              <li>
+                <div class="acct-name">
+                  <div class="nav-icon icon-users"></div>Stack Exchange
+                </div>
+                <ul class="acct-info">
+                    <li><a class="acct-secrets" href="main-org-user.html"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+                    <li><a class="acct-teams" href="org-user-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="sb-section" id="tool-nav">
+            <ul>
+              <li><a href="import-secrets.html"><div class="nav-icon icon-download"></div>Import Secrets</a></li>
+              <!--<li><div class="nav-icon icon-wrench"></div>Tools</li>-->
+              <!--<li><a href="settings.html"><div class="nav-icon icon-gear"></div>Settings</a></li>-->
+              <li><a href="feedback-form.html"><div class="nav-icon icon-bubble"></div>Feedback</a></li>
+              <li><a href="mailto:inbound@mitro.co"><div class="nav-icon icon-question"></div>Help</a></li>
+              <li><div class="nav-icon icon-switch"></div>Sign Out</li>
+            </ul>
+          </div>
+          <div class="sb-section" id="policy-nav">
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+        <div id="content">
+          <div id="content-header">
+            <ul class="breadcrumb">
+              <li><div class="nav-icon icon-vault2"></div><a href="org-teams.html">Teams</a></li>
+              <li><div title="Sales" data-icon-text="Sales" class="team-icon-placeholder" style="background-color: rgb(255, 127, 14);">S</div>Sales</li>
+            </ul>
+          </div>
+          <div id="content-body">
+            <div id="tabs">
+              <ul>
+                <li><a href="#tab-team-settings"><div class="nav-icon icon-cogs"></div>Account</a></li>
+                <li><a href="#tab-team-members"><div class="nav-icon icon-usercircle"></div>Members</a></li>
+                <li><a href="#tab-team-secrets"><div class="nav-icon icon-vault"></div>Secrets</a></li>
+              </ul>
+              <div id="tab-team-settings">
+                <div class="tab-content">
+                  <div class="form-wrapper">
+                    <form id="edit-team-form">
+                      <!--<div class="form-group">
+                        <label>Organization</label>
+                        <input type="text" name="team-name" readonly value="Lectorius">
+                      </div>-->
+                      <div class="form-group">
+                        <label>Team Name</label>
+                        <input type="text" name="team-name" placeholder="Enter Team Name" value="Sales" autofocus>
+                      </div>
+                      <button type="reset" class="reset"><a href="org-teams.html">Cancel</a></button>
+                      <button type="submit" class="submit">Save Changes</button>
+                    </form>
+                    <a class="text modal-link" href="delete-team.html" data-action="delete" data-target-type="team">Delete Team</a>
+                  </div>
+                </div>
+              </div>
+              <div id="tab-team-members">
+                <div class="tab-content">
+                  <div class="sliding-checklist-wrapper">
+                    <div class="sliding-checklist-content" id="left-member-checklist">
+                      <div class="checklist-wrapper" id="remove-list-wrapper">
+                      </div><!-- #remove-list-wrapper -->
+                      <button id="add-members" data-target-id="#right-member-checklist" class="slide-btn button-med"><div class="icon-plus"></div>Add Members</button>
+                    </div>
+                    <div class="sliding-checklist-content" id="right-member-checklist">
+                      <button id="current-members" data-target-id="#left-member-checklist" class="slide-btn button-med"><div class="icon-arrow-left"></div>Back to current members</button>
+                      <div class="checklist-wrapper" id="add-list-wrapper">
+                      </div><!-- #add-list-wrapper -->
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- /#tab-team-members -->
+              <div id="tab-team-secrets">
+                <div class="tab-content">
+                  <div class="sliding-checklist-wrapper">
+                    <div class="sliding-checklist-content" id="left-secret-checklist">
+                      <div class="checklist-wrapper" id="remove-secret-list-wrapper">
+                      </div><!-- #remove-list-wrapper -->
+                      <button id="add-secrets" data-target-id="#right-secret-checklist" class="slide-btn button-med"><div class="icon-plus"></div>Add Secrets</button>
+                    </div>
+                    <div class="sliding-checklist-content" id="right-secret-checklist">
+                      <button id="current-secrets" data-target-id="#left-secret-checklist" class="slide-btn button-med"><div class="icon-arrow-left"></div>Back to current secrets</button>
+                      <div class="checklist-wrapper" id="add-secret-list-wrapper">
+                      </div><!-- #add-list-wrapper -->
+                    </div>
+                  </div>
+                </div>
+              </div> <!-- /#tab-team-secrets -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script src="../js/mustache.js"></script>
+    <script>
+      $(function() {
+        $('#tabs').tabs();
+        loadUsers('user-list-template', 'remove-list-wrapper', currentUserData);
+        loadUsers('user-list-template', 'add-list-wrapper', addUserData);
+
+        loadSecrets('secret-list-template', 'remove-secret-list-wrapper', currentSecretData);
+        loadSecrets('secret-list-template', 'add-secret-list-wrapper', addSecretData);
+
+        $('a[href="#tab-team-members"]').click();
+        $('a[href="#tab-members"]').click(function() {
+          window.location.href = 'org-members.html';
+        });
+        $('a[href="#tab-teams"]').click(function() {
+          window.location.href = 'org-teams.html';
+        });
+        $('a[href="#tab-logs"]').click(function() {
+          window.location.href = 'org-logs.html';
+        });
+        $('a[href="#tab-secrets"]').click(function() {
+          window.location.href = 'org-secrets.html';
+        });
+        $('a[href="#tab-home"]').click(function() {
+          window.location.href = 'index-org.html';
+        });
+
+        // process the "add-user" selection
+        $('.checkbox').click(function() {
+            var $checkboxEl = $(this);
+            var $checklistItem = $(this).parents('.item');
+            var $checkboxInput = $checkboxEl.find('input[type="checkbox"]');
+            if ($checkboxInput.is(':checked')) {
+              $checkboxInput.prop('checked', false);
+              $checkboxEl.removeClass('checked');
+              $checklistItem.removeClass('selected');
+            } else {
+              $checkboxInput.prop('checked', true);
+              $checkboxEl.addClass('checked');
+              $checklistItem.addClass('selected');
+            }
+        });
+
+        $('.action-btn').click(function(e) {
+          e.preventDefault();
+          var $thisBtn = $(this);
+          var action = $thisBtn.data('action');
+          var targetID = $thisBtn.data('target-id');
+          var targetClass = $thisBtn.data('target-class');
+          if (action && targetID && targetClass) {
+            var $targetEl = $('#' + targetID);
+            switch(action) {
+              case 'reset':
+                $targetEl.find('.' + targetClass + '.checked').trigger('click');
+                break;
+              case 'select':
+                $targetEl.find('.' + targetClass).not('.checked').trigger('click');
+                break;
+            }
+          }
+        });
+
+        $('#list-filter').change(function() {
+          var $listToSort = $('#' + $(this).data('list')).find('.item-list');
+          $(this).find(":selected").each(function() {
+            var $selectedOption = $(this);
+            if ($selectedOption.val() === 'all') {
+              $listToSort.find($('.item')).show();
+            } else if ($selectedOption.val() === 'selected') {
+              $listToSort.find($('.item')).hide();
+              $listToSort.find($('.item.selected')).show();
+            } else if ($selectedOption.val() === 'unselected') {
+              $listToSort.find($('.item')).hide();
+              $listToSort.find($('.item').not('.selected')).show();
+            }
+          });
+        });
+
+        $('.item').on('click', '.remove-user', function(e) {
+          var $itemEl = $(e.target).parents('.item');
+          var $itemElContents = $itemEl.contents();
+          if (!$itemEl.find('.remove-user-overlay').length) {
+            var username = $itemEl.data('user-id');
+            var $overlayEl = $('<div class="remove-user-overlay">Really remove <span class="name">' + username + '</span>?<button class="remove-btn">Remove</button><a class="text cancel-remove">cancel</a></div>');
+            $itemEl.empty();
+            $itemEl.append($overlayEl);
+
+            $overlayEl.on('click', '.cancel-remove', function(e) {
+              $overlayEl.remove();
+              $itemEl.append($itemElContents);
+            });
+            // keep track of all the members who are being removed - remove all at once?
+          }
+        });
+
+        $('.sliding-checklist-wrapper').on('click', '.slide-btn', function(e) {
+          e.preventDefault();
+          // get the button element that was clicked (a child element of the button may also trigger this click but we need the button element)
+          var $buttonEl = $(e.target).parents('.sliding-checklist-content').find('.slide-btn');
+          // get the button's target element - the left position of this element is used to determine the position of the animation for the wrapper element
+          var $buttonTargetEl = $($buttonEl.attr('data-target-id'));
+          // the wrapper element that is animated
+          var $contentWrapperEl = $buttonEl.parents('.sliding-checklist-wrapper');
+
+          $contentWrapperEl.animate({
+              left: -($buttonTargetEl.position().left)
+            }, 1000
+          );
+        });      
+      });
+
+      var getInitial = function() {
+        return this.name.charAt(0).toUpperCase();
+      }
+
+      var hasUsers = function() {
+        return ((this.users.length > 0) ? true : false);
+      }
+
+      var hasSecrets = function() {
+        return ((this.secrets.length > 0) ? true : false);
+      }
+
+      var currentUserData = {
+        title: "Current Members",
+        users: [
+          {   name: "usertest+100@work.com",
+              color: "rgb(188, 189, 34)"
+          },
+          {   name: "user@user.com",
+              color: "rgb(148, 103, 189)"
+          },
+          {   name: "usertest@gmail.com",
+              color: "rgb(31, 119, 180)"
+          }
+        ],
+        searchText: "Search Current Members",
+        listID: "remove-list",
+        "initial": getInitial,
+        "hasUsers": hasUsers
+      };  
+
+      var addUserData = {
+        isAddUserList: true,
+        title: "Add Members",
+        users: [
+          {   name: "usertest+100@work.com",
+              color: "rgb(188, 189, 34)"
+          },
+          {   name: "user@user.com",
+              color: "rgb(148, 103, 189)"
+          },
+          {   name: "usertest@gmail.com",
+              color: "rgb(31, 119, 180)"
+          },
+          {   name: "usertest+100@work.com",
+              color: "rgb(188, 189, 34)"
+          },
+          {   name: "user@user.com",
+              color: "rgb(148, 103, 189)"
+          },
+          {   name: "usertest@gmail.com",
+              color: "rgb(31, 119, 180)"
+          },
+          {   name: "usertest+100@work.com",
+              color: "rgb(188, 189, 34)"
+          },
+          {   name: "user@user.com",
+              color: "rgb(148, 103, 189)"
+          },
+          {   name: "usertest@gmail.com",
+              color: "rgb(31, 119, 180)"
+          },
+          {   name: "usertest+100@work.com",
+              color: "rgb(188, 189, 34)"
+          },
+          {   name: "user@user.com",
+              color: "rgb(148, 103, 189)"
+          },
+          {   name: "usertest@gmail.com",
+              color: "rgb(31, 119, 180)"
+          }
+        ],
+        searchText: "Search for Members to Add",
+        listID: "add-list",
+        "initial": getInitial,
+        "hasUsers": hasUsers
+      };
+
+      var currentSecretData = {
+        title: "Current Secrets",
+        secrets: [
+          {   name: "Dropbox",
+              loginUrl: "https://www.dropbox.com/login",
+              url: "dropbox.com",
+              img: "https://dt8kf6553cww8.cloudfront.net/static/images/dropbox_webclip-vflO8tEZ4.png",
+              id: 88370,
+              username: "usertest@yahoo.com",
+              isNote: false,
+              numTeams: 0,
+              numMembers: 3,
+              hasAccess: true
+          },
+          {   name: "Dropbox",
+              loginUrl: "https://www.dropbox.com/login",
+              url: "dropbox.com",
+              img: "https://dt8kf6553cww8.cloudfront.net/static/images/dropbox_webclip-vflO8tEZ4.png",
+              id: 88370,
+              username: "usertest@work.com",
+              isNote: false,
+              numTeams: 1,
+              numMembers: 4
+          },
+          {   name: "Ebay Online Auctions and Shopping",
+              loginUrl: "https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&amp;FYPReset=1&amp;ru=http%3A%2F%2Fmy.ebay.com%2Fws%2FeBayISAPI.dll%3FMyEbayBeta%26MyEbay%3D%26gbh%3D1%26guest%3D1&amp;input=tsaitsee",
+              url: "signin.ebay.com",
+              img: "https://signin.ebay.com/favicon.ico",
+              id: 88370,
+              username: "usertest@gmail.com",
+              isNote: false,
+              numTeams: 3,
+              numMembers: 0,
+              hasAccess: true          
+          },
+          {   name: "epicurious.com",
+              loginUrl: "http://www.epicurious.com/user/login",
+              url: "epicurious.com",
+              color: "rgb(255, 127, 14)",
+              id: 109991,
+              username: "usertest@gmail.com",
+              isNote: false,
+              numTeams: 5,
+              numMembers: 2
+          },
+          {   name: "Secret Test",
+              loginUrl: "",
+              url: "",
+              img: "",
+              id: 120019,
+              username: "",
+              isNote: true,
+              numTeams: 2,
+              numMembers: 3
+          }    
+        ],
+        searchText: "Search Current Secrets",
+        listID: "remove-secret-list",
+        "initial": getInitial,
+        "hasSecrets": hasSecrets
+      };
+
+      var addSecretData = {
+        isAddSecretList: true,
+        title: "Add Secrets",
+        secrets: [
+          {   name: "Dropbox",
+              loginUrl: "https://www.dropbox.com/login",
+              url: "dropbox.com",
+              img: "https://dt8kf6553cww8.cloudfront.net/static/images/dropbox_webclip-vflO8tEZ4.png",
+              id: 88370,
+              username: "usertest@yahoo.com",
+              isNote: false,
+              numTeams: 0,
+              numMembers: 3,
+              hasAccess: true
+          },
+          {   name: "Dropbox",
+              loginUrl: "https://www.dropbox.com/login",
+              url: "dropbox.com",
+              img: "https://dt8kf6553cww8.cloudfront.net/static/images/dropbox_webclip-vflO8tEZ4.png",
+              id: 88370,
+              username: "usertest@work.com",
+              isNote: false,
+              numTeams: 1,
+              numMembers: 4
+          },
+          {   name: "Ebay Online Auctions and Shopping",
+              loginUrl: "https://signin.ebay.com/ws/eBayISAPI.dll?SignIn&amp;FYPReset=1&amp;ru=http%3A%2F%2Fmy.ebay.com%2Fws%2FeBayISAPI.dll%3FMyEbayBeta%26MyEbay%3D%26gbh%3D1%26guest%3D1&amp;input=tsaitsee",
+              url: "signin.ebay.com",
+              img: "https://signin.ebay.com/favicon.ico",
+              id: 88370,
+              username: "usertest@gmail.com",
+              isNote: false,
+              numTeams: 3,
+              numMembers: 0,
+              hasAccess: true          
+          },
+          {   name: "epicurious.com",
+              loginUrl: "http://www.epicurious.com/user/login",
+              url: "epicurious.com",
+              color: "rgb(255, 127, 14)",
+              id: 109991,
+              username: "usertest@gmail.com",
+              isNote: false,
+              numTeams: 5,
+              numMembers: 2
+          },
+          {   name: "Secret Test",
+              loginUrl: "",
+              url: "",
+              img: "",
+              id: 120019,
+              username: "",
+              isNote: true,
+              numTeams: 2,
+              numMembers: 3
+          }    
+        ],
+        searchText: "Search Secrets to Add",
+        listID: "add-secret-list",
+        "initial": getInitial,
+        "hasSecrets": hasSecrets
+      };         
+
+      function loadUsers(templateID, elementID, data) {
+        var template = $('#' + templateID).html();
+        var userTemplate = $('#user-item-template').html();
+        var output = Mustache.render(template, data, {
+            user: userTemplate
+        });
+        $('#' + elementID).html(output);
+      }
+
+      function loadSecrets(templateID, elementID, data) {
+        var template = $('#' + templateID).html();
+        var secretTemplate = $('#secret-item-template').html();
+        var output = Mustache.render(template, data, {
+            secret: secretTemplate
+        });
+        $('#' + elementID).html(output);
+      }
+    </script>
+
+    <script id="user-list-template" type="text/html">
+      <h3>{{ title }}</h3>
+      {{#hasUsers}}
+        <div id="search">
+          <button id="search-btn"><div class="icon-search"></div></button>
+          <input id="secret-filter-string" type="text" class="form-control search" placeholder="{{ searchText }}">
+        </div>
+        {{#isAddUserList}}
+        <div class="select-wrapper">
+          View:
+          <select id="list-filter" data-list="add-list">
+            <option value="all">All</option>
+            <option value="selected">Selected</option>
+            <option value="unselected">Unselected</option>
+          </select>
+        </div>
+        <div class="button-wrapper">
+          <button class="button-sm button-light action-btn select-btn" data-action="select" data-target-id="{{#isAddUserList}}add-list{{/isAddUserList}}{{^isAddUserList}}remove-list{{/isAddUserList}}" data-target-class="checkbox">Select all</button>
+          <button class="button-sm button-light action-btn reset-btn" data-action="reset" data-target-id="{{#isAddUserList}}add-list{{/isAddUserList}}{{^isAddUserList}}remove-list{{/isAddUserList}}" data-target-class="checkbox">Reset</button>
+        </div>
+        {{/isAddUserList}}
+        <ul class="item-list scroll-list checklist" id="{{ listID }}">
+          {{#users}}
+            {{> user}}
+          {{/users}}
+        </ul>
+        {{#isAddUserList}}<button id="add-members" class="button-med submit-btn" type="submit">Add Members</button>{{/isAddUserList}}
+        {{^isAddUserList}}<!--<button id="remove-members" class="button-med submit-btn" type="submit">Remove Members</button>-->{{/isAddUserList}}
+      {{/hasUsers}}
+      {{^hasUsers}}
+        No members yet.
+      {{/hasUsers}}
+    </script>
+
+    <script id="user-item-template" type="text/html">
+      <li class="item" data-user-id="{{ name }}">
+        <a class="item-icon user-icon-placeholder" href="user-info.html" title="{{ name }}" data-icon-text="{{ name }}" style="background-color: {{ color }}">{{ initial }}</a>
+        <div class="item-info">
+          <div class="item-name search-this-value">{{ name }}</div>
+        </div>
+        <ul class="item-actions">
+          {{#isAddUserList}}
+            <li>
+              <div class="action-wrapper checkbox">
+                <a class="action-icon icon-plus" href="#" title="Add Member" data-item-action="add" data-action-target="member"></a>
+                <input id="checkbox60" name="member" type="checkbox">
+              </div>
+            </li>        
+          {{/isAddUserList}}
+          {{^isAddUserList}}
+          <li><a class="action-icon icon-close remove-user" href="#" title="Remove Member"></a></li>
+          {{/isAddUserList}}
+        </ul>
+      </li>
+    </script>
+
+    <script id="secret-list-template" type="text/html">
+      <h3>{{ title }}</h3>
+      {{#hasSecrets}}
+        <div id="search">
+          <button id="search-btn"><div class="icon-search"></div></button>
+          <input id="secret-filter-string" type="text" class="form-control search" placeholder="{{ searchText }}">
+        </div>
+        {{#isAddSecretList}}
+        <div class="select-wrapper">
+          View:
+          <select id="list-filter" data-list="add-secret-list">
+            <option value="all">All</option>
+            <option value="selected">Selected</option>
+            <option value="unselected">Unselected</option>
+          </select>
+        </div>
+        {{/isAddSecretList}}
+        <div class="button-wrapper">
+          <button class="button-sm button-light action-btn select-btn" data-action="select" data-target-id="{{#isAddSecretList}}add-secret-list{{/isAddSecretList}}{{^isAddSecretList}}remove-secret-list{{/isAddSecretList}}" data-target-class="checkbox">Select all</button>
+          <button class="button-sm button-light action-btn reset-btn" data-action="reset" data-target-id="{{#isAddSecretList}}add-secret-list{{/isAddSecretList}}{{^isAddSecretList}}remove-secret-list{{/isAddSecretList}}" data-target-class="checkbox">Reset</button>
+        </div>
+        <ul class="item-list scroll-list checklist" id="{{ listID }}">
+          {{#secrets}}
+            {{> secret}}
+          {{/secrets}}
+        </ul>
+        {{#isAddSecretList}}<button id="add-secrets" class="button-med submit-btn" type="submit">Add Secrets</button>{{/isAddSecretList}}
+        {{^isAddSecretList}}<button id="remove-secrets" class="button-med submit-btn" type="submit">Remove Secrets</button>{{/isAddSecretList}}
+      {{/hasSecrets}}
+      {{^hasSecrets}}
+        No secrets yet.
+      {{/hasSecrets}}
+    </script>
+
+    <script id="secret-item-template" type="text/html">
+      <li class="item" data-user-id="{{ name }}">
+        {{#isNote}}
+        <div class="item-icon icon-document" title="{{ name }}" data-icon-text="{{ name }}"></div>
+        {{/isNote}}
+        {{^isNote}}
+          {{#img}}
+          <a class="item-icon" href="{{ loginUrl }}" title="{{ name }}"><img src="{{ img }}" data-icon-text="{{ name }} ({{ username }})"></a>
+          {{/img}}
+          {{^img}}
+          <a class="item-icon secret-icon-placeholder" href="{{ loginUrl }}" title="{{ name }}" data-icon-text="{{ name }}" style="background-color: {{ color }}">{{ initial }}</a>
+          {{/img}}
+        {{/isNote}}
+        <div class="item-info">
+          <div class="item-name search-this-value">{{ name }}</div>
+        </div>
+        <ul class="item-actions">
+          {{#isAddSecretList}}
+            <li>
+              <div class="action-wrapper checkbox">
+                <a class="action-icon icon-plus" href="#" title="Add Secret" data-item-action="add" data-action-target="secret"></a>
+                <input id="checkbox60" name="secret" type="checkbox">
+              </div>
+            </li>        
+          {{/isAddSecretList}}
+          {{^isAddSecretList}}
+            <li>
+                <div class="action-wrapper checkbox">
+                  <a class="action-icon icon-close" href="#" title="Remove Secret" data-item-action="remove" data-action-target="secret"></a>
+                  <input id="checkbox60" name="member" type="checkbox">
+                </div>
+            </li>
+          {{/isAddSecretList}}
+        </ul>
+      </li>
+    </script>
+
+  </body>
+</html>

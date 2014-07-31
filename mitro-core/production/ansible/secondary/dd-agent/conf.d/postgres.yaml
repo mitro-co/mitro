@@ -1,0 +1,10 @@
+init_config:
+
+instances:
+  -   host: localhost
+      port: 5432
+      username: datadog
+      password: r6lCk7oA8oQuf7W8JHLBME2w
+      dbname: postgres
+      tags:
+           - secondary

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>{{$title}}Mitro{{/title}}</title>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/logging.js"></script>
+    <script src="../utils.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/underscore-min.js"></script>
+    <script src="../js/hogan-template.js"></script>
+    <script src="../js/modal-dialog-template.js"></script>
+    <script src="../js/admin-common.js"></script>
+    <script src="../js/client.js"></script>
+    <script src="../helpers_common.js"></script>
+    <script src="../js/helpers.js"></script>
+    <script src="../js/icon-generator.js"></script>
+    <script src="../js/background_interface.js"></script>
+    <script src="../js/background-init.js"></script>
+    <script src="../kew.js"></script>
+    <script src="../js/org-info.js"></script>
+    <script src="../js/org-dropdown.js"></script>
+    <script src="../js/org-common.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../css/org-style.css" rel="stylesheet" media="screen">
+
+{{$includes}}
+{{/includes}}
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="header">
+        <div class="clearfix">
+          <a class="navbar-brand pull-left" href="../html/secrets.html">
+            <img src="../img/mitro_logo_navbar@2x.png" width="150" height="42"/>
+          </a>
+          <div class="pull-right menu user-menu hide">
+            <div class="dropdown">
+              <a data-toggle="dropdown" href="#">
+                <span class="ml">
+                  <span class="email"></span>
+                  <b class="caret"></b>
+                  <span class="mr"></span>
+                  <span class="org-admin hide label label-warning">ADMIN</span>
+                </span>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="../html/privacy.html">Privacy Policy</a></li>
+                <li><a href="../html/terms.html">Terms of Service</a></li>
+                <li><a href="#" class="logout-link">Log out</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="main clearfix">
+        <div class="left-col">
+          <div class="user clearfix hide org-no-dropdown">
+              <div class="pull-left mr">
+                <img class="org-icon" src="" alt="" width="50" height="50"/>
+              </div>
+              <div class="org-name-wrapper">
+                <div class="org-name name">&nbsp</div>
+              </div>
+          </div>
+          <div class="user clearfix hide org-admin-dropdown dropdown">
+            <a data-toggle="dropdown">
+              <div class="pull-left mr">
+                <img class="org-icon" src="" alt="" width="50" height="50"/>
+              </div>
+              <div class="org-name-wrapper">
+                <div>
+                  <div class="org-name name select">&nbsp</div>
+                  <b class="caret"></b>
+                </div>
+              </div>
+            </a>
+            <ul class="dropdown-menu dropdown-select" role="menu">
+            </ul>
+          </div>
+          <ul class="nav-menu menu hide">
+            <li class="org-admin hide">
+              <a href="../html/admin-dashboard.html">Organization</a>
+              <ul>
+                <li><a href="../html/admin-secrets.html">All Secrets</a></li>
+                <li><a href="../html/admin-members.html">All Members</a></li>
+                <li><a href="../html/admin-teams.html">All Teams</a></li>
+                <li><a href="../html/admin-audit.html">Audit Log</a></li>
+              </ul>
+            </li>
+            <li><a href="../html/secrets.html">My Secrets</a></li>
+            <li><a href="../html/teams.html">My Teams</a></li>
+            <!--<li><a href="../html/profile.html">My Profile</a></li>-->
+          </ul>
+          <div class="actions">
+            <ul>
+              <li><a href="../html/admin-create-secret.html"><i class="ico ico-plus"></i>Create Secret</a></li>
+              <li>
+                <a class="create-team-link" href="../html/create-team.html">
+                  <i class="ico ico-people"></i>Create Team
+                </a>
+              </li>
+              <li id="export"><a href="../html/export.html"><div class="icon-download"></div>Export Secrets</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="ugly-message" style="display:none;">Working ...
+        </div>
+        <div class="content">
+{{$content}}
+{{/content}}
+        </div>
+      </div>
+{{$modals}}
+{{/modals}}
+  
+      <div class="footer">
+        <div class="clearfix">
+          <div class="pull-left">&copy; 2013 Lectorius, Inc.</div>
+          <div class="pull-right">
+            <ul>
+              <li><a href="https://mitro.co/jobs.html">Careers</a></li>
+              <li><a href="../html/privacy.html">Privacy</a></li>
+              <li><a href="http://blog.mitro.co">Blog</a></li>
+              <li><a href="https://twitter.com/MitroCo">Twitter</a></li>
+              <li><a href="mailto:inbound@mitro.co">Contact</a></li>
+              <li>Made in NY</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

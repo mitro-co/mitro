@@ -1,0 +1,3 @@
+Command line tool to run the Closure compiler.
+
+Written in Go. In a separate repository.

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]--><!--[if IE 7 ]>    <html class="ie7"> <![endif]--><!--[if IE 8 ]>    <html class="ie8"> <![endif]--><!--[if IE 9 ]>    <html class="ie9"> <![endif]--><!--[if !IE]><!--> <html>         <!--<![endif]--><head><meta name="en:locale" content="en" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <meta name="viewport" content="initial-scale=1" />
+      <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/redesign/global/css/reset.css" />
+
+    <link rel="stylesheet" href="/redesign/global/css/fonts.css" />
+    <link rel="stylesheet" href="/redesign/global/css/header.css" />
+        <link rel="stylesheet" href="/redesign/global/css/layout.css" />
+    <title>Create an Evernote Account</title>
+  <link rel="stylesheet" href="/redesign/modules/RegistrationPage/RegistrationPage.css"><link rel="stylesheet" href="/redesign/modules/Tour/Tour.css"><link rel="stylesheet" href="/redesign/modules/RegistrationForm/RegistrationForm.css"></head><body class="wrapper"><div class="header-line-border"></div>
+    <div class="logo-bar ">
+      <div class="inner-header-div">
+        <a class="evernote-logo" href="https://www.evernote.com/Home.action">https://www.evernote.com/Home.action</a><div id="double-brand"></div>
+      </div>
+    </div>
+  <div id="container-boundingbox" class="wrapper">
+      <div id="container" class="wrapper">
+        <div class="main">
+          <div class="RegistrationPage"><div class="page-header">
+      <h1>Create an Evernote Account</h1>
+        </div>
+      <div class="page-content">
+      <div class="column11 first">
+        <div class="page-intro">Evernote helps you remember everything across all the computers, phones and tablets you use.</div>
+          <div class="Tour"><div class="evernote-tour">
+    <div class="tour-container">
+      <div class="tour1">
+          <h4>Capture anything</h4>
+          <p>Save your ideas, tasks, projects, files, research, and more.</p>
+      </div>
+    </div>
+    <div class="tour-container">
+      <div class="tour2">
+        <h4>Access anywhere</h4>
+        <p>Evernote makes all of your memories available anywhere you go.</p>
+      </div>
+    </div>
+    <div class="tour-container last">
+      <div class="tour3">
+        <h4>Find everything fast</h4>
+        <p>Search by keyword, tag, and even find text inside images.</p>
+      </div>
+    </div>
+  </div>
+</div></div>
+      <div class="column11">
+        <div class="RegistrationForm"><div class="RegistrationCheck"></div><div class="callout-box">
+    <div class="reg-header">
+      <h3>Create an Account<span class="switch">
+          <form id="switchForm" action="/Login.action" method="post">or&nbsp;
+            <a id="switchLink" style="cursor: pointer;">
+              Sign in</a>
+          <input type="hidden" name="embed" value="false" /><div style="display: none;"><input type="hidden" name="_sourcePage" value="BoNECTlZ6zviMUD9T65RG_YvRLZ-1eYO3fqfqRu0fynRL_1nukNa4gH1t86pc1SP" /><input type="hidden" name="__fp" value="TQvNvohyz14=" /></div></form></span>
+      </h3>
+    </div>
+    <div class="register">
+      <form id="registration" name="registration" action="/Registration.action" method="POST"><label>Email address</label>
+        <input id="email" maxlength="255" name="email" class="text" type="text" /><script type="text/javascript">setTimeout(function(){try{var z=document.getElementById('email');z.focus();z.select();}catch(e){}},1);</script><div class="email-errors">
+          </div>
+        <label>Username</label>
+        <input id="usernameInput" maxlength="64" name="username" class="text" type="text" /><div class="username-messages"></div>
+        <div class="username-errors">
+          </div>
+        <label>Password</label>
+        <input id="passwordInput" maxlength="64" name="password" class="text" type="password" /><div class="password-errors">
+          </div>
+        <div class="terms">
+          <p>By clicking Register, I agree to the <a target="_window" href="http://evernote.com/tos">Terms of Service</a> and <a target="_window" href="http://evernote.com/privacy">Privacy Policy</a>.</p>
+        </div>
+        <input name="register" value="Register" class="super-emphasize" type="submit" /><input type="hidden" name="embed" value="false" /><div style="display: none;"><input type="hidden" name="_sourcePage" value="Zj29b2w2luHiMUD9T65RG_YvRLZ-1eYO3fqfqRu0fynRL_1nukNa4gH1t86pc1SP" /><input type="hidden" name="__fp" value="x-cOHZ48CAc=" /></div></form></div>
+  </div>
+</div></div>
+      <div class="clear"></div>
+    </div>
+  </div></div>
+
+        <div class="shadow wrapper">
+</div>
+
+<div class="footer wrapper">
+  <a target="_blank" class="footer-entry" href="http://evernote.com/tos/">Terms of Service</a><a target="_blank" class="footer-entry" href="http://evernote.com/privacy/">Privacy Policy</a><span class="footer-entry last">
+    Copyright 2013 Evernote Corporation. All rights reserved.</span>
+</div>
+</div>
+    </div>
+
+    <script src="/redesign/global/js/respond.min.js"></script>
+    <script src="/redesign/global/js/require.min.js"></script>
+    <script src="/redesign/global/js/config-require.js"></script>
+    <script src="/redesign/global/js/common-libs.js"></script>
+    <script type="text/javascript">
+      define("actionBean", [], function() {return {"csrfBusterToken":null,"checkingUserAvailability":"Checking availability...","usernameAvailable":"Available","usernameUnavailable":"Username has already been taken.","invalidPassword":"Select a password between 6 and 64 characters long consisting of letters, numbers and punctuation.","passwordRequired":"Password is a required field.","usernameDeactivated":"Username has been deactivated.  Would you like to <a href={2}>reactivate<\/a> the account?","usernameRequired":"Your username must start and end with a letter or number, it can contain hyphens and underscores.","emailRequired":"Email address is a required field.","emailInvalid":"Email address appears to be invalid.","emailInUse":"This email address is already in use.","captchaInvalid":"Type the characters you see in the picture above.","emailRegex":"^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*\\.([A-Za-z]{2,})$","usernameRegex":"^[a-z0-9]([a-z0-9_-]{0,62}[a-z0-9])?$","passwordRegex":"^[A-Za-z0-9!#$%&'()*+,./:;<=>?@^_`{|}~\\[\\]\\\\-]{6,64}$","registrationCheckUrl":"/RegistrationCheck.action"};});
+    </script>
+    <!-- Google Analytics -->
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-285778-5']);
+
+
+    _gaq.push(['_trackPageview', '/Registration.action']);
+  
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+<!-- End of Google Analytics -->
+<script type="text/javascript" src="/redesign/modules/RegistrationCheck/RegistrationCheck.js"></script><!--[if !IE]><!--><script>if (/*@cc_on!@*/false) document.documentElement.className += ' ie10';</script><!--<![endif]--></body></html>

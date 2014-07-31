@@ -1,0 +1,14 @@
+init_config:
+  notify:
+    - all
+    - ej@lectorius.com
+
+instances:
+  - name: postgres_master
+    host: localhost
+    port: 5432
+
+  - name: sshd
+    host: localhost
+    port: 22
+

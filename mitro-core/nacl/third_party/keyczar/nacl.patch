@@ -1,0 +1,467 @@
+diff --git a/src/keyczar/base/build_config.h b/src/keyczar/base/build_config.h
+index 62616cd..e470a42 100644
+--- a/src/keyczar/base/build_config.h
++++ b/src/keyczar/base/build_config.h
+@@ -4,7 +4,7 @@
+ 
+ // This file adds defines about the platform we're currently building on.
+ //  Operating System:
+-//    OS_WIN / OS_MACOSX / OS_LINUX / OS_BSD / OS_POSIX (MACOSX or LINUX or BSD)
++//    OS_WIN / OS_MACOSX / OS_LINUX / OS_BSD / OS_NACL / OS_POSIX (MACOSX or LINUX or BSD)
+ //  Compiler:
+ //    COMPILER_MSVC / COMPILER_GCC
+ //  Processor:
+@@ -31,8 +31,13 @@
+ #ifndef OS_WIN
+ #define OS_WIN 1
+ #endif
++#elif defined(__native_client__)
++#ifndef OS_NACL
++#define OS_NACL 1
++#endif
+ #else
+-#error Please add support for your platform in keyczar/base/build_config.h
++#define OS_NACL 1
++//#error Please add support for your platform in keyczar/base/build_config.h
+ #endif
+ 
+ // For access to standard POSIX features, use OS_POSIX instead of a more
+@@ -66,6 +71,8 @@
+ #define ARCH_CPU_ARM_FAMILY 1
+ #define ARCH_CPU_ARMEL 1
+ #define ARCH_CPU_32_BITS 1
++#elif defined(__native_client__)
++#define ARCH_CPU_X86_64 1
+ #else
+ #error Please add support for your architecture in keyczar/base/build_config.h
+ #endif
+diff --git a/src/keyczar/base/file_path.h b/src/keyczar/base/file_path.h
+index 490a362..8a769f8 100644
+--- a/src/keyczar/base/file_path.h
++++ b/src/keyczar/base/file_path.h
+@@ -87,7 +87,7 @@
+ // pathnames on different platforms.
+ class FilePath {
+  public:
+-#if defined(OS_POSIX)
++#if defined(OS_POSIX) || defined(OS_NACL)
+   // On most platforms, native pathnames are char arrays, and the encoding
+   // may or may not be specified.  On Mac OS X, native pathnames are encoded
+   // in UTF-8.
+@@ -214,7 +214,7 @@ class FilePath {
+ };
+ 
+ // Macros for string literal initialization of FilePath::CharType[].
+-#if defined(OS_POSIX)
++#if defined(OS_POSIX) || defined(OS_NACL)
+ #define FILE_PATH_LITERAL(x) x
+ #elif defined(OS_WIN)
+ #define FILE_PATH_LITERAL(x) L ## x
+diff --git a/src/keyczar/base/file_util_nacl.cc b/src/keyczar/base/file_util_nacl.cc
+new file mode 100644
+index 0000000..7dfca95
+--- /dev/null
++++ b/src/keyczar/base/file_util_nacl.cc
+@@ -0,0 +1,35 @@
++// Copyright (c) 2006-2008 The Chromium Authors. All rights reserved.
++// Use of this source code is governed by a BSD-style license that can be
++// found in the LICENSE file.
++
++#include <keyczar/base/file_util.h>
++
++namespace keyczar {
++namespace base {
++
++bool PathExists(const FilePath& path) {
++  return false;
++}
++
++bool DirectoryExists(const FilePath& path) {
++  return false;
++}
++
++FILE* OpenFile(const std::string& filename, const char* mode) {
++  return NULL;
++}
++
++int WriteFile(const std::string& filename, const char* data, int size) {
++  return -1;
++}
++
++bool Delete(const FilePath& path, bool recursive) {
++  return false;
++}
++
++bool CreateDirectory(const FilePath& full_path) {
++  return false;
++}
++
++}  // namespace base
++}  // namespace keyczar
+diff --git a/src/keyczar/base/string_util.h b/src/keyczar/base/string_util.h
+index abc3b95..39d602c 100644
+--- a/src/keyczar/base/string_util.h
++++ b/src/keyczar/base/string_util.h
+@@ -20,7 +20,7 @@
+ 
+ #if defined(OS_WIN)
+ #include <keyczar/base/string_util_win.h>
+-#elif defined(OS_POSIX)
++#elif defined(OS_POSIX) || defined(OS_NACL)
+ #include <keyczar/base/string_util_posix.h>
+ #else
+ #error Define string operations appropriately for your platform
+diff --git a/src/keyczar/build.scons b/src/keyczar/build.scons
+index 0822f8c..b1e6a2b 100644
+--- a/src/keyczar/build.scons
++++ b/src/keyczar/build.scons
+@@ -1,6 +1,11 @@
+ # -*- mode: python; -*-
+ Import('env')
+ 
++if env.Bit('nacl'):
++    static_library = True
++else:
++    static_library = False
++ 
+ installer = env['INSTALLER']
+ 
+ lib_name = 'keyczar'
+@@ -60,6 +65,10 @@ base_win_sources = [
+     'base/file_util_win.cc',
+     ]
+ 
++base_nacl_sources = [
++    'base/file_util_nacl.cc',
++    ]
++
+ keyczar_sources = [
+     'aes_key.cc',
+     'cipher_mode.cc',
+@@ -127,14 +136,18 @@ if env.Bit('bsd'):
+     base_sources.extend(base_posix_sources)
+     base_sources.extend(base_bsd_sources)
+ 
++if env.Bit('nacl'):
++    base_sources.extend(base_nacl_sources)
++
+ #if env.Bit('win'):
+ #    base_sources.extend(base_win_sources)
+ 
+ # Build the library
+ lib_sources = base_sources + keyczar_sources + openssl_sources + \
+               rw_sources + keyczar_tool_sources
++
+ out_lib = keyczar_lib_env.ComponentLibrary(lib_name, lib_sources,
+-                                           COMPONENT_STATIC=False)
++                                           COMPONENT_STATIC=static_library)
+ 
+ # Install the library components
+ installer.AddLibrary(out_lib[0])
+@@ -157,8 +170,9 @@ keyzart_sources = [
+     'keyczar_tool/keyczart.cc',
+     ]
+ 
+-out_program = keyczart_env.ComponentProgram('keyczart', keyzart_sources)
+-installer.AddProgram(out_program)
++if not env.Bit('nacl'):
++  out_program = keyczart_env.ComponentProgram('keyczart', keyzart_sources)
++  installer.AddProgram(out_program)
+ 
+ #### interop
+ interop_env = env.Clone()
+@@ -175,7 +189,8 @@ interop_sources = [
+     'interop/operation.cc'
+     ]
+ 
+-interop_env.ComponentProgram('interop_test', interop_sources)
++if not env.Bit('nacl'):
++  interop_env.ComponentProgram('interop_test', interop_sources)
+ 
+ 
+ #### testdata_gen*
+@@ -193,7 +208,8 @@ testdata_gen_sources = [
+     'keyczar_tool/testdata_gen.cc',
+     ]
+ 
+-testdata_gen_env.ComponentProgram('testdata_gen', testdata_gen_sources)
++if not env.Bit('nacl'):
++  testdata_gen_env.ComponentProgram('testdata_gen', testdata_gen_sources)
+ 
+ 
+ #### Swig interface for Python
+@@ -298,9 +314,10 @@ if env.Bit('bsd'):
+ #if env.Bit('win'):
+ #    unittests_sources.extend(unittests_win_sources)
+ 
+-lib_unittests_out = lib_unittests_env.ComponentLibrary(unittest_lib_name,
+-                                                       unittests_sources,
+-                                                       COMPONENT_STATIC=False)
++if not env.Bit('nacl'):
++  lib_unittests_out = lib_unittests_env.ComponentLibrary(unittest_lib_name,
++                                                         unittests_sources,
++                                                         COMPONENT_STATIC=static_library)
+ 
+ 
+ ## Unittests Programs
+@@ -394,7 +411,8 @@ rw_unittests = [
+     'rw/keyset_reader_unittest.cc',
+     ]
+ 
+-unittests_env.ComponentTestProgram('base_unittests', base_unittests)
+-unittests_env.ComponentTestProgram('keyczar_unittests', keyczar_unittests)
+-unittests_env.ComponentTestProgram('openssl_unittests', openssl_unittests)
+-unittests_env.ComponentTestProgram('rw_unittests', rw_unittests)
++if not env.Bit('nacl'):
++    unittests_env.ComponentTestProgram('base_unittests', base_unittests)
++    unittests_env.ComponentTestProgram('keyczar_unittests', keyczar_unittests)
++    unittests_env.ComponentTestProgram('openssl_unittests', openssl_unittests)
++    unittests_env.ComponentTestProgram('rw_unittests', rw_unittests)
+diff --git a/src/keyczar/openssl/rand.cc b/src/keyczar/openssl/rand.cc
+index 8a92ed4..63ae0ff 100644
+--- a/src/keyczar/openssl/rand.cc
++++ b/src/keyczar/openssl/rand.cc
+@@ -22,7 +22,7 @@ namespace keyczar {
+ namespace openssl {
+ 
+ bool RandOpenSSL::Init() {
+-#if defined(OS_LINUX) || defined(OS_BSD) || defined(OS_MACOSX)
++#if defined(OS_LINUX) || defined(OS_BSD) || defined(OS_MACOSX) || defined(OS_NACL)
+   // It seems that on Linux and *BSD seeding is made transparently, see:
+   // http://www.openssl.org/docs/crypto/RAND_add.html#DESCRIPTION
+ #else
+diff --git a/src/main.scons b/src/main.scons
+index 29d347c..94001c6 100644
+--- a/src/main.scons
++++ b/src/main.scons
+@@ -210,6 +210,41 @@ bsd_optimized_env['INSTALLER'] = installer.Installer(bsd_optimized_env)
+ 
+ 
+ 
++#### Native Client environment
++
++# Native Client environnment
++nacl_env = base_env.Clone()
++nacl_env.Tool('target_platform_nacl')
++
++# Exclude testing dir for nacl build
++nacl_env.Replace(
++    BUILD_SCONSCRIPTS = ['keyczar'],
++)
++
++# Debug Native Client
++nacl_debug_env = nacl_env.Clone(
++    BUILD_TYPE = 'dbg-nacl',
++    BUILD_TYPE_DESCRIPTION = 'Native Client debug build',
++    )
++# Use common debug settings.
++nacl_debug_env.Tool('target_debug')
++# Add this variant to the set which is build by default.
++nacl_debug_env.Append(
++    BUILD_GROUPS = ['default'],
++    # create the installer
++    INSTALLER = installer.Installer(nacl_debug_env),
++    )
++
++# Optimized Native Client
++nacl_optimized_env = nacl_env.Clone(
++    BUILD_TYPE = 'opt-nacl',
++    BUILD_TYPE_DESCRIPTION = 'Native Client optimized build',
++    )
++nacl_optimized_env.Tool('target_optimized')
++nacl_optimized_env['INSTALLER'] = installer.Installer(nacl_optimized_env)
++
++
++
+ #### Build the variants listed above.
+ matched_env = BuildComponents([
+     linux_debug_env,
+@@ -218,5 +253,7 @@ matched_env = BuildComponents([
+     mac_optimized_env,
+     bsd_debug_env,
+     bsd_optimized_env,
++    nacl_debug_env,
++    nacl_optimized_env,
+ ])
+ assert(len(matched_env) == 1)
+diff --git a/src/tools/swtoolkit/site_scons/site_tools/component_bits.py b/src/tools/swtoolkit/site_scons/site_tools/component_bits.py
+index 143c31f..b2842cd 100644
+--- a/src/tools/swtoolkit/site_scons/site_tools/component_bits.py
++++ b/src/tools/swtoolkit/site_scons/site_tools/component_bits.py
+@@ -264,6 +264,8 @@ def generate(env):
+              exclusive_groups=('target_platform'))
+   DeclareBit('windows', 'Target platform is windows.',
+              exclusive_groups=('target_platform'))
++  DeclareBit('nacl', 'Target platform is acl.',
++             exclusive_groups=('target_platform'))
+ 
+   # Declare bits for common host platforms
+   DeclareBit('host_bsd', 'Host platform is bsd.',
+diff --git a/src/tools/swtoolkit/site_scons/site_tools/target_platform_nacl.py b/src/tools/swtoolkit/site_scons/site_tools/target_platform_nacl.py
+new file mode 100644
+index 0000000..0e6312f
+--- /dev/null
++++ b/src/tools/swtoolkit/site_scons/site_tools/target_platform_nacl.py
+@@ -0,0 +1,162 @@
++#!/usr/bin/python2.4
++# Copyright 2009, Google Inc.
++# All rights reserved.
++#
++# Redistribution and use in source and binary forms, with or without
++# modification, are permitted provided that the following conditions are
++# met:
++#
++#     * Redistributions of source code must retain the above copyright
++# notice, this list of conditions and the following disclaimer.
++#     * Redistributions in binary form must reproduce the above
++# copyright notice, this list of conditions and the following disclaimer
++# in the documentation and/or other materials provided with the
++# distribution.
++#     * Neither the name of Google Inc. nor the names of its
++# contributors may be used to endorse or promote products derived from
++# this software without specific prior written permission.
++#
++# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
++# "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
++# LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
++# A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
++# OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
++# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
++# LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
++# DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
++# THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++# (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
++# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++
++"""Nacl SDK tool SCons."""
++
++import __builtin__
++import os
++import platform
++import sys
++import SCons.Script
++
++
++def _GetEnvVar(var_name, default_value=None):
++  value = os.environ.get(var_name)
++  if not value:
++    if default_value is None:
++      sys.stderr.write('Error: %s is not defined in your environment\n' %
++                       var_name)
++      sys.exit(1)
++    else:
++      sys.stderr.write('Warning: %s is not defined in your environment\n' %
++                       var_name)
++      value = default_value
++  return value
++
++def _GetPlatformDir():
++  system = platform.system()
++  if system == 'Darwin':
++    return 'mac'
++  elif system == 'Linux':
++    return 'linux'
++  else:
++    return 'win'
++
++def _GetPNaClToolchainRoot(env):
++  TC_ROOT = env.subst('$NACL_SDK_ROOT/toolchain')
++  # The PNaCl toolchain moved in pepper_31.  Check for
++  # the existence of the old folder first and use that
++  # if found.
++  if os.path.exists(TC_ROOT + env.subst('/${OS_SUBDIR}_x86_pnacl')):
++    TC_ROOT += env.subst('/${OS_SUBDIR}_x86_pnacl/newlib')
++  elif os.path.exists(TC_ROOT + env.subst('/${OS_SUBDIR}_pnacl/newlib')):
++    TC_ROOT += env.subst('/${OS_SUBDIR}_pnacl/newlib')
++  else:
++    TC_ROOT += env.subst('/${OS_SUBDIR}_pnacl')
++
++  return TC_ROOT
++
++def _GetNaclGccToolchainRoot(env):
++  if env['NACL_ARCH'] == 'arm':
++    TOOLCHAIN_ARCH = 'arm'
++  else:
++    TOOLCHAIN_ARCH = 'x86'
++
++  NACL_LIBC = 'newlib'
++  TOOLCHAIN_DIR = '%s_%s_%s' % (env['OS_SUBDIR'], TOOLCHAIN_ARCH, NACL_LIBC)
++
++  return '%s/toolchain/%s' % (env['NACL_SDK_ROOT'], TOOLCHAIN_DIR)
++  
++def _GetToolchainRoot(env):
++  if env['NACL_ARCH'] == 'pnacl':
++    return _GetPNaClToolchainRoot(env)
++  else:
++    return _GetNaclGccToolchainRoot(env)
++
++def _GetCrossPrefix(env):
++  if env['NACL_ARCH'] == 'pnacl':
++    return 'pnacl'
++  else:
++    return '%s-nacl' % env['NACL_ARCH']
++
++def _GetCC(env):
++  if env['NACL_ARCH'] == 'pnacl':
++    return 'clang'
++  else:
++    return 'gcc'
++
++def _GetCXX(env):
++  if env['NACL_ARCH'] == 'pnacl':
++    return 'clang++'
++  else:
++    return 'g++'
++
++
++def generate(env):
++  # NOTE: SCons requires the use of this name, which fails gpylint.
++  """SCons entry point for this tool."""
++
++  env.Replace(NACL_SDK_ROOT=_GetEnvVar('NACL_SDK_ROOT'),
++              NACL_ARCH=_GetEnvVar('NACL_ARCH', 'pnacl'),
++              TOOLCHAIN=_GetEnvVar('TOOLCHAIN', 'pnacl'),
++              OS_SUBDIR=_GetPlatformDir())
++  env.Replace(NACL_TOOLCHAIN_ROOT=_GetToolchainRoot(env),
++              NACL_CROSS_PREFIX=_GetCrossPrefix(env),
++              NACL_CC=_GetCC(env),
++              NACL_CXX=_GetCXX(env))
++  env.Replace(NACL_BIN_PATH=env.subst('$NACL_TOOLCHAIN_ROOT/bin'))
++  env.Replace(TOOL_PREFIX=env.subst('$NACL_BIN_PATH/$NACL_CROSS_PREFIX'))
++
++  # Invoke the various unix tools that the NativeClient SDK resembles.
++  env.Tool('g++')
++  env.Tool('gcc')
++  env.Tool('gnulink')
++  env.Tool('ar')
++  env.Tool('as')
++
++  # Set target platform bits
++  env.SetBits('nacl')
++
++  # Use environment variables by default for interoperability with naclports.
++  env.Replace(
++      HOST_PLATFORMS=['*'],  # NaCl builds on all platforms.
++
++      CC = os.getenv('CC', env.subst('$TOOL_PREFIX-$NACL_CC')),
++      CXX = os.getenv('CXX', env.subst('$TOOL_PREFIX-$NACL_CXX')),
++      AR = os.getenv('AR', env.subst('$TOOL_PREFIX-ar')),
++      AS = os.getenv('AS', env.subst('$TOOL_PREFIX-as')),
++      RANLIB = os.getenv('RANLIB', env.subst('$TOOL_PREFIX-ranlib')),
++      READELF = os.getenv('READELF', env.subst('$TOOL_PREFIX-readelf')),
++      LINK = os.getenv('LD', env.subst('$TOOL_PREFIX-ld')),
++      STRINGS = os.getenv('STRINGS', env.subst('$TOOL_PREFIX-strings')),
++      STRIP = os.getenv('STRIP', env.subst('$TOOL_PREFIX-strip')),
++
++      PKG_CONFIG_PATH = os.getenv('PKG_CONFIG_PATH'),
++      PKG_CONFIG_LIBDIR = os.getenv('PKG_CONFIG_LIBDIR'),
++
++      CFLAGS = os.getenv('CFLAGS', env.subst('-I$NACL_SDK_ROOT/include')),
++      CXXFLAGS = os.getenv('CXXFLAGS', env.subst('-I$NACL_SDK_ROOT/include')),
++      LINKFLAGS = os.getenv('LDFLAGS'),
++
++      CPPDEFINES=['OS_NACL=OS_NACL'],
++
++      COMPONENT_LIBRARY_LINK_SUFFIXES=['.so', '.a'],
++      COMPONENT_LIBRARY_DEBUG_SUFFIXES=[],
++  )

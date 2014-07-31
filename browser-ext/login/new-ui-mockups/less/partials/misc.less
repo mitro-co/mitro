@@ -1,0 +1,109 @@
+.button {
+  background-color: rgba(red(@off-white), green(@off-white), blue(@off-white), 0.8);
+  border: none;
+  .border-radius(3px);
+  color: #203248;
+  cursor: pointer;
+  display: block;
+  font-family: @pt-sans-regular;
+  font-size: 13px;
+  padding: 0;
+  text-decoration: none;
+  width: 100%;
+  height: 42px;
+  line-height: 42px;
+  &:hover, &:focus {
+    background-color: rgba(red(@off-white), green(@off-white), blue(@off-white), 1);
+  }
+  &:active {
+    background-color: rgba(red(@off-white), green(@off-white), blue(@off-white), 0.95);
+    .box-shadow(inset 0 2px 0 0 rgba(0, 0, 0, 0.2));
+  }
+  &.compact {
+    font-size: 11px;
+    height: 24px;
+    line-height: 24px;
+  }
+}
+
+#logged-out,
+[data-pane="settings"],
+[data-pane="generate-password"],
+#payment-form {
+
+  .field {
+
+    position: relative;
+
+    .icon {
+      background-image: @sprite;
+      display: block;
+      height: 13px;
+      .opacity(0);
+      position: absolute;
+      right: 10px;
+      top: 14px;
+      width: 13px;
+    }
+
+    &.error,
+    &.success {
+      .icon {
+        .opacity(100);
+      }
+    }
+
+    &.error {
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        background-color: rgba(165, 13, 81, 0.6);
+      }
+      .icon {
+        background-position: -50px -628px;
+      }
+    }
+
+    &.success {
+      .icon {
+        background-position: -50px -565px;
+      }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+
+      background-color: rgba(red(#203248), green(#203248), blue(#203248), 0.6);
+      border: solid 1px rgba(red(@off-white), green(@off-white), blue(@off-white), 0.6);
+      .border-radius(3px);
+      color: @off-white;
+      padding: 0;
+      .placeholder-color(rgba(red(@off-white), green(@off-white), blue(@off-white), 0.6));
+      text-align: center;
+      height: 44px;
+      width: 100%;
+
+      &:focus,
+      &.focused {
+        .placeholder-color(transparent);
+      }
+
+      &[type="password"] {
+        font-family: 'Mitro-Diamond';
+        font-size: 16px;
+      }
+
+      &.compact {
+        font-size: 11px;
+        padding: 5px;
+      }
+
+    }
+  }
+  input[type="password"] {
+    font-family: @verdana;
+    font-weight: bold;
+    .placeholder-font-family-weight(@pt-sans-regular, 13px, normal);
+  }
+}

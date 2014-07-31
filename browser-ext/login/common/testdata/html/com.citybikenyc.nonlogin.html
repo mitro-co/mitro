@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+	
+	<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Edit Billing Information | Citi Bike</title>
+	
+	<meta name="title" content="Citi Bike">
+	<meta name="description" content="Your bike sharing system in New York City">
+  
+	<!-- Included CSS Files (Compressed) -->
+	<link href="/assets/css/foundation3/foundation.min.css?c=943938000" media="all" rel="stylesheet"/>
+	<link href="/assets/css/foundation3/app.css?c=943938000" media="all" rel="stylesheet"/>
+		
+	<!-- Bikeshare CSS Files -->
+	<link href="/assets/css/nyc/fonts.css?c=943938000" media="all" rel="stylesheet"/>
+	<link href="/assets/css/nyc/nyc.css?c=943938000" media="all" rel="stylesheet"/>
+		
+	<!-- Modernizr -->
+	<script src="/assets/js/foundation3/modernizr.foundation.js?c=943938000" type="text/javascript" charset="utf-8"></script>
+		
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!--[if gte IE 9]>
+		<style type="text/css"> .gradient { filter: none; } </style>
+	<![endif]-->
+	
+	<!--[if IE]>
+	     <style type="text/css">
+	         .timer { display: none !important; }
+	         div.caption { background:transparent; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);zoom: 1; }
+	    </style>
+	<![endif]-->
+	
+	<link rel="shortcut icon" href="/assets/images/favicon.ico">
+	
+	<!-- Fuel Blog -->
+		
+    <!-- This style block and the following script block prevent Cross Frame Scripting -->
+    <style>
+        html{
+        display : none ;
+        visibility : hidden ;
+        }
+    </style>
+    <script>
+        if ( self == top ) {
+            document.documentElement.style.display = 'block' ;
+            document.documentElement.style.visibility = 'visible' ;
+        } else {
+            top.location=self.location;
+        }
+	</script>
+	
+</head>
+
+<body class="<!--__FUEL_MARKER__0-->Body Class">
+
+	<!-- Header -->
+	<header id="header" class="gradient hide-for-small">									
+		
+		<div id="header-bg-right" class="gradient-header-blue gradient"></div>
+					
+		<section id="header-content" class="row gradient">					
+									
+			<div class="two columns">
+				
+				<!-- Logo -->
+				<a id="logo" href="https://citibikenyc.com/">
+					<img src="/assets/images/header-logo.png" alt="Citi Bike - Operated by NYC Bike Share" />								
+				</a>
+				
+			</div>
+						
+			<div class="ten columns">
+				
+				<div class="row">
+					<div class="twelve columns">
+						
+						<!-- Secondary Navigation -->
+						<div id="subnav">
+							
+							<nav id="secondary" class="horizontal">                 		
+				        		
+<ul>
+	<li class="first"><a href="https://citibikenyc.com/get-the-app" title="Get The App">Get The App</a></li>
+	<li><a href="https://citibikenyc.com/meet-the-bike" title="Meet The Bike">Meet The Bike</a></li>
+	<li><a href="https://citibikenyc.com/faq" title="FAQ">FAQ</a></li>
+	<li><a href="https://citibikenyc.com/blog" title="Blog">Blog</a></li>
+	<li><a href="https://citibikenyc.com/events" title="Events">Events</a></li>
+	<li><a href="https://citibikenyc.com/jobs" title="Jobs">Jobs</a></li>
+	<li><a href="https://citibikenyc.com/about" title="About">About</a></li>
+	<li><a href="https://citibikenyc.com/system-data" title="System Data">System Data</a></li>
+	<li class="last"><a href="https://citibikenyc.com/contact" title="Contact">Contact</a></li>
+</ul>
+	        			        		   	                		    		               	            
+				            </nav>
+				            
+				            <nav id="signup-member" class="horizontal">
+				            	<ul>
+				            						            			<li class="active"><a href="https://citibikenyc.com/member/profile">Profile</a></li>
+				        				<li><a href="https://citibikenyc.com/login/logout">Logout</a></li>		            					            			
+				        			    					    								                	
+				            	</ul>  
+				            </nav>
+				            
+						</div>
+								
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="twelve columns">
+						
+						<!-- Main Navigation -->
+				        <div id="mainnav">
+				        	
+				        	<nav id="primary" class="horizontal margin-right--4 margin-top--1">    		
+					        	
+<ul>
+	<li class="first"><a href="https://citibikenyc.com/how-it-works" title="How It Works">How It Works</a></li>
+	<li><a href="https://citibikenyc.com/stations" title="Station Map">Station Map</a></li>
+	<li><a href="https://citibikenyc.com/pricing" title="Pricing">Pricing</a></li>
+	<li><a href="https://citibikenyc.com/riding-tips" title="Riding Tips">Riding Tips</a></li>
+	<li class="last"><a href="https://citibikenyc.com/resources" title="Resources">Resources</a></li>
+</ul>
+     		        	            
+					        </nav>
+					        
+				        	<!-- Social Media -->  
+				        	<nav id="social" class="horizontal">
+				        		<ul>
+				        			<li>
+				        				<a id="facebook" href="http://facebook.com/CitiBikeNYC" target="_blank" title="Find Us on Facebook"></a>
+				        			</li>
+				        			<li>
+				        				<a id="twitter" href="http://twitter.com/#!/CitiBikeNYC" target="_blank" title="Follow Us On Twitter!"></a>	
+				        			</li>	        			
+				        		</ul>
+				        	</nav>   
+				    		 
+				        </div>
+						
+					</div>
+				</div>				            		         			      							
+		        
+			</div>
+		
+		</section>	         									
+
+	</header>	
+	
+	<!-- Header (Small) -->
+	<header id="header-small" class="show-for-small padding-10" style="background: #005DAB; ">		
+		<div class="row margin-bottom-10">
+			<div class="gutter-5">						
+				<div class="mobile-one column">
+					<div class="gutter">
+						<a href="https://citibikenyc.com/">
+							<img src="/assets/images/citibike-logo.png" alt="Citi Bike - Operated by NYC Bike Share" />								
+						</a>
+						<ul class="inline" style="position:relative; top:5px; left:15px; ">
+							<li>
+								<a id="facebook" href="http://facebook.com/CitiBikeNYC" target="_blank" title="Find Us on Facebook">
+									<img src="/assets/images/apps/facebook.png" />		    					
+								</a>
+							</li>
+							<li>
+								<a id="twitter" href="http://twitter.com/#!/CitiBikeNYC" target="_blank" title="Follow Us On Twitter!">
+									<img src="/assets/images/apps/twitter.png" />
+								</a>	
+							</li>	        			
+						</ul>
+					</div>				
+				</div>
+				<div class="mobile-three column">
+					<div class="gutter">
+						<nav>                 								
+							<ul class="button-group right">
+				        						        			<li class="active"><a class="tiny button radius" href="https://citibikenyc.com/member/profile">Profile</a></li>
+				    				<li><a class="tiny button" href="https://citibikenyc.com/login/logout">Logout</a></li>		            					            			
+				    			    		    				
+				            	<li id="join" ><a class="tiny button radius" href="https://citibikenyc.com/signup">Sign Up</a></li>
+				        	</ul>		        	     			        		   	                		    		               	           
+				        </nav>
+					</div>						       
+				</div>
+			</div>
+		</div>		
+		<div class="row">
+			<div class="gutter-10">
+				<div class="mobile-two columns">
+					<div class="gutter">
+						<nav id="primary-small">
+				        	
+<ul>
+	<li class="first medium button"><a href="https://citibikenyc.com/how-it-works" title="How It Works">How It Works</a></li>
+	<li class="medium button"><a href="https://citibikenyc.com/stations" title="Station Map">Station Map</a></li>
+	<li class="medium button"><a href="https://citibikenyc.com/pricing" title="Pricing">Pricing</a></li>
+	<li class="medium button"><a href="https://citibikenyc.com/riding-tips" title="Riding Tips">Riding Tips</a></li>
+	<li class="last medium button"><a href="https://citibikenyc.com/resources" title="Resources">Resources</a></li>
+</ul>
+     		        	            
+				        </nav>
+					</div>					
+				</div>
+				<div class="mobile-two columns">
+					<div class="gutter">
+						<nav id="secondary-small">
+							
+<ul>
+	<li class="first tiny button"><a href="https://citibikenyc.com/get-the-app" title="Get The App">Get The App</a></li>
+	<li class="tiny button"><a href="https://citibikenyc.com/meet-the-bike" title="Meet The Bike">Meet The Bike</a></li>
+	<li class="tiny button"><a href="https://citibikenyc.com/faq" title="FAQ">FAQ</a></li>
+	<li class="tiny button"><a href="https://citibikenyc.com/blog" title="Blog">Blog</a></li>
+	<li class="tiny button"><a href="https://citibikenyc.com/events" title="Events">Events</a></li>
+	<li class="tiny button"><a href="https://citibikenyc.com/jobs" title="Jobs">Jobs</a></li>
+	<li class="tiny button"><a href="https://citibikenyc.com/about" title="About">About</a></li>
+	<li class="tiny button"><a href="https://citibikenyc.com/system-data" title="System Data">System Data</a></li>
+	<li class="last tiny button"><a href="https://citibikenyc.com/contact" title="Contact">Contact</a></li>
+</ul>
+			
+						</nav>
+					</div>					
+				</div>
+			</div>					
+		</div>
+	</header>			<section class="row padding-top-20">
+	<div class="twelve columns centered text-center">
+		<nav id="member" class="horizontal margin-bottom-20"> 
+		   <ul class="button-group">
+                <li ><a class="button" href="https://citibikenyc.com/member/profile">Profile</a></li>                            
+                <li  class="active"><a class="button" href="https://citibikenyc.com/member/billing">Billing</a></li>
+                <li ><a class="button" href="https://citibikenyc.com/member/payments">Payments</a></li>
+                <li ><a class="button" href="https://citibikenyc.com/member/trips">Trips</a></li>                           
+                <li ><a class="button" href="https://citibikenyc.com/member/activate_bike_key">Bike Key</a></li>                                        
+            </ul>          			        		   	                		    		               	            
+		</nav>
+	</div>	
+</section>
+<section id="content" class="row">
+	<div class="seven columns centered">
+		
+		<!-- Messages -->
+		<!-- Codeigniter Validation Errors -->				
+		
+		<!-- Custom Messages and Errors -->			    	
+
+
+
+	
+	    
+	    <!-- The Form -->	
+					<form action="https://citibikenyc.com/member/billing" method="post" accept-charset="utf-8">
+<div class="hidden">
+<input type="hidden" name="ci_csrf_token" value="e1ba19ec5d7b16b1ef24a941baf9bbfa" />
+</div>				
+			<!-- Personal Address -->
+			<input type="hidden" name="address1" value="229 Chrystie Street #917">
+			<input type="hidden" name="address2" value="">	
+			<input type="hidden" name="address3" value="">
+			<input type="hidden" name="city" value="New York">
+			<input type="hidden" name="state" value="362">
+			<input type="hidden" name="zipcode" value="10002">
+			<input type="hidden" name="country" value="92">	
+			
+			<!-- Credit Card Address -->
+								    
+		    
+			<fieldset>
+<legend><span>Edit Billing Information</span></legend>
+		    
+		    	<img class="credit-card right margin-bottom-10" src="/assets/images/logos/mastercard-preferred-logo-signup.png" alt="Mastercard - Preferred Payment Provider" />
+		    		    	
+		    	<!-- Card Number -->
+				<div class="row form-field">
+					<div class="four mobile-one columns text-right">
+						<label class="right inline" for="creditCardNumber">Card Number<span class="require"> *</span></label>
+					</div>
+					<div class="eight mobile-three columns">
+						<input class="eight columns" type="text" id="creditCardNumber" name="creditCardNumber" value="************5000">
+					</div>					
+				</div>
+				
+				<!-- Validation Code -->
+				<div class="row form-field">
+					<div class="four mobile-one columns text-right">
+						<label class="right inline" for="creditCardCvv">Validation Code<span class="require"> *</span></label>
+					</div>
+					<div class="eight mobile-three columns">
+						<input type="password" maxlength="4" id="creditCardCvv" name="creditCardCvv" value="">
+						<span class="hint">(3-4 numbers on back of card)</span>
+					</div>					
+				</div>
+				
+		    	<!-- Expiration Date -->
+		    			    	<div class="row form-field">
+					<div class="four mobile-one columns text-right">
+						<label class="right inline">Expiration<span class="require"> *</span></label>
+					</div>
+					<div class="eight mobile-three columns">
+						<select name="creditCardExpirationMonth" id="creditCardExpirationMonth">
+<option value="01">January</option>
+<option value="02" selected="selected">February</option>
+<option value="03">March</option>
+<option value="04">April</option>
+<option value="05">May</option>
+<option value="06">June</option>
+<option value="07">July</option>
+<option value="08">August</option>
+<option value="09">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+</select>&nbsp;/&nbsp;<select name="creditCardExpirationYear" id="creditCardExpirationYear" class="styled">
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016" selected="selected">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+<option value="2019">2019</option>
+<option value="2020">2020</option>
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+</select>					</div>					
+				</div>
+	
+				<!-- Cardholder Name -->
+				<div class="row form-field">
+					<div class="four mobile-one columns text-right">
+						<label class="right inline" for="creditCardOwner">Cardholder Name<span class="require"> *</span></label>
+					</div>
+					<div class="eight mobile-three columns">
+						<input type="text" id="creditCardOwner" name="creditCardOwner" value="Vijay Pandurangan">
+					</div>					
+				</div>
+
+				<!-- Same Address As Above -->
+				<div class="row form-field margin-top-5">
+					<div class="four mobile-one columns"></div>
+					<div class="eight mobile-three columns same-address">
+													    										   
+		    			<label class="inline">
+		    				<input type="checkbox" name="creditCardAddressSame" value="true" Array />		    				<span class="label-inline">Same as personal address</span>
+		    			</label>
+					</div>
+		        </div>	
+		        
+			    <!-- Credit Card Address -->					    
+			    <div class="row form-field">
+					<div class="four mobile-one columns text-right">
+						<label class="right inline" for="creditCardAddress">Address<span class="require"> *</span></label>
+					</div>
+					<div class="eight mobile-three columns">
+						<input type="text" id="creditCardAddress" name="creditCardAddress" value="229 Chrystie Street #917  ">	
+					</div>					
+				</div>						
+				
+				<!-- Credit Card City -->
+				<div class="row form-field">
+					<div class="four mobile-one columns text-right">
+						<label class="right inline" for="creditCardCity">City<span class="require"> *</span></label>
+					</div>
+					<div class="eight mobile-three columns">
+						<input type="text" value="New York" id="creditCardCity" name="creditCardCity">
+					</div>					
+				</div>
+				
+		    	<!-- Credit Card State -->		    	
+		    	<div class="row form-field">
+					<div class="four mobile-one columns text-right">
+						<label class="right inline" for="creditCardState">State<span class="require"> *</span></label>
+					</div>
+					<div class="eight mobile-three columns">
+						<select name="creditCardState" id="creditCardState">
+		<option value="" label="Select a State...">Select a State...</option>
+		<option value="328" label="Other">Other</option>
+		<option value="329" label="Alabama">Alabama</option>
+		<option value="330" label="Alaska ">Alaska </option>
+		<option value="331" label="Arizona">Arizona</option>
+		<option value="332" label="Arkansas ">Arkansas </option>
+		<option value="333" label="California">California</option>
+		<option value="334" label="Colorado">Colorado</option>
+		<option value="335" label="Connecticut">Connecticut</option>
+		<option value="336" label="Delaware">Delaware</option>
+		<option value="337" label="District of Columbia ">District of Columbia </option>
+		<option value="338" label="Florida">Florida</option>
+		<option value="339" label="Georgia ">Georgia </option>
+		<option value="340" label="Guam ">Guam </option>
+		<option value="341" label="Hawaii ">Hawaii </option>
+		<option value="342" label="Idaho ">Idaho </option>
+		<option value="343" label="Illinois ">Illinois </option>
+		<option value="344" label="Indiana ">Indiana </option>
+		<option value="345" label="Iowa">Iowa</option>
+		<option value="346" label="Kansas">Kansas</option>
+		<option value="347" label="Kentucky ">Kentucky </option>
+		<option value="348" label="Louisiana">Louisiana</option>
+		<option value="349" label="Maine">Maine</option>
+		<option value="350" label="Maryland ">Maryland </option>
+		<option value="351" label="Massachusetts">Massachusetts</option>
+		<option value="352" label="Michigan ">Michigan </option>
+		<option value="353" label="Minnesota ">Minnesota </option>
+		<option value="354" label="Mississippi ">Mississippi </option>
+		<option value="355" label="Missouri">Missouri</option>
+		<option value="356" label="Montana ">Montana </option>
+		<option value="357" label="Nebraska">Nebraska</option>
+		<option value="358" label="Nevada">Nevada</option>
+		<option value="359" label="New Hampshire">New Hampshire</option>
+		<option value="360" label="New Jersey ">New Jersey </option>
+		<option value="361" label="New Mexico">New Mexico</option>
+		<option value="362" label="New York " selected="selected">New York </option>
+		<option value="363" label="North Carolina ">North Carolina </option>
+		<option value="364" label="North Dakota">North Dakota</option>
+		<option value="365" label="Ohio">Ohio</option>
+		<option value="366" label="Oklahoma ">Oklahoma </option>
+		<option value="367" label="Oregon ">Oregon </option>
+		<option value="368" label="Pennsylvania">Pennsylvania</option>
+		<option value="369" label="Puerto Rico">Puerto Rico</option>
+		<option value="370" label="Rhode Island ">Rhode Island </option>
+		<option value="371" label="South Carolina ">South Carolina </option>
+		<option value="372" label="South Dakota ">South Dakota </option>
+		<option value="373" label="Tennessee ">Tennessee </option>
+		<option value="374" label="Texas ">Texas </option>
+		<option value="375" label="Utah ">Utah </option>
+		<option value="376" label="Vermont">Vermont</option>
+		<option value="377" label="Virgin Islands ">Virgin Islands </option>
+		<option value="378" label="Virginia ">Virginia </option>
+		<option value="379" label="Washington ">Washington </option>
+		<option value="380" label="West Virginia ">West Virginia </option>
+		<option value="381" label="Wisconsin">Wisconsin</option>
+		<option value="382" label="Wyoming">Wyoming</option>
+</select>
+					</div>					
+				</div>
+				
+				<!-- Credit Card Zip -->				
+				<div class="row form-field">
+					<div class="four mobile-one columns text-right">
+						<label class="right inline" for="creditCardZipCode">Zip Code<span class="require"> *</span></label>
+					</div>
+					<div class="eight mobile-three columns">
+						<input type="text" maxlength="5" id="creditCardZipCode" value="10002" name="creditCardZipCode">
+					</div>					
+				</div>
+				
+				<!-- Credit Card Country -->						
+				<div class="row form-field">
+					<div class="four mobile-one columns text-right">
+						<label class="right inline" for="country">Country<span class="require"> *</span></label>
+					</div>
+					<div class="eight mobile-three columns">
+						<select name="creditCardCountry" id="creditCardCountry" class="styled">
+<option value="92" selected="selected">United States</option>
+<option value="93">Canada</option>
+<option value="94">Afghanistan</option>
+<option value="95">Albania </option>
+<option value="96">Algeria </option>
+<option value="97">American Samoa </option>
+<option value="98">Andorra </option>
+<option value="99">Angola </option>
+<option value="100">Anguilla </option>
+<option value="101">Antarctica </option>
+<option value="102">Antigua and Barbuda </option>
+<option value="103">Argentina </option>
+<option value="104">Armenia </option>
+<option value="105">Aruba </option>
+<option value="106">Australia </option>
+<option value="107">Austria </option>
+<option value="108">Azerbaijan </option>
+<option value="109">Bahamas </option>
+<option value="110">Bahrain </option>
+<option value="111">Bangladesh </option>
+<option value="112">Barbados </option>
+<option value="113">Belarus </option>
+<option value="114">Belgium </option>
+<option value="115">Belize </option>
+<option value="116">Benin </option>
+<option value="117">Bermuda </option>
+<option value="118">Bhutan </option>
+<option value="119">Bolivia </option>
+<option value="120">Bosnia and Herzegowina </option>
+<option value="121">Botswana </option>
+<option value="122">Bouvet Island </option>
+<option value="123">Brazil </option>
+<option value="124">British Indian Ocean Territory </option>
+<option value="125">British Virgin Islands </option>
+<option value="126">Brunei Darussalam </option>
+<option value="127">Bulgaria </option>
+<option value="128">Burkina Faso </option>
+<option value="129">Burundi </option>
+<option value="130">Cambodia </option>
+<option value="131">Cameroon </option>
+<option value="132">Cape Verde </option>
+<option value="133">Cayman Islands </option>
+<option value="134">Central African Republic </option>
+<option value="135">Chad </option>
+<option value="136">Chile </option>
+<option value="137">China </option>
+<option value="138">Christmas Island </option>
+<option value="139">Cocos (Keeling) Islands </option>
+<option value="140">Colombia </option>
+<option value="141">Comoros </option>
+<option value="142">Congo </option>
+<option value="143">Cook Islands </option>
+<option value="144">Costa Rica </option>
+<option value="145">Cote D'ivoire </option>
+<option value="146">Croatia </option>
+<option value="147">Cuba </option>
+<option value="148">Cyprus </option>
+<option value="149">Czech Republic </option>
+<option value="150">Denmark </option>
+<option value="151">Djibouti </option>
+<option value="152">Dominica </option>
+<option value="153">Dominican Republic </option>
+<option value="154">East Timor </option>
+<option value="155">Ecuador </option>
+<option value="156">Egypt </option>
+<option value="157">El Salvador </option>
+<option value="158">Equatorial Guinea </option>
+<option value="159">Eritrea </option>
+<option value="160">Estonia </option>
+<option value="161">Ethiopia </option>
+<option value="162">Falkland Islands (Malvinas) </option>
+<option value="163">Faroe Islands </option>
+<option value="164">Fiji </option>
+<option value="165">Finland </option>
+<option value="166">France </option>
+<option value="167">French Guiana </option>
+<option value="168">French Polynesia </option>
+<option value="169">French Southern Territories </option>
+<option value="170">Gabon </option>
+<option value="171">Gambia </option>
+<option value="172">Georgia </option>
+<option value="173">Germany </option>
+<option value="174">Ghana </option>
+<option value="175">Greece </option>
+<option value="176">Greece </option>
+<option value="177">Greenland </option>
+<option value="178">Grenada </option>
+<option value="179">Guadeloupe </option>
+<option value="180">Guam </option>
+<option value="181">Guatemala </option>
+<option value="182">Guinea </option>
+<option value="183">Guinea-Bissau </option>
+<option value="184">Guyana </option>
+<option value="185">Haiti </option>
+<option value="186">Heard and McDonald Islands </option>
+<option value="187">Honduras </option>
+<option value="188">Hong Kong </option>
+<option value="189">Hungary </option>
+<option value="190">Iceland </option>
+<option value="191">India </option>
+<option value="192">Indonesia </option>
+<option value="193">Iraq </option>
+<option value="194">Ireland </option>
+<option value="195">Islamic Republic of Iran </option>
+<option value="196">Israel </option>
+<option value="197">Italy </option>
+<option value="198">Jamaica </option>
+<option value="199">Japan </option>
+<option value="200">Jordan </option>
+<option value="201">Kazakhstan </option>
+<option value="202">Kenya </option>
+<option value="203">Kiribati </option>
+<option value="204">Korea </option>
+<option value="205">Korea, Republic of </option>
+<option value="206">Kuwait </option>
+<option value="207">Kyrgyzstan </option>
+<option value="208">Laos </option>
+<option value="209">Latvia </option>
+<option value="210">Lebanon </option>
+<option value="211">Lesotho </option>
+<option value="212">Liberia </option>
+<option value="213">Libyan Arab Jamahiriya </option>
+<option value="214">Liechtenstein </option>
+<option value="215">Lithuania </option>
+<option value="216">Luxembourg </option>
+<option value="217">Macau </option>
+<option value="218">Macedonia </option>
+<option value="219">Madagascar </option>
+<option value="220">Malawi </option>
+<option value="221">Malaysia </option>
+<option value="222">Maldives </option>
+<option value="223">Mali </option>
+<option value="224">Malta </option>
+<option value="225">Marshall Islands </option>
+<option value="226">Martinique </option>
+<option value="227">Mauritania </option>
+<option value="228">Mauritius </option>
+<option value="229">Mayotte </option>
+<option value="230">Mexico </option>
+<option value="231">Micronesia </option>
+<option value="232">Moldova, Republic of </option>
+<option value="233">Monaco </option>
+<option value="234">Mongolia </option>
+<option value="235">Montserrat </option>
+<option value="236">Morocco </option>
+<option value="237">Mozambique </option>
+<option value="238">Myanmar </option>
+<option value="239">Namibia </option>
+<option value="240">Nauru </option>
+<option value="241">Nepal </option>
+<option value="242">Netherlands </option>
+<option value="243">Netherlands Antilles </option>
+<option value="244">New Caledonia </option>
+<option value="245">New Zealand </option>
+<option value="246">Nicaragua </option>
+<option value="247">Niger </option>
+<option value="248">Nigeria </option>
+<option value="249">Niue </option>
+<option value="250">Norfolk Island </option>
+<option value="251">Northern Mariana Islands </option>
+<option value="252">Norway </option>
+<option value="253">Oman </option>
+<option value="254">Pakistan </option>
+<option value="255">Palau </option>
+<option value="256">Panama </option>
+<option value="257">Papua New Guinea </option>
+<option value="258">Paraguay </option>
+<option value="259">Peru </option>
+<option value="260">Philippines </option>
+<option value="261">Pitcairn </option>
+<option value="262">Poland </option>
+<option value="263">Portugal </option>
+<option value="264">Puerto Rico </option>
+<option value="265">Qatar </option>
+<option value="266">Reunion </option>
+<option value="267">Romania </option>
+<option value="268">Russian Federation </option>
+<option value="269">Rwanda </option>
+<option value="270">Saint Lucia </option>
+<option value="271">Samoa </option>
+<option value="272">San Marino </option>
+<option value="273">Sao Tome and Principe </option>
+<option value="274">Saudi Arabia </option>
+<option value="275">Senegal </option>
+<option value="276">Serbia and Montenegro </option>
+<option value="277">Seychelles </option>
+<option value="278">Sierra Leone </option>
+<option value="279">Singapore </option>
+<option value="280">Slovakia </option>
+<option value="281">Slovenia </option>
+<option value="282">Solomon Islands </option>
+<option value="283">Somalia </option>
+<option value="284">South Africa </option>
+<option value="285">Spain </option>
+<option value="286">Sri Lanka </option>
+<option value="287">St. Helena </option>
+<option value="288">St. Kitts and Nevis </option>
+<option value="289">St. Pierre and Miquelon </option>
+<option value="290">St. Vincent and the Grenadines </option>
+<option value="291">Sudan </option>
+<option value="292">Suriname </option>
+<option value="293">Svalbard and Jan Mayen Islands </option>
+<option value="294">Swaziland </option>
+<option value="295">Sweden </option>
+<option value="296">Switzerland </option>
+<option value="297">Syrian Arab Republic </option>
+<option value="298">Taiwan </option>
+<option value="299">Tajikistan </option>
+<option value="300">Tanzania, United Republic of </option>
+<option value="301">Thailand </option>
+<option value="302">Togo </option>
+<option value="303">Tokelau </option>
+<option value="304">Tonga </option>
+<option value="305">Trinidad and Tobago </option>
+<option value="306">Tunisia </option>
+<option value="307">Turkey </option>
+<option value="308">Turkmenistan </option>
+<option value="309">Turks and Caicos Islands </option>
+<option value="310">Tuvalu </option>
+<option value="311">Uganda </option>
+<option value="312">Ukraine </option>
+<option value="313">United Arab Emirates </option>
+<option value="314">United Kingdom (Great Britain) </option>
+<option value="315">United States Virgin Islands </option>
+<option value="316">Uruguay </option>
+<option value="317">Uzbekistan </option>
+<option value="318">Vanuatu </option>
+<option value="319">Vatican City State </option>
+<option value="320">Venezuela </option>
+<option value="321">Vietnam </option>
+<option value="322">Wallis And Futuna Islands </option>
+<option value="323">Western Sahara </option>
+<option value="324">Yemen </option>
+<option value="325">Zaire </option>
+<option value="326">Zambia </option>
+<option value="327">Zimbabwe</option>
+</select>					</div>																						
+				</div>
+				
+			</fieldset>	
+			
+			<footer class="row">
+				<div class="twelve columns centered text-center">
+					
+					<p><span class="require">* </span>Mandatory fields</p>	
+					
+					<nav class="horizontal">
+						<ul class="button-group">
+							<li>
+								<button name="valid" type="submit" value="Save Billing Information" class="button" >Save Billing Information</button>								
+							</li>
+							<li>
+								<a class="button" href="https://citibikenyc.com/member">Cancel</a>
+							</li>
+						</ul>
+					</nav>					
+
+				</div>
+			</footer>								
+
+	    </form>	    
+		</div>
+	</div>
+</section>	 
+
+	<!-- Footer -->
+	<footer id="footer" class="row">
+	    	
+    	<hr id="divider" />
+    	
+    	<section id="copyright" class="eight columns centered">  
+    		<!--__FUEL_MARKER__1--><p>Use of this Website constitutes acceptance of the website <a href="/assets/pdf/terms-of-use.pdf">Terms of Use Agreement</a> and <a href="https://citibikenyc.com/privacy">Privacy Policy</a>.
+<p>
+	© Copyright 2013 NYC Bike Share, LLC. All rights reserved.<br />
+	Citi, Citi with Arc Design and Citi Bike are registered service marks of Citigroup, Inc
+</p>              	            	
+        </section>
+	        
+	</footer>
+	
+	<!-- Miscellanous content like modal dialogs -->
+	    	
+	<!-- here comes the javascript -->
+		
+	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write("<script src='/assets/js/foundation3/jquery.js'>\x3C/script>")</script>
+	
+	<!-- Foundation Javascript -->
+	<script src="/assets/js/foundation3/foundation.min.js?c=943938000" type="text/javascript" charset="utf-8"></script>
+	<script src="/assets/js/foundation3/app.js?c=943938000" type="text/javascript" charset="utf-8"></script>
+		
+	<!-- jQuery Plugins that only load where appropriate -->
+		
+	<!-- Load the home.js file for whenever the first uri segment is omitted -->
+
+	
+	<!-- Auto-Load any Javascript specific to a page by its URL only if it exists -->
+	    
+            <script src="/assets/js/pages/member/billing.js?c=943938000" type="text/javascript" charset="utf-8"></script>
+	        	
+	<!-- Final custom JS Calls (keep this below all other javascript files) -->
+	<script src="/assets/js/css_browser_selector.js?c=943938000" type="text/javascript" charset="utf-8"></script>
+	<script src="/assets/js/jquery.cookie.js?c=943938000" type="text/javascript" charset="utf-8"></script>
+	<script src="/assets/js/jquery.scrollTo.min.js?c=943938000" type="text/javascript" charset="utf-8"></script>
+	<script src="/assets/js/jquery.localScroll.min.js?c=943938000" type="text/javascript" charset="utf-8"></script>
+	<script src="/assets/js/nyc.js?c=943938000" type="text/javascript" charset="utf-8"></script>
+		
+	<!-- Asynchronous google analytics; this is the official snippet.
+	 Replace UA-XXXXXX-XX with your site's ID and uncomment to enable. -->
+	 
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-17974252-3']);
+	  _gaq.push(['_setDomainName', 'citibikenyc.com']);
+	  _gaq.push(['_setAllowLinker', true]);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+	</script>
+
+</body>
+</html>

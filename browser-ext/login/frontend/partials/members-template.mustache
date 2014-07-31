@@ -1,0 +1,27 @@
+{{#users}}
+<li class="member clearfix" data-username="{{id}}">
+  <div class="pull-left">
+    <img class="member-icon" src="{{photo}}" width="45" height="45" alt="" data-icon-text="{{name}}"/>
+  </div>
+
+  <div class="text text-full">
+    <div class="name search-this-value">{{name}}</div>
+    <div class="link search-this-value"><a href="#">{{email}}</a></div>
+  </div>
+  <div class="clearfix pull-right actions">
+    <div class="dropdown pull-left mr">
+      <a data-toggle="dropdown" class="search-this-value form-control select select-mini" href="#">{{accessLevel}}</a>
+      <ul class="user-access-level dropdown-select dropdown-menu category-dropdown">
+        <li><a href="#">User</a></li>
+        <li><a href="#">Admin</a></li>
+      </ul>
+    </div>
+    <div class="pull-left link2 ml">
+      <!--<a href="manage-member.html?id={{id}}">Manage</a>-->
+    </div>
+    <div class="pull-left">
+      <a class="remove-user"><i class="ico ico-cross"></i></a>
+    </div>
+  </div>
+</li>
+{{/users}}

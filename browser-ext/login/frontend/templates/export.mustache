@@ -1,0 +1,38 @@
+{{<org-template}}
+{{$includes}}
+    <script type="text/javascript" src="../js/URI.js"></script>
+    <script type="text/javascript" src="../js/domain.js"></script>
+    <script type="text/javascript" src="../js/acl-entry-template.js"></script>
+    <script type="text/javascript" src="../js/secrets-common.js"></script>
+    <script type="text/javascript" src="../js/csvutil.js"></script>
+    <script type="text/javascript" src="../js/exportsecrets.js"></script>
+    <script type="text/javascript" src="../js/export.js"></script>
+{{/includes}}
+
+{{$content}}
+<div id="export">
+    <h1>Export Secrets</h1>
+
+    <p>The secrets listed below will be exported in CSV format (the same format used by LastPass). After clicking this button, leave this window open: it will take some time to download and decrypt all secrets. When it is finished, the browser will automatically download a file called <code>mitro-passwords.csv</code>.</p>
+
+    <button id="export-csv">Export to CSV</button>
+
+    <div id="exporting-msg">
+      <div class="msg warning">Do not close this window until the export is complete!</div>
+      <img src="../img/loading.gif">Exporting...
+    </div>
+
+    <div id="export-complete-msg">
+      <div class="msg">Export complete!</div>
+    </div>
+
+    <div id="export-list">
+      <h2>Secrets to Export</h2>
+      <ul id="all-secrets">
+      </ul>
+    </div>
+
+    <div id="messages"></div>
+</div>
+{{/content}}
+{{/org-template}}

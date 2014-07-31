@@ -1,0 +1,48 @@
+{{#services}}
+
+<div class="item secret-item" data-secret-id="{{secretId}}">
+  <div class="details secret-default-action">
+    <div class="image">
+      {{#isNote}}
+        <span class="icon-document"></span>
+      {{/isNote}}
+      {{^isNote}}
+        <img class="small-icon service-icon" src="{{icon}}" width="16" height="16" data-icon-text="{{renderedTitle}}">
+      {{/isNote}}
+    </div>
+    <div class="text name search-this-value" title="{{renderedTitle}}">{{renderedTitle}}</div>
+    <div class="image">
+    {{#owningOrgName}}
+      <img class="small-icon organization" width="16" height="16" data-icon-text="{{owningOrgName}}" src="">
+    {{/owningOrgName}}
+    </div>
+    <div class="text search-this-value" title="{{clientData.username}}">{{clientData.username}}</div>
+    <div class="hide search-this-value">{{clientData.comment}}</div>
+    <span class="search-this-value" style="display:none;">{{clientData.loginUrl}}</span>
+
+  </div>
+  {{#isNote}}
+    <div class="item-actions item-note">
+      <ul>
+        <li data-item-action="copy-pw" title="Copy Note" class="copy-btn"><div class="icon-lock"></div><span class="copy-msg"></span></li>
+        <li data-item-action="share-secret" title="Share Secret" data-open-pane="{{#hasNoTeam}}invite{{/hasNoTeam}}{{^hasNoTeam}}team{{/hasNoTeam}}" data-secret-id="{{secretId}}"><div class="icon-invitesolo"></div>Share</li>
+        <li data-item-action="edit-secret" title="Edit Details"><div class="icon-info"></div>Details</li>
+      </ul>
+    </div>
+  {{/isNote}}
+  {{^isNote}}
+    <div class="item-actions" data-item-type="{{clientData.type}}">
+      <ul>
+        <li data-item-action="launch" title="Sign In"><div class="icon-enter"></div>Sign In</li>
+        <li data-item-action="copy-user" title="Copy Username" class="copy-btn"><div class="icon-user"></div><span class="copy-msg"></span></li>
+        <li data-item-action="copy-pw" title="Copy Password" class="copy-btn"><div class="icon-lock"></div><span class="copy-msg"></span></li>
+        <li data-item-action="share-secret" title="Share Secret" data-open-pane="{{#hasNoTeam}}invite{{/hasNoTeam}}{{^hasNoTeam}}team{{/hasNoTeam}}" data-secret-id="{{secretId}}"><div class="icon-invitesolo"></div>Share</li>
+        <li data-item-action="edit-secret" title="Edit Details"><div class="icon-info"></div>Details</li>
+      </ul>
+    </div>
+  {{/isNote}}
+</div>
+
+
+
+{{/services}}

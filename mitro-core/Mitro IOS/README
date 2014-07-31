@@ -1,0 +1,10 @@
+= Source tree =
+
+keyczar/            -> Keyczar C++ implementation
+  base/             -> Base and third party code
+  base_test/        -> Third party code used only by unittests
+  data/             -> Data used by unittests
+  keyczar_tool/     -> keyczart and test data generators
+  openssl/          -> OpenSSL crypto backend
+  rw/               -> Readers and Writers
+  build.scons       -> scons script

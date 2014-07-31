@@ -1,0 +1,32 @@
+{{<TwoFactorTemplate}}
+{{$content}}
+        <div class="banner">
+          {{#resetBackupCodes}}
+          <h1 class="title-main">Backup Code Reset</h1>
+          {{/resetBackupCodes}}
+          {{^resetBackupCodes}}
+          <h1 class="title-main">Two Factor Authentication Preferences</h1>
+          {{/resetBackupCodes}}
+        </div>
+         <div id="two-factor">
+          <div class="bordered-content">
+            {{#resetBackupCodes}}
+            <h2>You have successfully reset your backup codes!</h2>
+            <h3>The ones generated in the past are no longer valid</h3>
+            {{/resetBackupCodes}}
+            {{^resetBackupCodes}}
+            <h2>You have successfully set up two factor authentication!</h2>
+            <h3>From now on, when logging into Mitro from a new device, you will be asked to provide a Google Authenticator verification code.</h3>
+            {{/resetBackupCodes}}
+            <p>Your one-time backup emergency codes are below. If you do not have access to your phone and are logging into Mitro from a new device, you will need these codes to sign in.</p>
+            <p>Write them down somewhere safe, or perhaps share them with someone you trust on Mitro, because you will not be able to see them again.</p>
+            <p>You may, however, reset them at any time.</p>
+            <ol>
+              {{#backupCodes}}
+              <li><p>{{.}}</p></li>
+              {{/backupCodes}}
+            </ol>
+          </div>
+        </div>
+{{/content}}
+{{/TwoFactorTemplate}}

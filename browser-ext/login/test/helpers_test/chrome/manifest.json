@@ -1,0 +1,26 @@
+{
+  "name": "Mitro Helpers Test",
+  "manifest_version": 2,
+  "version": "0.1",
+  "background": {
+    "scripts": []
+  },
+  "browser_action": {
+    "default_title": "State",
+    "default_popup": "html/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": [],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "tabs", "*://*/*",
+    "cookies", "*://*/*",
+    "storage",
+    "clipboardWrite"
+  ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}

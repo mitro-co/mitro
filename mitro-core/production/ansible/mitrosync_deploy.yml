@@ -1,0 +1,10 @@
+# Deploys mitrocore to the primary
+# ansible-playbook mitrocore_deploy.yml --extra-vars "version=20140127"
+---
+- hosts: primary
+  gather_facts: false
+  vars:
+    upstart_config: primary/init/mitrosync.conf
+    mitrosync_link_path: /home/ubuntu/mitrosync/mitrosync.jar
+  roles:
+    - mitrosync

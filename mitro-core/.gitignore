@@ -1,0 +1,47 @@
+# ant build directory
+/build/
+# Eclipse default build directory
+/bin/*
+# Exclipse custom settings dir
+.settings/*
+
+# Ansible virtual environment
+/production/ansible/build
+
+# vim swap files
+*.swp
+*.swo
+# Stupid Mac OS X directory files
+.DS_Store
+
+# xcode user data
+xcuserdata
+
+/java/workspace/.metadata
+*.pyc
+
+# autotools files
+aclocal.m4
+autom4te.cache
+config.h
+config.h.in
+config.guess
+config.log
+config.status
+config.sub
+configure
+depcomp
+install-sh
+libtool
+ltmain.sh
+Makefile.in
+missing
+stamp-h1
+
+# object files
+*.o
+*.lo
+*.la
+.deps
+.libs
+/bin

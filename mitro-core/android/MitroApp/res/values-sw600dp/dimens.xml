@@ -1,0 +1,15 @@
+<resources>
+
+    <!--
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw600dp devices (e.g. 7" tablets) here.
+    -->
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+
+	<dimen name="header_logo_width">200dp</dimen>
+	<dimen name="header_logo_height">128dp</dimen>
+	<dimen name="login_form_top_margin">80dp</dimen>
+
+	<dimen name="signin_button_top_margin">40dp</dimen>
+
+</resources>

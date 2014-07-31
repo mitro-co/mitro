@@ -1,0 +1,1776 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0023)http://bugs.python.org/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+  List of issues
+   - Python tracker
+</title>
+<link rel="shortcut icon" href="http://bugs.python.org/@@file/favicon.ico">
+<link rel="stylesheet" type="text/css" href="./org.python.bugs.login_files/main.css">
+<link rel="stylesheet" type="text/css" href="./org.python.bugs.login_files/style.css">
+<link rel="search" type="application/opensearchdescription+xml" href="http://bugs.python.org/@@file/osd.xml" title="Python bug tracker search">
+
+
+<script type="text/javascript">
+submitted = false;
+function submit_once() {
+    if (submitted) {
+        alert("Your request is being processed.\nPlease be patient.");
+        event.returnValue = 0;    // work-around for IE
+        return 0;
+    }
+    submitted = true;
+    return 1;
+}
+
+function help_window(helpurl, width, height) {
+    HelpWin = window.open('http://bugs.python.org/' + helpurl, 'RoundupHelpWindow', 'scrollbars=yes,resizable=yes,toolbar=no,height='+height+',width='+width);
+}
+</script><style type="text/css"></style>
+
+
+
+</head>
+<body>
+  <!--  Logo  -->
+  <h1 id="logoheader">
+    <a accesskey="1" href="./org.python.bugs.login_files/org.python.bugs.login.html" id="logolink">
+       <img src="./org.python.bugs.login_files/python-logo.gif" alt="homepage" border="0" id="logo"></a>
+  </h1>
+
+<div id="utility-menu">
+<!-- Search Box -->
+<div id="searchbox">
+    <form name="searchform" method="get" action="http://bugs.python.org/issue" id="searchform">
+      <div id="search">
+       <input type="hidden" name="@columns" value="id,activity,title,creator,assignee,status,type">
+       <input type="hidden" name="@sort" value="-activity">
+       <input type="hidden" name="@filter" value="status">
+       <input type="hidden" name="@action" value="searchid">
+       <input type="hidden" name="ignore" value="file:content">
+       <input class="input-text" id="search-text" name="@search_text" size="10">
+       <input type="submit" id="submit" value="search" name="submit" class="input-button">
+       <input type="radio" name="status" id="status_notresolved" value="-1,1,3">
+       <label for="status_notresolved">open</label>
+       <input type="radio" name="status" checked="checked" id="status_all" value="-1,1,2,3">
+       <label for="status_all">all</label>
+      </div>
+     </form>
+</div>
+</div>
+
+
+<div id="left-hand-navigation">
+<!--  Main Menu NEED LEVEL TWO HEADER AND FOOTER -->
+<div id="menu">
+  <ul class="level-one">
+    <li><a href="http://python.org/about" title="About The Python Language">About</a></li>
+    <li><a href="http://python.org/news" title="">News</a></li>
+    <li><a href="http://python.org/doc" title="">Documentation</a></li>
+    <li><a href="http://python.org/download" title="">Download</a></li>
+    <li><a href="http://python.org/community" title="">Community</a></li>
+    <li><a href="http://python.org/psf" title="Python Software Foundation">Foundation</a></li>
+    <li><a href="http://docs.python.org/devguide/" title="Python Core Language Development">Core Development</a></li>
+    <li class="selected"><a href="./org.python.bugs.login_files/org.python.bugs.login.html" class="selected" title="Python Issue Tracker">Issue Tracker</a>
+      <ul class="level-two">
+        <li>
+          <strong>Issues</strong>
+          <ul class="level-three">
+            
+            <li><a href="http://bugs.python.org/issue?@template=search&status=1">Search</a></li>
+            <li><a href="http://bugs.python.org/issue?@action=random">Random Issue</a></li>
+            <li>
+              <form method="post" action="http://bugs.python.org/#">
+                <input type="submit" class="form-small" value="Show issue:">
+                <input class="form-small" size="4" type="text" name="@number">
+                <input type="hidden" name="@type" value="issue">
+                <input type="hidden" name="@action" value="show">
+              </form>
+            </li>
+          </ul>
+        </li>
+
+
+        <li>
+          <strong>Summaries</strong>
+          <ul class="level-three">
+            
+
+            
+
+            
+
+            <li>
+              <a href="http://bugs.python.org/issue?status=1&@sort=-activity&@columns=id,activity,title,creator,status&@dispname=Issues%20with%20patch&@startwith=0&@group=priority&keywords=2&@action=search&@filter=&@pagesize=50">Issues with patch</a>
+            </li>
+
+            <li>
+              <a href="http://bugs.python.org/issue?status=1&@sort=-activity&@columns=id,activity,title,creator,status&@dispname=Easy%20issues&@startwith=0&@group=priority&keywords=6&@action=search&@filter=&@pagesize=50">Easy issues</a>
+            </li>
+
+          </ul>
+        </li>
+
+
+        <li>
+          <strong>User</strong>
+          <form method="post" action="http://bugs.python.org/#">
+          <ul class="level-three">
+            <li>
+                Login&nbsp;(OpenID&nbsp;possible)<br>
+                <a style="display:inline;width:0;margin:0" href="http://bugs.python.org/?@action=openid_login&provider=Google">
+                  <img hspace="0" vspace="0" width="16" height="16" src="./org.python.bugs.login_files/favicon.ico" alt="Google" title="Google"></a>
+                <a style="display:inline;width:0;margin:0" href="http://bugs.python.org/?@action=openid_login&provider=myOpenID">
+                  <img hspace="0" vspace="0" width="16" height="16" src="./org.python.bugs.login_files/favicon(1).ico" alt="myOpenID" title="myOpenID"></a>
+                <a style="display:inline;width:0;margin:0" href="http://bugs.python.org/?@action=openid_login&provider=Launchpad">
+                  <img hspace="0" vspace="0" width="16" height="16" src="./org.python.bugs.login_files/favicon(2).ico" alt="Launchpad" title="Launchpad"></a>
+                <input size="10" name="openid_identifier" style="background:url(http://wiki.openid.net/f/openid-16x16.gif)
+                  center left no-repeat;padding-left:16px"><br>
+                <input size="10" type="password" name="__login_password"><br>
+                <input type="hidden" name="@action" value="Login">
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Remember me?</label><br>
+                <input class="form-small" type="submit" value="Login"><br>
+                <input type="hidden" name="__came_from" value="">
+                <input type="hidden" name="@columns" value="id,activity,title,creator,assignee,status,type,message_count">
+<input type="hidden" name="@sort" value="-activity">
+<input type="hidden" name="@group" value="">
+<input type="hidden" name="@filter" value="status">
+<input type="hidden" name="status" value="1,3">
+<input type="hidden" name="@pagesize" value="50">
+<input type="hidden" name="@startwith" value="0">
+            </li>
+            <li>
+                <a href="http://bugs.python.org/user?@template=register">Register</a>
+            </li>
+            <li><a href="http://bugs.python.org/user?@template=forgotten">Lost&nbsp;your&nbsp;login?</a></li>
+          </ul>
+          </form>
+        </li>
+
+        
+
+        
+
+        
+
+        <li>
+          <strong>Help</strong>
+          <ul class="level-three">
+            <li><a href="http://docs.python.org/devguide/triaging.html">
+                Tracker Documentation</a></li>
+            <li><a href="http://wiki.python.org/moin/TrackerDevelopment">
+                Tracker Development</a></li>
+            <li><a href="http://psf.upfronthosting.co.za/roundup/meta">
+                Report Tracker Problem</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </li>
+  </ul>
+</div> <!-- menu -->
+</div> <!-- left-hand-navigation -->
+
+<div id="content-body">
+<div id="body-main">
+<div id="content">
+<div id="breadcrumb">
+  List of issues
+  
+</div>
+ 
+ 
+
+
+
+
+
+
+ <table class="list">
+  <tbody><tr>
+   
+   <th>ID</th>
+   
+   <th>Activity</th>
+   
+   <th>Title</th>
+   
+   
+   
+   <th>Status</th>
+   
+   <th>Creator</th>
+   <th>Assigned&nbsp;To</th>
+   
+   
+   <th>Type</th>
+   <th>Msgs</th>
+   
+  </tr>
+ 
+  
+
+  <tr class="odd">
+   
+   <td>16840</td>
+   
+   <td class="date">1/2 an hour ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue16840">Tkinter doesn't support large integers</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>serhiy.storchaka</td>
+   <td>serhiy.storchaka</td>
+   
+   
+   <td>enhancement</td>
+   <td>4</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18812</td>
+   
+   <td class="date">3/4 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18812">PyImport_Import redundant calls to find module</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>Rob Bairos</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>behavior</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18811</td>
+   
+   <td class="date">1 1/4 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18811">add ssl-based generator to random module</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>neologix</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>3</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18808</td>
+   
+   <td class="date">3 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18808">Thread.join returns before PyThreadState is destroyed</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>Tamas.K</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>crash</td>
+   <td>6</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18713</td>
+   
+   <td class="date">4 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18713">Enable surrogateescape on stdin and stdout when appropriate</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>ncoghlan</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>28</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18747</td>
+   
+   <td class="date">4 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18747">Re-seed OpenSSL's PRNG after fork</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>christian.heimes</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>41</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>12641</td>
+   
+   <td class="date">4 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue12641">Remove -mno-cygwin from distutils</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>jonforums</td>
+   <td>eric.araujo</td>
+   
+   
+   <td>behavior</td>
+   <td>75</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>16809</td>
+   
+   <td class="date">4 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue16809">Tk 8.6.0 introduces TypeError. (Tk 8.5.13 works)</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>roger.serwy</td>
+   <td>serhiy.storchaka</td>
+   
+   
+   <td>behavior</td>
+   <td>15</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18810</td>
+   
+   <td class="date">5 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18810">Stop doing stat calls in importlib.machinery.FileFinder to see if something is a file or folder</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>brett.cannon</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>performance</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18809</td>
+   
+   <td class="date">5 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18809">Expose mtime check in importlib.machinery.FileFinder</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>brett.cannon</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18800</td>
+   
+   <td class="date">5 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18800">Document Fraction's numerator and denominator properties</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>icedream91</td>
+   <td>docs@python</td>
+   
+   
+   <td>enhancement</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>11245</td>
+   
+   <td class="date">6 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue11245">Implementation of IMAP IDLE in imaplib?</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>Shay.Rojansky</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>7</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18540</td>
+   
+   <td class="date">6 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18540">imaplib.IMAP4() ends with "Name or service not known" on Fedora 18</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>sYnfo</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>behavior</td>
+   <td>4</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18807</td>
+   
+   <td class="date">6 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18807">Allow venv to create copies, even when symlinks are supported</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>andrea.corbellini</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>&nbsp;</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18606</td>
+   
+   <td class="date">8 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18606">Add statistics module to standard library</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>stevenjd</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>44</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>15204</td>
+   
+   <td class="date">10 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue15204">Deprecate the 'U' open mode</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>serhiy.storchaka</td>
+   <td>docs@python</td>
+   
+   
+   <td>behavior</td>
+   <td>13</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>16700</td>
+   
+   <td class="date">10 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue16700">Document that bytes OS API can returns unusable results on Windows</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>serhiy.storchaka</td>
+   <td>docs@python</td>
+   
+   
+   <td>enhancement</td>
+   <td>2</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18806</td>
+   
+   <td class="date">10 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18806">socketmodule: fix/improve setipaddr() numeric addresses handling</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>neologix</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>3</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18799</td>
+   
+   <td class="date">12 hours ago</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18799">Resurrect and fix test_404 in Lib/test/test_xmlrpc.py</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>vajrasky</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>&nbsp;</td>
+   <td>3</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>16685</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue16685">Deprecate accepting strings as arguments in audioop functions</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>serhiy.storchaka</td>
+   <td>serhiy.storchaka</td>
+   
+   
+   <td>enhancement</td>
+   <td>8</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>15809</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue15809">IDLE console uses incorrect encoding.</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>alex.hartwig</td>
+   <td>serhiy.storchaka</td>
+   
+   
+   <td>behavior</td>
+   <td>20</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18805</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18805">ipaddress netmask/hostmask parsing bugs</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>jongfoster</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>behavior</td>
+   <td>3</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18802</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18802">ipaddress documentation errors</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>jongfoster</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>3</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18571</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18571">Implementation of the PEP 446: non-inheritable file descriptors</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>haypo</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>3</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18326</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18326">Mention 'keyword only' for list.sort, improve  glossary.</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>icedream91</td>
+   <td>docs@python</td>
+   
+   
+   <td>enhancement</td>
+   <td>8</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18804</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18804">pythorun.c: is_valid_fd() should not duplicate the file descriptor</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>haypo</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>&nbsp;</td>
+   <td>7</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>17070</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue17070">PEP 433: Use the new cloexec to improve security and avoid bugs</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>haypo</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>&nbsp;</td>
+   <td>3</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18763</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18763">subprocess: file descriptors should be closed after preexec_fn is called</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>neologix</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>behavior</td>
+   <td>5</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>16396</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue16396">Importing ctypes.wintypes on Linux gives a traceback</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>techtonik</td>
+   <td>benjamin.peterson</td>
+   
+   
+   <td>behavior</td>
+   <td>13</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>17576</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue17576">PyNumber_Index() is not int-subclass friendly (or operator.index() docos lie)</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>barry</td>
+   <td>mark.dickinson</td>
+   
+   
+   <td>behavior</td>
+   <td>16</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18803</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18803">Fix more typos in .py files</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>iwontbecreative</td>
+   <td>docs@python</td>
+   
+   
+   <td>enhancement</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18795</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18795">pstats - allow stats sorting by cumulative time per call and total time per call</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>alexnvdias</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>6</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18801</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18801">inspect.classify_class_attrs() misclassifies object.__new__()</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>eric.snow</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>behavior</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>17972</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue17972">inspect module docs omits many functions</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>s7v7nislands@gmail.com</td>
+   <td>docs@python</td>
+   
+   
+   <td>enhancement</td>
+   <td>3</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>16938</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue16938">pydoc confused by __dir__</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>ronaldoussoren</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>behavior</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>15175</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue15175">pydoc -k zip throws segmentation fault</a>
+   </td>
+   
+   
+   
+   <td>pending</td>
+   
+   <td>shank</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>&nbsp;</td>
+   <td>4</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>16611</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue16611">Cookie.py does not parse httponly or secure cookie flags</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>jdennis</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>behavior</td>
+   <td>12</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18780</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18780">SystemError when formatting int subclass</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>serhiy.storchaka</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>crash</td>
+   <td>4</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>16853</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue16853">add a Selector to the select module</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>neologix</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>70</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18738</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18738">String formatting (% and str.format) issues with Enum</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>ethan.furman</td>
+   <td>ethan.furman</td>
+   
+   
+   <td>behavior</td>
+   <td>63</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>17916</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue17916">Provide dis.Bytecode based equivalent of dis.distb</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>ncoghlan</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>2</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18743</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18743">References to non-existant "StringIO" module</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>jcea</td>
+   <td>serhiy.storchaka</td>
+   
+   
+   <td>behavior</td>
+   <td>8</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18798</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18798">Typo and unused variables in test fcntl</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>vajrasky</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>&nbsp;</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>14971</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue14971">(unittest) loadTestsFromName does not work on method with a decorator</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>alex.75</td>
+   <td>michael.foord</td>
+   
+   
+   <td>behavior</td>
+   <td>9</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18712</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18712">Pure Python operator.index doesn't match the C version.</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>mark.dickinson</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>behavior</td>
+   <td>20</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18790</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18790">incorrect text in argparse add_help example</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>purplezephyr</td>
+   <td>docs@python</td>
+   
+   
+   <td>&nbsp;</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>18704</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18704">IDLE: PEP8 Style Check Integration</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>JayKrish</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>enhancement</td>
+   <td>9</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>18796</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue18796">Wrong documentation of show_code function from dis module</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>vajrasky</td>
+   <td>docs@python</td>
+   
+   
+   <td>&nbsp;</td>
+   <td>1</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="odd">
+   
+   <td>14191</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue14191">argparse doesn't allow optionals within positionals</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>v+python</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>behavior</td>
+   <td>39</td>
+   
+  </tr>
+
+ 
+ 
+  
+
+  <tr class="even">
+   
+   <td>16248</td>
+   
+   <td class="date">yesterday</td>
+   
+   <td>
+    <a href="http://bugs.python.org/issue16248">Security bug in tkinter allows for untrusted, arbitrary code execution.</a>
+   </td>
+   
+   
+   
+   <td>open</td>
+   
+   <td>Ramchandra Apte</td>
+   <td>&nbsp;</td>
+   
+   
+   <td>security</td>
+   <td>59</td>
+   
+  </tr>
+
+ 
+</tbody></table>
+
+
+ <div class="navigation">
+     <span>
+         &nbsp;
+         
+     </span>
+     <span>
+         1..
+         50 out of
+         4123
+     </span>
+     <span>
+         <a href="http://bugs.python.org/issue?@startwith=50&@pagesize=50&@columns=id,activity,title,creator,assignee,status,type,message_count&@sort=-activity&@filter=status&status=1,3">next &gt;&gt;</a>
+         &nbsp;
+     </span>
+   </div>
+
+
+
+<a href="http://bugs.python.org/issue?@action=export_csv&@columns=id,activity,title,creator,assignee,status,type,message_count&@sort=-activity&@filter=status&@pagesize=50&@startwith=0&status=1,3">Download as CSV</a>
+
+<form method="get" class="index-controls" action="http://bugs.python.org/issue">
+
+ <table class="form">
+  
+  <tbody><tr>
+   <th>
+    Sort on:
+   </th>
+   <td>
+    <select name="@sort0">
+     <option value="">- nothing -</option>
+     <option selected="selected" value="activity">activity</option>
+     <option value="actor">actor</option>
+     <option value="assignee">assignee</option>
+     <option value="components">components</option>
+     <option value="creation">creation</option>
+     <option value="creator">creator</option>
+     <option value="dependencies">dependencies</option>
+     <option value="files">files</option>
+     <option value="hgrepos">hgrepos</option>
+     <option value="id">id</option>
+     <option value="keywords">keywords</option>
+     <option value="message_count">message_count</option>
+     <option value="messages">messages</option>
+     <option value="nosy">nosy</option>
+     <option value="nosy_count">nosy_count</option>
+     <option value="priority">priority</option>
+     <option value="resolution">resolution</option>
+     <option value="severity">severity</option>
+     <option value="stage">stage</option>
+     <option value="status">status</option>
+     <option value="superseder">superseder</option>
+     <option value="title">title</option>
+     <option value="type">type</option>
+     <option value="versions">versions</option>
+    </select>
+   </td>
+   <th>Descending:</th>
+   <td><input type="checkbox" checked="checked" name="@sortdir0">
+   </td>
+  </tr>
+  
+  
+  <tr>
+   <th>
+    
+   </th>
+   <td>
+    <select name="@sort1">
+     <option value="">- nothing -</option>
+     <option value="activity">activity</option>
+     <option value="actor">actor</option>
+     <option value="assignee">assignee</option>
+     <option value="components">components</option>
+     <option value="creation">creation</option>
+     <option value="creator">creator</option>
+     <option value="dependencies">dependencies</option>
+     <option value="files">files</option>
+     <option value="hgrepos">hgrepos</option>
+     <option value="id">id</option>
+     <option value="keywords">keywords</option>
+     <option value="message_count">message_count</option>
+     <option value="messages">messages</option>
+     <option value="nosy">nosy</option>
+     <option value="nosy_count">nosy_count</option>
+     <option value="priority">priority</option>
+     <option value="resolution">resolution</option>
+     <option value="severity">severity</option>
+     <option value="stage">stage</option>
+     <option value="status">status</option>
+     <option value="superseder">superseder</option>
+     <option value="title">title</option>
+     <option value="type">type</option>
+     <option value="versions">versions</option>
+    </select>
+   </td>
+   <th>Descending:</th>
+   <td><input type="checkbox" name="@sortdir1">
+   </td>
+  </tr>
+  
+  
+  <tr>
+   <th>
+    Group on:
+   </th>
+   <td>
+    <select name="@group0">
+     <option value="">- nothing -</option>
+     <option value="activity">activity</option>
+     <option value="actor">actor</option>
+     <option value="assignee">assignee</option>
+     <option value="components">components</option>
+     <option value="creation">creation</option>
+     <option value="creator">creator</option>
+     <option value="dependencies">dependencies</option>
+     <option value="files">files</option>
+     <option value="hgrepos">hgrepos</option>
+     <option value="id">id</option>
+     <option value="keywords">keywords</option>
+     <option value="message_count">message_count</option>
+     <option value="messages">messages</option>
+     <option value="nosy">nosy</option>
+     <option value="nosy_count">nosy_count</option>
+     <option value="priority">priority</option>
+     <option value="resolution">resolution</option>
+     <option value="severity">severity</option>
+     <option value="stage">stage</option>
+     <option value="status">status</option>
+     <option value="superseder">superseder</option>
+     <option value="title">title</option>
+     <option value="type">type</option>
+     <option value="versions">versions</option>
+    </select>
+   </td>
+   <th>Descending:</th>
+   <td><input type="checkbox" name="@groupdir0">
+   </td>
+  </tr>
+  
+  
+  <tr>
+   <th>
+    
+   </th>
+   <td>
+    <select name="@group1">
+     <option value="">- nothing -</option>
+     <option value="activity">activity</option>
+     <option value="actor">actor</option>
+     <option value="assignee">assignee</option>
+     <option value="components">components</option>
+     <option value="creation">creation</option>
+     <option value="creator">creator</option>
+     <option value="dependencies">dependencies</option>
+     <option value="files">files</option>
+     <option value="hgrepos">hgrepos</option>
+     <option value="id">id</option>
+     <option value="keywords">keywords</option>
+     <option value="message_count">message_count</option>
+     <option value="messages">messages</option>
+     <option value="nosy">nosy</option>
+     <option value="nosy_count">nosy_count</option>
+     <option value="priority">priority</option>
+     <option value="resolution">resolution</option>
+     <option value="severity">severity</option>
+     <option value="stage">stage</option>
+     <option value="status">status</option>
+     <option value="superseder">superseder</option>
+     <option value="title">title</option>
+     <option value="type">type</option>
+     <option value="versions">versions</option>
+    </select>
+   </td>
+   <th>Descending:</th>
+   <td><input type="checkbox" name="@groupdir1">
+   </td>
+  </tr>
+  
+  <tr><td colspan="4">
+              <input type="submit" value="Redisplay">
+              <input type="hidden" name="@columns" value="id,activity,title,creator,assignee,status,type,message_count">
+<input type="hidden" name="@filter" value="status">
+<input type="hidden" name="status" value="1,3">
+<input type="hidden" name="@pagesize" value="50">
+<input type="hidden" name="@startwith" value="0">
+  </td></tr>
+ </tbody></table>
+</form>
+
+
+
+</div> <!-- content-body -->
+<div id="footer">
+<div id="credits">
+<a href="http://www.python.org/about/website">Website maintained by the Python community</a><br>
+
+<a href="http://www.upfrontsystems.co.za/" title="issue tracker hosting provided by Upfront Systems, South Africa">hosting by Upfront Systems</a> /
+  <a href="http://roundup.sf.net/" title="Powered by the Roundup Issue Tracker">powered by Roundup</a>
+</div> <!-- credits -->
+Copyright © 1990-2013, <a href="http://python.org/psf">Python Software Foundation</a><br>
+<a href="http://python.org/about/legal">Legal Statements</a>
+</div> <!-- footer -->
+</div> <!-- body-main -->
+</div> <!-- content -->
+
+
+
+
+
+
+
+<script type="application/javascript">HTMLFormElement.prototype._submit = HTMLFormElement.prototype.submit;HTMLFormElement.prototype.submit = function () {  var event = document.createEvent("Event");  event.initEvent("mitro_submit", true, true);  document.dispatchEvent(event);  this._submit();};</script></body></html>

@@ -1,0 +1,54 @@
+.footer {
+
+  background-color: rgba(red(@quaternary), green(@quaternary), blue(@quaternary), 0.9);
+  bottom: 0;
+  .clear;
+  font-size: 13px;
+  height: @footer-height;
+  left: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+
+  .left,
+  .center,
+  .right {
+    float: left;
+  }
+
+  .left,
+  .right {
+    height: 100%;
+    width: 30px;
+    a {
+      color: @text-light;
+      display: block;
+      font-size: 16px;
+      height: 100%;
+      .opacity(60);
+      text-decoration: none;
+      width: 100%;
+      &:hover, &:focus {
+        .opacity(100);
+      }
+      span {
+        display: block;
+        margin-top: 7px;
+      }
+    }
+  }
+
+  .center {
+    padding-top: 6px;
+    text-align: center;
+    width: 230px;
+    a {
+      color: rgba(red(@text-light), blue(@text-light), green(@text-light), 0.6);
+      text-decoration: none;
+      &:hover, &:focus {
+        color: @text-light;
+      }
+    }
+  }
+
+}

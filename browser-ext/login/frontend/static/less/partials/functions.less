@@ -1,0 +1,523 @@
+// background size
+// .background-size(cover);
+
+.background-size(@x) {
+  background-size: @x;
+  -webkit-background-size: @x;
+  -moz-background-size: @x;
+  -o-background-size: @x;
+}
+
+// backface visibility
+// .backface-visibility(hidden);
+
+.backface-visibility(@x) {
+  -webkit-backface-visibility: @x;
+  -moz-backface-visibility: @x;
+  -ms-backface-visibility: @x;
+}
+
+// perspective
+// .perspective(300px);
+
+.perspective(@x) {
+  -webkit-perspective: @x;
+  -moz-perspective: @x;
+  -ms-perspective: @x;
+  perspective: @x;
+}
+
+// transform
+// .transform(rotateX(180deg));
+
+.transform(@x) {
+  -webkit-transform: rotate(@x);
+  -moz-transform: rotate(@x);
+  -ms-transform: rotate(@x);
+  -o-transform: rotate(@x);
+  transform: rotate(@x);
+}
+
+// transform style
+// .transform-style(preserve-3d);
+
+.transform-style(@x) {
+  -webkit-transform-style: @x;
+  -moz-transform-style: @x;
+  -ms-transform-style: @x;
+  transform-style: @x;
+}
+
+// drop shadow (for transparent images)
+// .drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.75));
+
+.drop-shadow(@x) {
+  filter: drop-shadow(@x);
+  -webkit-filter: drop-shadow(@x);
+}
+
+// transition (accepts up to 3 params)
+// .transition(background-color 100ms);
+// .transition(background-color 100ms, color 100ms);
+// .transition(background-color 100ms, color 100ms, border-color 100ms);
+
+.transition(@a) {
+  -webkit-transition: @a;
+  -moz-transition: @a;
+  -o-transition: @a;
+  -ms-transition: @a;
+  transition: @a;
+}
+
+.transition(@a, @b) {
+  -webkit-transition: @a, @b;
+  -moz-transition: @a, @b;
+  -o-transition: @a, @b;
+  -ms-transition: @a, @b;
+  transition: @a, @b;
+}
+
+.transition(@a, @b, @c) {
+  -webkit-transition: @a, @b, @c;
+  -moz-transition: @a, @b, @c;
+  -o-transition: @a, @b, @c;
+  -ms-transition: @a, @b, @c;
+  transition: @a, @b, @c;
+}
+
+// box sizing
+// .box-sizing(border-box);
+
+.box-sizing(@x) {
+  box-sizing: @x;
+  -moz-box-sizing: @x;
+  -webkit-box-sizing: @x;
+}
+
+// appearance
+// .appearance(none);
+// .appearance(button);
+
+.appearance(@x) {
+  appearance: @x;
+  -moz-appearance: @x;
+  -webkit-appearance: @x;
+}
+
+// background clip
+// .background-clip(padding-box);
+
+.background-clip(@x) {
+  background-clip: @x;
+  -mox-background-clip: @x;
+  -webkit-background-clip: @x;
+}
+
+// border radius (all, sides or specific corders)
+// .border-radius(10px);
+// .border-top-radius(10px);
+// .border-top-left-radius(10px;
+// .border-top-right-radius(10px);
+// .border-bottom-radius(10px);
+// .border-bottom-left-radius(10px);
+// .border-bottom-right-radius(10px);
+// .border-right-radius(10px);
+// .border-left-radius(10px);
+
+.border-radius(@x) {
+  .background-clip(padding-box);
+  border-radius: @x;
+  -moz-border-radius: @x;
+  -webkit-border-radius: @x;
+}
+
+.border-top-radius(@x) {
+  .background-clip(padding-box);
+  border-top-left-radius: @x;
+  border-top-right-radius: @x;
+  -moz-border-radius-topleft: @x;
+  -moz-border-radius-topright: @x;
+  -webkit-border-top-left-radius: @x;
+  -webkit-border-top-right-radius: @x;
+}
+
+.border-top-left-radius(@x) {
+  .background-clip(padding-box);
+  border-top-left-radius: @x;
+  -moz-border-radius-topleft: @x;
+  -webkit-border-top-left-radius: @x;
+}
+
+.border-top-right-radius(@x) {
+  .background-clip(padding-box);
+  border-top-right-radius: @x;
+  -moz-border-radius-topright: @x;
+  -webkit-border-top-right-radius: @x;
+}
+
+.border-bottom-radius(@x) {
+  .background-clip(padding-box);
+  border-bottom-left-radius: @x;
+  border-bottom-right-radius: @x;
+  -moz-border-radius-bottomleft: @x;
+  -moz-border-radius-bottomright: @x;
+  -webkit-border-bottom-left-radius: @x;
+  -webkit-border-bottom-right-radius: @x;
+}
+
+.border-bottom-left-radius(@x) {
+  .background-clip(padding-box);
+  border-bottom-left-radius: @x;
+  -moz-border-radius-bottomleft: @x;
+  -webkit-border-bottom-left-radius: @x;
+}
+
+.border-bottom-right-radius(@x) {
+  .background-clip(padding-box);
+  border-bottom-right-radius: @x;
+  -moz-border-radius-bottomright: @x;
+  -webkit-border-bottom-right-radius: @x;
+}
+
+.border-right-radius(@x) {
+  .background-clip(padding-box);
+  border-bottom-right-radius: @x;
+  border-top-right-radius: @x;
+  -moz-border-radius-bottomright: @x;
+  -moz-border-radius-topright: @x;
+  -webkit-border-bottom-right-radius: @x;
+  -webkit-border-top-right-radius: @x;
+}
+
+.border-left-radius(@x) {
+  .background-clip(padding-box);
+  border-bottom-left-radius: @x;
+  border-top-left-radius: @x;
+  -moz-border-radius-bottomleft: @x;
+  -moz-border-radius-topleft: @x;
+  -webkit-border-bottom-left-radius: @x;
+  -webkit-border-top-left-radius: @x;
+}
+
+// box shadow (accepts up to 2 settings)
+// .box-shadow(0 0 1px 1px rgba(0, 0, 0, 0.1));
+// .box-shadow(inset 0 -5px 5px -5px rgba(0, 0, 0, 0.5), inset 0 -5px 5px -5px rgba(0, 0, 0, 0.5));
+
+.box-shadow(@a) {
+  box-shadow: @a;
+  -moz-box-shadow: @a;
+  -webkit-box-shadow: @a;
+}
+
+.box-shadow(@a, @b) {
+  box-shadow: @a, @b;
+  -moz-box-shadow: @a, @b;
+  -webkit-box-shadow: @a, @b;
+}
+
+// user selection
+// .user-select(none);
+
+.user-select(@x) {
+  -webkit-touch-callout: @x;
+  -webkit-user-select: @x;
+  -khtml-user-select: @x;
+  -moz-user-select: @x;
+  -ms-user-select: @x;
+  user-select: @x;
+}
+
+// user selection highlight color
+// .user-select-color(#ccc);
+
+.user-select-color(@x) {
+  ::selection {
+    background: @x;
+  }
+  ::-moz-selection {
+    background: @x;
+  }
+}
+
+// box arrow (top, right, bottom or left)
+// .arrow > .new (left, 50%, 10px, #fff, solid, 1px, #ddd);
+
+.arrow {
+  .new(@arrow-position, @arrow-alignment, @arrow-size, @arrow-color, @border-style, @border-width, @border-color) {
+    background: @arrow-color;
+    border: @border-style @border-width @border-color;
+    position: relative;
+    &:after,
+    &:before {
+      .arrow-position(@arrow-position, @arrow-alignment);
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      pointer-events: none;
+      position: absolute;
+      width: 0;
+    }
+    &:after {
+      .arrow-border-color(@arrow-position, @arrow-color);
+      .arrow-margin(@arrow-position, 0px - @arrow-size);
+      .arrow-position(@arrow-position, @arrow-alignment);
+      border-width: @arrow-size;
+    }
+    &:before {
+      .arrow-border-color(@arrow-position, @border-color);
+      .arrow-margin(@arrow-position, 0px - (@arrow-size + round(1.41421356 * @border-width)));
+      .arrow-position(@arrow-position, @arrow-alignment);
+      border-width: @arrow-size + round(1.41421356 * @border-width);
+    }
+  }
+  .arrow-position(top, @x) {
+    left: @x;
+    bottom: 100%;
+  }
+  .arrow-position(right, @x) {
+    left: 100%;
+    top: @x;
+  }
+  .arrow-position(bottom, @x) {
+    left: @x;
+    top: 100%;
+  }
+  .arrow-position(left, @x) {
+    right: 100%;
+    top: @x;
+  }
+  .arrow-border-color(top, @x) {
+    border-bottom-color: @x;
+  }
+  .arrow-border-color(right, @x) {
+    border-left-color: @x;
+  }
+  .arrow-border-color(bottom, @x) {
+    border-top-color: @x;
+  }
+  .arrow-border-color(left, @x) {
+    border-right-color: @x;
+  }
+  .arrow-margin(top, @x) {
+    margin-left: @x;
+  }
+  .arrow-margin(right, @x) {
+    margin-top: @x;
+  }
+  .arrow-margin(bottom, @x) {
+    margin-left: @x;
+  }
+  .arrow-margin(left, @x) {
+    margin-top: @x;
+  }
+}
+
+// background vertical linear gradient (accepts 2 to 4 colors)
+// .background-vertical-linear-gradient(#ccc, 0%, #fff, 100%, #ccc);
+// .background-vertical-linear-gradient(#ccc, 0%, #fff, 3%, #ccc, 100%, #999);
+// .background-vertical-linear-gradient(#ccc, 0%, #fff, 25%, #ccc, 75%, #ccc, 100%, #fff);
+
+.background-vertical-linear-gradient(@main-color, @a-location, @a-color, @b-location, @b-color) {
+  background: @main-color;
+  background: -moz-linear-gradient(top, @a-color @a-location, @b-color @b-location);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color));
+  background: -webkit-linear-gradient(top, @a-color @a-location, @b-color @b-location);
+  background: -o-linear-gradient(top, @a-color @a-location, @b-color @b-location);
+  background: -ms-linear-gradient(top, @a-color @a-location,@b-color @b-location);
+  background: linear-gradient(to bottom, @a-color @a-location, @b-color @b-location);
+}
+
+.background-vertical-linear-gradient(@main-color, @a-location, @a-color, @b-location, @b-color, @c-location, @c-color) {
+  background: @main-color;
+  background: -moz-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color), color-stop(@c-location, @c-color));
+  background: -webkit-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: -o-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: -ms-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: linear-gradient(to bottom, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+}
+
+.background-vertical-linear-gradient(@main-color, @a-location, @a-color, @b-location, @b-color, @c-location, @c-color, @d-location, @d-color) {
+  background: @main-color;
+  background: -moz-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color), color-stop(@c-location, @c-color), color-stop(@d-location, @d-color));
+  background: -webkit-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: -o-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: -ms-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+}
+
+// background vertical linear gradient with image (accepts 2 to 4 colors)
+// .background-vertical-linear-gradient(#ccc, url(images/background-image.png), 0%, #fff, 100%, #ccc);
+// .background-vertical-linear-gradient(#ccc, url(images/background-image.png), 0%, #fff, 3%, #ccc, 100%, #999);
+// .background-vertical-linear-gradient(#ccc, url(images/background-image.png), 0%, #fff, 25%, #ccc, 75%, #ccc, 100%, #fff);
+
+.background-vertical-linear-gradient(@main-color, @url, @a-location, @a-color, @b-location, @b-color) {
+  background: @main-color url(@url);
+  background: url(@url), -moz-linear-gradient(top, @a-color @a-location, @b-color @b-location);
+  background: url(@url), -webkit-gradient(linear, left top, left bottom, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color));
+  background: url(@url), -webkit-linear-gradient(top, @a-color @a-location, @b-color @b-location);
+  background: url(@url), -o-linear-gradient(top, @a-color @a-location, @b-color @b-location);
+  background: url(@url), -ms-linear-gradient(top, @a-color @a-location, @b-color @b-location);
+  background: url(@url), linear-gradient(to bottom, @a-color @a-location, @b-color @b-location);
+}
+
+.background-ertical-linear-gradient(@main-color, @url, @a-location, @a-color, @b-location, @b-color, @c-location, @c-color) {
+  background: @main-color url(@url);
+  background: url(@url), -moz-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: url(@url), -webkit-gradient(linear, left top, left bottom, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color), color-stop(@c-location, @c-color));
+  background: url(@url), -webkit-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: url(@url), -o-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: url(@url), -ms-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: url(@url), linear-gradient(to bottom, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+}
+
+.background-vertical-linear-gradient(@main-color, @url, @a-location, @a-color, @b-location, @b-color, @c-location, @c-color, @d-location, @d-color) {
+  background: @main-color url(@url);
+  background: url(@url), -moz-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: url(@url), -webkit-gradient(linear, left top, left bottom, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color), color-stop(@c-location, @c-color), color-stop(@d-location, @d-color));
+  background: url(@url), -webkit-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: url(@url), -o-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: url(@url), -ms-linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: url(@url), linear-gradient(top, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+}
+
+// background horizontal linear gradient (accepts 2 to 4 colors)
+// .background-horizontal-linear-gradient(#ccc, 0%, #fff, 100%, #ccc);
+// .background-horizontal-linear-gradient(#ccc, 0%, #fff, 3%, #ccc, 100%, #999);
+// .background-horizontal-linear-gradient(#ccc, 0%, #fff, 25%, #ccc, 75%, #ccc, 100%, #fff);
+
+.background-horizontal-linear-gradient(@main-color, @a-location, @a-color, @b-location, @b-color) {
+  background: @main-color;
+  background: -moz-linear-gradient(left, @a-color @a-location, @b-color @b-location);
+  background: -webkit-gradient(linear, left top, right top, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color));
+  background: -webkit-linear-gradient(left, @a-color @a-location, @b-color @b-location);
+  background: -o-linear-gradient(left, @a-color @a-location, @b-color @b-location);
+  background: -ms-linear-gradient(left, @a-color @a-location, @b-color @b-location);
+  background: linear-gradient(to right, @a-color @a-location, @b-color @b-location);
+}
+
+.background-horizontal-linear-gradient(@main-color, @a-location, @a-color, @b-location, @b-color, @c-location, @c-color) {
+  background: @main-color;
+  background: -moz-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: -webkit-gradient(linear, left top, right top, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color), color-stop(@c-location, @c-color));
+  background: -webkit-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: -o-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: -ms-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: linear-gradient(to right, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+}
+
+.background-horizontal-linear-gradient(@main-color, @a-location, @a-color, @b-location, @b-color, @c-location, @c-color, @d-location, @d-color) {
+  background: @main-color;
+  background: -moz-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: -webkit-gradient(linear, left top, right top, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color), color-stop(@c-location, @c-color), color-stop(@d-location, @d-color));
+  background: -webkit-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: -o-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: -ms-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: linear-gradient(to right, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+}
+
+// background horizontal linear gradient with image (accepts 2 to 4 colors)
+// .background-horizontal-linear-gradient(#ccc, url(images/background-image.png), 0%, #fff, 100%, #ccc);
+// .background-horizontal-linear-gradient(url(images/background-image.png), 0%, #fff, 3%, #ccc, 100%, #999);
+// .background-horizontal-linear-gradient(#ccc, url(images/background-image.png), 0%, #fff, 25%, #ccc, 75%, #ccc, 100%, #fff);
+
+.background-horizontal-linear-gradient(@main-color, @url, @a-location, @a-color, @b-location, @b-color) {
+  background: @main-color url(@url);
+  background: url(@url), -moz-linear-gradient(left, @a-color @a-location, @b-color @b-location);
+  background: url(@url), -webkit-gradient(linear, left top, right top, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color));
+  background: url(@url), -webkit-linear-gradient(left, @a-color @a-location, @b-color @b-location);
+  background: url(@url), -o-linear-gradient(left, @a-color @a-location, @b-color @b-location);
+  background: url(@url), -ms-linear-gradient(left, @a-color @a-location, @b-color @b-location);
+  background: url(@url), linear-gradient(to right, @a-color @a-location, @b-color @b-location);
+}
+
+.background-horizontal-linear-gradient(@main-color, @url, @a-location, @a-color, @b-location, @b-color, @c-location, @c-color) {
+  background: @main-color url(@url);
+  background: url(@url), -moz-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: url(@url), -webkit-gradient(linear, left top, right top, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color), color-stop(@c-location, @c-color));
+  background: url(@url), -webkit-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: url(@url), -o-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: url(@url), -ms-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+  background: url(@url), linear-gradient(to right, @a-color @a-location, @b-color @b-location, @c-color @c-location);
+}
+
+.background-horizontal-linear-gradient(@main-color, @url, @a-location, @a-color, @b-location, @b-color, @c-location, @c-color, @d-location, @d-color) {
+  background: @main-color url(@url);
+  background: url(@url), -moz-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-location, @d-color);
+  background: url(@url), -webkit-gradient(linear, left top, right top, color-stop(@a-location, @a-color), color-stop(@b-location, @b-color), color-stop(@c-location, @c-color), color-stop(@d-location, @d-color));
+  background: url(@url), -webkit-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: url(@url), -o-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: url(@url), -ms-linear-gradient(left, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+  background: url(@url), linear-gradient(to right, @a-color @a-location, @b-color @b-location, @c-color @c-location, @d-color @d-location);
+}
+
+// opacity
+// .opacity(90);
+// @x must be an integer between 0-100
+
+.opacity(@x) {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@x)";
+  filter: alpha(opacity=@x);
+  -moz-opacity: (@x/100);
+  -khtml-opacity: (@x/100);
+  opacity: (@x/100);
+}
+
+// form field placeholder color
+// .placeholder-color(black);
+// .placeholder-color(#000);
+// .placeholder-color(rgba(0,0,0,1));
+
+.placeholder-color (@color) {
+    &::input-placeholder {
+        color: @color;
+    }
+    &::-webkit-input-placeholder {
+        color: @color;
+    }
+    &:-moz-placeholder {
+        color: @color;
+    }
+    &::-moz-placeholder {
+        color: @color;
+    }
+    &:-ms-input-placeholder {
+        color: @color;
+    }
+}
+
+// form field placeholder font
+.placeholder-font-family-weight (@font-family, @font-size, @font-weight) {
+    &::input-placeholder {
+        font-family: @font-family;
+        font-size: @font-size;
+        font-weight: @font-weight;
+    }
+    &::-webkit-input-placeholder {
+        font-family: @font-family;
+        font-size: @font-size;
+        font-weight: @font-weight;
+    }
+    &:-moz-placeholder {
+        font-family: @font-family;
+        font-size: @font-size;
+        font-weight: @font-weight;
+    }
+    &::-moz-placeholder {
+        font-family: @font-family;
+        font-size: @font-size;
+        font-weight: @font-weight;
+    }
+    &:-ms-input-placeholder {
+        font-family: @font-family;
+        font-size: @font-size;
+        font-weight: @font-weight;
+    }
+}
+
+// Circular Images
+.rounded-img(@width) {
+  .border-radius(@width);
+  width: @width;
+}

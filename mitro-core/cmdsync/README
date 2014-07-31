@@ -1,0 +1,40 @@
+Mitro Google Apps Command Line Sync
+====
+
+Requirements
+----
+
+* Java (JRE)
+* NodeJS
+* Python
+
+
+Setup
+----
+
+The steps below store the required Mitro and Google credentials.
+
+1. Create a new Mitro identity that will synchronize groups. This identity will be an administrator for the groups, so it will have access to the passwords. We recommend creating a new "role account" through the extension for this purpose (e.g. `you+mitrosync@example.com`). Warning: This password will be saved on disk, and passed in a command line argument.
+
+2. Check your email and click the link in the verification message.
+
+3. Run `./setup.py` and enter the email address and password. At this point, you will need to click the link in the verification message.
+
+4. Press enter to continue, and the script will verify the username and password, then will ask you to grant access to your Google Apps directory.
+
+5. Open the URL and paste the verification code from Google into the setup program. After it reports success, you are ready to synchronize groups.
+
+
+Synchronization
+----
+
+Synchronization pulls the latest group membership from Google and applies the changes to Mitro. If the users who belong to the groups do not already have Mitro accounts, they will receive invitation emails. This must be run after any changes are made to Google Apps groups before they are reflected in Mitro (ideally it should run periodically).
+
+1. Run `./sync.py`. It should report success.
+
+
+Known Issues
+----
+
+* Password is stored unencrypted and visible as a command-line argument. This should be encrypted on disk and read from a pipe.
+* Currently synchronizes all groups from Google. It will soon be possible to select a subset.

@@ -1,0 +1,4 @@
+ansible: install and configure software on production servers
+migration_scripts: migrate Postgres databases between releases
+nginx: deprecated nginx configs (should be removed?)
+postgres: deprecated postgres configs (should be removed?)

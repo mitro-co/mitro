@@ -1,0 +1,20 @@
+
+<h4>Group name: {{groupName}} </h4>
+<table border="1"> 
+<tr><th>Users added to group</th><th>Users removed from group</th></tr>
+<tr>
+<td>
+<ul>
+    {{#newUsers}}
+        <li>{{.}}</li>
+    {{/newUsers}}
+</ul>
+</td>
+<td>
+<ul>
+    {{#deletedUsers}}
+        <li>{{.}}</li>
+    {{/deletedUsers}}
+</ul>
+</td>
+</table>

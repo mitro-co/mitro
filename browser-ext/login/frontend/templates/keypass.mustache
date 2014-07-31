@@ -1,0 +1,56 @@
+{{<template}}
+{{$title}}Mitro: KeePass Importer{{/title}}
+
+{{$includes}}
+    <script type="text/javascript" src="../js/URI.js"></script>
+    <script type="text/javascript" src="../js/domain.js"></script>
+    <script type="text/javascript" src="../js/hogan-template.js"></script>
+    <script type="text/javascript" src="../js/modal-dialog-template.js"></script>
+    <script type="text/javascript" src="../js/acl-entry-template.js"></script>
+    <script type="text/javascript" src="../js/admin-common.js"></script>
+    <script type="text/javascript" src="../js/import-template.js"></script>
+    <script type="text/javascript" src="../kew.js"></script>
+    <script type="text/javascript" src="../js/org-info.js"></script>
+    <script type="text/javascript" src="../js/userdata.js"></script>
+    <script type="text/javascript" src="../js/import-common.js"></script>
+    <script type="text/javascript" src="../js/keypass.js"></script>
+{{/includes}}
+
+{{$content}}
+<div class="left-col">
+
+<a class="nav-button" href="importer.html">
+  <img src="../img/left_arrow.png" width="14" height="13">
+  Back to Importer
+</a>
+
+<h2>KeePass Importer</h2>
+
+<p>Export your KeePass database to an XML file, then upload it using the form below. Click Add to Mitro to import the selected passwords.</p>
+<br><br>
+<p>Export KeePass XML file: <input type = "file" id = "files" name = "files[]" single /></p>
+<p>Destination team:
+<select id="group-select"></select> <button id="toggle-checked">Select/unselect all</button></p>
+
+<hr>
+
+<div id="password-list" >
+
+</div>
+
+ <button id="add-to-mitro-button" class="btn-primary btn-large" type="button" hidden="true" >
+    <img src="../img/plus.png" width="21" height="23">Add to Mitro
+  </button>
+
+<div id='upload-progress'>
+
+</div>
+
+</div>
+<!-- end left-col -->
+
+<div class="sidebar">
+</div>
+
+{{/content}}
+{{/template}}

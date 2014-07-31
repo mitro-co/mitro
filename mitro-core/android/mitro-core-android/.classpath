@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="co/mitro/core/crypto/|co/mitro/core/exceptions/|co/mitro/keyczar/|co/mitro/recordio/" kind="src" path="java/server/src"/>
+	<classpathentry including="co/mitro/core/crypto/" kind="src" path="java/server/test"/>
+	<classpathentry kind="lib" path="java/server/lib/gson-2.2.4.jar" sourcepath="java/server/lib_src/gson-2.2.4-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/guava-14.0.1.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/h2-1.3.175.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/jackson-annotations-2.1.4.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/jackson-core-2.1.4.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/jackson-databind-2.1.4.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/ormlite-core-4.45.jar" sourcepath="java/server/lib_src/ormlite-core-4.45-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/ormlite-jdbc-4.45.jar" sourcepath="java/server/lib_src/ormlite-jdbc-4.45-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/postgresql-9.2-1002.jdbc4.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/javax.servlet-api-3.0.1.jar" sourcepath="java/server/lib_src/javax.servlet-api-3.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/keyczar-0.71f-040513.jar" sourcepath="java/server/lib_src/keyczar-0.71f-040513-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/log4j-1.2.17.jar" sourcepath="java/server/lib_src/log4j-1.2.17-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/jetty-http-9.0.3.v20130506.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/jetty-io-9.0.3.v20130506.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/jetty-security-9.0.3.v20130506.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/jetty-server-9.0.3.v20130506.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/jetty-servlet-9.0.3.v20130506.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/jetty-util-9.0.3.v20130506.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/slf4j-api-1.7.5.jar" sourcepath="java/server/lib_src/slf4j-api-1.7.5-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/slf4j-log4j12-1.7.5.jar" sourcepath="java/server/lib_src/slf4j-log4j12-1.7.5-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/metrics-core-3.0.0-BETA3.jar" sourcepath="java/server/lib_src/metrics-core-3.0.0-BETA3-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/metrics-healthchecks-3.0.0-BETA3.jar" sourcepath="java/server/lib_src/metrics-healthchecks-3.0.0-BETA3-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/metrics-jetty9-3.0.0-BETA3.jar" sourcepath="java/server/lib_src/metrics-jetty9-3.0.0-BETA3-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/metrics-json-3.0.0-BETA3.jar" sourcepath="java/server/lib_src/metrics-json-3.0.0-BETA3-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/metrics-jvm-3.0.0-BETA3.jar" sourcepath="java/server/lib_src/metrics-jvm-3.0.0-BETA3-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/metrics-servlets-3.0.0-BETA3.jar" sourcepath="java/server/lib_src/metrics-servlets-3.0.0-BETA3-sources.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/hamcrest-core-1.3.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/commons-codec-1.8.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/qrgen-1-0.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/zxing-core-1-7.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/zxing-j2se-1-7.jar"/>
+	<classpathentry kind="lib" path="java/server/lib/mustache-compiler-0.8.13.jar" sourcepath="java/server/lib_src/mustache-compiler-0.8.13-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

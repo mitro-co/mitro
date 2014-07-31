@@ -1,0 +1,40 @@
+init_config:
+
+# To notify on every service, set a list of notified uses here.
+#
+   notify:
+       - all
+
+
+instances:
+  - name: postgres secondary
+    host: localhost
+    port: 5432
+
+#    -   name: My first service
+#        host: myhost.example.com
+#        port: 8080
+#        timeout: 1
+
+         # The (optional) window and threshold parameters allow you to trigger
+         # alerts only if the check fails x times within the last y attempts
+         # where x is the threshold and y is the window.
+
+#        threshold: 3
+#        window: 5
+
+         # The (optional) collect_response_time parameter will instruct the
+         # check to create a metric 'network.tcp.response_time', tagged with
+         # the url, reporting the response time in seconds.
+
+#        collect_response_time: true
+
+#    -   name: My second service
+#        host: 127.0.0.1
+#        port: 80
+
+         # For service-specific notifications, you can optionally specify
+         # a list of users to notify within the service configuration.
+#        notify:
+#           - user2@example.com
+#           - pagerduty

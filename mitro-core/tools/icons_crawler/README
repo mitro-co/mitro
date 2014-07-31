@@ -1,0 +1,17 @@
+Here's the process for updating icons:
+
+1. Get a list of URLs for all secrets from the mitro postgres db.
+
+psql -P tuples_only=on -c "select hostname from secrets" mitro > urls.txt
+
+2. Filter the list of missing URLs from our current service list.
+
+python build_update_list.py old_service_list.json urls.txt missing_urls.txt
+
+3. Download icons for missing urls.
+ 
+parallel -j 10 -a missing_urls.txt "python update_icon.py"
+
+4. Merge the new icons into the old service list.
+
+python merge_service_lists.py old_service_list.json icons new_service_list.json

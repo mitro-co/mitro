@@ -1,0 +1,129 @@
+[
+{   "regex" : ".*",
+    "reject" : {
+        "login_submit" : [], 
+        "submit" : [], 
+        "password" : [], 
+        "username" : [],
+        "form": []
+    }
+},
+{   "regex" : "^https://www[.]mint[.]com/",
+    "additional_submit_button_ids" : ["login_button"],
+    "reject" : {
+        "login_submit" : [
+            [{"attributeName":"value", "exactMatch" : "Sign up"}],
+            [{"attributeName":"id", "exactMatch" : "signup_button"}]
+        ], 
+        "submit" : [],
+        "password" : [], 
+        "username" : [],
+        "form": []
+    }
+},
+{   "regex" : "^https://www[.]budget[.]com/.*",
+    "reject" : {
+        "login_submit" : [], 
+        "submit" : [],
+        "password" : [], 
+        "username" : [],
+        "form" : [
+            [{"attributeName": "name", "exactMatch" : "reservationForm"}]
+        ]
+    }
+},
+{   "regex": "^https://www[.]wm[.]com/",
+    "reject": {
+        "login_submit" : [],
+        "submit" : [],
+        "password" : [],
+        "username" : [[{"attributeName": "name", "exactMatch" : "zipCode"}]],
+        "form" : []
+    },
+    "comment": "https://www.wm.com/myaccount/authentication.do?action=showLoginPage&selectedMenuItem=ManageMyServices"
+},
+{   "regex" : "http[s]*://www[.]dial7[.]com/",
+    "reject" : {
+        "login_submit" : [],
+        "submit" : [],
+        "password" : [
+            [{"attributeName" : "id", "regexMatch" : "^(?!.*txtpass)"}]
+        ],
+        "username" : [
+            [{"attributeName" : "id", "regexMatch" : "^(?!.*txtuser)"}]
+        ],
+        "form" : []
+    }
+},
+{   "regex" : "^https://accounts[.]google[.]com/(ServiceLogin|AddSession)",
+    "allow_empty_username": true,
+    "reject" : {
+        "login_submit" : [],
+        "submit" : [],
+        "password" : [],
+        "username" : [],
+        "form" : []
+    }
+},
+{   "regex" : "^https://personal[.]vanguard[.]com/",
+    "allow_empty_username": true,
+    "reject" : {
+        "login_submit" : [],
+        "submit" : [],
+        "password" : [],
+        "username" : [],
+        "form" : []
+    }
+},
+{   "regex" : "^https://[^/]*[.]financial-net[.]com/",
+    "allow_empty_username": true,
+    "reject" : {
+        "login_submit" : [],
+        "submit" : [],
+        "password" : [],
+        "username" : [],
+        "form" : []
+    }
+},
+{   "regex" : "^https://[^/]*[.]secure-mailcontrol.com/",
+    "allow_empty_username": true,
+    "reject" : {
+        "login_submit" : [],
+        "submit" : [],
+        "password" : [],
+        "username" : [],
+        "form" : []
+    }
+},
+{   "regex": "^https://github[.]com/",
+    "allow_empty_username": true,
+    "reject" : {
+        "login_submit" : [],
+        "submit" : [],
+        "password" : [],
+        "username" : [],
+        "form" : []
+    }
+},
+{   "regex": "^https://www[.]seamless[.]com/.*[Ll]ogin",
+    "allow_empty_username": true,
+    "reject" : {
+        "login_submit" : [],
+        "submit" : [],
+        "password" : [],
+        "username" : [],
+        "form" : []
+    }
+},
+{   "regex": "^https://www.ib.boq.com.au/.*",
+    "reject" : {
+        "login_submit" : [],
+        "submit" : [],
+        "password" : [],
+        "username" : [
+            [{"attributeName" : "id", "regexMatch" : "^txtUserSignon$"}]
+        ],
+        "form" : []
+    }
+}
+]

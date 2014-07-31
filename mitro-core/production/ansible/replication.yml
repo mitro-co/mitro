@@ -1,0 +1,55 @@
+# Sets up replication between the primary and secondary.
+# Note: This works for cron, and sets up directories, but still needs work
+# to actually automate the entire process
+---
+- hosts: primary
+  sudo: yes
+  roles:
+    - db_primary
+  tasks:
+    # - name: dir pgbackup
+    #   file: path=/mnt/pgbackup state=directory mode=750 owner=postgres
+    # - name: pgbackup
+    #   sudo_user: postgres
+    #   shell: pg_basebackup -D /mnt/pgbackup --xlog
+    # - name: tar
+    #   shell: tar czf /mnt/pgbackup.tar.gz -C /mnt pgbackup
+    # - name: pgbackup_copy
+    #   sudo_user: postgres
+    #   shell: rsync /mnt/pgbackup.tar.gz postgres_replication@192.158.29.198:/large/postgres_backup
+    - name: Create /mnt/postgres_archive/
+      file: state=directory path=/mnt/postgres_archive mode=0750 owner=postgres group=postgres
+    - name: cron postgres replication copy to secondary
+      cron: name="postgres replication copy to secondary" user=postgres minute=*/2 job="/usr/bin/rsync --delete -arhz --chmod=Fug=r /mnt/postgres_archive/ postgres_replication@secondary.mitro.co:/large/postgres_replication"
+    - name: cron clean up old postgres_archive
+      cron: name="clean up old postgres_archive" user=postgres minute=*/5 job="find /mnt/postgres_archive/ -mmin +7200 -delete"
+
+- hosts: secondary
+  sudo: yes
+  tasks:
+    - name: Create Postgres replication directories
+      file: path={{item}} state=directory owner=postgres_replication group=postgres mode=0750
+      with_items:
+        - /large/postgres_replication
+        - /large/postgres_backup
+    - name: mkdir postgres on large
+      file: path=/large/postgresql/9.1 state=directory mode=0700 owner=postgres group=postgres
+    # - name: stop postgres
+    #   service: name=postgresql state=stopped
+    # - name: move old postgres
+    #   shell: mv /var/lib/postgresql /var/lib/postgresql-orig
+    - name: link postgres to large
+      file: state=link src=/large/postgresql dest=/var/lib/postgresql
+
+    # - name: extract
+    #   shell: tar xzf /large/postgres_backup/pgbackup.tar.gz -C /large/postgresql
+    # - name: rename
+    #   shell: mv /large/postgresql/pgbackup /large/postgresql/9.1/main
+
+    # - name: edit postgres config
+    #   lineinfile: dest=/etc/postgresql/9.1/main/postgresql.conf insertbefore="^\x23hot_standby = off.*" line="hot_standby=on"
+    # - name: make recovery conf
+    #   copy: src=postgres_keys/recovery.conf dest=/large/postgresql/9.1/main/recovery.conf owner=postgres group=postgres
+
+    # - name: start postgres
+    #   service: name=postgresql state=started

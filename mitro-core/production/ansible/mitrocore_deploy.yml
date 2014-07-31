@@ -1,0 +1,26 @@
+# Deploys mitrocore to the primary
+# ansible-playbook mitrocore_deploy.yml --extra-vars "version=20140127"
+---
+- hosts: primary
+  gather_facts: false
+  vars:
+    upstart_config: primary/init/mitrocore.conf
+    mitrocore_link_path: /home/ubuntu/mitrocore/mitrocore.jar
+  roles:
+    - mitrocore
+
+- hosts: secondary
+  gather_facts: false
+  vars:
+    upstart_config: secondary/init/mitrocore.conf
+    mitrocore_link_path: /home/mitrocore/mitrocore.jar
+  roles:
+    - mitrocore
+
+- hosts: dev
+  gather_facts: false
+  vars:
+    upstart_config: dev/init/mitrocore.conf
+    mitrocore_link_path: /home/ubuntu/mitrocore/mitrocore.jar
+  roles:
+    - mitrocore

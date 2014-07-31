@@ -1,0 +1,15 @@
+---
+- name: set kernel.shmmax for postgres (max shared memory segment in bytes)
+  sysctl: name=kernel.shmmax value=17179869184
+- name: setup sysctl for postgres (max total shared memory in 4096-byte pages)
+  sysctl: name=kernel.shmall value=4194304
+- name: install postgresql
+  apt: pkg=postgresql-9.1 state=present
+
+- name: Copy postgres config
+  copy: src=../../../primary/postgresql/9.1/main/postgresql.conf dest=/etc/postgresql/9.1/main/postgresql.conf mode=644 owner=postgres group=postgres
+
+# - name: Create /mnt/postgres_archive
+#   file: state=directory path=/mnt/postgres_archive mode=0750 owner=postgres group=postgres
+# - name: cron postgres replication copy to secondary
+#   cron: name="postgres replication copy to secondary" user=postgres minute=*/2 job="/usr/bin/rsync --delete -arhz --chmod=Fug=r /mnt/postgres_archive/ postgres_replication@secondary.mitro.co:/large/postgres_replication"

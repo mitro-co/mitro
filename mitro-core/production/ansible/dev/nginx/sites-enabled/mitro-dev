@@ -1,0 +1,57 @@
+upstream frontend_java {
+    server 127.0.0.1:8080 weight=5;
+}
+
+log_format main2 '$remote_addr - $remote_user [$time_local]  $status '
+    '"$request" $body_bytes_sent "$http_referer" '
+    '"$http_user_agent" "$http_x_forwarded_for" "$cookie_identity"';
+
+server {
+    listen 80 default_server;
+    server_name dev.mitro.co;
+    rewrite ^ https://dev.mitro.co$request_uri permanent;
+}
+
+server {
+    listen 80;
+    server_name 127.0.0.1 localhost;
+
+    # Status monitoring. See http://wiki.nginx.org/HttpStubStatusModule
+    location /nginx_status {
+        stub_status on;
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+    }
+}
+
+server {
+    listen 443 default_server;
+    server_name test.mitro.co;
+    ssl on;
+    ssl_certificate /home/ubuntu/unnamed/crypto_keys/test/tls_www/server.crt;
+    ssl_certificate_key /home/ubuntu/unnamed/crypto_keys/test/tls_www/server.pem;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    # DISABLE cbc-mode ciphers. See: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3389
+    ssl_ciphers RC4:HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers on;
+
+    access_log /var/log/nginx/test.mitro.co main2;
+
+    gzip on;
+    gzip_comp_level 7;
+    gzip_proxied any;
+    gzip_min_length 150;
+    gzip_types text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+
+    location /mitro-core {
+        proxy_pass http://frontend_java;
+        # Pass Host header through; by default it is modified
+        proxy_set_header Host $host;
+        # Also pass original client IP and scheme
+        proxy_set_header X-Real-IP $remote_addr;
+        # More widely used. Supported by Jetty logging
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+    }
+}

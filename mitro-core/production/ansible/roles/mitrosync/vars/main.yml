@@ -1,0 +1,4 @@
+---
+username: mitrosync
+jar_src: ../../tools/java/build/mitrosync.jar
+jar_link_path: "{{mitrosync_link_path}}"

@@ -1,0 +1,32 @@
+{{#groups}}
+<div class="acl-item team clearfix" data-group-id="{{groupId}}">
+  <div class="type">
+    <img class="team-icon" width="50" height="50" src="{{image}}" alt="" data-icon-text="{{name}}">
+  </div>
+
+  <div class="name mbn search-this-value">{{name}}</div>
+
+  <div class="clearfix pull-right actions mt">
+    <input id="{{checkboxId}}" class="css-checkbox" type="checkbox" {{#checked}}checked disabled{{/checked}}>
+    <label for="{{checkboxId}}" class="css-label">&nbsp;</label>
+  </div>
+</div>
+{{/groups}}
+
+{{#users}}
+<div class="acl-item member clearfix" data-user-id="{{userId}}">
+  <div class="pull-left">
+    <img class="member-icon" src="{{photo}}" alt="" width="45" height="45" data-icon-text="{{name}}"/>
+  </div>
+
+  <div class="text">
+    <div class="name search-this-value">{{name}}</div>
+    <div class="link search-this-value"><a href="#"></a>{{email}}</div>
+  </div>
+
+  <div class="clearfix pull-right actions">
+    <input id="{{checkboxId}}" class="css-checkbox" type="checkbox" {{#checked}}checked disabled{{/checked}}>
+    <label for="{{checkboxId}}" class="css-label">&nbsp;</label>
+  </div>
+</div>
+{{/users}}

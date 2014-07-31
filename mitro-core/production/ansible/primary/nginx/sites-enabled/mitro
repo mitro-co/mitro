@@ -1,0 +1,122 @@
+upstream frontend_java {
+    server 127.0.0.1:8080 weight=5;
+}
+
+upstream frontend_mitrosync {
+    server 127.0.0.1:8081 weight=5;
+}
+
+log_format main2 '$remote_addr - $remote_user [$time_local]  $status '
+    '"$request" $body_bytes_sent "$http_referer" '
+    '"$http_user_agent" "$http_x_forwarded_for" "$cookie_identity"';
+
+server {
+    listen 80 default_server;
+    server_name www.mitro.co mitro.co;
+    rewrite ^ https://www.mitro.co$request_uri permanent;
+}
+
+server {
+    listen 80;
+    server_name blog.mitro.co;
+    rewrite ^ http://labs.mitro.co$request_uri;
+}
+
+server {
+    listen 80;
+    server_name 127.0.0.1 localhost;
+
+    # Status monitoring. See http://wiki.nginx.org/HttpStubStatusModule
+    location /nginx_status {
+        stub_status on;
+        access_log off;
+        allow 127.0.0.1;
+        deny all;
+    }
+}
+
+server { # frontend
+    listen 443;
+    server_name mitro.co;
+    ssl on;
+    ssl_certificate /etc/nginx/mitro_co.crt;
+    ssl_certificate_key /etc/nginx/mitro_co.pem;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    # See: http://unmitigatedrisk.com/?p=354
+    ssl_session_timeout 10m;
+    ssl_session_cache shared:SSL:10m;
+
+    # DISABLE cbc-mode ciphers. See: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3389
+    ssl_ciphers ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!LOW:!MD5;
+ssl_prefer_server_ciphers on;
+    rewrite ^ https://www.mitro.co$request_uri permanent;
+}
+
+server { # frontend
+    listen 443 default_server;
+    server_name www.mitro.co 50.19.60.156;
+    ssl on;
+    ssl_certificate /etc/nginx/mitro_co.crt;
+    ssl_certificate_key /etc/nginx/mitro_co.pem;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    # DISABLE cbc-mode ciphers. See: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3389
+    ssl_prefer_server_ciphers on;
+    # See: http://unmitigatedrisk.com/?p=354
+    ssl_session_timeout 10m;
+    ssl_session_cache builtin:1000 shared:SSL:10m;
+
+    ssl_ciphers ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!LOW:!MD5;
+
+    access_log /var/log/nginx/www.mitro.co.log main2;
+
+    gzip on;
+    gzip_comp_level 7;
+    gzip_proxied any;
+    gzip_min_length 150;
+    gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+    error_page 404 /404.html;
+
+    location /favicon.ico {
+        alias /home/ubuntu/www/img/favicon.ico;
+        # TODO: Longer? Who cares really?
+        expires 72h;
+    }
+
+#    Uncomment this to block all api traffic but allow partial signups to complete. 
+#    location /mitro-core/api {
+#	return 503;
+#    } 
+
+    location /mitro-core {
+        proxy_pass http://frontend_java;
+        # Pass Host header through; by default it is modified
+        proxy_set_header Host $host;
+        # Also pass original client IP and scheme
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        # More widely used. Supported by Jetty
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /sync {
+        proxy_pass http://frontend_mitrosync;
+        # Pass Host header through; by default it is modified
+        proxy_set_header Host $host;
+        # Also pass original client IP and scheme, as readable by Jetty
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Wait up to 5 minutes for a response (syncing is slow)
+        proxy_send_timeout 300;
+        proxy_read_timeout 300;
+        send_timeout 300;
+    }
+
+    location / {
+        alias /home/ubuntu/www/;
+        autoindex off;
+
+        expires 30m;
+    }
+}

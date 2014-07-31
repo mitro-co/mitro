@@ -1,0 +1,33 @@
+{{<org-template}}
+
+{{$includes}}
+  <script type="text/javascript" src="../js/create-org.js"></script>
+{{/includes}}
+
+{{$content}}
+  <h1 class="mb40">Create Organization</h1>
+  <div class="row">
+    <div class="col-xs-10">
+    <p>Mitro Organizations provide powerful tools to manage accounts and secrets. Members can save passwords in the organization, giving administrators visibility and control over all services. Membership can also be synchronized with Google Apps.</p>
+    <p>&nbsp;</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <form id="create-org-form" role="form">
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" name="name" id="name-input" class="form-control" placeholder="Acme, Inc.">
+        </div>
+        <div class="buttons clearfix">
+          <div class="pull-right">
+            <input type="submit" id="create-org-button" class="btn btn-primary btn-sm" value="CREATE">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div id="output" class="pull-left col-xs-12"></div>
+  </div>
+{{/content}}
+{{/org-template}}

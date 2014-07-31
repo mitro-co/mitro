@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>mitro_crypto</title>
+
+  <script type="text/javascript" src="thrift_nacl.js"></script>
+  <script type="text/javascript" src="mitro_crypto_testdata.js"></script>
+  <script type="text/javascript" src="mitro_crypto_test.js"></script>
+</head>
+<body onload="onLoad()">
+
+  <h1>Mitro Crypto Module Test</h1>
+
+  <h2>Status <code id="statusField">NO-STATUS</code></h2>
+  <form onsubmit="return onFormSubmit();">
+    <input type="password" id="password"/>
+    <input type="submit" value="submit"/>
+  </form>
+
+  <button id="run-button">Run</button>
+</body>
+</html>

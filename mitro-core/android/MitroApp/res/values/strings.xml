@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Mitro</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="wait">Please wait while your data is decrypted.</string>
+    <string name="username">Username:</string>
+    <string name="url">Website:</string>
+    <string name="password">Password:</string>
+
+    <string name="add_secret">Add secret</string>
+    <string name="refresh">Refresh</string>
+    <string name="logout">Log out</string>
+
+	<string name="hide">HIDE</string>
+	<string name="view">VIEW</string>
+	<string name="copy">COPY</string>
+
+	<string name="hidden_password">......</string>
+</resources>

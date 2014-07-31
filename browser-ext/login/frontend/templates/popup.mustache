@@ -1,0 +1,316 @@
+{{<popup-template}}
+{{$includes}}
+<script src="../js/URI.js"></script>
+<script src="../js/popup-service-template.js"></script>
+<script src="../js/popup-active-service-template.js"></script>
+<script src="../js/popup-share-secret-template.js"></script>
+<script src="../js/popup-invite-member-template.js"></script>
+<script src="../js/querystring.js"></script>
+<script src="../js/userpass.js"></script>
+<script src="../js/domain.js"></script>
+<script src="../js/login.js"></script>
+<script src="../js/live-search.js"></script>
+<script src="../js/icon-generator.js"></script>
+<script src="../js/secrets-common.js"></script>
+<script src="../js/popup-service.js"></script>
+<script src="../js/settings.js"></script>
+<script src="../js/password-generator-lib.js"></script>
+<script src="../js/password-generator.js"></script>
+<script src="../kew.js"></script>
+<script src="../js/org-info.js"></script>
+<script src="../js/userdata.js"></script>
+<script src="../js/admin-secret-common.js"></script>
+<script src="../js/popup-sharing.js"></script>
+<script src="../js/popup.js"></script>
+{{/includes}}
+
+{{$content}}
+
+<!-- logged out -->
+
+<div id="logged-out" class="hide">
+
+  <div class="icon-logo" id="logo"></div>
+
+  <form id="mitro-login-form" class="hide" role="form" method="post" autocomplete="off">
+
+    <input type="hidden" name="tfa-code">
+    <div class="sign-up">
+      <a class="button" href="signup.html" target="_blank">Sign Up</a>
+    </div>
+
+    <div class="fields">
+      <div class="label error" id="login-error" style="display: none; font-weight: bold;"></div>
+      <div class="field">
+        <input type="email" name="username" placeholder="email">
+        <i class="icon"></i>
+      </div>
+      <div class="field">
+        <input type="password" name="password" placeholder="password">
+        <i class="icon"></i>
+      </div>
+    </div>
+
+    <div class="actions">
+      <div class="left">
+        <label>
+          <div class="checkbox checked">
+            <input class="remember-me" type="checkbox" checked>
+          </div>
+          <div class="label">stay logged in</div>
+        </label>
+      </div>
+      <div class="right">
+        <button class="button" type="submit" id="mitro-login-form-button">log in</button>
+      </div>
+    </div>
+    <div id="remind-alert">
+      anyone with access to your computer can <br />access your secrets
+    </div>
+
+    <div id="tfa-code" class="overlay">
+      <div class="vertical-center">
+        <div class="vertical-center-wrapper">
+          <div class="vertical-center-container">
+            <h1>Two-Step Authentication</h1>
+            <p>Enter the 2-step verification code <br />from your mobile application:</p>
+            <div class="field">
+              <input id="tfa-code-input" type="text">
+            </div>
+            <button class="button">Verify</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<!-- logging in (loading) -->
+
+<div id="logging-in" class="hide">
+  <div class="vertical-center">
+    <div class="vertical-center-wrapper">
+      <div class="vertical-center-container">
+        <img src="../img/ext-popup-loader@2x.gif" width="75" height="60">
+        <p>Logging In</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- logged in -->
+
+<div id="logged-in" class="hide" data-current-pane="secrets">
+<!--
+  <div class="header">
+
+    <div class="active-account hide"></div>
+
+    <div class="one-click hide">
+      <p>One-click login &amp; access sharing</p>
+      <div class="buttons">
+        <a class="button" href="#">Enable for @menghe</a>
+      </div>
+    </div>
+
+  </div>
+-->
+
+  <!-- panes -->
+
+  <div class="pane" data-pane="secrets">
+
+    <div class="active-account hide">
+    </div>
+
+    <div id="no-account-banner" class="vertical-center hide">
+      <div class="vertical-center-wrapper">
+        <p>Mitro</p>
+      </div>
+    </div>
+
+    <div class="search">
+
+      <div class="left">
+        <span class="mitro-icon-search"></span>
+      </div>
+
+      <div class="input">
+        <input id="secret-filter-string" type="text" placeholder="log me in to&#8230;">
+      </div>
+
+      <div class="right">
+        <a id="secret-filter-clear" class="hide" href="#">
+          <span class="mitro-icon-cross"></span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="secrets">
+      <div class="border top"></div>
+      <div class="list pane2" id="context"></div>
+      <div class="border bottom"></div>
+    </div>
+
+  </div>
+
+  <div class="pane hide" data-pane="team">
+
+    <div class="active-account">
+    </div>
+
+    <div class="search">
+
+      <div class="left">
+        <span class="mitro-icon-search"></span>
+      </div>
+
+      <div class="input">
+        <input id="team-filter-string" type="text" placeholder="search people and teams">
+      </div>
+
+      <div class="right">
+        <a id="team-filter-clear" class="hide" href="#">
+          <span class="mitro-icon-cross"></span>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="people">
+      <div class="border top"></div>
+      <div class="list share-list">
+      </div>
+      <div id="invite-item" class="hide" data-open-pane="invite" data-secret-id>
+        <div class="details">
+          <div class="image icon-usercircle"></div>
+          <div class="text name">invite <span id="invite-name"></span></div>
+        </div>
+      </div>
+      <div class="border bottom"></div>
+    </div>
+
+  </div>
+
+  <div class="pane hide" data-pane="invite">
+      <div class="active-account">
+      </div>
+
+      <div class="fields">
+        <div class="field">
+          <input name="email" type="text" placeholder="Email">
+        </div>
+        <div class="field">
+          <input name="name" type="text" placeholder="Name">
+        </div>
+        <div class="field">
+          <textarea name="message" placeholder="Message (optional)"></textarea>
+        </div>
+      </div>
+
+      <a class="send-invite-button button" href="#">Send Invite</a>
+
+  </div>
+
+  <div class="settings generate-password pane hide" data-pane="generate-password">
+    <h1>Generate Password</h1>
+    <div class="fields">
+      <div class="field">
+        <input class="generated-password" type="text">
+      </div>
+      <div id="advanced-pwd-options">
+        <div class="field-group">
+          <div class="field">
+            <input class="compact" type="text" id="pwd-num-characters" size="3">
+          </div>
+          <label for="pwd-num-characters">Characters</label>
+        </div>
+        <div class="checkbox-group">
+          <div class="checkbox">
+            <label for="pwd-uppercase">
+              <input id="pwd-uppercase" type="checkbox" checked/> Uppercase
+            </label>
+          </div>
+          <div class="checkbox">
+            <label for="pwd-digit">
+              <input id="pwd-digit" type="checkbox" checked/> Digits
+            </label>
+          </div>
+          <div class="checkbox">
+            <label for="pwd-special">
+              <input id="pwd-special" type="checkbox" checked/> Special Characters
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="links">
+        <div class="link">
+          <a id="show-advanced-pwd-options" href="#">Show Advanced Options</a>
+        </div>
+      </div>
+      <div class="buttons">
+        <a class="button compact regenerate-pwd-link" href="#">Regenerate Password</a>
+      </div>
+      <div class="buttons">
+        <a class="button compact copy-pwd-link" href="#">Copy to clipboard</a>
+      </div>
+    </div>
+    <div class="links bottom">
+      <div class="link">
+        <a href="#" data-open-pane="settings">Back</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pane hide" data-pane="settings">
+    <h1>Settings</h1>
+    <div class="buttons">
+      <a class="button generate-password-link" href="#" data-open-pane="generate-password">Generate Random Password</a>
+    </div>
+    <h1>Migration</h1>
+    <p>Already using LastPass, 1Password or another password management app?</p>
+    <div class="buttons">
+      <a class="button" href="../html/importer.html" target="_blank">Import Secrets</a>
+    </div>
+    <div class="links">
+      <div class="link">
+        <a href="../html/export.html" target="_blank">Export Secrets</a>
+      </div>
+      <div class="link">
+        <a id="change-pwd-two-factor" href="#">Change Mitro Password</a>
+      </div>
+      <div class="link">
+        <a id="two-factor-prefs" href="#">Two Factor Auth Preferences</a>
+      </div>
+    </div>
+    <div class="links bottom">
+      <div class="link">
+        <a class="logout" href="#">Sign Out</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer (fixed, appears on all panes) -->
+
+  <div class="footer">
+    <div class="left">
+      <a href="secrets.html" target="_blank">
+        <span class="mitro-icon-logo-mini"></span>
+      </a>
+    </div>
+    <div class="center"><!-- required to avoid weird layout --></div>
+    <div class="right">
+      <a href="#" class="toggle" data-open-pane="settings">
+        <span class="mitro-icon-gear"></span>
+      </a>
+      <a href="#" class="hide toggle" data-open-pane="secrets">
+        <span class="mitro-icon-vault-1"></span>
+      </a>
+    </div>
+  </div>
+
+{{/content}}
+
+{{/popup-template}}

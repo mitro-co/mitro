@@ -1,0 +1,165 @@
+{{<org-template}}
+
+{{$includes}}
+  <script src="../js/URI.js"></script>
+  <script src="../js/domain.js"></script>
+  <script src="../js/querystring.js"></script>
+  <script src="../js/live-search.js"></script>
+  <script src="../js/org-dropdown.js"></script>
+  <script src="../js/team-members-template.js"></script>
+  <script src="../js/team-secrets-template.js"></script>
+  <script src="../js/add-members-template.js"></script>
+  <script src="../js/add-secrets-template.js"></script>
+  <script src="../js/add-acl-template.js"></script>
+  <script src="../js/admin-secret-common.js"></script>
+  <script src="../js/add-acl.js"></script>
+  <script src="../js/secrets-common.js"></script>
+  <script src="../kew.js"></script>
+  <script src="../js/org-info.js"></script>
+  <script src="../js/userdata.js"></script>
+  <script src="../js/manage-team.js"></script>
+{{/includes}}
+
+{{$content}}
+  <h1 class="mb40">Manage Team</h1>
+  <div class="well-border">
+    <form id="team-info-form" role="form" method="post">
+      <div class="well">
+        <div class="row">
+          <div class="col-xs-3 text-center">
+            <div class="team bbn pn">
+              <div class="type type-lg">
+                <img class="large-team-icon" src="../img/blank.png" width="90" height="90">
+              </div>
+            </div>
+            <!-- <div class="text-center"><a href="#" class="btn btn-sm btn-white">UPLOAD</a></div>-->
+          </div>
+          <div class="col-xs-6">
+            <div class="form-group">
+              <label>Team Name</label>
+              <input type="text" name="name" class="form-control" placeholder="Enter Team Name">
+            </div>
+            <!--
+            <div class="form-group">
+              <label>Team Description</label>
+              <textarea name="description" class="form-control" placeholder="Enter Team Description"></textarea>
+              <span class="help-block"><span>250</span> Characters Remain</span>
+            </div>
+            -->
+            <div class="org-dropdown-group form-group hide">
+              <label>Organization</label>
+              <div class="org-dropdown dropdown mt5">
+                <a data-toggle="dropdown" class="form-control select" href="#"></a>
+                <ul class="dropdown-select dropdown-menu category-dropdown">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="well-footer">
+        <div class="clearfix">
+          <div class="pull-left link3">
+            <a class="delete-team-link" href="#">Delete Team</a>
+          </div>
+          <div class="pull-right">
+            <button id="save-team-button" class="btn btn-primary btn-sm" type="submit">SAVE CHANGES</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row list">
+    <div class="col-xs-6">
+      <div class="clearfix title">
+        <div class="pull-left">Members</div>
+        <div class="pull-right">
+          <a id="add-members-button" class="small" href="#">EDIT</a>
+        </div>
+      </div>
+      <div class="team-member-list items"></div>
+    </div>
+    <div class="col-xs-6">
+      <div class="clearfix title">
+        <div class="pull-left">Secrets</div>
+        <div class="pull-right">
+          <a id="add-secrets-button" class="small" href="#">EDIT</a>
+        </div>
+      </div>
+      <div class="team-secret-list items"></div>
+    </div>
+  </div>
+{{/content}}
+
+{{$modals}}
+<div class="modal fade" id="add-members-modal" tabindex="-1" role="dialog" aria-labelledby="add-members-title" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="add-members-title">Add Team Members</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control search" placeholder="Search members">
+        <div class="list mt">
+          <div class="title"></div>
+          <div class="modal-list member-list items">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-gray btn-sm" data-dismiss="modal">CANCEL</button>
+        <button id="save-members-button" type="button" class="btn btn-primary btn-sm">SAVE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="add-secrets-modal" tabindex="-1" role="dialog" aria-labelledby="add-secrets-title" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="add-secrets-title">Edit Team Secrets</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="form-control search" placeholder="Search secrets">
+        <div class="list mt">
+          <div class="title"></div>
+          <div class="modal-list secret-list items"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-gray btn-sm" data-dismiss="modal">CANCEL</button>
+        <button id="save-secrets-button" type="button" class="btn btn-primary btn-sm">SAVE CHANGES</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="delete-confirm-modal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+    <h4>Remove User</h4>
+  </div>
+
+        <div class="modal-body">
+          <form id="remove-user-form" class="modal-form">
+            <input name="email" type="hidden" />
+          </form>
+
+          <div class="delete-message"></div>
+        </div>
+
+        <div class="modal-footer">
+          <a class="btn right" data-dismiss="modal">Cancel</a>
+          <a id="remove-user-button" class="btn btn-primary" data-dismiss="modal">Remove</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{/modals}}
+
+{{/org-template}}

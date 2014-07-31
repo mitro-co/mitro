@@ -1,0 +1,648 @@
+/*
+ * *****************************************************************************
+ * Copyright (c) 2012, 2013, 2014 Lectorius, Inc.
+ * Authors:
+ * Vijay Pandurangan (vijayp@mitro.co)
+ * Evan Jones (ej@mitro.co)
+ * Adam Hilss (ahilss@mitro.co)
+ *
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *     You can contact the authors at inbound@mitro.co.
+ * *****************************************************************************
+ */
+
+/*general styles */
+/* TODO follow style guide http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml */
+
+body {
+  font-size: 13px;
+  color: #7c8489;
+  font-family: 'Open Sans', sans-serif;
+  background: #eee;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #24abf8;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  margin: 0 0 14px;
+}
+
+label {
+  font-size: 14px;
+}
+
+label a {
+  text-decoration: underline;
+  font-weight: normal;
+  display: inline-block;
+}
+
+ul {
+  list-style-type: none;
+  -webkit-padding-start: 0;
+  -moz-padding-start: 0;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"],
+textarea {
+  width: 100%;
+  border: solid 1px #e5e5e5;
+  border-radius: 0;
+  padding: 6px 10px;
+  color: #24abf8;
+  height: 28px;
+}
+
+textarea {
+  height: auto;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: #66afe9;
+  outline: 0;
+}
+
+select {
+  -webkit-appearance: menulist;
+  width: 100%;
+  height: 28px;
+  color: #24abf8;
+  height: 28px;
+  line-height: 28px;
+  border: solid 1px #e5e5e5;
+  border-radius: 2;
+  -webkit-border-radius: 2;
+}
+
+:focus {
+  outline: none;
+}
+
+.relative {
+  position: relative;
+}
+
+.mr {
+  margin-right: 10px;
+}
+
+.mr20 {
+  margin-right: 20px;
+}
+
+.ml {
+  margin-left: 10px!important;
+}
+
+.mt {
+  margin-top: 10px;
+}
+
+.mb {
+  margin-bottom: 10px;
+}
+
+.mtn {
+  margin-top: 0!important;
+}
+
+.m10 {
+  margin: 10px;
+}
+
+.mn {
+  margin: 0!important;
+}
+
+.bt {
+  border-top: solid 1px #e9eaeb;
+}
+
+
+/* overwrite bootstrap classes */
+.alert {
+  border: none;
+  padding: 6px 8px;
+  margin-bottom: 0;
+  margin-top: 15px;
+  position: relative;
+}
+
+.alert span {
+  float: left;
+  width: 254px;
+  margin-left: 10px;
+}
+
+.alert .ico {
+  margin-top: 6px;
+}
+
+.alert-danger {
+  background: #fce9e9;
+  color: #605757;
+}
+
+.alert-danger a {
+  color: #605757;
+  text-decoration: underline;
+}
+
+.alert .ico-arrow-red {
+  position: absolute;
+  top: -14px;
+  right: 12px;
+  background-position: 0 -353px;
+}
+
+.nav-tabs {
+  border-bottom: none;
+}
+
+.form-group {
+  margin-bottom: 13px;
+  line-height: 20px;
+}
+
+.form-group.col {
+  width: 202px;
+}
+
+.has-success .form-control {
+  background: url(../img/icons.png) no-repeat right -102px;
+  border-color: #468847!important;
+}
+
+.has-error .form-control {
+  background: url(../img/icons.png) no-repeat right -54px;
+  border-color: #ee9595!important;
+}
+
+.form-control {
+  -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.075),0 0 0 #ee9595!important;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.075),0 0 0 #ee9595!important;
+}
+
+/*icons */
+.ico {
+  background: url(../img/icons.png) no-repeat;
+  width: 20px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  top: 3px;
+}
+
+.ico-warning {
+  background-position: 0 -62px;
+  width: 25px;
+  height: 22px;
+}
+
+.ico-settings {
+  background-position: 0 -182px;
+  top: 0;
+}
+
+.ico-search {
+  background-position: 0 -251px;
+  top: 1px;
+}
+
+.ico-edit {
+  background-position: 4px -280px;
+}
+
+.ico-arrow {
+  background-position: 3px -301px;
+}
+
+.ico-close {
+  background-position: -8px -324px;
+}
+
+
+/*buttons */
+.btn {
+  border: none;
+  font-size: 12px;
+  padding: 6px 24px;
+}
+
+.btn-primary {
+  background: #24abf8;
+}
+
+.btn-primary:hover {
+  background: #3d96da;
+}
+
+.btn-white,
+.btn-white:focus {
+  width: 56px;
+  height: 24px;
+  line-height: 22px;
+  border: solid 1px #00aeef;
+  color: #00aeef;
+  background: #fff;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.btn-white:hover {
+  border: solid 1px #3d96da;
+  color: #fff;
+  background: #3d96da;
+}
+
+.btn-ico, .btn-ico:focus {
+  width: 25px;
+  height: 24px;
+  border: solid 1px #abb2b6;
+  background: #fff;
+  margin-left: 7px;
+  padding: 0;
+}
+
+.btn-ico:hover {
+  border: solid 1px #e2e4e5;
+  background: #e2e4e5;
+}
+
+/* forms */
+input[type=checkbox].css-checkbox {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+input[type=checkbox].css-checkbox + label.css-label {
+  padding-left: 22px;
+  display: inline-block;
+  cursor: pointer;
+  background: url(../img/icons.png) no-repeat 0 -10px;
+  line-height: 20px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+  background-position: 0 -29px;
+}
+
+input[type=password] {
+  line-height: 18px;
+}
+
+.checkbox {
+  margin-top: 5px;
+}
+
+.has-success input {
+  color: #4ba038;
+}
+
+.has-error input {
+  color: #f00;
+}
+
+.search {
+  padding: 7px 18px;
+  position: relative;
+}
+
+.search .ico-close {
+  position: absolute;
+  cursor: pointer;
+  right: 23px;
+  top: 13px;
+}
+
+/* header */
+.wrap {
+  width: 342px;
+  height: 370px;
+  margin: 0px auto 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.rocket {
+  background: url(../img/clouds.png) no-repeat 0 0;
+}
+
+.inner {
+  padding: 0 18px;
+}
+
+header {
+  position: relative;
+  height: 40px;
+}
+
+header .logo {
+  margin: 9px 17px 10px;
+}
+
+header .arrow {
+  width: 16px;
+  height: 8px;
+  display: block;
+  background: url(../img/icons.png) no-repeat 0 0;
+  position: absolute;
+  top: -8px;
+  right: 8px;
+}
+
+header .top {
+  background: #f6f7f8;
+}
+
+/* header */
+.navbar {background: #4c5961; border-radius: 0; height: 44px;}
+.navbar-brand {padding: 10px 20px;}
+
+.menu a {
+  width: 38px;
+  height: 40px;
+  display: inline-block;
+}
+
+.menu a:hover, .menu a.active {
+  background: #fff;
+}
+
+.menu a:hover .ico-settings, .menu a.active .ico-settings {
+  background-position: -1px -151px;
+}
+
+.menu a:hover .ico-search, .menu a.active .ico-search {
+  background-position: 0 -220px;
+}
+
+.menu i {
+  margin-left: 12px;
+  margin-top: 13px;
+}
+
+.popup-main .tab-content {
+  height: 290px;
+}
+
+.popup-main h3 {
+  margin: 0;
+  padding: 10px 0;
+}
+
+/* main content */
+.login-main {
+  min-height: 290px;
+  height: 290px;
+}
+
+.login-main p {
+  height: 42px;
+  line-height: 42px;
+  margin-bottom: 0;
+}
+
+.login-main .form-control {
+  height: 40px;
+  line-height: 26px;
+}
+
+/* lists */
+.list {
+  height: 220px;
+  width: 342px;
+}
+
+.list .item {
+  height: 56px;
+  border-bottom: solid 1px #e9eaeb;
+  padding: 9px 18px;
+}
+
+.list .item .img {
+  float: left;
+  margin-right: 14px;
+  margin-top: 2px;
+  width: 32px;
+  height: 32px;
+}
+
+.list .item .desc {
+  float: left;
+  width: 140px;
+}
+
+.list .item .desc .name {
+  font-size: 14px;
+  width: 128px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list .item .desc .link {
+  font-size: 10px;
+  line-height: 14px;
+  width: 128px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list .item .actions {
+  float: left;
+  margin-top: 6px;
+}
+
+#context-all-services-item {
+  padding-bottom: 8px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 20px;
+}
+
+.pane2 {
+  border-top: solid 1px #e9eaeb;
+}
+
+/* footer */
+footer {
+  height: 40px;
+  line-height: 38px;
+}
+
+/*scrollpane custom CSS*/
+.jspVerticalBar {
+  width: 8px;
+  background: transparent;
+  right: 3px;
+}
+
+.jspHorizontalBar {
+  bottom: 5px;
+  width: 100%;
+  height: 8px;
+  background: transparent;
+}
+
+.jspTrack {
+  background: transparent;
+}
+
+.jspDrag {
+  background: url(../img/transparent-black.png) repeat;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag {
+  float: left;
+  height: 100%;
+}
+
+.jspPane {
+  width: 100%!important;
+}
+
+.jspCorner {
+  display: none
+}
+
+.register-rocket {position: absolute; bottom: 0; right: 0; width: 408px; height: 241px; display: block; background: url(../img/rocket.png) no-repeat;}
+.register-main {margin: 80px auto; width: 485px;}
+
+.panel {
+  background-color: #fbfcfd;
+  text-align: left;
+  border: none;
+}
+
+.panel .btn {margin-bottom: 20px; margin-top: 10px; position: relative; border: none;font-size: 20px;padding: 15px 44px;}
+.panel label {color: #4c5961;}
+
+.panel .panel-heading {background: #44a9f8; color: #fff; font-size: 26px; font-weight: bold; padding: 13px 30px;}
+.panel .panel-body {padding: 30px;}
+.panel .panel-footer {padding: 15px 25px; background: #fff; }
+.panel .panel-footer .btn {margin: 0; padding: 10px 27px; font-size: 18px;}
+.panel .form-control {height: 32px;}
+
+.val-box {position: absolute;background: #4c5961; padding: 15px;color: #e3e4e5; font-size: 12px;left: -262px;top: -1px; width: 240px;}
+.val-box h3 {color: #fff; font-size: 16px;margin: 0 0 10px;}
+.val-box ul {margin: 0;padding: 0;}
+.val-box li {list-style: none; background: url(../img/signup-icons.png) no-repeat 0 -76px; margin-bottom: 6px; padding-left: 30px; line-height: 18px;}
+.val-box li.selected {background-position: 0 -37px;}
+.val-box .arrow {position: absolute; width: 20px; height: 20px; background: url(../img/signup-icons.png) no-repeat 0 -124px;top: 34px;right: -19px;z-index: 100;}
+
+.val-alert {background: #e24343; right: -262px; left: inherit; color: #f7d3d3; font-size: 14px;}
+.val-alert .arrow {background-position: 0 -164px; right: initial; left: -9px;}
+
+/* progress bar */
+.progress {height: 9px;box-shadow: none;background-color: #e8ebed; margin-bottom: 0;}
+.progress-bar-danger {background-color: #e24343;}
+.progress-bar-success {background-color: #20c71c;}
+.progress-msg {font-size: 14px;font-weight: bold;}
+.text-danger {color: #e24343;}
+.text-success {color: #20c71c;}
+.text-error {
+  color: #b94a48;
+}
+
+#signup-error {
+  margin-top: -8px;
+  margin-bottom: 8px;
+}
+
+#mitro-login-form input[type="password"] {
+  line-height: 26px;
+}
+
+.issue-main {
+  margin: 80px auto;
+  width: 600px;
+}
+
+.change-password-panel {
+  margin: 80px auto;
+  width: 485px;
+}
+
+.password-warning {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.settings-menu {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  margin: 0;
+}
+
+.settings-menu li {
+  border-top: solid 1px #e9eaeb;
+  line-height: 42px;
+  padding-left: 18px;
+}
+
+#show-settings-link {
+  display: block;
+  line-height: 32px;
+}
+
+#pwd-num-characters {
+  width: 40px;
+}
+
+.pwd-form-group label {
+  display: inline;
+  font-weight: normal;
+}
+
+#password-generator-div a {
+  line-height: 32px;
+}
+
+#advanced-pwd-options {
+  display: none;
+  clear: both;
+  margin-top: 20px;
+}
+
+.service-icon {border-radius:4px;}

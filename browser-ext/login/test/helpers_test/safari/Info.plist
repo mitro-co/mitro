@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Lectorius, Inc.</string>
+	<key>Builder Version</key>
+	<string>534.57.2</string>
+	<key>CFBundleDisplayName</key>
+	<string>Mitro Helpers Test</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.mitro.helperstest</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.9.1</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Database Quota</key>
+		<real>52428800</real>
+		<key>Global Page</key>
+		<string>background.html</string>
+		<key>Popovers</key>
+		<array>
+			<dict>
+				<key>Filename</key>
+				<string>html/popup.html</string>
+				<key>Height</key>
+				<real>400</real>
+				<key>Identifier</key>
+				<string>Popup</string>
+				<key>Width</key>
+				<real>600</real>
+			</dict>
+		</array>
+		<key>Toolbar Items</key>
+		<array>
+			<dict>
+				<key>Identifier</key>
+				<string>mitro-button</string>
+				<key>Image</key>
+				<string>blank.png</string>
+				<key>Label</key>
+				<string>Button</string>
+				<key>Popover</key>
+				<string>Popup</string>
+			</dict>
+		</array>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Blacklist</key>
+		<array>
+			<string>http://selenium.mitro.co/*</string>
+			<string>safari-extension://*/*</string>
+		</array>
+		<key>Scripts</key>
+		<dict>
+			<key>Start</key>
+			<array />
+		</dict>
+	</dict>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>All</string>
+		</dict>
+	</dict>
+	<key>Website</key>
+	<string>https://www.mitro.co</string>
+</dict>
+</plist>

@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8">
+  <title>
+  Sign up for a Bitbucket account
+</title>
+  <link rel="icon" type="image/png" href="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/img/favicon.png">
+  <meta id="bb-canon-url" name="bb-canon-url" content="https://bitbucket.org">
+  
+  
+<link rel="stylesheet" href="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/compressed/css/56097c5c510e.css" type="text/css" />
+<link rel="stylesheet" href="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/compressed/css/b6644238d9ce.css" type="text/css" />
+
+  <!--[if lt IE 9]><link rel="stylesheet" href="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/css/aui/aui-ie.css" media="all"><![endif]-->
+  <!--[if IE 9]><link rel="stylesheet" href="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/css/aui/aui-ie9.css" media="all"><![endif]-->
+  <!--[if IE]><link rel="stylesheet" href="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/css/aui-overrides-ie.css" media="all"><![endif]-->
+  <meta name="description" content=""/>
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Bitbucket" />
+  
+  
+    <script src="//cdn.optimizely.com/js/4079040.js"></script>
+  
+<script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script></head>
+<body class="production workflow-layout"
+      data-base-url="https://bitbucket.org"
+      data-no-avatar-image="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/img/default_avatar/16/user_blue.png"
+      data-current-user="{&quot;isKbdShortcutsEnabled&quot;: true, &quot;isSshEnabled&quot;: false, &quot;isAuthenticated&quot;: false}"
+      
+      
+      
+      
+      
+      
+      >
+<script type="text/javascript" src="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/compressed/js/e98deabf8a2e.js"></script>
+
+<div id="page">
+  <div id="wrapper">
+    
+  
+
+
+    <header id="header" role="banner">
+      
+  
+    
+  
+
+      <nav class="aui-header aui-dropdown2-trigger-group" role="navigation">
+        <div class="aui-header-inner">
+          <div class="aui-header-primary">
+            
+  
+
+            
+              <h1 class="aui-header-logo aui-header-logo-bitbucket logged-out">
+                <a href="/" class="aui-nav-imagelink" id="logo-link">
+                  <span class="aui-header-logo-device">Bitbucket</span>
+                </a>
+              </h1>
+            
+            
+  <script id="repo-dropdown-template" type="text/html">
+  
+
+[[#hasViewed]]
+  <div class="aui-dropdown2-section">
+    <strong class="viewed">Recently viewed</strong>
+    <ul class="aui-list-truncate">
+      [[#viewed]]
+        <li class="[[#is_private]]private[[/is_private]][[^is_private]]public[[/is_private]] repository">
+          <a href="[[url]]" title="[[owner]]/[[name]]" class=" aui-icon-container">
+            <img class="repo-avatar size16" src="[[{avatar}]]" alt="[[owner]]/[[name]] avatar"/>
+            [[owner]] / [[name]]
+          </a>
+        </li>
+      [[/viewed]]
+    </ul>
+  </div>
+[[/hasViewed]]
+[[#hasUpdated]]
+<div class="aui-dropdown2-section">
+  <strong class="updated">Recently updated</strong>
+  <ul class="aui-list-truncate">
+    [[#updated]]
+    <li class="[[#is_private]]private[[/is_private]][[^is_private]]public[[/is_private]] repository">
+      <a href="[[url]]" title="[[owner]]/[[name]]" class=" aui-icon-container">
+        <img class="repo-avatar size16" src="[[{avatar}]]" alt="[[owner]]/[[name]] avatar"/>
+        [[owner]] / [[name]]
+      </a>
+    </li>
+    [[/updated]]
+  </ul>
+</div>
+[[/hasUpdated]]
+
+</script>
+  <ul role="menu" class="aui-nav">
+    
+      <li>
+        <a href="/plans">
+            Pricing
+        </a>
+      </li>
+      <li>
+        <a href="/whats-new">
+          Latest features
+        </a>
+      </li>
+    
+  </ul>
+
+          </div>
+          <div class="aui-header-secondary">
+            
+  <ul role="menu" class="aui-nav">
+    <li>
+      <form action="/repo/all" method="get" class="aui-quicksearch">
+        <label for="search-query" class="assistive">owner/repository</label>
+        <input id="search-query" class="search" type="text" placeholder="owner/repository" name="name">
+      </form>
+    </li>
+    <li>
+      <a class="aui-dropdown2-trigger"aria-controls="header-help-dropdown" aria-owns="header-help-dropdown"
+         aria-haspopup="true" data-container="#header .aui-header-inner" href="#header-help-dropdown">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span><span class="aui-icon-dropdown"></span>
+      </a>
+      <nav id="header-help-dropdown" class="aui-dropdown2 aui-style-default aui-dropdown2-in-header" aria-hidden="true">
+        <div class="aui-dropdown2-section">
+          <ul>
+            <li>
+              <a href="/whats-new" id="features-link">
+                Latest features
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="aui-dropdown2-section">
+          <ul>
+            <li>
+              <a class="support-ga"
+                 data-support-gaq-page="DocumentationHome"
+                 href="https://confluence.atlassian.com/x/bgozDQ"
+                 target="_blank">
+                Documentation
+              </a>
+            </li>
+            <li>
+              <a class="support-ga"
+                 data-support-gaq-page="Documentation101"
+                 href="https://confluence.atlassian.com/x/cgozDQ"
+                 target="_blank">
+                Bitbucket 101
+              </a>
+            </li>
+            <li>
+              <a class="support-ga"
+                 data-support-gaq-page="DocumentationKB"
+                 href="https://confluence.atlassian.com/x/2w4zDQ"
+                 target="_blank">
+                Knowledge base
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="aui-dropdown2-section">
+          <ul>
+            <li>
+              <a class="support-ga"
+                 data-support-gaq-page="Answers"
+                 href="https://answers.atlassian.com/tags/bitbucket/"
+                 target="_blank">
+                Bitbucket on Atlassian Answers
+              </a>
+            </li>
+            <li>
+              <a class="support-ga"
+                 data-support-gaq-page="Home"
+                 href="/support">
+              Support
+            </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </li>
+      
+        
+      
+    
+        <li id="header-signup-button">
+          <a id="sign-up-link" class="aui-button aui-button-primary aui-style" href="/account/signup/">
+            Sign up
+          </a>
+        </li>
+      <li id="user-options">
+        <a href="/account/signin/?next=/account/signup/" class="aui-nav-link login-link">Log in</a>
+      </li>
+    
+  </ul>
+
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    
+  <header id="account-warning" role="banner"
+          class="aui-message-banner warning ">
+    <div class="center-content">
+      <span class="aui-icon aui-icon-warning"></span>
+      <span class="message">
+        
+      </span>
+    </div>
+  </header>
+
+    
+    
+      <header id="aui-message-bar">
+        
+      </header>
+    
+
+
+    
+
+    <div id="content" role="main">
+      
+
+  
+    
+    <div id="registration" class="registration-box workflow-box social">
+      <header>
+        <h1>
+          
+            Sign up for free
+          
+          
+          
+          
+          
+          
+        </h1>
+      </header>
+
+      <section class="form-container">
+        <div class="sidebar">
+          <div class="social-box">
+            <h2>You can also sign up with:</h2>
+            
+              
+
+<ul id="social-login-forms" class="clearfix">
+      
+  <li>
+
+<form class="connect-button" name="login"
+      data-modules="registration/connect-account-button"
+      method="POST" action="/social/google/redirect/">
+  <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='76f6e6a351f2378f037f22dd3b5157db' /></div>
+  <input type="hidden" name="next" value="/account/dispatch/">
+  <button type="submit" class="aui-button aui-style google-button">
+    Google
+  </button>
+</form>
+</li>
+  <li>
+
+<form class="connect-button" name="login"
+      data-modules="registration/connect-account-button"
+      method="POST" action="/social/facebook/redirect/">
+  <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='76f6e6a351f2378f037f22dd3b5157db' /></div>
+  <input type="hidden" name="next" value="/account/dispatch/">
+  <button type="submit" class="aui-button aui-style facebook-button">
+    Facebook
+  </button>
+</form>
+</li>
+  <li>
+
+<form class="connect-button" name="login"
+      data-modules="registration/connect-account-button"
+      method="POST" action="/social/twitter/redirect/">
+  <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='76f6e6a351f2378f037f22dd3b5157db' /></div>
+  <input type="hidden" name="next" value="/account/dispatch/">
+  <button type="submit" class="aui-button aui-style twitter-button">
+    Twitter
+  </button>
+</form>
+</li>
+  <li>
+
+<form class="connect-button" name="login"
+      data-modules="registration/connect-account-button"
+      method="POST" action="/social/github/redirect/">
+  <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='76f6e6a351f2378f037f22dd3b5157db' /></div>
+  <input type="hidden" name="next" value="/account/dispatch/">
+  <button type="submit" class="aui-button aui-style github-button">
+    GitHub
+  </button>
+</form>
+</li>
+</ul>
+
+            
+          </div>
+          <div class="help-box">
+            <h2>Individual vs team account</h2>
+            <h3>All plans include:</h3>
+            <ul class="ticks">
+              <li>Unlimited repositories</li>
+              <li>Unlimited public collaborators</li>
+              <li>Unlimited disk space</li>
+            </ul>
+            <h3>Teams include:</h3>
+            
+<ul class="ticks">
+  <li>Create team-owned repositories</li>
+  <li>Delegate administration</li>
+  <li>Send email invitations</li>
+  <li>Manage repository access via groups</li>
+</ul>
+
+          </div>
+        </div>
+
+        <form id="registration-form" method="post" data-method="standard"
+              data-modules="registration/signup-form"
+              class="aui team-members-form registration-form selected">
+          
+
+
+
+          <div class="is-team-field">
+            <a href="#" data-modules="registration/team-vs-individual"
+               id="team-vs-individual-help-trigger">What's the difference?</a>
+            
+
+
+  
+    <fieldset class="group ">
+      
+        <legend>
+          <span>Account type</span>
+        </legend>
+        
+
+
+    <div class="radio"><input checked="checked" name="is_team" value="0" id="id_is_team_0" type="radio" class=" radio" /><label for="id_is_team_0">Individual</label></div>
+<div class="radio"><input value="1" type="radio" class=" radio" name="is_team" id="id_is_team_1" /><label for="id_is_team_1">Team</label></div>
+
+
+      
+      
+    </fieldset>
+  
+
+
+          </div>
+          
+
+
+  
+  <div id="id_team_name_group" class="field-group ">
+      <label for="id_team_name">
+        Display name
+      </label>
+      
+        <input id="id_team_name" type="text" class=" text" name="team_name" maxlength="30" />
+      
+    
+      <div class="description">
+        
+          e.g., Atlassian Inc.
+        
+      </div>
+    
+    
+      
+    
+  </div>
+  
+
+
+          
+
+
+  
+  <div id="id_first_name_group" class="field-group ">
+      <label for="id_first_name">
+        First name
+      </label>
+      
+        <input id="id_first_name" type="text" class=" text" name="first_name" maxlength="30" />
+      
+    
+    
+      
+    
+  </div>
+  
+
+
+          
+
+
+  
+  <div id="id_last_name_group" class="field-group ">
+      <label for="id_last_name">
+        Last name
+      </label>
+      
+        <input id="id_last_name" type="text" class=" text" name="last_name" maxlength="30" />
+      
+    
+    
+      
+    
+  </div>
+  
+
+
+          
+
+
+  
+  <div id="id_username_group" class="field-group ">
+      <label for="id_username">
+        Username<span class="aui-icon icon-required"></span><span class="content">required</span>
+      </label>
+      
+        <input id="id_username" type="text" class="required text" name="username" maxlength="30" />
+      
+    
+      <div class="description">
+        
+          e.g. jdoe
+        
+      </div>
+    
+    
+      
+    
+  </div>
+  
+
+
+          
+
+
+  
+  <div id="id_email_group" class="field-group ">
+      <label for="id_email">
+        Email<span class="aui-icon icon-required"></span><span class="content">required</span>
+      </label>
+      
+        <input id="id_email" type="email" class="required text" name="email" maxlength="75" />
+      
+    
+    
+      
+    
+  </div>
+  
+
+
+          
+
+
+  
+  <div id="id_password1_group" class="field-group ">
+      <label for="id_password1">
+        Password<span class="aui-icon icon-required"></span><span class="content">required</span>
+      </label>
+      
+        <input id="id_password1" type="password" class="required text" name="password1" />
+      
+    
+    
+      
+    
+  </div>
+  
+
+
+          
+
+
+  
+  <div id="id_password2_group" class="field-group ">
+      <label for="id_password2">
+        Password (again)<span class="aui-icon icon-required"></span><span class="content">required</span>
+      </label>
+      
+        <input id="id_password2" type="password" class="required text" name="password2" />
+      
+    
+    
+      
+    
+  </div>
+  
+
+
+
+          
+
+
+  
+  <div id="id_recaptcha_group" class="field-group ">
+      <label for="id_recaptcha">
+        Turing test
+      </label>
+      
+        <script type="text/javascript">var RecaptchaOptions = {
+  "lang": "en",
+  "theme": "clean"
+}</script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api/challenge?k=6Le079MSAAAAABqLMlcCrSX7JhpNTj1Ygr2GD8Qu"></script>
+<noscript>
+  <iframe src="https://www.google.com/recaptcha/api/noscript?k=6Le079MSAAAAABqLMlcCrSX7JhpNTj1Ygr2GD8Qu" height="300" width="500" frameborder="0"></iframe><br />
+  <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+  <input type='hidden' name='recaptcha_response_field' value='manual_challenge' />
+</noscript>
+
+      
+    
+    
+      
+    
+  </div>
+  
+
+
+
+          <div id="team-members-container"
+               data-modules="registration/create-team-form">
+            <h1>Add team members</h1>
+            
+
+<div id="team-members" class="team-members-widget-container">
+  <table class="widget bb-list aui team-members-widget">
+    <thead>
+    <tr class="assistive">
+      <th class="user">User</th>
+      <th class="role">Role</th>
+      <th class="actions">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="form">
+      <td colspan="3">
+        <div>
+          <input type="text" id="team-member" class="text user-input bb-user-typeahead"
+                 placeholder="Enter username or email address" />
+          <button type="button" class="aui-button aui-style add-user">Add</button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="error"></div>
+  
+
+
+  <input id="id_addresses" type="hidden" class=" " name="addresses" />
+  
+    
+  
+
+
+  
+
+
+  <input id="id_usernames" type="hidden" class=" " name="usernames" />
+  
+    
+  
+
+
+  
+
+
+  <input id="id_admin_addresses" type="hidden" class=" " name="admin_addresses" />
+  
+    
+  
+
+
+  
+
+
+  <input id="id_admin_usernames" type="hidden" class=" " name="admin_usernames" />
+  
+    
+  
+
+
+  <script id="team-member-template" type="text/html">
+  
+
+[[#isRegistered]]
+<tr class="registered-user" data-username="[[username]]">
+  <td class="user">
+    <div>
+      <a href="/[[username]]" class="user">
+        <img class="avatar avatar16" src="[[avatar]]" />
+        <span>
+          [[display_name]]
+        </span>
+      </a>
+    </div>
+  </td>
+  <td class="role">
+    <div>
+      <label>
+        <input type="checkbox" name="is-admin" class="checkbox"[[#isAdmin]] checked[[/isAdmin]][[#isCheckboxDisabled]] disabled="true"[[/isCheckboxDisabled]]>
+        Administrator
+      </label>
+    </div>
+  </td>
+  <td class="actions">
+    <div>
+      <a href="#delete"><span class="aui-icon aui-icon-small aui-iconfont-remove">Delete</span></a>
+    </div>
+  </td>
+</tr>
+[[/isRegistered]]
+[[^isRegistered]]
+<tr class="invitation" data-email-address="[[email]]">
+  <td class="user">
+    <div>
+      <img class="avatar avatar16"  src="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/img/icons/fugue/card_address.png">
+      [[email]]
+    </div>
+  </td>
+  <td class="role">
+    <div>
+      <label>
+        <input type="checkbox" name="is-admin" class="checkbox"[[#isAdmin]] checked[[/isAdmin]][[#isCheckboxDisabled]] disabled="true"[[/isCheckboxDisabled]]>
+        Administrator
+      </label>
+    </div>
+  </td>
+  <td class="actions">
+    <div>
+      <a href="#delete"><span class="aui-icon aui-icon-small aui-iconfont-remove">Delete</span></a>
+    </div>
+  </td>
+</tr>
+[[/isRegistered]]
+
+</script>
+  
+
+<div data-modules="components/mentions/index">
+  <script id="mention-result" type="text/html">
+  
+<img class="avatar avatar24" src="[[avatar_url]]">
+[[#display_name]]
+  <span class="display-name">[[&display_name]]</span> <small class="username">[[&username]]</small>
+[[/display_name]]
+[[^display_name]]
+  <span class="username">[[&username]]</span>
+[[/display_name]]
+[[#is_teammate]][[^is_team]]
+  <span class="aui-lozenge aui-lozenge-complete aui-lozenge-subtle">teammate</span>
+[[/is_team]][[/is_teammate]]
+
+</script>
+  <script id="mention-call-to-action" type="text/html">
+  
+[[^query]]
+<li class="bb-typeahead-item">Begin typing to search for a user</li>
+[[/query]]
+[[#query]]
+<li class="bb-typeahead-item">Continue typing to search for a user</li>
+[[/query]]
+
+</script>
+  <script id="mention-no-results" type="text/html">
+  
+[[^searching]]
+<li class="bb-typeahead-item">Found no matching users for <em>[[query]]</em>.</li>
+[[/searching]]
+[[#searching]]
+<li class="bb-typeahead-item bb-typeahead-searching">Searching for <em>[[query]]</em>.</li>
+[[/searching]]
+
+</script>
+  
+</div>
+
+</div>
+
+          </div>
+
+          <div class="buttons-container">
+            <div class="buttons">
+              <button class="aui-button aui-button-primary aui-style"
+                      type="submit">Sign up</button>
+              <a class="cancel" href="/">Cancel</a>
+            </div>
+          </div>
+
+          
+
+
+  <input id="id_token" type="hidden" class=" " value="24fdc82dbc50bbccc" name="token" />
+  
+    
+  
+
+
+          <div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='76f6e6a351f2378f037f22dd3b5157db' /></div>
+          
+            <input type="hidden" name="plan" value="5_users">
+          
+          
+        </form>
+      </section>
+    </div>
+  
+  
+
+
+
+    </div>
+  </div>
+
+  <footer id="footer" role="contentinfo">
+    <section class="footer-body">
+      
+  <ul>
+    <li>
+      <a class="support-ga" target="_blank"
+           data-support-gaq-page="Blog"
+           href="http://blog.bitbucket.org">Blog</a>
+    </li>
+    <li>
+      <a class="support-ga" target="_blank"
+           data-support-gaq-page="Home"
+           href="/support">Support</a>
+    </li>
+    <li>
+      <a class="support-ga"
+           data-support-gaq-page="PlansPricing"
+           href="/plans">Plans &amp; pricing</a>
+    </li>
+    <li>
+      <a class="support-ga" target="_blank"
+           data-support-gaq-page="DocumentationHome"
+           href="//confluence.atlassian.com/display/BITBUCKET">Documentation</a>
+    </li>
+    <li>
+      <a class="support-ga" target="_blank"
+           data-support-gaq-page="DocumentationAPI"
+           href="//confluence.atlassian.com/x/IYBGDQ">API</a>
+    </li>
+    <li>
+      <a class="support-ga" target="_blank"
+           data-support-gaq-page="SiteStatus"
+           href="http://status.bitbucket.org/">Server status</a>
+    </li>
+    <li>
+      <a class="support-ga" id="meta-info"
+           data-support-gaq-page="MetaInfo"
+           href="#">Version info</a>
+    </li>
+    <li>
+      <a class="support-ga" target="_blank"
+           data-support-gaq-page="EndUserAgreement"
+           href="//www.atlassian.com/end-user-agreement?utm_source=bitbucket&amp;utm_medium=link&amp;utm_campaign=footer">Terms of service</a>
+    </li>
+    <li>
+      <a class="support-ga" target="_blank"
+           data-support-gaq-page="PrivacyPolicy"
+           href="//www.atlassian.com/company/privacy?utm_source=bitbucket&amp;utm_medium=link&amp;utm_campaign=footer">Privacy policy</a>
+    </li>
+  </ul>
+  <div id="meta-info-content" style="display: none;">
+    <ul>
+      
+        
+          <li>English</li>
+        
+      
+      <li>
+        <a class="support-ga" target="_blank"
+           data-support-gaq-page="GitDocumentation"
+           href="http://git-scm.com/">Git 1.8.2.3</a>
+      </li>
+      <li>
+        <a class="support-ga" target="_blank"
+           data-support-gaq-page="HgDocumentation"
+           href="http://mercurial.selenic.com/">Mercurial 2.2.2</a>
+      </li>
+      <li>
+        <a class="support-ga" target="_blank"
+           data-support-gaq-page="DjangoDocumentation"
+           href="https://www.djangoproject.com/">Django 1.3.7</a>
+      </li>
+      <li>
+        <a class="support-ga" target="_blank"
+           data-support-gaq-page="PythonDocumentation"
+           href="http://www.python.org/">Python 2.7.3</a>
+      </li>
+      <li>
+        <a class="support-ga" target="_blank"
+           data-support-gaq-page="DeployedVersion"
+           href="#">b24042905b3d / 775588465b77 @ app08</a>
+      </li>
+    </ul>
+  </div>
+  <ul class="atlassian-links">
+    <li>
+      <a id="atlassian-jira-link" target="_blank" title="Track everything – bugs, tasks, deadlines, code – and pull reports to stay informed."
+         href="http://www.atlassian.com/software/jira?utm_source=bitbucket&amp;utm_medium=link&amp;utm_campaign=bitbucket_footer">JIRA</a>
+    </li>
+    <li>
+      <a id="atlassian-confluence-link" target="_blank" title="Content Creation, Collaboration & Knowledge Sharing for Teams."
+         href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=bitbucket&amp;utm_medium=link&amp;utm_campaign=bitbucket_footer">Confluence</a>
+    </li>
+    <li>
+      <a id="atlassian-bamboo-link" target="_blank" title="Continuous integration and deployment, release management."
+         href="http://www.atlassian.com/software/bamboo/overview?utm_source=bitbucket&amp;utm_medium=link&amp;utm_campaign=bitbucket_footer">Bamboo</a>
+    </li>
+    <li>
+      <a id="atlassian-stash-link" target="_blank" title="Git repo management, behind your firewall and Enterprise-ready."
+         href="http://www.atlassian.com/software/stash/overview?utm_source=bitbucket&amp;utm_medium=link&amp;utm_campaign=bitbucket_footer">Stash</a>
+    </li>
+    <li>
+      <a id="atlassian-sourcetree-link" target="_blank" title="A free Git and Mercurial desktop client for Mac or Windows."
+         href="http://www.sourcetreeapp.com/?utm_source=bitbucket&amp;utm_medium=link&amp;utm_campaign=bitbucket_footer">SourceTree</a>
+    </li>
+  </ul>
+  <div id="footer-logo">
+    <a target="_blank" title="Bitbucket is developed by Atlassian in San Francisco."
+       href="http://www.atlassian.com?utm_source=bitbucket&amp;utm_medium=logo&amp;utm_campaign=bitbucket_footer">Atlassian</a>
+  </div>
+
+    </section>
+  </footer>
+</div>
+
+
+  
+  <script id="require-js"
+          src="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/amd/build/main.js"
+          data-main="https://d3oaxc4q5k2d6q.cloudfront.net/m/775588465b77/amd/build/main"
+          data-page-module="registration/index"></script>
+
+
+
+
+<script>
+  (function () {
+    var ga = document.createElement('script');
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    ga.setAttribute('async', 'true');
+    document.documentElement.firstChild.appendChild(ga);
+  }());
+</script>
+
+<script>
+  setTimeout(function () {
+    BB.JsLoaded = true;
+  }, 3000);
+</script>
+
+
+<script type="text/javascript">if(!NREUMQ.f){NREUMQ.f=function(){NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:")+"//"+"js-agent.newrelic.com/nr-100.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-2.newrelic.com","a2cef8c3d3","1841284","Z11RZxdWW0cEVkYLDV4XdUYLVEFdClsdAAtEWkZQDlJBGgRFQhFMUVtQXBBZQRoTXFcVEQpLWlQLQkU=",0,138,new Date().getTime(),"","","","",""]);</script></body>
+</html>

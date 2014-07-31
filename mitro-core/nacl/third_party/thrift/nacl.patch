@@ -1,0 +1,1528 @@
+diff --git a/Makefile.in b/Makefile.in
+index e6e4c9b..ef5fded 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -99,7 +99,7 @@ AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
+ 	distdir dist dist-all distcheck
+ ETAGS = etags
+ CTAGS = ctags
+-DIST_SUBDIRS = compiler/cpp lib tutorial test
++DIST_SUBDIRS = lib
+ DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+ distdir = $(PACKAGE)-$(VERSION)
+ top_distdir = $(distdir)
+@@ -339,7 +339,7 @@ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+ ACLOCAL_AMFLAGS = -I ./aclocal
+-SUBDIRS = compiler/cpp lib tutorial $(am__append_1) tutorial
++SUBDIRS = lib
+ EXTRA_DIST = \
+ 	.travis.yml \
+ 	contrib \
+diff --git a/configure b/configure
+index 94b1beb..f393de4 100755
+--- a/configure
++++ b/configure
+@@ -21036,13 +21058,8 @@ fi
+ $as_echo "$ac_cv_lib_ssl_SSL_ctrl" >&6; }
+ if test "x$ac_cv_lib_ssl_SSL_ctrl" = xyes; then :
+   LIBS="-lssl -lcrypto $LIBS"
+-else
+-  as_fn_error $? "\"Error: libssl required\"" "$LINENO" 5
+ fi
+ 
+-else
+-  as_fn_error $? "\"Error: libcrypto required.\"" "$LINENO" 5
+-
+ fi
+ 
+ fi
+@@ -21714,6 +21731,7 @@ fi
+ fi
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_func_malloc_0_nonnull" >&5
+ $as_echo "$ac_cv_func_malloc_0_nonnull" >&6; }
++ac_cv_func_malloc_0_nonnull=yes
+ if test $ac_cv_func_malloc_0_nonnull = yes; then :
+ 
+ $as_echo "#define HAVE_MALLOC 1" >>confdefs.h
+@@ -21843,6 +21861,7 @@ fi
+ fi
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_func_realloc_0_nonnull" >&5
+ $as_echo "$ac_cv_func_realloc_0_nonnull" >&6; }
++ac_cv_func_realloc_0_nonnull=yes
+ if test $ac_cv_func_realloc_0_nonnull = yes; then :
+ 
+ $as_echo "#define HAVE_REALLOC 1" >>confdefs.h
+diff --git a/lib/cpp/Makefile.am b/lib/cpp/Makefile.am
+index 7b879f3..598abd4 100755
+--- a/lib/cpp/Makefile.am
++++ b/lib/cpp/Makefile.am
+@@ -64,6 +64,7 @@ libthrift_la_SOURCES = src/thrift/Thrift.cpp \
+                        src/thrift/protocol/TJSONProtocol.cpp \
+                        src/thrift/protocol/TBase64Utils.cpp \
+                        src/thrift/protocol/TMultiplexedProtocol.cpp \
++                       src/thrift/protocol/TNativeClientProtocol.cpp \
+                        src/thrift/transport/TTransportException.cpp \
+                        src/thrift/transport/TFDTransport.cpp \
+                        src/thrift/transport/TFileTransport.cpp \
+@@ -162,6 +163,7 @@ include_protocol_HEADERS = \
+                          src/thrift/protocol/TBase64Utils.h \
+                          src/thrift/protocol/TJSONProtocol.h \
+                          src/thrift/protocol/TMultiplexedProtocol.h \
++                         src/thrift/protocol/TNativeClientProtocol.h \
+                          src/thrift/protocol/TProtocolDecorator.h \
+                          src/thrift/protocol/TProtocolTap.h \
+                          src/thrift/protocol/TProtocolException.h \
+diff --git a/lib/cpp/Makefile.in b/lib/cpp/Makefile.in
+index 84b706e..16afaac 100644
+--- a/lib/cpp/Makefile.in
++++ b/lib/cpp/Makefile.in
+@@ -150,6 +150,7 @@ am__libthrift_la_SOURCES_DIST = src/thrift/Thrift.cpp \
+ 	src/thrift/protocol/TJSONProtocol.cpp \
+ 	src/thrift/protocol/TBase64Utils.cpp \
+ 	src/thrift/protocol/TMultiplexedProtocol.cpp \
++	src/thrift/protocol/TNativeClientProtocol.cpp \
+ 	src/thrift/transport/TTransportException.cpp \
+ 	src/thrift/transport/TFDTransport.cpp \
+ 	src/thrift/transport/TFileTransport.cpp \
+@@ -160,10 +161,8 @@ am__libthrift_la_SOURCES_DIST = src/thrift/Thrift.cpp \
+ 	src/thrift/transport/TSocket.cpp \
+ 	src/thrift/transport/TPipe.cpp \
+ 	src/thrift/transport/TPipeServer.cpp \
+-	src/thrift/transport/TSSLSocket.cpp \
+ 	src/thrift/transport/TSocketPool.cpp \
+ 	src/thrift/transport/TServerSocket.cpp \
+-	src/thrift/transport/TSSLServerSocket.cpp \
+ 	src/thrift/transport/TTransportUtils.cpp \
+ 	src/thrift/transport/TBufferTransports.cpp \
+ 	src/thrift/server/TServer.cpp \
+@@ -185,11 +184,12 @@ am__libthrift_la_SOURCES_DIST = src/thrift/Thrift.cpp \
+ am_libthrift_la_OBJECTS = Thrift.lo TApplicationException.lo \
+ 	VirtualProfiling.lo ThreadManager.lo TimerManager.lo Util.lo \
+ 	TDebugProtocol.lo TDenseProtocol.lo TJSONProtocol.lo \
+-	TBase64Utils.lo TMultiplexedProtocol.lo TTransportException.lo \
++	TBase64Utils.lo TMultiplexedProtocol.lo \
++	TNativeClientProtocol.lo TTransportException.lo \
+ 	TFDTransport.lo TFileTransport.lo TSimpleFileTransport.lo \
+ 	THttpTransport.lo THttpClient.lo THttpServer.lo TSocket.lo \
+-	TPipe.lo TPipeServer.lo TSSLSocket.lo TSocketPool.lo \
+-	TServerSocket.lo TSSLServerSocket.lo TTransportUtils.lo \
++	TPipe.lo TPipeServer.lo TSocketPool.lo \
++	TServerSocket.lo TTransportUtils.lo \
+ 	TBufferTransports.lo TServer.lo TSimpleServer.lo \
+ 	TThreadPoolServer.lo TThreadedServer.lo TAsyncChannel.lo \
+ 	PeekProcessor.lo $(am__objects_1) $(am__objects_2)
+@@ -511,6 +511,7 @@ libthrift_la_SOURCES = src/thrift/Thrift.cpp \
+ 	src/thrift/protocol/TJSONProtocol.cpp \
+ 	src/thrift/protocol/TBase64Utils.cpp \
+ 	src/thrift/protocol/TMultiplexedProtocol.cpp \
++	src/thrift/protocol/TNativeClientProtocol.cpp \
+ 	src/thrift/transport/TTransportException.cpp \
+ 	src/thrift/transport/TFDTransport.cpp \
+ 	src/thrift/transport/TFileTransport.cpp \
+@@ -521,10 +522,8 @@ libthrift_la_SOURCES = src/thrift/Thrift.cpp \
+ 	src/thrift/transport/TSocket.cpp \
+ 	src/thrift/transport/TPipe.cpp \
+ 	src/thrift/transport/TPipeServer.cpp \
+-	src/thrift/transport/TSSLSocket.cpp \
+ 	src/thrift/transport/TSocketPool.cpp \
+ 	src/thrift/transport/TServerSocket.cpp \
+-	src/thrift/transport/TSSLServerSocket.cpp \
+ 	src/thrift/transport/TTransportUtils.cpp \
+ 	src/thrift/transport/TBufferTransports.cpp \
+ 	src/thrift/server/TServer.cpp \
+@@ -598,6 +597,7 @@ include_protocol_HEADERS = \
+                          src/thrift/protocol/TBase64Utils.h \
+                          src/thrift/protocol/TJSONProtocol.h \
+                          src/thrift/protocol/TMultiplexedProtocol.h \
++                         src/thrift/protocol/TNativeClientProtocol.h \
+                          src/thrift/protocol/TProtocolDecorator.h \
+                          src/thrift/protocol/TProtocolTap.h \
+                          src/thrift/protocol/TProtocolException.h \
+@@ -611,7 +611,6 @@ include_transport_HEADERS = \
+                          src/thrift/transport/TFileTransport.h \
+                          src/thrift/transport/TSimpleFileTransport.h \
+                          src/thrift/transport/TServerSocket.h \
+-                         src/thrift/transport/TSSLServerSocket.h \
+                          src/thrift/transport/TServerTransport.h \
+                          src/thrift/transport/THttpTransport.h \
+                          src/thrift/transport/THttpClient.h \
+@@ -619,7 +618,6 @@ include_transport_HEADERS = \
+                          src/thrift/transport/TSocket.h \
+                          src/thrift/transport/TPipe.h \
+                          src/thrift/transport/TPipeServer.h \
+-                         src/thrift/transport/TSSLSocket.h \
+                          src/thrift/transport/TSocketPool.h \
+                          src/thrift/transport/TVirtualTransport.h \
+                          src/thrift/transport/TTransport.h \
+@@ -785,10 +783,9 @@ distclean-compile:
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/THttpTransport.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TJSONProtocol.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TMultiplexedProtocol.Plo@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TNativeClientProtocol.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TPipe.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TPipeServer.Plo@am__quote@
+-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TSSLServerSocket.Plo@am__quote@
+-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TSSLSocket.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TServer.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TServerSocket.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TSimpleFileTransport.Plo@am__quote@
+@@ -911,6 +908,13 @@ TMultiplexedProtocol.lo: src/thrift/protocol/TMultiplexedProtocol.cpp
+ @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCXX_FALSE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o TMultiplexedProtocol.lo `test -f 'src/thrift/protocol/TMultiplexedProtocol.cpp' || echo '$(srcdir)/'`src/thrift/protocol/TMultiplexedProtocol.cpp
+ 
++TNativeClientProtocol.lo: src/thrift/protocol/TNativeClientProtocol.cpp
++@am__fastdepCXX_TRUE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT TNativeClientProtocol.lo -MD -MP -MF $(DEPDIR)/TNativeClientProtocol.Tpo -c -o TNativeClientProtocol.lo `test -f 'src/thrift/protocol/TNativeClientProtocol.cpp' || echo '$(srcdir)/'`src/thrift/protocol/TNativeClientProtocol.cpp
++@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/TNativeClientProtocol.Tpo $(DEPDIR)/TNativeClientProtocol.Plo
++@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/thrift/protocol/TNativeClientProtocol.cpp' object='TNativeClientProtocol.lo' libtool=yes @AMDEPBACKSLASH@
++@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
++@am__fastdepCXX_FALSE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o TNativeClientProtocol.lo `test -f 'src/thrift/protocol/TNativeClientProtocol.cpp' || echo '$(srcdir)/'`src/thrift/protocol/TNativeClientProtocol.cpp
++
+ TTransportException.lo: src/thrift/transport/TTransportException.cpp
+ @am__fastdepCXX_TRUE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT TTransportException.lo -MD -MP -MF $(DEPDIR)/TTransportException.Tpo -c -o TTransportException.lo `test -f 'src/thrift/transport/TTransportException.cpp' || echo '$(srcdir)/'`src/thrift/transport/TTransportException.cpp
+ @am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/TTransportException.Tpo $(DEPDIR)/TTransportException.Plo
+@@ -981,13 +985,6 @@ TPipeServer.lo: src/thrift/transport/TPipeServer.cpp
+ @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCXX_FALSE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o TPipeServer.lo `test -f 'src/thrift/transport/TPipeServer.cpp' || echo '$(srcdir)/'`src/thrift/transport/TPipeServer.cpp
+ 
+-TSSLSocket.lo: src/thrift/transport/TSSLSocket.cpp
+-@am__fastdepCXX_TRUE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT TSSLSocket.lo -MD -MP -MF $(DEPDIR)/TSSLSocket.Tpo -c -o TSSLSocket.lo `test -f 'src/thrift/transport/TSSLSocket.cpp' || echo '$(srcdir)/'`src/thrift/transport/TSSLSocket.cpp
+-@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/TSSLSocket.Tpo $(DEPDIR)/TSSLSocket.Plo
+-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/thrift/transport/TSSLSocket.cpp' object='TSSLSocket.lo' libtool=yes @AMDEPBACKSLASH@
+-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+-@am__fastdepCXX_FALSE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o TSSLSocket.lo `test -f 'src/thrift/transport/TSSLSocket.cpp' || echo '$(srcdir)/'`src/thrift/transport/TSSLSocket.cpp
+-
+ TSocketPool.lo: src/thrift/transport/TSocketPool.cpp
+ @am__fastdepCXX_TRUE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT TSocketPool.lo -MD -MP -MF $(DEPDIR)/TSocketPool.Tpo -c -o TSocketPool.lo `test -f 'src/thrift/transport/TSocketPool.cpp' || echo '$(srcdir)/'`src/thrift/transport/TSocketPool.cpp
+ @am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/TSocketPool.Tpo $(DEPDIR)/TSocketPool.Plo
+@@ -1002,13 +999,6 @@ TServerSocket.lo: src/thrift/transport/TServerSocket.cpp
+ @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCXX_FALSE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o TServerSocket.lo `test -f 'src/thrift/transport/TServerSocket.cpp' || echo '$(srcdir)/'`src/thrift/transport/TServerSocket.cpp
+ 
+-TSSLServerSocket.lo: src/thrift/transport/TSSLServerSocket.cpp
+-@am__fastdepCXX_TRUE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT TSSLServerSocket.lo -MD -MP -MF $(DEPDIR)/TSSLServerSocket.Tpo -c -o TSSLServerSocket.lo `test -f 'src/thrift/transport/TSSLServerSocket.cpp' || echo '$(srcdir)/'`src/thrift/transport/TSSLServerSocket.cpp
+-@am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/TSSLServerSocket.Tpo $(DEPDIR)/TSSLServerSocket.Plo
+-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	source='src/thrift/transport/TSSLServerSocket.cpp' object='TSSLServerSocket.lo' libtool=yes @AMDEPBACKSLASH@
+-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+-@am__fastdepCXX_FALSE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o TSSLServerSocket.lo `test -f 'src/thrift/transport/TSSLServerSocket.cpp' || echo '$(srcdir)/'`src/thrift/transport/TSSLServerSocket.cpp
+-
+ TTransportUtils.lo: src/thrift/transport/TTransportUtils.cpp
+ @am__fastdepCXX_TRUE@	$(LIBTOOL)  --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT TTransportUtils.lo -MD -MP -MF $(DEPDIR)/TTransportUtils.Tpo -c -o TTransportUtils.lo `test -f 'src/thrift/transport/TTransportUtils.cpp' || echo '$(srcdir)/'`src/thrift/transport/TTransportUtils.cpp
+ @am__fastdepCXX_TRUE@	$(am__mv) $(DEPDIR)/TTransportUtils.Tpo $(DEPDIR)/TTransportUtils.Plo
+diff --git a/lib/cpp/src/thrift/Thrift.h b/lib/cpp/src/thrift/Thrift.h
+index 03caa9e..8d30b25 100644
+--- a/lib/cpp/src/thrift/Thrift.h
++++ b/lib/cpp/src/thrift/Thrift.h
+@@ -158,6 +158,16 @@ class TException : public std::exception {
+ 
+ };
+ 
++namespace protocol {
++class TProtocol;
++}
++
++// Base class for generated structs
++class TStruct {
++ public:
++  virtual uint32_t read(::apache::thrift::protocol::TProtocol* iprot) = 0;
++  virtual uint32_t write(::apache::thrift::protocol::TProtocol* oprot) const = 0;
++};
+ 
+ // Forward declare this structure used by TDenseProtocol
+ namespace reflection { namespace local {
+diff --git a/lib/cpp/src/thrift/concurrency/Monitor.h b/lib/cpp/src/thrift/concurrency/Monitor.h
+index 811e0e1..36a3353 100644
+--- a/lib/cpp/src/thrift/concurrency/Monitor.h
++++ b/lib/cpp/src/thrift/concurrency/Monitor.h
+@@ -22,6 +22,7 @@
+ 
+ #include <thrift/concurrency/Exception.h>
+ #include <thrift/concurrency/Mutex.h>
++#include <thrift/concurrency/Util.h>
+ 
+ #include <boost/utility.hpp>
+ 
+diff --git a/lib/cpp/src/thrift/concurrency/Mutex.cpp b/lib/cpp/src/thrift/concurrency/Mutex.cpp
+index 3f7bb5b..c1ed98e 100644
+--- a/lib/cpp/src/thrift/concurrency/Mutex.cpp
++++ b/lib/cpp/src/thrift/concurrency/Mutex.cpp
+@@ -262,7 +262,11 @@ public:
+ #ifndef THRIFT_NO_CONTENTION_PROFILING
+     profileTime_ = 0;
+ #endif
++#ifndef __native_client__
+     int ret = pthread_rwlock_init(&rw_lock_, NULL);
++#else
++    int ret = pthread_mutex_init(&rw_lock_, NULL);
++#endif
+     THRIFT_UNUSED_VARIABLE(ret);
+     assert(ret == 0);
+     initialized_ = true;
+@@ -271,7 +275,11 @@ public:
+   ~impl() {
+     if(initialized_) {
+       initialized_ = false;
++#ifndef __native_client__
+       int ret = pthread_rwlock_destroy(&rw_lock_);
++#else
++      int ret = pthread_mutex_destroy(&rw_lock_);
++#endif
+       THRIFT_UNUSED_VARIABLE(ret);
+       assert(ret == 0);
+     }
+@@ -279,28 +287,56 @@ public:
+ 
+   void acquireRead() const {
+     PROFILE_MUTEX_START_LOCK();
++#ifndef __native_client__
+     pthread_rwlock_rdlock(&rw_lock_);
++#else
++    pthread_mutex_lock(&rw_lock_);
++#endif
+     PROFILE_MUTEX_NOT_LOCKED();  // not exclusive, so use not-locked path
+   }
+ 
+   void acquireWrite() const {
+     PROFILE_MUTEX_START_LOCK();
++#ifndef __native_client__
+     pthread_rwlock_wrlock(&rw_lock_);
++#else
++    pthread_mutex_lock(&rw_lock_);
++#endif
+     PROFILE_MUTEX_LOCKED();
+   }
+ 
+-  bool attemptRead() const { return !pthread_rwlock_tryrdlock(&rw_lock_); }
++  bool attemptRead() const {
++#ifndef __native_client__
++    return !pthread_rwlock_tryrdlock(&rw_lock_);
++#else
++    return !pthread_mutex_trylock(&rw_lock_);
++#endif
++}
+ 
+-  bool attemptWrite() const { return !pthread_rwlock_trywrlock(&rw_lock_); }
++  bool attemptWrite() const {
++#ifndef __native_client__
++    return !pthread_rwlock_trywrlock(&rw_lock_);
++#else
++    return !pthread_mutex_trylock(&rw_lock_);
++#endif
++}
+ 
+   void release() const {
+     PROFILE_MUTEX_START_UNLOCK();
++#ifndef __native_client__
+     pthread_rwlock_unlock(&rw_lock_);
++#else
++    pthread_mutex_unlock(&rw_lock_);
++#endif
+     PROFILE_MUTEX_UNLOCKED();
+   }
+ 
+ private:
++#ifndef __native_client__
+   mutable pthread_rwlock_t rw_lock_;
++#else
++  mutable pthread_mutex_t rw_lock_;
++#endif
+   mutable bool initialized_;
+ #ifndef THRIFT_NO_CONTENTION_PROFILING
+   mutable int64_t profileTime_;
+diff --git a/lib/cpp/src/thrift/concurrency/PosixThreadFactory.cpp b/lib/cpp/src/thrift/concurrency/PosixThreadFactory.cpp
+index 52ceead..2fdcf5a 100644
+--- a/lib/cpp/src/thrift/concurrency/PosixThreadFactory.cpp
++++ b/lib/cpp/src/thrift/concurrency/PosixThreadFactory.cpp
+@@ -125,6 +125,7 @@ class PthreadThread: public Thread {
+ 	policy_ = PosixThreadFactory::OTHER;
+     #endif
+ 
++#ifndef __native_client__
+     if (pthread_attr_setschedpolicy(&thread_attr, policy_) != 0) {
+       throw SystemResourceException("pthread_attr_setschedpolicy failed");
+     }
+@@ -136,6 +137,7 @@ class PthreadThread: public Thread {
+     if (pthread_attr_setschedparam(&thread_attr, &sched_param) != 0) {
+       throw SystemResourceException("pthread_attr_setschedparam failed");
+     }
++#endif
+ 
+     // Create reference
+     shared_ptr<PthreadThread>* selfRef = new shared_ptr<PthreadThread>();
+diff --git a/lib/cpp/src/thrift/concurrency/TimerManager.h b/lib/cpp/src/thrift/concurrency/TimerManager.h
+index d8200cb..e50c910 100644
+--- a/lib/cpp/src/thrift/concurrency/TimerManager.h
++++ b/lib/cpp/src/thrift/concurrency/TimerManager.h
+@@ -23,6 +23,7 @@
+ #include <thrift/concurrency/Exception.h>
+ #include <thrift/concurrency/Monitor.h>
+ #include <thrift/concurrency/Thread.h>
++#include <thrift/concurrency/Util.h>
+ 
+ #include <boost/shared_ptr.hpp>
+ #include <map>
+diff --git a/lib/cpp/src/thrift/protocol/TBase64Utils.cpp b/lib/cpp/src/thrift/protocol/TBase64Utils.cpp
+index cd343ed..00bd33c 100644
+--- a/lib/cpp/src/thrift/protocol/TBase64Utils.cpp
++++ b/lib/cpp/src/thrift/protocol/TBase64Utils.cpp
+@@ -19,6 +19,7 @@
+ 
+ #include <thrift/protocol/TBase64Utils.h>
+ 
++#include <boost/scoped_array.hpp>
+ #include <boost/static_assert.hpp>
+ 
+ using std::string;
+@@ -75,5 +76,95 @@ void base64_decode(uint8_t *buf, uint32_t len) {
+   }
+ }
+ 
++void base64_decode(const uint8_t *in, uint32_t len, uint8_t *out) {
++  out[0] = (kBase64DecodeTable[in[0]] << 2) |
++           (kBase64DecodeTable[in[1]] >> 4);
++  if (len > 2) {
++    out[1] = ((kBase64DecodeTable[in[1]] << 4) & 0xf0) |
++              (kBase64DecodeTable[in[2]] >> 2);
++    if (len > 3) {
++      out[2] = ((kBase64DecodeTable[in[2]] << 6) & 0xc0) |
++                (kBase64DecodeTable[in[3]]);
++    }
++  }
++}
++
++void base64EncodeString(const std::string& in, std::string* out) {
++  static const size_t kEncodeRemainderSize[3] = {0, 2, 3};
++
++  if (in.empty()) {
++    out->clear();
++    return;
++  }
++
++  size_t in_size = in.size();
++  const uint8_t *in_data = (const uint8_t*)in.data();
++
++  size_t remainder = in_size % 3;
++  size_t out_size = 4 * (in_size / 3) + kEncodeRemainderSize[remainder];
++  boost::scoped_array<uint8_t> out_data(new uint8_t[out_size]);
++
++  const uint8_t* in_ptr = in_data;
++  uint8_t* out_ptr = out_data.get();
++
++  const uint8_t* end_ptr = in_data + in_size - remainder;
++
++  while (in_ptr != end_ptr) {
++    // Encode 3 bytes at a time
++    base64_encode(in_ptr, 3, out_ptr);
++    in_ptr += 3;
++    out_ptr += 4;
++  }
++
++  if (remainder > 0) {
++    // Handle remainder
++    base64_encode(in_ptr, remainder, out_ptr);
++  }
++
++  out->assign(reinterpret_cast<char*>(out_data.get()), out_size);
++}
++
++bool base64DecodeString(const std::string& in, std::string* out) {
++  static const size_t kDecodeRemainderSize[4] = {0, 0, 1, 2};
++
++  if (in.empty()) {
++    out->clear();
++    return true;
++  }
++
++  size_t in_size = in.size();
++  const uint8_t *in_data = (const uint8_t*)in.data();
++
++  size_t remainder = in_size % 4;
++  // A single leftover byte is not decodable
++  if (remainder == 1) {
++    return false;
++  }
++
++  size_t out_size = 3 * (in_size / 4) + kDecodeRemainderSize[remainder];
++  boost::scoped_array<uint8_t> out_data(new uint8_t[out_size]);
++
++  const uint8_t* in_ptr = in_data;
++  uint8_t* out_ptr = out_data.get();
++
++  const uint8_t* end_ptr = in_data + in_size - remainder;
++
++  while (in_ptr != end_ptr) {
++    // Decode 4 bytes at a time
++    base64_decode(in_ptr, 4, out_ptr);
++    in_ptr += 4;
++    out_ptr += 3;
++  }
++
++  if (remainder > 0) {
++    // Handle remainder
++    base64_decode(in_ptr, remainder, out_ptr);
++  }
++
++  out->assign(reinterpret_cast<char*>(out_data.get()), out_size);
++
++  return true;
++}
++
+ 
+ }}} // apache::thrift::protocol
+diff --git a/lib/cpp/src/thrift/protocol/TBase64Utils.h b/lib/cpp/src/thrift/protocol/TBase64Utils.h
+index 3def733..8d943d4 100644
+--- a/lib/cpp/src/thrift/protocol/TBase64Utils.h
++++ b/lib/cpp/src/thrift/protocol/TBase64Utils.h
+@@ -37,6 +37,10 @@ void base64_encode(const uint8_t *in, uint32_t len, uint8_t *buf);
+ // no '=' padding should be included in the input
+ void base64_decode(uint8_t *buf, uint32_t len);
+ 
++void base64EncodeString(const std::string& in, std::string* out);
++
++bool base64DecodeString(const std::string& in, std::string* out);
++
+ }}} // apache::thrift::protocol
+ 
+ #endif // #define _THRIFT_PROTOCOL_TBASE64UTILS_H_
+diff --git a/lib/cpp/src/thrift/protocol/TNativeClientProtocol.cpp b/lib/cpp/src/thrift/protocol/TNativeClientProtocol.cpp
+new file mode 100644
+index 0000000..fc398ac
+--- /dev/null
++++ b/lib/cpp/src/thrift/protocol/TNativeClientProtocol.cpp
+@@ -0,0 +1,690 @@
++/*
++ * Licensed to the Apache Software Foundation (ASF) under one
++ * or more contributor license agreements. See the NOTICE file
++ * distributed with this work for additional information
++ * regarding copyright ownership. The ASF licenses this file
++ * to you under the Apache License, Version 2.0 (the
++ * "License"); you may not use this file except in compliance
++ * with the License. You may obtain a copy of the License at
++ *
++ *   http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing,
++ * software distributed under the License is distributed on an
++ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
++ * KIND, either express or implied. See the License for the
++ * specific language governing permissions and limitations
++ * under the License.
++ */
++
++#include <thrift/protocol/TNativeClientProtocol.h>
++
++#include <limits>
++
++#include <boost/make_shared.hpp>
++#include <math.h>
++#include <thrift/protocol/TBase64Utils.h>
++#include <thrift/transport/TBufferTransports.h>
++
++#include "ppapi/cpp/var.h"
++#include "ppapi/cpp/var_array.h"
++#include "ppapi/cpp/var_dictionary.h"
++
++// Largest integer such that all smaller integers can be represented
++// using a double without losing precision. 2^53 = 9007199254740992
++static const double kMaxPreciseDouble = 9007199254740992.0L;
++static const double kMinPreciseDouble = -9007199254740992.0L;
++
++using namespace apache::thrift::transport;
++
++namespace apache { namespace thrift { namespace protocol {
++
++TNativeClientProtocol::TNativeClientProtocol()
++  : TVirtualProtocol<TNativeClientProtocol>(
++      boost::shared_ptr<TTransport>(boost::make_shared<TMemoryBuffer>())) {
++}
++
++TNativeClientProtocol::TNativeClientProtocol(boost::shared_ptr<const pp::Var> var) :
++  TVirtualProtocol<TNativeClientProtocol>(
++      boost::shared_ptr<TTransport>(boost::make_shared<TMemoryBuffer>())),
++  root_var_(var) {
++}
++
++void TNativeClientProtocol::reset() {
++  writer_stack_.clear();
++  reader_stack_.clear();
++  root_var_.reset();
++}
++
++void TNativeClientProtocol::setVar(boost::shared_ptr<const pp::Var> var) {
++  reset();
++  root_var_ = var;
++}
++
++void TNativeClientProtocol::writeVar(const pp::Var& var) {
++  if (writer_stack_.empty()) {
++    if (!var.is_dictionary()) {
++      throw TProtocolException(TProtocolException::UNKNOWN,
++                               "Root node must be a dictionary");
++    }
++    root_var_ = boost::make_shared<pp::Var>(var);
++  } else {
++    topWriterContext()->writeVar(var);
++  }
++}
++
++boost::shared_ptr<const pp::Var> TNativeClientProtocol::readVar() {
++  if (reader_stack_.empty()) {
++    if (!root_var_) {
++      throw TProtocolException(TProtocolException::UNKNOWN,
++          "Trying to read but pp::Var has not been set "
++          "(use TNativeClientProtocol(shared_ptr<const pp::Var>) constructor)");
++    }
++    return root_var_;
++  } else {
++    ReaderContext* context = topReaderContext();
++    T_DEBUG("readVar: %d %d", reader_stack_.size(), context->getIndex());
++
++    boost::shared_ptr<pp::Var> var = boost::make_shared<pp::Var>();
++    context->nextVar(var.get());
++    context->advance();
++    return var;
++  }
++}
++
++void TNativeClientProtocol::pushWriterContext(WriterContext* context) {
++  assert(context->getVar().is_dictionary() || context->getVar().is_array());
++  writeVar(context->getVar());
++  writer_stack_.push_back(context);
++}
++
++void TNativeClientProtocol::popWriterContext() {
++  writer_stack_.pop_back();
++}
++
++void TNativeClientProtocol::pushReaderContext(ReaderContext* context) {
++  assert(context->getVar().is_dictionary() || context->getVar().is_array());
++  reader_stack_.push_back(context);
++}
++
++void TNativeClientProtocol::popReaderContext() {
++  reader_stack_.pop_back();
++}
++
++uint32_t TNativeClientProtocol::writeMessageBegin(const std::string& name,
++                                                 const TMessageType messageType,
++                                                 const int32_t seqid) {
++  throw TProtocolException(TProtocolException::NOT_IMPLEMENTED);
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeMessageEnd() {
++  throw TProtocolException(TProtocolException::NOT_IMPLEMENTED);
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeStructBegin(const char* name) {
++  T_DEBUG("writeStructBegin: %s", name);
++  pushWriterContext(WriterContext::createDictionaryContext());
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeStructEnd() {
++  T_DEBUG("writeStructEnd");
++  popWriterContext();
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeFieldBegin(const char* name,
++                                                const TType fieldType,
++                                                const int16_t fieldId) {
++  T_DEBUG("writeFieldBegin: %s", name);
++  topWriterContext()->setFieldName(name); 
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeFieldEnd() {
++  T_DEBUG("writeFieldEnd");
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeFieldStop() {
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeMapBegin(const TType keyType,
++                                              const TType valType,
++                                              const uint32_t size) {
++  T_DEBUG("writeMapBegin: %u", size);
++  pushWriterContext(WriterContext::createMapContext());
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeMapEnd() {
++  T_DEBUG("writeMapEnd");
++  popWriterContext();
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeListBegin(const TType elemType,
++                                               const uint32_t size) {
++  T_DEBUG("writeListBegin: %u", size);
++  pushWriterContext(WriterContext::createListContext());
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeListEnd() {
++  T_DEBUG("writeListEnd");
++  popWriterContext();
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeSetBegin(const TType elemType,
++                                              const uint32_t size) {
++  T_DEBUG("writeSetBegin: %u", size);
++  pushWriterContext(WriterContext::createListContext());
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeSetEnd() {
++  T_DEBUG("writeSetEnd");
++  popWriterContext();
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeBool(const bool value) {
++  writeVar(pp::Var(value));
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeByte(const int8_t byte) {
++  writeVar(pp::Var(static_cast<int32_t>(byte)));
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeI16(const int16_t i16) {
++  writeVar(pp::Var(static_cast<int32_t>(i16)));
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeI32(const int32_t i32) {
++  writeVar(pp::Var(i32));
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeI64(const int64_t i64) {
++  // Javascript does not support larger integers without losing precision.
++  if (i64 > kMaxPreciseDouble || i64 < kMinPreciseDouble) {
++    throw TProtocolException(TProtocolException::SIZE_LIMIT,
++        "Int64 value too large to be represented as a double");
++  }
++  writeVar(pp::Var(static_cast<double>(i64)));
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeDouble(const double dbl) {
++  writeVar(pp::Var(dbl));
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeString(const std::string& str) {
++  writeVar(pp::Var(str));
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::writeBinary(const std::string& str) {
++  std::string b64str;
++  base64EncodeString(str, &b64str);
++  writeVar(pp::Var(b64str));
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readMessageBegin(std::string& name,
++                                                 TMessageType& messageType,
++                                                 int32_t& seqid) {
++  throw TProtocolException(TProtocolException::NOT_IMPLEMENTED);
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readMessageEnd() {
++  throw TProtocolException(TProtocolException::NOT_IMPLEMENTED);
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readStructBegin(std::string& name) {
++  T_DEBUG("readStructBegin: %s", name.c_str());
++  boost::shared_ptr<const pp::Var> var(readVar());
++  pushReaderContext(ReaderContext::createDictionaryContext(var));
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readStructEnd() {
++  T_DEBUG("readStructEnd");
++  popReaderContext();
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readFieldBegin(std::string& name,
++                                               TType& fieldType,
++                                               int16_t& fieldId) {
++  ReaderContext* context = topReaderContext();
++
++  if (context->isAtEnd()) {
++    fieldType = ::apache::thrift::protocol::T_STOP;
++  } else {
++    pp::Var key;
++    pp::Var value;
++    context->nextKeyValue(&key, &value);
++
++    if (value.is_null() || value.is_undefined()) {
++      name = "";
++    } else {
++      if (!key.is_string()) {
++        // TODO: Support other key types.
++        throw TProtocolException(TProtocolException::NOT_IMPLEMENTED,
++                                 "Map keys must be strings");
++      }
++      name = key.AsString();
++    }
++
++    fieldType = T_UNKNOWN;
++    fieldId = kFieldIdUnknown;
++  }
++
++  T_DEBUG("readFieldBegin: %s", name.c_str());
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readFieldEnd() {
++  T_DEBUG("readFieldEnd");
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readMapBegin(TType& keyType,
++                                             TType& valType,
++                                             uint32_t& size) {
++  boost::shared_ptr<const pp::Var> var(readVar());
++  ReaderContext* context = ReaderContext::createMapContext(var);
++  pushReaderContext(context);
++  size = context->size();
++
++  T_DEBUG("readMapBegin: %d", size);
++  
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readMapEnd() {
++  T_DEBUG("readMapEnd");
++  popReaderContext();
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readListBegin(TType& elemType,
++                                              uint32_t& size) {
++  boost::shared_ptr<const pp::Var> var(readVar());
++  ReaderContext* context = ReaderContext::createListContext(var);
++  pushReaderContext(context);
++  size = context->size(); 
++
++  T_DEBUG("readListBegin: %d", size);
++
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readListEnd() {
++  T_DEBUG("readListEnd");
++  popReaderContext();
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readSetBegin(TType& elemType,
++                                             uint32_t& size) {
++  boost::shared_ptr<const pp::Var> var(readVar());
++  ReaderContext* context = ReaderContext::createListContext(var);
++  pushReaderContext(context);
++  size = context->size(); 
++
++  T_DEBUG("readSetBegin: %d", size);
++
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readSetEnd() {
++  T_DEBUG("readSetEnd");
++  popReaderContext();
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readBool(bool& value) {
++  boost::shared_ptr<const pp::Var> var(readVar());
++
++  if (!var->is_bool()) {
++    throw TProtocolException(TProtocolException::INVALID_DATA,
++                             "Expected boolean value");
++  }
++  value = var->AsBool();
++
++  T_DEBUG("readBool: %s", value ? "true" : "false");
++
++  return 0;
++}
++
++int64_t TNativeClientProtocol::readIntegerValue() {
++  boost::shared_ptr<const pp::Var> var(readVar());
++
++  int64_t int_value;
++
++  if (var->is_int()) {
++    int_value = static_cast<int64_t>(var->AsInt());
++  } else if (var->is_double()) {
++    double dbl_value = var->AsDouble();
++
++    if (fmod(dbl_value, 1.0) != 0.0) {
++      throw TProtocolException(TProtocolException::INVALID_DATA,
++                               "Expected integer value");
++    }
++    if (dbl_value > kMaxPreciseDouble || dbl_value < kMinPreciseDouble) {
++      throw TProtocolException(TProtocolException::SIZE_LIMIT,
++                               "Double value too large for integer");
++    }
++    int_value = static_cast<int64_t>(dbl_value);
++  } else {
++      throw TProtocolException(TProtocolException::INVALID_DATA,
++                               "Expected integer value");
++  }
++
++  return int_value;
++}
++
++#define READ_INTEGER_VALUE(type, value) \
++  int64_t int_value = readIntegerValue(); \
++  if (int_value > std::numeric_limits<type>::max() || \
++      int_value < std::numeric_limits<type>::min()) { \
++    throw TProtocolException(TProtocolException::SIZE_LIMIT, \
++                             "Value too large for " #type); \
++  } \
++  value = static_cast<type>(int_value);
++
++
++uint32_t TNativeClientProtocol::readByte(int8_t& byte) {
++  READ_INTEGER_VALUE(int8_t, byte);
++  T_DEBUG("readI8: %c", byte);
++
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readI16(int16_t& i16) {
++  READ_INTEGER_VALUE(int16_t, i16);
++  T_DEBUG("readI16: %hd", i16);
++
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readI32(int32_t& i32) {
++  READ_INTEGER_VALUE(int32_t, i32);
++  T_DEBUG("readI32: %d", i32);
++
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readI64(int64_t& i64) {
++  i64 = readIntegerValue();
++  T_DEBUG("readI64: %lld", i64);
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readDouble(double& dbl) {
++  boost::shared_ptr<const pp::Var> var(readVar());
++
++  if (var->is_double()) {
++    dbl = var->AsDouble();
++  } else if (var->is_int()) {
++    dbl = static_cast<double>(var->AsInt());
++  } else {
++    throw TProtocolException(TProtocolException::INVALID_DATA,
++                             "Expected double value");
++  }
++  dbl = var->AsDouble();
++  T_DEBUG("readDouble: %f", dbl);
++
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readString(std::string &str) {
++  boost::shared_ptr<const pp::Var> var(readVar());
++
++  if (!var->is_string()) {
++    throw TProtocolException(TProtocolException::INVALID_DATA,
++                             "Expected string value");
++  }
++  str = var->AsString();
++  T_DEBUG("readString: %s", str.c_str());
++
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::readBinary(std::string &str) {
++  boost::shared_ptr<const pp::Var> var(readVar());
++
++  if (!var->is_string()) {
++    throw TProtocolException(TProtocolException::INVALID_DATA,
++                             "Expected base 64 string value");
++  }
++
++  if (!base64DecodeString(var->AsString(), &str)) {
++    throw TProtocolException(TProtocolException::INVALID_DATA,
++                             "Invalid base 64 string");
++  }
++
++  T_DEBUG("readBinary: %d", str.size());
++
++  return 0;
++}
++
++uint32_t TNativeClientProtocol::skip(TType type) {
++  T_DEBUG("skip");
++
++  if (!reader_stack_.empty()) {
++    topReaderContext()->advance();
++  }
++
++  return 0;
++}
++
++/**
++ *  WriterContext 
++ */
++
++TNativeClientProtocol::WriterContext::WriterContext(
++    boost::shared_ptr<pp::Var> var, ContextType type)
++    : var_(var), type_(type) {
++  assert((var->is_dictionary() &&
++          (type_ == DICTIONARY_CONTEXT || type_ == MAP_KEY_CONTEXT)) ||
++         (var_->is_array() && type_ == LIST_CONTEXT));
++}
++
++pp::VarDictionary* TNativeClientProtocol::WriterContext::asDictionary() {
++  assert(var_->is_dictionary());
++  return static_cast<pp::VarDictionary*>(var_.get());
++}
++
++pp::VarArray* TNativeClientProtocol::WriterContext::asArray() {
++  assert(var_->is_array());
++  return static_cast<pp::VarArray*>(var_.get());
++}
++
++void TNativeClientProtocol::WriterContext::writeVar(const pp::Var& var) {
++  switch (type_) {
++    case DICTIONARY_CONTEXT:
++      asDictionary()->Set(pp::Var(getFieldName()), var); 
++      break;
++
++    case LIST_CONTEXT:
++      asArray()->Set(asArray()->GetLength(), var);
++      break;
++
++    case MAP_KEY_CONTEXT:
++      map_key_ = var;
++      type_ = MAP_VALUE_CONTEXT;
++      break;
++
++    case MAP_VALUE_CONTEXT:
++      asDictionary()->Set(map_key_, var); 
++      type_ = MAP_KEY_CONTEXT;
++      break;
++  }
++}
++
++TNativeClientProtocol::WriterContext*
++TNativeClientProtocol::WriterContext::createDictionaryContext() {
++  boost::shared_ptr<pp::Var> var = boost::make_shared<pp::VarDictionary>();
++  return new WriterContext(var, DICTIONARY_CONTEXT);
++}
++
++TNativeClientProtocol::WriterContext*
++TNativeClientProtocol::WriterContext::createMapContext() {
++  boost::shared_ptr<pp::Var> var = boost::make_shared<pp::VarDictionary>();
++  return new WriterContext(var, MAP_KEY_CONTEXT);
++}
++
++TNativeClientProtocol::WriterContext*
++TNativeClientProtocol::WriterContext::createListContext() {
++  boost::shared_ptr<pp::Var> var = boost::make_shared<pp::VarArray>();
++  return new WriterContext(var, LIST_CONTEXT);
++}
++
++/** 
++ * ReaderContext
++ */
++
++TNativeClientProtocol::ReaderContext::ReaderContext(
++    boost::shared_ptr<const pp::Var> var, ContextType type)
++    : var_(var), type_(type), index_(0) {
++  if (var_->is_dictionary()) {
++    assert(type_ == DICTIONARY_CONTEXT || type_ == MAP_KEY_CONTEXT);
++    keys_ = asDictionary()->GetKeys();
++  } else {
++    assert(var_->is_array() && type_ == LIST_CONTEXT);
++  }
++}
++
++const pp::VarDictionary* TNativeClientProtocol::ReaderContext::asDictionary() const {
++  assert(var_->is_dictionary());
++  return static_cast<const pp::VarDictionary*>(var_.get());
++}
++
++const pp::VarArray* TNativeClientProtocol::ReaderContext::asArray() const {
++  assert(var_->is_array());
++  return static_cast<const pp::VarArray*>(var_.get());
++}
++
++int TNativeClientProtocol::ReaderContext::size() const {
++  if (var_->is_dictionary()) {
++    return keys_.GetLength();
++  } else {
++    return asArray()->GetLength();
++  }
++}
++
++bool TNativeClientProtocol::ReaderContext::isAtEnd() const {
++  return index_ >= size(); 
++}
++
++void TNativeClientProtocol::ReaderContext::advance() {
++  if (isAtEnd()) {
++    return;
++  }
++
++  switch (type_) {
++    case DICTIONARY_CONTEXT:
++      ++index_;
++      break;
++
++    case LIST_CONTEXT:
++      ++index_;
++      break;
++
++    case MAP_KEY_CONTEXT:
++      type_ = MAP_VALUE_CONTEXT;
++      break;
++
++    case MAP_VALUE_CONTEXT:
++      type_ = MAP_KEY_CONTEXT;
++      ++index_;
++      break;
++  }
++}
++
++void TNativeClientProtocol::ReaderContext::nextKeyValue(pp::Var* key,
++                                                        pp::Var* value) {
++  assert(index_ < keys_.GetLength());
++  *key = keys_.Get(index_);
++  *value = asDictionary()->Get(*key);
++}
++
++void TNativeClientProtocol::ReaderContext::nextKey(pp::Var* key) {
++  assert(index_ < keys_.GetLength());
++  *key = keys_.Get(index_);
++}
++
++void TNativeClientProtocol::ReaderContext::nextValue(pp::Var* value) {
++  assert(index_ < keys_.GetLength());
++  *value = asDictionary()->Get(keys_.Get(index_));
++}
++
++void TNativeClientProtocol::ReaderContext::nextArrayValue(pp::Var* value) {
++  assert(index_ < asArray()->GetLength());
++  *value = asArray()->Get(index_); 
++}
++
++void TNativeClientProtocol::ReaderContext::nextVar(pp::Var* var) {
++  switch (getType()) {
++    case DICTIONARY_CONTEXT:
++      nextValue(var);
++      break;
++
++    case LIST_CONTEXT:
++      nextArrayValue(var);
++      break;
++
++    case MAP_KEY_CONTEXT:
++      nextKey(var);
++      break;
++
++    case MAP_VALUE_CONTEXT:
++      nextValue(var);
++      break;
++  }
++}
++
++TNativeClientProtocol::ReaderContext*
++TNativeClientProtocol::ReaderContext::createDictionaryContext(
++    boost::shared_ptr<const pp::Var> var) {
++  if (!var->is_dictionary()) {
++    throw TProtocolException(TProtocolException::UNKNOWN,
++        "Attempt to createDictionaryContext without a dictionary");
++  }
++  return new ReaderContext(var, DICTIONARY_CONTEXT);
++}
++
++TNativeClientProtocol::ReaderContext*
++TNativeClientProtocol::ReaderContext::createMapContext(
++    boost::shared_ptr<const pp::Var> var) {
++  if (!var->is_dictionary()) {
++    throw TProtocolException(TProtocolException::UNKNOWN,
++        "Attempt to createMapContext without a dictionary");
++  }
++  return new ReaderContext(var, MAP_KEY_CONTEXT);
++}
++
++TNativeClientProtocol::ReaderContext*
++TNativeClientProtocol::ReaderContext::createListContext(
++    boost::shared_ptr<const pp::Var> var) {
++  if (!var->is_array()) {
++    throw TProtocolException(TProtocolException::UNKNOWN,
++        "Attempt to createListContext without an array");
++  }
++  return new ReaderContext(var, LIST_CONTEXT);
++}
++
++}}} // apache::thrift::protocol
+diff --git a/lib/cpp/src/thrift/protocol/TNativeClientProtocol.h b/lib/cpp/src/thrift/protocol/TNativeClientProtocol.h
+new file mode 100644
+index 0000000..93b11c0
+--- /dev/null
++++ b/lib/cpp/src/thrift/protocol/TNativeClientProtocol.h
+@@ -0,0 +1,241 @@
++/*
++ * Licensed to the Apache Software Foundation (ASF) under one
++ * or more contributor license agreements. See the NOTICE file
++ * distributed with this work for additional information
++ * regarding copyright ownership. The ASF licenses this file
++ * to you under the Apache License, Version 2.0 (the
++ * "License"); you may not use this file except in compliance
++ * with the License. You may obtain a copy of the License at
++ *
++ *   http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing,
++ * software distributed under the License is distributed on an
++ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
++ * KIND, either express or implied. See the License for the
++ * specific language governing permissions and limitations
++ * under the License.
++ */
++
++#ifndef _THRIFT_PROTOCOL_TNATIVECLIENTPROTOCOL_H_
++#define _THRIFT_PROTOCOL_TNATIVECLIENTPROTOCOL_H_ 1
++
++#include <thrift/protocol/TVirtualProtocol.h>
++
++#include <boost/ptr_container/ptr_deque.hpp>
++#include <stack>
++
++#include "ppapi/cpp/var.h"
++#include "ppapi/cpp/var_dictionary.h"
++
++namespace apache { namespace thrift { namespace protocol {
++
++class TNativeClientContext;
++
++/**
++ * Protocol for Native Client messages.
++ *
++ */
++class TNativeClientProtocol : public TVirtualProtocol<TNativeClientProtocol> {
++ public:
++
++  TNativeClientProtocol();
++  explicit TNativeClientProtocol(boost::shared_ptr<const pp::Var> var);
++
++  void reset();
++
++  void setVar(boost::shared_ptr<const pp::Var> var);
++  boost::shared_ptr<const pp::Var> getVar() const { return root_var_; }
++
++  /**
++   * Writing functions.
++   */
++
++  uint32_t writeMessageBegin(const std::string& name,
++                             const TMessageType messageType,
++                             const int32_t seqid);
++  uint32_t writeMessageEnd();
++
++  uint32_t writeStructBegin(const char* name);
++  uint32_t writeStructEnd();
++
++  uint32_t writeFieldBegin(const char* name,
++                           const TType fieldType,
++                           const int16_t fieldId);
++  uint32_t writeFieldEnd();
++  uint32_t writeFieldStop();
++
++  uint32_t writeMapBegin(const TType keyType,
++                         const TType valType,
++                         const uint32_t size);
++  uint32_t writeMapEnd();
++
++  uint32_t writeListBegin(const TType elemType,
++                          const uint32_t size);
++  uint32_t writeListEnd();
++
++  uint32_t writeSetBegin(const TType elemType,
++                         const uint32_t size);
++  uint32_t writeSetEnd();
++
++  uint32_t writeBool(const bool value);
++  uint32_t writeByte(const int8_t byte);
++  uint32_t writeI16(const int16_t i16);
++  uint32_t writeI32(const int32_t i32);
++  uint32_t writeI64(const int64_t i64);
++  uint32_t writeDouble(const double dub);
++  uint32_t writeString(const std::string& str);
++  uint32_t writeBinary(const std::string& str);
++
++  /**
++   * Reading functions
++   */
++
++  uint32_t readMessageBegin(std::string& name,
++                            TMessageType& messageType,
++                            int32_t& seqid);
++  uint32_t readMessageEnd();
++
++  uint32_t readStructBegin(std::string& name);
++  uint32_t readStructEnd();
++
++  uint32_t readFieldBegin(std::string& name,
++                          TType& fieldType,
++                          int16_t& fieldId);
++  uint32_t readFieldEnd();
++
++  uint32_t readMapBegin(TType& keyType,
++                        TType& valType,
++                        uint32_t& size);
++  uint32_t readMapEnd();
++
++  uint32_t readListBegin(TType& elemType,
++                         uint32_t& size);
++  uint32_t readListEnd();
++
++  uint32_t readSetBegin(TType& elemType,
++                        uint32_t& size);
++  uint32_t readSetEnd();
++
++  uint32_t readBool(bool& value);
++  // Provide the default readBool() implementation for std::vector<bool>
++  using TVirtualProtocol<TNativeClientProtocol>::readBool;
++
++  uint32_t readByte(int8_t& byte);
++  uint32_t readI16(int16_t& i16);
++  uint32_t readI32(int32_t& i32);
++  uint32_t readI64(int64_t& i64);
++  uint32_t readDouble(double& dub);
++  uint32_t readString(std::string& str);
++  uint32_t readBinary(std::string& str);
++
++  uint32_t skip(TType type);
++
++ private:
++  enum ContextType {
++    DICTIONARY_CONTEXT,
++    MAP_KEY_CONTEXT,
++    MAP_VALUE_CONTEXT,
++    LIST_CONTEXT
++  };
++
++  class WriterContext {
++   public:
++    WriterContext(boost::shared_ptr<pp::Var> var, ContextType type);
++
++    inline const std::string& getFieldName() const { return field_name_; }
++    inline void setFieldName(const std::string& field_name) {
++      field_name_ = field_name;
++    }
++
++    inline const pp::Var& getVar() const { return *var_; }
++    void writeVar(const pp::Var& var);
++
++    static WriterContext* createDictionaryContext();
++    static WriterContext* createMapContext();
++    static WriterContext* createListContext();
++
++  private:
++    pp::VarDictionary* asDictionary();
++    pp::VarArray* asArray();
++
++    boost::shared_ptr<pp::Var> var_;
++    ContextType type_;
++    std::string field_name_;
++    pp::Var map_key_;
++  };
++
++  class ReaderContext {
++   public:
++    ReaderContext(boost::shared_ptr<const pp::Var> var, ContextType type);
++
++    inline const pp::Var& getVar() const { return *var_; }
++    inline ContextType getType() const { return type_; }
++    inline int getIndex() const { return index_; }
++
++    int size() const;
++    bool isAtEnd() const;
++    void advance();
++
++    void nextKey(pp::Var* value);
++    void nextValue(pp::Var* value);
++    void nextKeyValue(pp::Var* key, pp::Var* value);
++    void nextArrayValue(pp::Var* value);
++    void nextVar(pp::Var* var);
++
++    static ReaderContext* createDictionaryContext(
++        boost::shared_ptr<const pp::Var> var);
++    static ReaderContext* createMapContext(
++        boost::shared_ptr<const pp::Var> var);
++    static ReaderContext* createListContext(
++        boost::shared_ptr<const pp::Var> var);
++
++   private:
++    const pp::VarDictionary* asDictionary() const;
++    const pp::VarArray* asArray() const;
++
++    boost::shared_ptr<const pp::Var> var_;
++    pp::VarArray keys_;
++    ContextType type_;
++    int index_;
++  };
++
++ private:
++  void writeVar(const pp::Var& var);
++  boost::shared_ptr<const pp::Var> readVar();
++
++  void pushWriterContext(WriterContext* context);
++  void popWriterContext();
++  inline WriterContext* topWriterContext() { return &writer_stack_.back(); }
++
++  void pushReaderContext(ReaderContext* context);
++  void popReaderContext();
++  inline ReaderContext* topReaderContext() { return &reader_stack_.back(); }
++
++  int64_t readIntegerValue();
++
++ private:
++  boost::ptr_deque<WriterContext> writer_stack_;
++  boost::ptr_deque<ReaderContext> reader_stack_;
++
++  boost::shared_ptr<const pp::Var> root_var_;
++};
++
++
++/**
++ * Constructs input and output protocol objects given transports.
++ */
++class TNativeClientProtocolFactory : public TProtocolFactory {
++ public:
++  TNativeClientProtocolFactory() {}
++
++  virtual ~TNativeClientProtocolFactory() {}
++
++  boost::shared_ptr<TProtocol> getProtocol(boost::shared_ptr<TTransport> trans) {
++    return boost::shared_ptr<TProtocol>(new TNativeClientProtocol());
++  }
++};
++
++}}} // apache::thrift::protocol
++
++#endif // #define _THRIFT_PROTOCOL_TNATIVECLIENTPROTOCOL_H_ 1
+diff --git a/lib/cpp/src/thrift/protocol/TProtocol.h b/lib/cpp/src/thrift/protocol/TProtocol.h
+index d6ecc0f..0c1472c 100644
+--- a/lib/cpp/src/thrift/protocol/TProtocol.h
++++ b/lib/cpp/src/thrift/protocol/TProtocol.h
+@@ -146,6 +146,7 @@ using apache::thrift::transport::TTransport;
+  * the end of a sequence of fields.
+  */
+ enum TType {
++  T_UNKNOWN    = -1,
+   T_STOP       = 0,
+   T_VOID       = 1,
+   T_BOOL       = 2,
+@@ -166,6 +167,16 @@ enum TType {
+   T_UTF16      = 17
+ };
+ 
++const int16_t kFieldIdUnknown = -1;
++
++class TFieldTypeSpec {
++ public:
++  TFieldTypeSpec(int16_t fid, TType ftype) : fid(fid), ftype(ftype) {}
++
++  int16_t fid;
++  TType ftype;
++};
++
+ /**
+  * Enumerated definition of the message types that the Thrift protocol
+  * supports.
+@@ -279,6 +290,8 @@ uint32_t skip(Protocol_& prot, TType type) {
+     }
+   case T_STOP: case T_VOID: case T_U64: case T_UTF8: case T_UTF16:
+     break;
++  case T_UNKNOWN:
++    break;
+   }
+   return 0;
+ }
+diff --git a/lib/cpp/src/thrift/server/TServer.cpp b/lib/cpp/src/thrift/server/TServer.cpp
+index f4ce744..4c3214f 100755
+--- a/lib/cpp/src/thrift/server/TServer.cpp
++++ b/lib/cpp/src/thrift/server/TServer.cpp
+@@ -33,6 +33,7 @@
+ namespace apache { namespace thrift { namespace server {
+ 
+ int increase_max_fds(int max_fds=(1<<24))  {
++#ifndef __native_client__
+   struct rlimit fdmaxrl;
+ 
+   for(fdmaxrl.rlim_cur = max_fds, fdmaxrl.rlim_max = max_fds;
+@@ -42,6 +43,9 @@ int increase_max_fds(int max_fds=(1<<24))  {
+   }
+ 
+   return static_cast<int>(fdmaxrl.rlim_cur);
++#else
++  return max_fds;
++#endif // __native_client__
+ }
+ 
+ }}} // apache::thrift::server
+diff --git a/lib/cpp/src/thrift/transport/TFileTransport.h b/lib/cpp/src/thrift/transport/TFileTransport.h
+index 75941cf..239daef 100644
+--- a/lib/cpp/src/thrift/transport/TFileTransport.h
++++ b/lib/cpp/src/thrift/transport/TFileTransport.h
+@@ -34,6 +34,7 @@
+ #include <thrift/concurrency/Monitor.h>
+ #include <thrift/concurrency/PlatformThreadFactory.h>
+ #include <thrift/concurrency/Thread.h>
++#include <thrift/concurrency/Util.h>
+ 
+ namespace apache { namespace thrift { namespace transport {
+ 
+diff --git a/lib/cpp/src/thrift/transport/TServerSocket.cpp b/lib/cpp/src/thrift/transport/TServerSocket.cpp
+index 4cecc3b..6b0f809 100644
+--- a/lib/cpp/src/thrift/transport/TServerSocket.cpp
++++ b/lib/cpp/src/thrift/transport/TServerSocket.cpp
+@@ -301,7 +301,7 @@ void TServerSocket::listen() {
+ 
+   if (! path_.empty()) {
+ 
+-#ifndef _WIN32
++#if !defined(_WIN32) && !defined(__native_client__)
+ 
+     // Unix Domain Socket
+     struct sockaddr_un address;
+diff --git a/lib/cpp/src/thrift/transport/TSocket.cpp b/lib/cpp/src/thrift/transport/TSocket.cpp
+index d521bb5..b47db1a 100644
+--- a/lib/cpp/src/thrift/transport/TSocket.cpp
++++ b/lib/cpp/src/thrift/transport/TSocket.cpp
+@@ -238,7 +238,7 @@ void TSocket::openConnection(struct addrinfo *res) {
+   int ret;
+   if (! path_.empty()) {
+ 
+-#ifndef _WIN32
++#if !defined(_WIN32) && !defined(__native_client__)
+ 
+     struct sockaddr_un address;
+     socklen_t len;

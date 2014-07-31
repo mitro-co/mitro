@@ -1,0 +1,7 @@
+---
+- name: restart access_frontend
+  service: name=access_frontend state=restarted
+  sudo: yes
+- name: restart access_proxy
+  service: name=access_proxy state=restarted
+  sudo: yes

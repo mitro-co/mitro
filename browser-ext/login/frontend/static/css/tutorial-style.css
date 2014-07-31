@@ -1,0 +1,39 @@
+/*
+ * *****************************************************************************
+ * Copyright (c) 2012, 2013, 2014 Lectorius, Inc.
+ * Authors:
+ * Vijay Pandurangan (vijayp@mitro.co)
+ * Evan Jones (ej@mitro.co)
+ * Adam Hilss (ahilss@mitro.co)
+ *
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *     You can contact the authors at inbound@mitro.co.
+ * *****************************************************************************
+ */
+
+
+/* tutorial */
+#tutorial-modal {font-size: 18px;}
+#tutorial-modal .modal-body {background: #fafafb; height: 290px; position: relative; -webkit-border-top-left-radius: 6px;-webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;-moz-border-radius-topright: 6px;border-top-left-radius: 6px;border-top-right-radius: 6px;}
+#tutorial-modal .modal-footer {height: 61px;}
+#tutorial-modal h2 {font-weight: bold; margin-bottom: 10px;}
+#tutorial-modal .col {float: left; width: 200px;}
+#tutorial-modal .col2 {width: 235px; margin-left: 25px;}
+#tutorial-modal .steps {position: absolute; bottom: 10px; left: 200px;}
+#tutorial-modal .steps li {background: url(../img/tutorial-icons.png) no-repeat 0 -372px; width: 12px; height: 12px; display: inline-block; }
+#tutorial-modal .steps li.active {background-position: 0 -392px;}
+#tutorial-modal .modal-footer a {font-size: 11px; color: #bebebe;}

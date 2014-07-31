@@ -1,0 +1,19 @@
+<thead>
+  <tr>
+    <th class="col2">User</th>
+    <th class="col1">Action</th>
+    <th class="col3">Timestamp</th>
+    <th class="col4">IP Address</th>
+  </tr>
+</thead>
+
+{{#events}}
+<tr>
+  <td class="gray">{{username}}</td>
+  <td class="gray">{{actionString}}
+    <a class="audit-link" href="{{linkUrl}}">{{linkText}}</a>
+  </td>
+  <td class="gray">{{date}}</td>
+  <td class="gray">{{sourceIp}}</td>
+</tr>
+{{/events}}

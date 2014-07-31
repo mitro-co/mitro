@@ -1,0 +1,245 @@
+#no-account-banner {
+
+  height: @no-active-account-height;
+  background-image: url(../img/header@2x.png);
+  background-size: 290px 40px;
+  font-family: @montserrat-regular;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+
+  [data-current-pane="settings"] &,
+  [data-current-pane="generate-password"] & {
+    .hide;
+  }
+
+}
+
+.header {
+
+  background-color: @brand-color;
+  .border-bottom-radius(4px);
+  height: @active-account-height;
+  left: 0;
+  padding: @active-account-padding @active-account-padding 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  [data-current-pane="settings"] &,
+  [data-current-pane="generate-password"] & {
+    .hide;
+  }
+
+  [data-current-pane="team"] & {
+    height: 70px;
+    .active-account {
+      .team {
+        .hide;
+      }
+    }
+  }
+
+  .one-click {
+    padding: 15px 10px 0;
+    text-align: center;
+    p {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .button {
+      color: @brand-color;
+    }
+  }
+}
+
+  .active-account {
+
+    background-color: @brand-color;
+    // height: @active-account-height;  // TODO: Not sure why height is declared here - test different cases
+    padding: @active-account-padding 0 0;
+    color: @off-white;
+
+    a {
+      color: @off-white;
+    }
+
+    // buttons below the generate password box
+    // .buttons {
+    //   @button-spacing: 5px;
+    //   margin: @button-spacing 0 0 -@button-spacing;
+    //   .button {
+    //     display: inline-block;
+    //     margin-left: @button-spacing;
+    //     width: ((@generate-password-width/2.0) - @button-spacing);
+    //     text-align: center;
+    //   }
+    // }
+
+    .identity {
+      padding-left: @active-account-padding;
+      padding-right: @active-account-padding;
+      border-bottom: solid 1px rgba(red(@off-white), green(@off-white), blue(@off-white), 0.1);
+      height: 45px;
+
+      .clear;
+
+      .image {
+        float: left;
+        height: 20px;
+        margin: 7px 10px 0 0;
+        width: 20px;
+        img {
+          display: block;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .text {
+        float: left;
+        width: 222px;
+        .account {
+          font-size: 12px;
+          .truncate();
+        }
+        .user {
+          font-size: 15px;
+          .truncate();
+        }
+      }
+
+      .edit {
+        float: right;
+        height: 23px;
+        margin: -5px -5px 0 0;
+        text-align: center;
+        width: 23px;
+        a {
+          display: block;
+          font-size: 13px;
+          height: 100%;
+          .opacity(40);
+          text-decoration: none;
+          width: 100%;
+          &:hover, &:focus {
+            .opacity(100);
+          }
+          span {
+            display: block;
+            margin-top: 5px;
+          }
+        }
+      }
+
+    }
+
+    .team {
+
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 0 @active-account-padding @active-account-padding @active-account-padding;
+
+      ul {
+        .clear;
+        margin-left: -5px;
+
+        li {
+
+          float: left;
+          height: 35px;
+          list-style: none;
+          margin-left: 5px;
+          width: 35px;
+
+          &:first-child {
+
+            a {
+              color: @off-white;
+              display: block;
+              height: 100%;
+              .opacity(40);
+              text-decoration: none;
+              width: 100%;
+
+              &:hover, &:focus {
+                .opacity(100);
+              }
+
+              span {
+                font-size: 35px;
+              }
+
+            }
+          }
+
+          &:last-child {
+            float: right;
+            font-size: 11px;
+            font-weight: bold;
+            height: auto;
+            letter-spacing: -1.5px;
+            margin: 11px 0 0;
+            width: auto;
+          }
+
+          img {
+            .border-radius(100%);
+            display: block;
+            height: 100%;
+            width: 100%;
+          }
+
+          .member-icon {
+            .border-radius(100%);
+            display: block;
+            font-size: 17.5px;
+            font-family: @montserrat-regular;
+            height: 35px;
+            line-height: 35px;
+            width: 35px;
+          }
+
+        }
+      }
+    }
+  }
+
+  .quick-generate-password {
+    .buttons {
+      margin: 5px 0 0 -5px;
+      .button {
+        display: inline-block;
+        margin-left: 5px;
+        width: auto;
+      }
+    }
+}
+
+[data-pane="team"] {
+  .team {
+    display: none;
+  }
+}
+
+
+header {
+  &.simple-header {
+    padding-top: 70px;
+    #logo {
+      width: 120px !important;
+      margin: 0px auto 30px !important;
+      font-size: 72px !important;
+    }
+    h1 {
+      font-family: @montserrat-regular;
+      font-weight: normal;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 32px;
+    }   
+  }
+}

@@ -1,0 +1,118 @@
+[
+  {
+    "path": "html/co.angel.login.html",
+    "username_name": "user[email]",
+    "password_name": "user[password]",
+    "submit_id": "user_submit"
+  },
+  {
+    "path": "html/com.amazon.login.html",
+    "username_name": "email",
+    "password_name": "password",
+    "submit_id": "signInSubmit-input"
+  },
+  {
+    "path": "html/com.aol.login.html",
+    "username_name": "loginId",
+    "password_name": "password",
+    "submit_id": "submitID"
+  },
+  {
+    "path": "html/com.coinbase.login.html",
+    "username_name": "email",
+    "password_name": "password",
+    "submit_id": "signin_button"
+  },
+  {
+    "path": "html/com.united.login.html",
+    "username_name": "ctl00$ContentInfo$accountsummary$OpNum1$txtOPNum",
+    "password_name": "ctl00$ContentInfo$accountsummary$OpPin1$txtOPPin",
+    "submit_id": "ctl00_ContentInfo_accountsummary_btnOnePassSignIn"
+  },
+  {
+    "path": "html/com.bitbucket.login.html",
+    "username_name": "username",
+    "password_name": "password",
+    "submit_name": "signin"
+  },
+  {
+    "path": "html/com.box.login.html",
+    "username_name": "login",
+    "password_name": "password",
+    "submit_id": "login_button_credentials"
+  },
+  {
+    "path": "html/org.change.login.html",
+    "username_name": "user[email]",
+    "password_name": "user[password]",
+    "submit_id": "login_button_credentials"
+  },
+  {
+    "path": "html/com.coned.login.html",
+    "username_name": "TxtUser",
+    "password_name": "TxtPwd",
+    "submit_id": "ctl00_Main_Login1_LoginButton"
+  },
+  {
+    "path": "html/ca.domainsatcost.login.html",
+    "username_name": "ctl00$MC$lcLogin$UserName",
+    "password_name": "ctl00$MC$lcLogin$Password",
+    "submit_id": "ctl00_MC_lcLogin_Login"
+  },
+  {
+    "path": "html/com.dropbox.login.html",
+    "username_name": "login_email",
+    "password_name": "login_password",
+    "submit_id": "login_submit"
+  },
+  {
+    "path": "html/com.elance.login.html",
+    "username_name": "lnm",
+    "password_name": "pwd"
+  },
+  {
+    "path": "html/com.evernote.login.html",
+    "username_name": "username",
+    "password_name": "password",
+    "submit_id": "login"
+  },
+  {
+    "path": "html/com.express.login.html",
+    "username_name": "atg_store_registerLoginEmailAddress",
+    "password_name": "atg_store_registerLoginPassword",
+    "submit_id": "use-log-but-sign-in"
+  },
+  {
+    "path": "html/com.facebook.login.html",
+    "username_name": "email",
+    "password_name": "pass",
+    "submit_id": "u_0_b"
+  },
+  {
+    "path": "html/com.flurry.login.html",
+    "username_name": "loginEmail",
+    "password_name": "loginPassword"
+  },
+  {
+    "path": "html/com.github.login.html",
+    "username_name": "login",
+    "password_name": "password",
+    "submit_name": "commit"
+  },
+  {
+    "path": "html/com.google.login.html",
+    "username_name": "Email",
+    "password_name": "Passwd",
+    "submit_name": "commit"
+  },
+  {
+    "path": "html/com.tumblr.login.html",
+    "username_name": "user[email]",
+    "password_name": "user[password]"
+  },
+  {
+    "path": "html/org.python.bugs.login.html",
+    "username_name": "openid_identifier",
+    "password_name": "__login_password"
+  } 
+]

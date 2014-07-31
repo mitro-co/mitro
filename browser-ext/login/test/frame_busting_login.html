@@ -1,0 +1,42 @@
+<html>
+<head>
+<script>
+/*
+Example of a frame-busting technique found on: http://www.bettingexpert.com/manager/
+See http://www.bettingexpert.com/manager/assets/modext/sections/login.js
+
+1. go run testwebserver.go
+2. Open http://127.0.0.1:8000/frame_busting_login.html
+3. The form should load; sign in with any username and password
+4. Save the username and password using Mitro
+5. Reload the page. The infobar should display at the top of the page.
+
+Previously: this would trigger an infinite loop, because the page checks for
+frames after 1 ms.
+*/
+var breakOutOfFrames = function() {
+  if (top.frames.length !== 0) {
+    top.location = self.document.location;
+  }
+}
+
+var onLoad = function(e) {
+  // The Sencha ExtJS onReady code had a 1 ms setTimeout before triggering events
+  console.log('onLoad');
+  setTimeout(breakOutOfFrames, 1);
+}
+
+document.addEventListener('DOMContentLoaded', onLoad)
+</script>
+<!-- delay DOMContentLoaded for 500 ms; this means the "show infobar" message from the background
+arrives *before* DOMContentLoaded, so it triggers the infinite loop-->
+<script src="/delay.js?ms=500"></script>
+</head>
+<body>
+<form method="post" action="/post">
+<input name="username">
+<input type="password" name="password">
+<input type="submit" value="login">
+</form>
+</body>
+</html>

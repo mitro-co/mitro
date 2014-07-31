@@ -1,0 +1,8 @@
+# Deploys mitrocore to the primary
+# ansible-playbook mitrocore_deploy.yml --extra-vars "version=20140127"
+---
+- hosts: primary
+  gather_facts: false
+  sudo: yes
+  roles:
+    - db_primary
