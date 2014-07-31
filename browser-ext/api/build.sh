@@ -40,7 +40,7 @@ npm --prefix $NODE_DATA --global true install jasmine-node
 npm --prefix $NODE_DATA --global true install optimist
 npm --prefix $NODE_DATA --global true install webworker-threads
 npm --prefix $NODE_DATA --global true install karma-jasmine karma-phantomjs-launcher karma-chrome-launcher
-npm --prefix $NODE_DATA --global true install 'git+ssh://git@github.com/mitro-co/keyczarjs.git'
+npm --prefix $NODE_DATA --global true install 'git+https://github.com/mitro-co/keyczarjs.git'
 # to develop from a local keyczarjs:
 # ln -s ../keyczarjs $NODE_DATA/lib/node_modules
 # link Keyczarjs's version of forge so we don't accidentally depend on two different versions
