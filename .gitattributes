@@ -1,0 +1,5 @@
+*.a binary
+*.gz binary
+*.jar binary
+*.pdf binary
+/browser-ext/third_party/closureify/closureify-* binary
