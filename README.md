@@ -7,7 +7,7 @@ If you are user, install it from the [Mitro web site](https://www.mitro.co/). If
 
 ## Quick Start
 
-1. Install dependencies (see [`browser-ext/README`](browser-ext/README.md), [`mitro-core/README`](browser-ext/README.md)) [node, npm, homebrew, java, ant]
+1. Install dependencies (see [`browser-ext/README`](browser-ext/README.md), [`mitro-core/README`](mitro-core/README.md)) [node, npm, homebrew, java, ant]
 2. Clone repository: `git clone https://github.com/mitro-co/mitro`
 3. Install browser extension dependencies:
 
