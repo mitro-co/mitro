@@ -6,7 +6,7 @@ Coding Style
 ------------
 
 * 2 space indent spaces only (In Eclipse: Project Properties -> Java Code Style -> Formatter -> Indentation)
-* Generally follow the [Java coding guidelines](http://www.oracle.com/technetwork/java/javase/documentation/codeconvtoc-136057.html) (since Google's Java style guide is not publicly available)
+* Generally follow the [Java coding guidelines](http://google-styleguide.googlecode.com/svn/trunk/javaguide.html)
 
 
 Requirements
