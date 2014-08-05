@@ -34,7 +34,7 @@ var assert = assert || /** @type {function(boolean)} */ (require('assert'));
   mitro.password.background = typeof background !== 'undefined' ? background : {};
 
   // TODO: Save password generation settings.
-  mitro.password.DEFAULT_PASSWORD_LENGTH = 8;
+  mitro.password.DEFAULT_PASSWORD_LENGTH = 16;
 
   mitro.password.generatePasswordWithOptions = function(options, onSuccess, onError) {
     var getOption = function(name, defaultValue) {
