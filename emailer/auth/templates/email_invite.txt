@@ -1,0 +1,14 @@
+Hello,
+
+{{ sender_name }} has given you access to {{ service_name }} using Mitro, a brilliant solution for access control for teams. To access it, please log in with your Google Account.
+
+{{ login_url }}
+
+Thanks,
+
+The Mitro Team
+
+
+What is Mitro?
+
+Mitro allows teams to easily and securely share accounts for cloud services. Our dashboard gives you powerful management tools to control who has access to all your services.

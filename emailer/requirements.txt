@@ -1,0 +1,22 @@
+# pip required packages file
+# Processed by build.sh into a virtualenv in build/venv
+# http://www.pip-installer.org/en/latest/requirements.html
+
+# All packages must have sha1 hashes to avoid things like the rubygems hack
+# TODO: pip 1.2.1 has something broken this this doesn't actually work at the moment!
+# pip is run with --no-deps, so we must manually list dependencies (to ensure we checksum all packages)
+# To get dependencies:
+# virtualenv test_venv
+# mkdir cache
+# ./test_venv/bin/pip install --download-cache cache (package)
+# Calculate sha256 with shasum -a 256 filename
+
+sqlalchemy == 0.8.0b2 #sha256=3f4db3890742e6b8648b7e4ed27dd7258f1fd91043ca8b597fef802399634d30 
+tornado == 2.4.1 #sha256=14d392cf14698eba75b9299748fa83716f7c02fc49684dfc5011668c30ba6b00 
+
+# For Postgres connection
+psycopg2
+
+# requests needed for mandrill
+requests
+mandrill

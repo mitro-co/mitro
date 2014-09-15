@@ -1,0 +1,15 @@
+Hello,
+
+We want to verify that you created a new account on Mitro. If you did, please follow this link:
+
+{{ verification_link }}
+
+
+If you didn't create an account you can ignore this email. Thanks,
+
+The Mitro Team
+
+
+What is Mitro?
+
+Mitro remembers all your passwords so you don't have to, and lets you easily and securely share accounts with others.

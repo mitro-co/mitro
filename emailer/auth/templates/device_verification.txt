@@ -1,0 +1,10 @@
+Hello,
+
+To confirm that you want to sign in to Mitro on your new device, please follow this link
+
+{{ verification_link }}
+
+
+If you didn't intend to do this, please ignore this email. Thanks,
+
+The Mitro Team

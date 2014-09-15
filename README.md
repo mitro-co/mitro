@@ -34,3 +34,14 @@ make release
 7. To build Firefox, use `make firefox` and to build Safari use `make safari`.
 
 The extensions will be in the `browser-ext/login/build` directory.
+
+
+### setup and run emailer
+
+To send device verification emails, we use `emailer/emailer2.py`. Requirements: Postgres with the development libraries (Mac OS X: `brew install postgresql`). This script polls a table in the Postgres database to send email.
+
+#### Configuration:
+
+1. `cd emailer`
+2. `./build.sh` to set up Python virtualenv with dependencies
+3. To run: `build/venv/bin/python emailer2.py --enable_email --mandrill_api_key=api_key`
