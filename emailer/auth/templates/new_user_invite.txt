@@ -1,0 +1,22 @@
+Hello,
+
+{{ sender_email }} has given you access to an account using Mitro, a brilliant solution for access control for teams. To access it, create a new account with the following information:
+
+
+Email address: {{ recipient_email }}
+Temporary password: {{ temp_password }}
+
+
+Create Account:
+{{ login_url }}
+
+
+Thanks,
+
+The Mitro Team
+
+
+What is Mitro?
+
+Mitro remembers all your passwords so you don't have to, and lets
+you easily and securely share accounts with others.
