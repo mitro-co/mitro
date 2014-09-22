@@ -17,6 +17,8 @@ else
 endif
 
 BUILD_DIR:=$(shell pwd)/build
+# required for hogan to find its dependencies
+export NODE_PATH=$(BUILD_DIR)/../../api/build/node/lib/node_modules
 STATIC_DIR:=$(shell pwd)/frontend/static
 GEN_DIR:=$(shell pwd)/frontend/gen-files
 COMPILED_JS_DIR:=$(BUILD_DIR)/closure
