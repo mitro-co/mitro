@@ -2,7 +2,7 @@
   "name": "Mitro Login Manager",
   "short_name": "Mitro",
   "manifest_version": 2,
-  "version": "0.10.56",
+  "version": "0.10.57",
   "background": {
     "scripts": []
   },
