@@ -5,7 +5,7 @@
   "description": "Mitro Login Manager",
   "author": "Lectorius, Inc.",
   "license": "",
-  "version": "0.10.56",
+  "version": "0.10.57",
   "icon": "data/img/icon96.png",
   "icon64": "data/img/icon128.png",
   "dependencies": ["toolbarwidget"],
