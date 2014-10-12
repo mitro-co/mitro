@@ -57,12 +57,14 @@ var _Worker = typeof(unsafeWindow) !== 'undefined' ? unsafeWindow.Worker : Worke
 
 var worker = new _Worker('worker.js');
 worker.addEventListener('message', function(event) {
-    var message = event.data;
+    // make a deep copy of message
+    var message = jQuery.extend(true, {}, event.data);
+
     message.sendResponse = function(data) {
         var new_message = client.composeResponse(this, data);
         worker.postMessage(new_message);
     };
-    client.processIncoming(event.data);
+    client.processIncoming(message);
 });
 client.addSender('worker', function(message){
     worker.postMessage(message);
