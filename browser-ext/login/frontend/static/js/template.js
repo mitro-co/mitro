@@ -47,7 +47,7 @@ $(document).ready(function() {
             // Do not redirect to sign in from the install page.
             if (window.location.pathname === '/html/install.html') {
                 $('#account-menu').hide();
-            } else {
+            } else if(window.location.pathname !== "/html/preferences.html"){
                 // Redirect to login page.
                 helper.setLocation('popup.html');
             }
