@@ -144,8 +144,16 @@ public class ManagerFactory implements LifeCycle.Listener {
    * Creates a ManagerFactory with default arguments.
    */
   public ManagerFactory() {
-    this(ManagerFactory.DATABASE_URL, new Manager.Pool(), IDLE_TXN_POLL_SECONDS, TimeUnit.SECONDS,
+    this(getDefaultDatabaseUrl(), new Manager.Pool(), IDLE_TXN_POLL_SECONDS, TimeUnit.SECONDS,
         ConnectionMode.READ_WRITE);
+  }
+
+  private static String getDefaultDatabaseUrl() {
+    String databaseUrl = System.getProperty("database_url");
+    if(databaseUrl == null) {
+        databaseUrl = ManagerFactory.DATABASE_URL;
+    }
+    return databaseUrl;
   }
 
   private void tryCreateTables() {
