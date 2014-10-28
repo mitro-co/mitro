@@ -31,7 +31,8 @@ server {
     ssl on;
     ssl_certificate /home/ubuntu/unnamed/crypto_keys/test/tls_www/server.crt;
     ssl_certificate_key /home/ubuntu/unnamed/crypto_keys/test/tls_www/server.pem;
-    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    # SSLv3 not permitted due to POODLE
+    ssl_protocols TLSv1.2 TLSv1.1 TLSv1;
     # DISABLE cbc-mode ciphers. See: http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3389
     ssl_ciphers RC4:HIGH:!aNULL:!MD5;
     ssl_prefer_server_ciphers on;
