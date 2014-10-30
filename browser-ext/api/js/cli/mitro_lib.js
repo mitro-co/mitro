@@ -27,7 +27,7 @@
 (function() {
 // define mitro
 if(typeof(window) !== 'undefined') {
-  if (typeof(mitro) === 'undefined') {mitro = window.mitro = window.mitro || {}};
+  if (typeof(mitro) === 'undefined') {mitro = window.mitro = window.mitro || {}}
   mitro.lib = {};
 }
 // define node.js module

@@ -485,7 +485,7 @@ var guessLoginForm = function (hints) {
             score += usernameScoreFunc(formDict.usernameField);
         }
         if (!formDict.passwordField && formDict.usernameField.emptyPasswordPermitted) {
-            ;
+            
         } else {
             score += passwordScoreFunc(formDict.passwordField);
         }

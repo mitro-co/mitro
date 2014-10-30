@@ -89,7 +89,7 @@ function LRUCache(maxSize) {
     if (maxSize == null)
         maxSize = -1;
     this.maxSize = maxSize;
-    this.fillFactor = .75;
+    this.fillFactor = 0.75;
     this.purgeSize = Math.round(this.maxSize * this.fillFactor);
     
     this.stats = {};

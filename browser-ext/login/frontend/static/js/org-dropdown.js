@@ -28,7 +28,7 @@ var initOrgDropdown;
 var getOrgDropdownId;
 var selectOrgDropdownId;
 (function () {
-    'use strict'
+    'use strict';
 
     var getOrgDropdownSelection = function ($orgDropdown) {
         return $orgDropdown.find('.select');

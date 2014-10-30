@@ -648,7 +648,7 @@ function _make(email, verified, unsignedToken, privateKey, changePwd, host, port
 
   obj.holdingTransaction.editServerSecret = function(transactionSpecificData, args, onSuccess, onError) {
     try {
-      var data = {};;
+      var data = {};
       assert (args.isViewable !== undefined);
       data.isViewable = args.isViewable;
       data.secretId = args.secretId;
@@ -1680,8 +1680,8 @@ fe.workerInvokeOnIdentity = function() {
     var identityId = args.shift();
     var operation = args.shift();
 
-    // not sure what this should be set to:
-    var appliedThisPointer = undefined;
+    // Unnecessary to initialize to undefined
+    var appliedThisPointer;
     identities[identityId.identityId][operation].apply(appliedThisPointer, args);
     fe.getRandomness(function(data) {
       forge.random.collect(data.seed);

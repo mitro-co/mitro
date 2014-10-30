@@ -62,7 +62,7 @@ var MAX_VALUE = 100;
 
 function CrappyPublicKey(name){
 	this.publicKeyValue = 0;
-};
+}
 CrappyPublicKey.prototype.setKeyFromString= function(key) {
 	this.publicKeyValue = parseInt(key);
 };
@@ -89,7 +89,7 @@ CrappyPublicKey.prototype.verifySignedByMe = function(signedMessage) {
 CrappyPrivateKey.prototype = new CrappyPublicKey();
 CrappyPrivateKey.prototype.constructor=CrappyPrivateKey;
 function CrappyPrivateKey() { 
-};
+}
 
 CrappyPrivateKey.prototype.getPKValue=function(){ 
 	return MAX_VALUE - this.publicKeyValue;

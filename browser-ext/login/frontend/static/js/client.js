@@ -181,7 +181,7 @@ Client.prototype.composeResponse = function(message, data) {
     // setting the response data
     for (var i in data) {
         message[i] = data[i];
-    };
+    }
     
     return message;
 };
@@ -523,7 +523,7 @@ Client.prototype.setMethod = function(to, methodName) {
             
             that.sendMessage(message, invoke_callback);
         };
-    };
+    }
 };
 
 
