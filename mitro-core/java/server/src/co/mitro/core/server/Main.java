@@ -139,8 +139,8 @@ import com.google.common.collect.Lists;
 import com.google.common.io.CharStreams;
 
 public class Main {
-  public static int HTTP_PORT = 8080;
-  public static int HTTPS_PORT = 8443;
+  public static int HTTP_PORT = Integer.parseInt(System.getProperty("http_port", "8080"));
+  public static int HTTPS_PORT = Integer.parseInt(System.getProperty("https_port", "8443"));
   private static final Logger logger = LoggerFactory.getLogger(Main.class);
   /** Path that server-specific secrets will be loaded from. */
   private static final String PRODUCTION_SECRETS_PATH = "mitrocore_secrets";
@@ -460,6 +460,7 @@ public class Main {
         new InstrumentedConnectionFactory(new HttpConnectionFactory(httpConfig),
             metrics.timer("http.connections")));
     server.addConnector(connector);
+
     connector.setPort(HTTP_PORT);
 
     // Enable SSL on port 8443 using the debug keystore
@@ -479,13 +480,8 @@ public class Main {
     ConnectionFactory httpsFactory = new InstrumentedConnectionFactory(new HttpConnectionFactory(httpsConfig),
         metrics.timer("https.connections"));
 
-    int port = HTTPS_PORT;
-    String portProperty = System.getProperty("port");
-    if (portProperty != null) {
-      port = Integer.parseInt(portProperty);
-    }
     ServerConnector sslConnector = new ServerConnector(server, sslFactory, httpsFactory);
-    sslConnector.setPort(port);
+    sslConnector.setPort(HTTPS_PORT);
     server.addConnector(sslConnector);
 
     registerShutdownHook(server);
