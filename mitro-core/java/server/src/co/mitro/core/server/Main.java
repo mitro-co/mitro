@@ -461,12 +461,7 @@ public class Main {
             metrics.timer("http.connections")));
     server.addConnector(connector);
 
-    int http_port = HTTP_PORT;
-    String http_portProperty = System.getProperty("http_port");
-    if (http_portProperty != null) {
-      http_port = Integer.parseInt(http_portProperty);
-    }
-    connector.setPort(http_port);
+    connector.setPort(getPortProperty("http_port", HTTP_PORT));
 
     // Enable SSL on port 8443 using the debug keystore
     KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
@@ -485,13 +480,8 @@ public class Main {
     ConnectionFactory httpsFactory = new InstrumentedConnectionFactory(new HttpConnectionFactory(httpsConfig),
         metrics.timer("https.connections"));
 
-    int https_port = HTTPS_PORT;
-    String https_portProperty = System.getProperty("port");
-    if (https_portProperty != null) {
-      https_port = Integer.parseInt(https_portProperty);
-    }
     ServerConnector sslConnector = new ServerConnector(server, sslFactory, httpsFactory);
-    sslConnector.setPort(https_port);
+    sslConnector.setPort(getPortProperty("port", HTTPS_PORT));
     server.addConnector(sslConnector);
 
     registerShutdownHook(server);
@@ -517,5 +507,15 @@ public class Main {
         }
       }
     });
+  }
+
+  private static int getPortProperty(String propertyName, int defaultValue) {
+    int port = defaultValue;
+    String portPropertyValue = System.getProperty(propertyName);
+    if (portPropertyValue != null) {
+      port = Integer.parseInt(portPropertyValue);
+    }
+
+    return port;
   }
 }
