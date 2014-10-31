@@ -149,11 +149,7 @@ public class ManagerFactory implements LifeCycle.Listener {
   }
 
   private static String getDefaultDatabaseUrl() {
-    String databaseUrl = System.getProperty("database_url");
-    if(databaseUrl == null) {
-        databaseUrl = ManagerFactory.DATABASE_URL;
-    }
-    return databaseUrl;
+    return System.getProperty("database_url", ManagerFactory.DATABASE_URL);
   }
 
   private void tryCreateTables() {
