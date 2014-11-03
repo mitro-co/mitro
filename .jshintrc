@@ -1,0 +1,16 @@
+{
+	"asi": true,
+	"eqnull": true,
+	"loopfunc": true,
+	"expr": true,
+	"funcscope": true,
+	"supernew": true,
+	"laxbreak": true,
+	"boss": true,
+	"laxcomma": true,
+	"multistr": true,
+	"validthis": true,
+	"sub": true,
+	"shadow": true,
+	"evil": true
+}
