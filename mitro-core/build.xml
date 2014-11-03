@@ -148,6 +148,9 @@
     <java jar="${outjar}" fork="true" dir="/">
         <assertions><enable/></assertions>
         <sysproperty key="generateSecretsForTest" value="true"/>
+        <sysproperty key="database_url" value="jdbc:postgresql://localhost:5432/mitro"/>
+        <sysproperty key="http_port" value="8080"/>
+        <sysproperty key="https_port" value="8443"/>
     </java>
 </target>
 

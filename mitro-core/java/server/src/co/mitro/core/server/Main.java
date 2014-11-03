@@ -139,8 +139,8 @@ import com.google.common.collect.Lists;
 import com.google.common.io.CharStreams;
 
 public class Main {
-  public static int HTTP_PORT = 8080;
-  public static int HTTPS_PORT = 8443;
+  public static int HTTP_PORT = Integer.parseInt(System.getProperty("http_port", "8080"));
+  public static int HTTPS_PORT = Integer.parseInt(System.getProperty("https_port", "8443"));
   private static final Logger logger = LoggerFactory.getLogger(Main.class);
   /** Path that server-specific secrets will be loaded from. */
   private static final String PRODUCTION_SECRETS_PATH = "mitrocore_secrets";
@@ -461,7 +461,7 @@ public class Main {
             metrics.timer("http.connections")));
     server.addConnector(connector);
 
-    connector.setPort(getPortProperty("http_port", HTTP_PORT));
+    connector.setPort(HTTP_PORT);
 
     // Enable SSL on port 8443 using the debug keystore
     KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
@@ -481,7 +481,7 @@ public class Main {
         metrics.timer("https.connections"));
 
     ServerConnector sslConnector = new ServerConnector(server, sslFactory, httpsFactory);
-    sslConnector.setPort(getPortProperty("port", HTTPS_PORT));
+    sslConnector.setPort(HTTPS_PORT);
     server.addConnector(sslConnector);
 
     registerShutdownHook(server);
@@ -507,15 +507,5 @@ public class Main {
         }
       }
     });
-  }
-
-  private static int getPortProperty(String propertyName, int defaultValue) {
-    int port = defaultValue;
-    String portPropertyValue = System.getProperty(propertyName);
-    if (portPropertyValue != null) {
-      port = Integer.parseInt(portPropertyValue);
-    }
-
-    return port;
   }
 }
