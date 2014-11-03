@@ -31,9 +31,11 @@ def unpack_jar(jarpath, tempdir):
 
 def copy_dir(subdir, tempdir):
     assert subdir[-1] != '/'
-    subdir += '/'
+    subdir += '/.'
+    assert tempdir[-1] != '/'
+    tempdir += '/'
     # -a: archive mode; keeps permissions etc
-    args = ['rsync', '-a', subdir, tempdir]
+    args = ['cp', '-a', subdir, tempdir]
     process = subprocess.Popen(args)
     code = process.wait()
     assert code == 0
