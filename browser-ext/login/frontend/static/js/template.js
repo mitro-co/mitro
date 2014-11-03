@@ -47,8 +47,9 @@ $(document).ready(function() {
             // Do not redirect to sign in from the install page.
             if (window.location.pathname === '/html/install.html') {
                 $('#account-menu').hide();
-            } else {
-                // Redirect to login page.
+            } else if(window.location.pathname !== '/html/preferences.html'){
+                // Redirect to login page
+                // Except for preferences so we can set the server without needing to be logged in first
                 helper.setLocation('popup.html');
             }
         } else {
