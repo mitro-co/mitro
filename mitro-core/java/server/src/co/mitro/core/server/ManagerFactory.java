@@ -144,11 +144,11 @@ public class ManagerFactory implements LifeCycle.Listener {
    * Creates a ManagerFactory with default arguments.
    */
   public ManagerFactory() {
-    this(getDefaultDatabaseUrl(), new Manager.Pool(), IDLE_TXN_POLL_SECONDS, TimeUnit.SECONDS,
+    this(getDatabaseUrl(), new Manager.Pool(), IDLE_TXN_POLL_SECONDS, TimeUnit.SECONDS,
         ConnectionMode.READ_WRITE);
   }
 
-  private static String getDefaultDatabaseUrl() {
+  private static String getDatabaseUrl(){
     return System.getProperty("database_url", ManagerFactory.DATABASE_URL);
   }
 
