@@ -354,7 +354,7 @@ var getLoginForm = function (form, requireFieldVisibility) {
         }
     }
 
-    var goAhead = goAhead && (SERVER_HINTS.allow_empty_username || (usernameField !== null));
+    goAhead = goAhead && (SERVER_HINTS.allow_empty_username || (usernameField !== null));
     if (goAhead) {
         var submitField = guessSubmitField(fieldsRecord,
             true, usernameField && usernameField.pointer);

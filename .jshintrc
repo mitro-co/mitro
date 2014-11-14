@@ -9,8 +9,8 @@
 	"boss": true,
 	"laxcomma": true,
 	"multistr": true,
-	"validthis": true,
-	"sub": true,
+	"validthis": false,
+	"sub": false,
 	"shadow": true,
 	"evil": true
 }
