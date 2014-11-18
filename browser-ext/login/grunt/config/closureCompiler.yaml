@@ -1,0 +1,6 @@
+# default options for the closureCompiler task
+
+options:
+  compilerFile: ../third_party/closure-compiler/compiler.jar
+  checkModified: yes
+  TieredCompilation: yes # http://goo.gl/iJuJV6 , may speed up compiler

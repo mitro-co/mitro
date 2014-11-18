@@ -1,0 +1,12 @@
+copy:
+  files:
+    - expand: yes
+      src:
+        - build/common/**/*.js
+        - "!<%= contentFiles %>"
+        - "!<%= minifiedFiles %>"
+      dest: build/webpage/release
+
+# define the "webpage" build task
+aliases:
+  - copy:webpage

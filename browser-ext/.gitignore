@@ -3,6 +3,8 @@
 /cookiediff/bin/
 /login/build/
 /login/frontend/gen-files/
+/login/node_modules/
+/login/tmp/
 # symlink to mitro-core
 /api/server
 

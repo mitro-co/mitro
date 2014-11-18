@@ -1,0 +1,23 @@
+{
+  "name": "mitro-browser-ext-login",
+  "author": "mitro.co",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "./runtests.sh"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-closure-tools": "^0.9.7",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-hogan-static": "^0.1.6",
+    "grunt-mozilla-addon-sdk": "^0.3.2",
+    "keyczarjs": "git+https://github.com/mitro-co/keyczarjs.git",
+    "load-grunt-config": "^0.16.0",
+    "load-grunt-tasks": "^1.0.0",
+    "lodash": "^2.4.1"
+  },
+  "license": "GPLv3"
+}

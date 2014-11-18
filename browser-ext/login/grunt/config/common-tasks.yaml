@@ -1,0 +1,47 @@
+# Responsible for build/common, the base set of files needed for all browser
+# extension targets
+closureCompiler:
+  files:
+    - expand: yes
+      flatten: yes
+      src:
+        - common/**/*.js
+        - client/**/*.js
+        - node_modules/keyczarjs/*.js
+        - node_modules/keyczarjs/node_modules/node-forge/js/*.js
+        - "!<%= testFiles %>"
+        - "!<%= minifiedFiles %>"
+      dest: build/common
+    - expand: yes
+      cwd: frontend/static
+      src:
+        - js/**/*.js
+        - "!<%= testFiles %>"
+        - "!<%= minifiedFiles %>"
+      dest: build/common
+less:
+  files:
+    build/common/css/mitro_popup2.css: frontend/static/less/mitro_popup2.less
+    build/common/css/site.css: frontend/static/less/site.less
+hogan_static:
+  options:
+    usePartials: frontend/{partials,base_templates}/**/*
+  files:
+    - expand: yes
+      cwd: frontend/templates
+      src: "**/*"
+      ext: .html
+      dest: build/common/html
+copy:
+  files:
+    - expand: yes
+      cwd: frontend/static
+      src: "{css,img,fonts,html}/**/*"
+      dest: build/common
+
+# define the "common" build task
+aliases:
+  - closureCompiler:common
+  - less:common
+  - hogan_static:common
+  - copy:common

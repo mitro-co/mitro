@@ -1,0 +1,24 @@
+closureCompiler:
+  files:
+    - expand: yes
+      flatten: yes
+      src:
+        - firefox/**/*.js
+        - "!<%= testFiles %>"
+      dest: build/firefox/release/data
+copy:
+  files:
+    - expand: yes
+      cwd: build/common
+      src: "**/*"
+      dest: build/firefox/release/data
+mozilla-addon-sdk:
+  options:
+    revision: "1.14"
+
+# define the "firefox" build task
+aliases:
+  - common
+  - closureCompiler:firefox
+  - copy:firefox
+  - mozilla-addon-sdk:firefox
