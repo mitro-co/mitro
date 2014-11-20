@@ -4,12 +4,14 @@ browser-ext
 Setup
 =====
 
-1. Mac: [Install Homebrew](http://mxcl.github.io/homebrew/). Run `brew install node` or download node from the web. (apt-get is too old).
+1. Install [nodeJS](http://nodejs.org/) and its package manager [npm](https://www.npmjs.org/). 
 
-2. Get node dependencies and crypto dependencies (run this once)
+2. Get node dependencies and crypto dependencies (run this once). 
 
         git clone git@github.com:mitro-co/browser-ext.git
         cd browser-ext/api; ./build.sh
+
+   (Sometimes you can incur in [this error](http://plaidzooks.tumblr.com/post/36894116867/using-node-js-on-debian-ubuntu-systems))
 
 3. Build
 
