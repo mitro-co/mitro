@@ -154,7 +154,7 @@ function bidrectionalSetDiffWithComparator(oldList, newList, addedList, deletedL
   for (; j < newList.length; ++j) {
     addedList.push(newList[j]);
   }
-  return (deletedList.length + addedList.length) != 0
+  return (deletedList.length + addedList.length) != 0;
 }
 
 /** Converts the response from ListMySecretsAndGroups to the format expected by the extension. */
@@ -658,7 +658,7 @@ function _make(email, verified, unsignedToken, privateKey, changePwd, host, port
     } catch (e) {
       onError(mitro.lib.makeLocalException(e));
     }
-  }
+  };
   obj.holdingTransaction.getPendingGroups = function(transactionSpecificData, scope, onSuccess, onError) {
     try {
       mitro.lib.PostToMitro({scope:scope}, _makeArgs(transactionSpecificData),

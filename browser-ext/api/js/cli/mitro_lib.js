@@ -27,7 +27,7 @@
 (function() {
 // define mitro
 if(typeof(window) !== 'undefined') {
-  if (typeof(mitro) === 'undefined') {mitro = window.mitro = window.mitro || {}}
+  if (typeof(mitro) === 'undefined') {mitro = window.mitro = window.mitro || {};}
   mitro.lib = {};
 }
 // define node.js module
@@ -890,7 +890,7 @@ var GetAuditLog = function (args, onSuccess, onError) {
     console.log('>> exception in get audit log');
     onError(makeLocalException(e));
   }
-}
+};
 
 var runCommandWithPrivateKey = function(cmdFcn, argv, unencryptedPrivateKey, onSuccessIn, onErrorIn) {
 

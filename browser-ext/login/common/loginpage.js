@@ -703,7 +703,7 @@ __testing__.findAndSubmitLoginForm = function(username, password) {
     var data = {clientData:{loginUrl : document.URL, 'username' : username}, criticalData : {'password' : password}};
     console.log('sending data', data);
     return guessAndFillLoginForm(data);
-}
+};
 __testing__.guessLoginForm = function(username, password) {
     console.log('hello', document.URL, getCanonicalHost(document.URL));
     var data = {clientData:{loginUrl : document.URL, 'username' : username}, criticalData : {'password' : password}};
@@ -719,7 +719,7 @@ __testing__.guessLoginForm = function(username, password) {
     delete rval.formDict;
     delete rval.allFields;
     return rval;
-}
+};
 /* end testing code */
 
     // define node.js module for testing

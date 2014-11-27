@@ -159,6 +159,6 @@ helpers_background.BackgroundHelper = function() {
             client.processIncoming(message);
         });
     };
-}
+};
 
 })();

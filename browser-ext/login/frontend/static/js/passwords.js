@@ -48,7 +48,7 @@ passwords.scoreToText = function(score) {
 
 passwords.scoreToPercent = function (score) {
     return Math.min(Math.max(score, 5), 100);
-}
+};
 
 passwords.scoreToColor = function (score) {
   if (score < 33) {
@@ -60,7 +60,7 @@ passwords.scoreToColor = function (score) {
   } else {
     return '#246e24';
   }
-}
+};
 
 passwords.scorePassword = function(pwd) {
   var score = -1 * TYPES_OF_CHARACTERS_SCORE;

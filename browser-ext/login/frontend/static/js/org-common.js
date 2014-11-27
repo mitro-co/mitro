@@ -51,7 +51,7 @@ $(document).ready(function() {
             };
 
             var adminOrgs = _.filter(orgInfo.getOrganizations(),
-                                     function (org) {return org.isAdmin});
+                                     function (org) {return org.isAdmin;});
             if (adminOrgs.length > 0) {
                 $('.org-admin').removeClass('hide');
                 if (adminOrgs.length === 1) {

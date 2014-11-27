@@ -61,7 +61,7 @@ var BloomFilter;
       else while (++i < n) buckets[i] = 0;
       this._locations = [];
     }
-  }
+  };
 
   // See http://willwhim.wordpress.com/2011/09/03/producing-n-hash-functions-by-hashing-only-once/
   BloomFilter.prototype.locations = function(v) {

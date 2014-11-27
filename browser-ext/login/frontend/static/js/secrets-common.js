@@ -100,7 +100,7 @@ var disambiguateTitles = function (instances) {
     for (var i = 0; i < instances.length; i++) {
         var title = instances[i].renderedTitle;
         if (title in serviceCounts) {
-            serviceCounts[title]++
+            serviceCounts[title]++;
         }  else {
             serviceCounts[title] = 1;
         }

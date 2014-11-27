@@ -303,7 +303,7 @@ var makeKey = function() {
 // Decent hash function
 // TODO: think about security implications of using this in keys.
 var hash = function(s){
-  return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
+  return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a;},0);              
 };
 
 cache.LRUCache = LRUCache;

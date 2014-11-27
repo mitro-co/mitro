@@ -82,7 +82,7 @@ $(function() {
     } else {
       $('#is-not-viewable-label').css('color', '#a1a6aa');
     }
-  }
+  };
   $('#is-not-viewable').change(function() {
     secretDataDirty = true;
     setViewableLabelColor($('#is-not-viewable').is(':checked'));
