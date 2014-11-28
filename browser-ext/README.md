@@ -8,10 +8,11 @@ Setup
 
 2. For Firefox: Install [Firefox Addon-sdk 1.6+](https://github.com/mozilla/addon-sdk/tree/05dab6aeb50918d4c788df9c5da39007b4fca335) and [toolbarwidget](https://github.com/Rob--W/toolbarwidget-jplib)
 
-3. Get node dependencies and crypto dependencies (run this once)
+3. Get node dependencies, crypto and browser extensions build dependencies (run this once)
 
         git clone git@github.com:mitro-co/browser-ext.git
-        cd browser-ext/api; ./build.sh
+        sh browser-ext/api/build.sh
+	sh browser-ext/login/build.sh
 
 4. Build
 
