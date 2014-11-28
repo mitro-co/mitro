@@ -627,6 +627,10 @@ $(FIREFOX_RELEASE_DIR)/$(TARGET_BASENAME).xpi: $(FIREFOX_RELEASE_DEPS)
 
 	$(SCRIPTS_EXTRACTOR) collect $(FIREFOX_RELEASE_DIR)/data
 
+	#packages
+	mkdir "$(FIREFOX_RELEASE_DIR)/packages/"
+	git clone "https://github.com/Rob--W/toolbarwidget-jplib.git" "$(FIREFOX_RELEASE_DIR)/packages/toolbarwidget"
+
 	# building xpi
 	cd $(FIREFOX_BUILD_DIR) && \
 	$(CFX) xpi --pkgdir=release --update-link=$(FIREFOX_UPDATE_LINK) --update-url=$(FIREFOX_UPDATE_URL) && \
@@ -640,6 +644,10 @@ $(FIREFOX_DEBUG_DIR)/debug.xpi: $(FIREFOX_DEBUG_DEPS)
 	cp $(FIREFOX_DEBUG_DIR)/data/helpers_common.js $(FIREFOX_DEBUG_DIR)/lib
 
 	$(SCRIPTS_EXTRACTOR) collect $(FIREFOX_DEBUG_DIR)/data
+
+	#packages
+	mkdir "$(FIREFOX_RELEASE_DIR)/packages/"
+	git clone "https://github.com/Rob--W/toolbarwidget-jplib.git" "$(FIREFOX_RELEASE_DIR)/packages/toolbarwidget"
 
 	# building xpi
 	cd $(FIREFOX_BUILD_DIR) && \
