@@ -7,7 +7,7 @@ SCRIPTS_EXTRACTOR=./extract_scripts.py
 MUSTACHE_RENDERER=./mustache_renderer.js
 MUSTACHE_COMPILER=$(BUILD_DIR)/../../third_party/hogan.js/bin/hulk
 #Firefox addon-sdk path
-CFX=YOUR-FIREFOX-ADDON-SDK-PATH/firefox-addon-sdk/bin/cfx
+CFX=$(BUILD_DIR)/../../third_party/firefox-addon-sdk/bin/cfx
 
 CLOSURE_STRICT_FLAGS=--language_in ECMASCRIPT5_STRICT --warning_level VERBOSE --compilation_level ADVANCED_OPTIMIZATIONS --externs externs_node.js --jscomp_error missingProperties --jscomp_error checkTypes --jscomp_error checkRegExp --jscomp_error accessControls --jscomp_error const --jscomp_error missingReturn
 
