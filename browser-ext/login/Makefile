@@ -6,6 +6,7 @@ CLOSURE=./ccache.py java -jar ../third_party/closure-compiler/compiler.jar
 SCRIPTS_EXTRACTOR=./extract_scripts.py
 MUSTACHE_RENDERER=./mustache_renderer.js
 MUSTACHE_COMPILER=$(BUILD_DIR)/../../third_party/hogan.js/bin/hulk
+#Firefox addon-sdk path
 CFX=$(BUILD_DIR)/../../third_party/firefox-addon-sdk/bin/cfx
 
 CLOSURE_STRICT_FLAGS=--language_in ECMASCRIPT5_STRICT --warning_level VERBOSE --compilation_level ADVANCED_OPTIMIZATIONS --externs externs_node.js --jscomp_error missingProperties --jscomp_error checkTypes --jscomp_error checkRegExp --jscomp_error accessControls --jscomp_error const --jscomp_error missingReturn
@@ -626,6 +627,10 @@ $(FIREFOX_RELEASE_DIR)/$(TARGET_BASENAME).xpi: $(FIREFOX_RELEASE_DEPS)
 
 	$(SCRIPTS_EXTRACTOR) collect $(FIREFOX_RELEASE_DIR)/data
 
+	#packages
+	mkdir "$(FIREFOX_RELEASE_DIR)/packages/"
+	git clone "https://github.com/Rob--W/toolbarwidget-jplib.git" "$(FIREFOX_RELEASE_DIR)/packages/toolbarwidget"
+
 	# building xpi
 	cd $(FIREFOX_BUILD_DIR) && \
 	$(CFX) xpi --pkgdir=release --update-link=$(FIREFOX_UPDATE_LINK) --update-url=$(FIREFOX_UPDATE_URL) && \
@@ -639,6 +644,10 @@ $(FIREFOX_DEBUG_DIR)/debug.xpi: $(FIREFOX_DEBUG_DEPS)
 	cp $(FIREFOX_DEBUG_DIR)/data/helpers_common.js $(FIREFOX_DEBUG_DIR)/lib
 
 	$(SCRIPTS_EXTRACTOR) collect $(FIREFOX_DEBUG_DIR)/data
+
+	#packages
+	mkdir "$(FIREFOX_RELEASE_DIR)/packages/"
+	git clone "https://github.com/Rob--W/toolbarwidget-jplib.git" "$(FIREFOX_RELEASE_DIR)/packages/toolbarwidget"
 
 	# building xpi
 	cd $(FIREFOX_BUILD_DIR) && \

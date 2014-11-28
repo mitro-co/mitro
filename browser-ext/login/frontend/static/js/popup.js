@@ -83,7 +83,7 @@ var updateLoginState = function () {
       }
       helper.tabs.create({url: helper.getURL('html/change-password.html' + hash)});
     } else {
-      if (($(window).width() > POPUP_WIDTH) && debugMode === false) { // Check to see if this in browser window, not popup
+      if (($(window).width() > POPUP_WIDTH+7) && debugMode === false) { // Check to see if this in browser window, not popup
          // Redirect to services page if user is logged in and this is not inside the popup
         helper.setLocation(SERVICES_PATH);
       } else {
@@ -239,7 +239,7 @@ $(document).ready(function() {
   var $signUpBtn = $loggedOutPaneEl.find('.sign-up');
   var $remindAlertEl = $loginFormEl.find('#remind-alert');
 
-  if (($(window).width() > POPUP_WIDTH) && debugMode === false) {
+  if (($(window).width() > POPUP_WIDTH+7) && debugMode === false) {
     // change the width of the wrap container to be the full size of the screen
     $wrapEl.addClass('web-wrap');
     $htmlEl.addClass('web');
