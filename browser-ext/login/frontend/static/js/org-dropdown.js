@@ -86,7 +86,7 @@ var selectOrgDropdownId;
             }
         });
 
-        if ($selOrgItem == null) {
+        if ($selOrgItem === null) {
             if (selOrgId) {
                 // Item belongs to an org that user is not a member of.
                 // Show the org id since we don't know its name.

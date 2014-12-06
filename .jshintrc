@@ -1,6 +1,6 @@
 {
 	"asi": false,
-	"eqnull": true,
+	"eqnull": false,
 	"loopfunc": false,
 	"expr": true,
 	"funcscope": true,
