@@ -1,5 +1,5 @@
 {
-	"asi": true,
+	"asi": false,
 	"eqnull": true,
 	"loopfunc": true,
 	"expr": true,
@@ -12,5 +12,11 @@
 	"validthis": false,
 	"sub": false,
 	"shadow": true,
-	"evil": true
+	"evil": true,
+	"globals": {
+		"self": false,
+		"importScripts": false
+		//"forge": false,
+		//"mitro": false
+	}
 }

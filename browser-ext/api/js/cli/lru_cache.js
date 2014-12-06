@@ -158,7 +158,7 @@ LRUCache.prototype.setItem = function(key, value, options) {
     @param {Object} o TODO: Implement options type
     */
     function LRUCacheItem(k, v, o) {
-        if ((k == null) || (k == ''))
+        if ((k == null) || (k === ''))
             throw new Error("key cannot be null or empty");
         this.key = k;
         this.value = v;
@@ -199,7 +199,7 @@ LRUCache.prototype.clear = function() {
 // remove old elements from the cache
 LRUCache.prototype._purge = function() {
     
-    var tmparray = new Array();
+    var tmparray = [];
     
     // loop through the cache, expire items that should be expired
     // otherwise, add the item to an array

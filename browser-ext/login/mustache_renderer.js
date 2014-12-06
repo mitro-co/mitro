@@ -43,7 +43,7 @@ var render = function (inputFile, outputFile, params) {
 };
 
 var loadTemplates = function (templates, params, callback) {
-    if (templates.length == 0) {
+    if (templates.length === 0) {
         callback(params);
     } else {
         var templatePath = templates.shift();
