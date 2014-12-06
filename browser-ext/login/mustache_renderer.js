@@ -54,7 +54,7 @@ var loadTemplates = function (templates, params, callback) {
             loadTemplates(templates, params, callback);
         });
     }
-}
+};
 
 if (process.argv.length !== 4) {
     console.log('Usage: ' + process.argv[1] + ' input_file output_file');

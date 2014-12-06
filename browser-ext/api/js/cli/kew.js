@@ -567,24 +567,30 @@ kew.all = function(promises) {
   var promise = new kew.Promise();
   var counter = promises.length;
 
+  /*The below functions have been pulled out of the for loop to prevent 
+  function creation in a loop*/
+  var decrement = function decrementAllCounter() {
+    counter--;
+    if (!finished && counter === 0) {
+          finished = true;
+          promise.resolve(outputs);
+    }
+  };
+
+  var anyError = function onAllError(e){
+    if (!finished) {
+      finished = true;
+      promise.reject(e);
+    }
+  };
+
   for (var i = 0; i < promises.length; i += 1) {
     if (!promises[i] || !isPromiseLike(promises[i])) {
       outputs[i] = promises[i];
       counter -= 1;
     } else {
       promises[i].then(replaceEl.bind(null, outputs, i))
-      .then(function decrementAllCounter() {
-        counter--;
-        if (!finished && counter === 0) {
-          finished = true;
-          promise.resolve(outputs);
-        }
-      }, function onAllError(e) {
-        if (!finished) {
-          finished = true;
-          promise.reject(e);
-        }
-      });
+      .then(decrement, anyError);
     }
   }
 
@@ -615,7 +621,10 @@ function allSettled(promises) {
   var outputs = [];
   var promise = new kew.Promise();
   var counter = promises.length;
-
+  var resolution = function(){
+    if ((--counter) === 0) promise.resolve(outputs);
+  };
+  
   for (var i = 0; i < promises.length; i += 1) {
     if (!promises[i] || !isPromiseLike(promises[i])) {
       replaceElFulfilled(outputs, i, promises[i]);
@@ -623,9 +632,7 @@ function allSettled(promises) {
     } else {
       promises[i]
         .then(replaceElFulfilled.bind(null, outputs, i), replaceElRejected.bind(null, outputs, i))
-        .then(function () {
-          if ((--counter) === 0) promise.resolve(outputs);
-        });
+        .then(resolution);
     }
   }
 

@@ -1,7 +1,7 @@
 {
 	"asi": false,
 	"eqnull": true,
-	"loopfunc": true,
+	"loopfunc": false,
 	"expr": true,
 	"funcscope": true,
 	"supernew": true,
