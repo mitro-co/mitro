@@ -96,9 +96,9 @@ var processServiceInstanceForRendering = function (service) {
 
 var disambiguateTitles = function (instances) {
     var serviceCounts = {};
-
+    var title;
     for (var i = 0; i < instances.length; i++) {
-        var title = instances[i].renderedTitle;
+        title = instances[i].renderedTitle;
         if (title in serviceCounts) {
             serviceCounts[title]++;
         }  else {

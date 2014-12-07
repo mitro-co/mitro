@@ -181,6 +181,7 @@ function makePublicKey(encryptionPublic) {
 
 function loadFromJson(value, password) {
 	value = JSON.parse(value);
+	var key;
 
 	if (value.type == 'PRV' || value.type == 'PAS') {
 		if (value.type == 'PAS' && value.password != password) {
