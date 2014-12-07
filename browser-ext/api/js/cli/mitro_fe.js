@@ -1084,11 +1084,11 @@ function _make(email, verified, unsignedToken, privateKey, changePwd, host, port
             }
           }
 
-
+          var targetPublicKey;
 
           // add new people
           for (var k in keysResponse.userIdToPublicKey) {
-            var targetPublicKey = crypto().loadFromJson(keysResponse.userIdToPublicKey[k]);
+            targetPublicKey = crypto().loadFromJson(keysResponse.userIdToPublicKey[k]);
 
             newacls.push(
             {
@@ -1102,7 +1102,7 @@ function _make(email, verified, unsignedToken, privateKey, changePwd, host, port
 
           // add org group if it needs to be added.
           if (!oldGroupAcl && newGroupIdList && newGroupIdList.length) {
-            var targetPublicKey = crypto().loadFromJson(keysResponse.groupIdToPublicKey[newGroupIdList[0]]);
+            targetPublicKey = crypto().loadFromJson(keysResponse.groupIdToPublicKey[newGroupIdList[0]]);
             newacls.push( {
               myPublicKey : keysResponse.groupIdToPublicKey[newGroupIdList[0]],
               level: 'ADMIN', // TODO: what should this be?

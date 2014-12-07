@@ -188,7 +188,7 @@ function loadFromJson(value, password) {
 			throw new CryptoError('Password does not match?');
 		}
 
-		var key = new CrappyPrivateKey();
+		key = new CrappyPrivateKey();
 		key.setKeyFromString(value.key);
 		return makePrivateKey(key);
 	} else if (value.type == 'PUB') {

@@ -331,8 +331,7 @@ var GetUserAndGroupPublicKeys = function(args, addMissingUsers, uids, gids, onSu
         //TODO: pass this back so we can prompt users
         assert (!r.missingUsers || r.missingUsers.length === 0);
         onSuccess(r);
-      }
-      , onError);
+      }, onError);
    } catch (e) {
     console.log(e.stack);
     onError(makeLocalException(e));
