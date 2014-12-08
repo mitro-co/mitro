@@ -39,6 +39,7 @@ npm --prefix $NODE_DATA --global true install less
 npm --prefix $NODE_DATA --global true install jasmine-node
 npm --prefix $NODE_DATA --global true install optimist
 npm --prefix $NODE_DATA --global true install webworker-threads
+npm --prefix $NODE_DATA --global true install jsdom
 # required for hogan.js
 npm --prefix $NODE_DATA --global true install nopt mkdirp
 npm --prefix $NODE_DATA --global true install karma-jasmine karma-phantomjs-launcher karma-chrome-launcher
