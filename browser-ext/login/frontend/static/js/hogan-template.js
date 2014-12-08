@@ -296,10 +296,10 @@ var Hogan = {};
 
   function createSpecializedPartial(instance, subs, partials, childText) {
     /** @constructor */
-    function PartialTemplate() {};
+    function PartialTemplate() {}
     PartialTemplate.prototype = instance;
     /** @constructor */
-    function Substitutions() {};
+    function Substitutions() {}
     Substitutions.prototype = instance.subs;
     var key;
     var partial = new PartialTemplate();

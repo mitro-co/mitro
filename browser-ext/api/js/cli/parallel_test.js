@@ -38,7 +38,7 @@ var failIfThree = function(val, s,e) {
   }, 100);
 };
 
-var failIfRun = function() { throw new Error('fail')};
+var failIfRun = function() { throw new Error('fail');};
 
 lib.parallel([
   [failIfThree, [1]],

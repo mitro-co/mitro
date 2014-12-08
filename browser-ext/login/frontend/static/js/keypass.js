@@ -33,7 +33,7 @@ function handleFileSelect(evt) {
   var f = files[0];
   var reader = new FileReader();
   if (f.name.match('.xml')) {
-    ;
+    
   } else {
     alert("Currently the tool only supports xml uploads.");
     throw new Error("Unsupported file type");

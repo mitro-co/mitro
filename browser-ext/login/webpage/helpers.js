@@ -72,7 +72,7 @@ function ExtensionHelper() {
     // That's why we're passing 'html/' as a suffix argument
     this.getURL = function(path) {
         return getURL(path, 'html/');
-    };;
+    };
     
     /**
      * This contains the set of dummy functions

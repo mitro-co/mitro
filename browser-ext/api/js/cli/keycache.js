@@ -48,7 +48,7 @@ else if(typeof(module) !== 'undefined' && module.exports) {
     _Worker = require('webworker-threads').Worker;
   } catch (e) {
     // failed to load webworkers; ignore if DISABLE_WEBWORKERS env var is set
-    if (!process.env['DISABLE_WEBWORKERS']) {
+    if (!process.env.DISABLE_WEBWORKERS) {
       throw e;
     }
   }

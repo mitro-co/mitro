@@ -43,7 +43,7 @@ var render = function (inputFile, outputFile, params) {
 };
 
 var loadTemplates = function (templates, params, callback) {
-    if (templates.length == 0) {
+    if (templates.length === 0) {
         callback(params);
     } else {
         var templatePath = templates.shift();
@@ -54,7 +54,7 @@ var loadTemplates = function (templates, params, callback) {
             loadTemplates(templates, params, callback);
         });
     }
-}
+};
 
 if (process.argv.length !== 4) {
     console.log('Usage: ' + process.argv[1] + ' input_file output_file');

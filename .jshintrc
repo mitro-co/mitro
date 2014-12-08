@@ -1,16 +1,22 @@
 {
-	"asi": true,
-	"eqnull": true,
-	"loopfunc": true,
-	"expr": true,
-	"funcscope": true,
-	"supernew": true,
-	"laxbreak": true,
-	"boss": true,
-	"laxcomma": true,
+	"asi": false,
+	"eqnull": false,
+	"loopfunc": false,
+	"expr": false,
+	"funcscope": false,
+	"supernew": false,
+	"laxbreak": false,
+	"boss": false,
+	"laxcomma": false,
 	"multistr": true,
-	"validthis": true,
-	"sub": true,
-	"shadow": true,
-	"evil": true
+	"validthis": false,
+	"sub": false,
+	"shadow": false,
+	"evil": true,
+	"globals": {
+		"self": false,
+		"importScripts": false
+		//"forge": false,
+		//"mitro": false
+	}
 }

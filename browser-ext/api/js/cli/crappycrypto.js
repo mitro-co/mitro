@@ -55,14 +55,14 @@ CryptoError.prototype = new Error();
 
 // Decent hash function
 var hash = function(s){
-  return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
+  return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a;},0);              
 };
 
 var MAX_VALUE = 100;
 
 function CrappyPublicKey(name){
 	this.publicKeyValue = 0;
-};
+}
 CrappyPublicKey.prototype.setKeyFromString= function(key) {
 	this.publicKeyValue = parseInt(key);
 };
@@ -89,7 +89,7 @@ CrappyPublicKey.prototype.verifySignedByMe = function(signedMessage) {
 CrappyPrivateKey.prototype = new CrappyPublicKey();
 CrappyPrivateKey.prototype.constructor=CrappyPrivateKey;
 function CrappyPrivateKey() { 
-};
+}
 
 CrappyPrivateKey.prototype.getPKValue=function(){ 
 	return MAX_VALUE - this.publicKeyValue;
@@ -181,13 +181,14 @@ function makePublicKey(encryptionPublic) {
 
 function loadFromJson(value, password) {
 	value = JSON.parse(value);
+	var key;
 
 	if (value.type == 'PRV' || value.type == 'PAS') {
 		if (value.type == 'PAS' && value.password != password) {
 			throw new CryptoError('Password does not match?');
 		}
 
-		var key = new CrappyPrivateKey();
+		key = new CrappyPrivateKey();
 		key.setKeyFromString(value.key);
 		return makePrivateKey(key);
 	} else if (value.type == 'PUB') {

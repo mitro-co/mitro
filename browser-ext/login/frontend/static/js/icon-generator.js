@@ -36,7 +36,7 @@ var replaceBlankImages;
         var colourSet = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf'];
         // Decent hash function from crappy crypto
         var hash = function(s){
-          return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
+          return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a;},0);              
         };
         var hashedValue = text ? Math.abs(parseInt(hash(text),10)) : 0;
         return colourSet[hashedValue % colourSet.length];

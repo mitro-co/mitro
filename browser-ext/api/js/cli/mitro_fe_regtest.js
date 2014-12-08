@@ -327,10 +327,10 @@ fe.initCacheFromFile('test_data/keys.cache');
               // assert.equal(rvalMap['58']['15'].name,'name1');
               // assert.equal(rvalMap['59']['15'], undefined);
 
-              assert.equal(rvalMap['orginfo-aaa1'].myOrgId, 6) // owner
+              assert.equal(rvalMap['orginfo-aaa1'].myOrgId, 6); // owner
 //              assert.equal(rvalMap['orginfo-aaa2'].myOrgId, 6) // member
-              assert.equal(rvalMap['orginfo-aaa3'].myOrgId, undefined) // nothing 
-              assert.equal(rvalMap['orginfo-aaa4'].myOrgId, 6) // owner
+              assert.equal(rvalMap['orginfo-aaa3'].myOrgId, undefined); // nothing 
+              assert.equal(rvalMap['orginfo-aaa4'].myOrgId, 6); // owner
               // assert.equal(rvalMap['orginfo-aaa1'].myOrgName, 'org1') // owner
               // assert.equal(rvalMap['orginfo-aaa2'].myOrgName, 'org1') // member
               // assert.equal(rvalMap['orginfo-aaa3'].myOrgName, undefined) // nothing 
