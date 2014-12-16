@@ -73,7 +73,7 @@ mitro.keycache.MakeKeyCache = function() {
   var popListener = null;
   var keyLimit = mitro.keycache.CACHE_TARGET;
   var keyLimitReachedCallback = null;
-
+  
   var cache = {
     size: function() {
       return keys.length;
