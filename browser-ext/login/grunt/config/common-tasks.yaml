@@ -32,16 +32,26 @@ hogan_static:
       src: "**/*"
       ext: .html
       dest: build/common/html
+makeJsResource:
+  files:
+    build/common/infobar_html.js: common/infobar.html
 copy:
   files:
     - expand: yes
       cwd: frontend/static
       src: "{css,img,fonts,html}/**/*"
       dest: build/common
+    - expand: yes
+      flatten: yes
+      src: common/<%= minifiedFiles %>
+      dest: build/common
+    - src: common/config/paths.json
+      dest: build/common/paths.json
 
 # define the "common" build task
 aliases:
   - closureCompiler:common
   - less:common
   - hogan_static:common
+  - makeJsResource:common
   - copy:common

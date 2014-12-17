@@ -1,3 +1,11 @@
+concat:
+  files:
+    build/webpage/release/data/config.js:
+      - build/common/config.release.js
+      - firefox/config/config.js
+    build/webpage/release/data/js/config.js:
+      - build/common/config.release.js
+      - firefox/config/config.js
 copy:
   files:
     - expand: yes
