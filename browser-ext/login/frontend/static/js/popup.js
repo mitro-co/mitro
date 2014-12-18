@@ -29,7 +29,10 @@ var INITIAL_FOCUS_REMOVE_TABINDEX_DELAY_MS = 750;
 // The popup width must match the width set in less/partials/variables.less
 // @total-popup-width: 290px;
 var POPUP_WIDTH = 290;
+// TODO: The popup has a width issue (). This is ONLY a temporary fix.
+var POPUP_TEMP_WIDTHFIX = 7;
 var SERVICES_PATH = 'secrets.html';
+
 
 // Safari does NOT reload the popup automatically when it's pressed.  this causes all kinds of strange issues to happen.
 // However, safari.application is not defined when the popup is loaded in a "normal" tab.
@@ -83,7 +86,7 @@ var updateLoginState = function () {
       }
       helper.tabs.create({url: helper.getURL('html/change-password.html' + hash)});
     } else {
-      if (($(window).width() > POPUP_WIDTH+7) && debugMode === false) { // Check to see if this in browser window, not popup
+      if (($(window).width() > POPUP_WIDTH+POPUP_TEMP_WIDTHFIX) && debugMode === false) { // Check to see if this in browser window, not popup
          // Redirect to services page if user is logged in and this is not inside the popup
         helper.setLocation(SERVICES_PATH);
       } else {
@@ -239,7 +242,7 @@ $(document).ready(function() {
   var $signUpBtn = $loggedOutPaneEl.find('.sign-up');
   var $remindAlertEl = $loginFormEl.find('#remind-alert');
 
-  if (($(window).width() > POPUP_WIDTH+7) && debugMode === false) {
+  if (($(window).width() > POPUP_WIDTH+POPUP_TEMP_WIDTHFIX) && debugMode === false) {
     // change the width of the wrap container to be the full size of the screen
     $wrapEl.addClass('web-wrap');
     $htmlEl.addClass('web');
