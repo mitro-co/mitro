@@ -1,0 +1,20 @@
+{{<open-access-template}}
+
+{{$includes}}
+  <script src="/js/querystring.js"></script>
+  <script src="/js/open-access.js"></script>
+{{/includes}}
+
+{{$content}}
+    <form class="signup-form light" action="/mitro-core/api/RecordEmail" method="POST">
+      <input type="text" name="fullName" placeholder="your full name"/>
+      <input type="text" name="email" placeholder="your email"/>
+      <input type="submit" value="Get Access"/>
+
+      <div class="hidden error-message">
+        Oops! Please check your name &amp; email and try again.
+      </div>
+    </form>
+{{/content}}
+
+{{/open-access-template}}

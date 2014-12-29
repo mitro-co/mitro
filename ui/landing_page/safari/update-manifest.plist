@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+   <key>Extension Updates</key>
+   <array>
+     <dict>
+       <key>CFBundleIdentifier</key>
+       <string>co.mitro.login</string>
+       <key>Developer Identifier</key>
+       <string>2JVEB8KWV2</string>
+       <key>CFBundleVersion</key>
+       <string>59</string>
+       <key>CFBundleShortVersionString</key>
+       <string>0.10.56</string>
+       <key>URL</key>
+       <string>https://www.mitro.co/safari/downloads/mitro-safari.safariextz</string>
+     </dict>
+   </array>
+</dict>
+</plist>

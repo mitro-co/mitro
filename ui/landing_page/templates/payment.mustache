@@ -1,0 +1,85 @@
+{{<primary-web-template}}
+
+{{$css-includes}}
+<link href="/css/payment.css" rel="stylesheet" media="all">
+{{/css-includes}}
+
+{{$js-includes}}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript" src="../js/jquery.payment.js"></script>
+<script type="text/javascript" src="../js/payment.js"></script>
+{{/js-includes}}
+
+{{$content}}
+
+<form method="POST" id="payment-form" action="/mitro-core/SubmitPayment">
+  <input type="hidden" name="customer_token">
+  <input type="hidden" name="cc_token">
+
+  <div class="plan-div">
+    <div class="plan-header">
+      <h2>Subscription</h2>
+      <div class="org-name">&nbsp;</div>
+    </div>
+
+    <div class="plan-details">
+      <div class="clear">
+        <span class="plan-label">Plan:</span>
+        <span class="plan-name"></span>
+      </div>
+      <div class="clear">
+        <span class="plan-label">Unit Cost:</span>
+        <span class="plan-unit-cost"></span>
+      </div>
+      <div class="clear">
+        <span class="plan-label">Users:</span>
+        <span class="org-users"></span>
+      </div>
+    </div>
+    <div><hr></div>
+
+    <div class="plan-footer">
+      <div class="plan-total">
+        <span class="plan-label">Total:</span>
+        <span class="total-cost"><strong></strong></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cc-div">
+    <span class="payment-errors"></span>
+
+    <div id="cc-number-field" class="form-row field">
+      <label>
+        <span>Card Number</span>
+        <input type="text" size="16" id="cc-number" data-stripe="number" autocompletetype="cc-number"/>
+      </label>
+      <div id="cc-number-error" class="error"></div>
+    </div>
+
+    <div id="cc-cvc-field" class="form-row field">
+      <label>
+        <span>CVC</span>
+        <input type="text" size="4" id="cc-cvc" data-stripe="cvc" autocomplete="off"/>
+      </label>
+      <div id="cc-cvc-error" class="error"></div>
+    </div>
+
+    <div id="cc-expiration-field" class="form-row field">
+      <label>
+        <span style="width: 100%; display: block">Expiration (MM/YYYY)</span>
+        <input type="text" size="2" maxlength="2" id="cc-month" data-stripe="exp-month"/>
+        <span class="separator"> / </span>
+        <input type="text" size="4" maxlength="4" id="cc-year" data-stripe="exp-year"/>
+      </label>
+      <div id="cc-expiration-error" class="error"></div>
+    </div>
+
+    <div class="form-row clear">
+      <button class="button" type="submit">Submit Payment</button>
+    </div>
+  </div>
+</form>
+
+{{/content}}
+{{/primary-web-template}}

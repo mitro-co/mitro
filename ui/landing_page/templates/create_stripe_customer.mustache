@@ -1,0 +1,16 @@
+{{<primary-web-template}}
+{{$includes}}
+{{/includes}}
+
+{{$content}}
+
+<form method="POST" action="/mitro-core/CreateCustomer" style="width: 300px">
+  <div class="field">
+    <input type="text" class="field" name="org_id">
+    <input type="password" class="field" name="password">
+  </div>
+  <input type="submit" class="button" value="Create">
+</form>
+
+{{/content}}
+{{/primary-web-template}}

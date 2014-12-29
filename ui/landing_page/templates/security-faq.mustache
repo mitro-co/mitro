@@ -1,0 +1,60 @@
+{{<primary-web-template}}
+{{$content}}
+		<!-- Banner -->
+        <div class="banner">
+                <h1 id="tutorial-title" class="title-main">Security FAQs for Experts</h1>
+        </div>
+        <div id="content-body">
+<!--General:-->
+            <div>
+            <p>
+                We have designed Mitro so your data remains secret as long as your password is secret. Anyone with access to our servers (either our staff or attackers) can only access encrypted data, and are forced to crack your password. However, we also want to make a product that non-experts can use, so we've had to make a few trade-offs between the ultra-secure paranoid solution and sharing passwords using email or shared documents, which is what most people do today. Here are the questions we typically get from security experts. Please <a href="mailto:security@mitro.co">email us at security@mitro.co</a> (<a href="/img/security_mitro_co.asc">PGP key</a>) if you have additional questions or comments.
+            </div>
+            <div>
+                <h3>Can crypto in the browser be trusted?</h3>
+                <p>Cryptography in JavaScript on a web page can only be trusted if you trust the server, which kind of obviates the purpose of client-side crypto. For example, <a href="http://nzkoz.github.io/MegaPWN/">MegaPWN</a> demonstrates how an attacker could get access to encryption keys if they added malicious JavaScript to <a href="https://mega.co.nz/">MEGA</a>'s web site. In effect, any XSS attack could steal secrets by injecting JavaScript. This is why Mitro's user interface is implemented in a browser extension. Your passphrase is sent to a <a href="http://developer.chrome.com/extensions/background_pages.html">background page</a> which performs all crypto operations, and has a limited interface so it never releases your private key. Background pages run in their own security context, so web pages cannot access them. Someone needs to do one of the following to get your key from your computer:</p>
+
+                <p><ul style="list-style-type: disc; padding-left: 40px;">
+                <li>Find an exploit in the browser's security model.</li>
+                <li>Get access to our Chrome web store account and upload a malicious version of our extension.</li>
+                <li>Run arbitrary code with access to your web browser.</li>
+                </ul></p>
+
+                <p>None of these things is impossible, but they are more difficult than finding an XSS bug or getting access to our web server. We believe this is the protection you would get from installing a native password manager with automatic update and synchronizing its data using a cloud service like Dropbox or Google Drive.</p>
+
+                <h3>Could a court order get access to my data?</h3>
+                <p>If Mitro were served a legitimate court order, we would first verify that we are required to comply with multiple lawyers. If we were legally required to turn over data, the data that we can provide is encrypted, and government officials would be forced to crack your password. It is theoretically possible that we could be required to add a "backdoor" (e.g. <a href="http://www.wired.com/threatlevel/2007/11/encrypted-e-mai/">Hushmail may have been required to do this in 2007</a>). In this case, the extension auto-update mechanism could deliver this "malicious" code, the same way the iOS, Android, and Mac app stores can. You can protect against this by disabling automatic updates for the extension. </p>
+
+                <h3>Why should I trust your implementation?</h3>
+                <p>Our team has built security services before, at previous jobs. However, we will admit that we are not full-time security experts, and we know it is easy to get this stuff wrong. That is why we got multiple experts to review our design before we built it, and hired a third-party security firm to audit our implementation. We will share more details about our design in the future, but if you are interested, please <a href="mailto:security@mitro.co">contact us</a> and we can share our detailed design document and a security report with you.</p>
+
+                <h3>How can I trust that I am sharing passwords with the correct person?</h3>
+                <p>When you share a password using Mitro, your client gets the public key associated with the destination email address from our server. The question is, does this public key belong to the person you intend, or it is an attacker's key? We verify that the user who generated the key has access to the email address they provided (they must click a link in an email with a randomly-generated nonce), so you have some assurance that you are getting better protection than emailing the password. However, there are two weaknesses. First, an attacker with access to our servers could replace friend@example.com's actual key with their own. Then, when you share a new secret or edit an existing shared secret, the attacker gets access. PGP solves this problem through a "<a href="http://www.gnupg.org/gph/en/manual.html#AEN554">web of trust</a>", and SSL solves it using trusted <a href="http://en.wikipedia.org/wiki/Certificate_authority">certificate authorities</a>. To mitigate this threat, a future version of Mitro will cache public keys that you've seen before, and warn you if they change (similar to SSH's host key change warnings). We are also adding an optional key verification step, so you can view and verify your friends' keys through another channel, like you would with PGP.</p>
+
+                <p>The second weakness is that when you invite a user who doesn't yet have an account, we generate a key for them, encrypt it with a random password, email them the password, then erase all traces of it from our server. Thus, there is a small time window where our servers have access to these new keys. To reduce the time where this key is valid, we will force invited users to generate a new key, and are planning on revising the UI to make it obvious when this will happen. In this case, you can choose to invite your friends to Mitro before you give them access to a secret.</p>
+
+                <h3>Can someone with access to my device steal my passwords?</h3>
+                <p>If you are logged in, a skilled attacker who can run code on your machine could steal the key from RAM, or possibly attack the crypto with side channel or timing attacks. However, they can also record keystrokes or network traffic, so they have easier ways to get your secrets. If you are not logged in and you don't check "remember me," your private key is never written to disk. An attacker can get your encrypted private key, but will then need to crack or steal your password. If you check "remember me", then an attacker can get your key and access your account. However, they will need to get the device decryption key from Mitro, which gives you a chance to revoke access by changing your password if a device is lost or stolen.</p>
+
+                <h3>What cryptographic algorithms and parameters are you are using?</h3>
+                <p>We use <a href="https://code.google.com/p/keyczar/">Google's Keyczar</a> on the server, and our <a href="http://labs.mitro.co/blog/2013/8/18/keyczar-js-google-keyczar-in-javascript">Keyczar JS</a> implementation on the browser. We are using the defaults that Google's security team selected:</p>
+
+                <p><ul style="list-style-type: disc; padding-left: 40px;">
+                <li>Master key is a 128-bit AES key derived using PBKDF2 (SHA-1; 50000 iterations; 16 salt bytes)</li>
+                <li>RSA with 2048-bit keys using OAEP-SHA1 (separate signing and encryption keys)</li>
+                <li>AES with 128-bit keys in CBC mode with PKCS7 padding</li>
+                <li>All encrypted data includes a MAC (HMAC-SHA1)</li>
+                </ul></p>
+
+                <h3>Why aren't you using 4096-bit keys, SHA-256, ECC, etc.?</h3>
+                <p>Experts believe that 2048-bit RSA keys are strong enough for at least a decade (e.g. <a href="http://csrc.nist.gov/publications/PubsSPs.html">NIST SP 800-57 Part 1 Section 5.6</a> states that 2048-bit keys acceptable for government use until 2030). Keyczar provides the tools we need to change the algorithm and length in the future, if the need arises. We use RSA because Keyczar does, but also because we like using widely understood crypto code and algorithms.</p>
+
+                <p>Keyczar currently uses SHA-1, which is being phased out due to weaknesses (e.g. See <a href="http://csrc.nist.gov/publications/PubsSPs.html">NIST SP 800-107 Section 5.2</a>). <a href="https://code.google.com/p/keyczar/issues/detail?id=17">Work is underway to upgrade Keyczar to support SHA-2 (e.g. SHA256)</a>. As soon as that happens, we will use it.</p>
+
+                <h3>I want to write my own client to store secrets in Mitro.</h3>
+                <p>Hey - that isn't a question, but we love your enthusiasm. We're working on a public API and an open-source client library in C which you'll be able to inspect and use for your own applications. Due to Mitro's design, you don't need to trust our servers (only your client) in order to know that your secrets are safe. Some of our customers are using this for automated, machine-level password management. Contact us if you'd like more information.</p>
+            </div>
+        </div>
+
+{{/content}}
+{{/primary-web-template}}

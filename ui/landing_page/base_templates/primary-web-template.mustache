@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <meta name="description" content="The easiest way to save and share passwords. Remember and share everything from web accounts, credit cards, 2-factor backup codes, security question answers, and WiFi passwords.">
+    <title>Mitro | The easiest way to save and share passwords</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+    </script>
+    <![endif]-->
+    {{> snippet-site-css}}
+    {{$css-includes}}{{/css-includes}}
+
+    {{> snippet-social}}
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div id="content">
+        {{> header-top-template}}
+        {{$content}}{{/content}}
+      </div>
+    </div>
+
+  {{> footer-basic-template}}
+
+  {{> install-js-includes}}
+  {{$js-includes}}{{/js-includes}}
+
+  {{> snippet-ga}}
+
+  {{> snippet-olark}}
+  
+  {{> snippet-fb-conversion}}
+
+  </body>
+</html>

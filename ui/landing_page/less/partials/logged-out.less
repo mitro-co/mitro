@@ -1,0 +1,231 @@
+#logged-out {
+
+  background-image: url(../img/login-diamonds-background.png);
+  background-position: center -10px;
+  background-repeat: no-repeat;
+  height: 100%;
+  padding: 20px 10px;
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  #tfa-code {
+
+    background-color: @brand-color;
+    display: none;
+    height: 100%;
+    left: 0;
+    padding: 40px 20px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    .field {
+      margin: 20px 0 15px;
+    }
+
+  }
+
+  #logo {
+    font-size: 55px;
+    height: 55px;
+    margin: 0 auto 20px;
+    width: 56px;
+  }
+
+  .sign-up {
+    border-bottom: solid 1px @off-white;
+    padding-bottom: 10px;
+    a {
+      font-family: @montserrat-regular;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  }
+
+  .error {
+    background-color: red;
+    .border-radius(3px);
+    color: #fff;
+    font-size: 10px;
+    .opacity(90);
+    margin: 10px 0 0;
+    padding: 4px;
+  }
+
+  .fields {
+    .field {
+      margin-top: 10px;
+      input {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      input::-ms-clear {
+        display: none;
+      }
+      input::-ms-reveal {
+        display: none;
+      }
+    }
+    &#tfa-code {
+      display: none;
+    }
+  }
+  .actions {
+    .clear;
+    margin-top: 10px;
+    .left {
+      float: left;
+      label {
+        .clear;
+        cursor: pointer;
+        display: block;
+        font-size: 13px;
+        margin-top: 11px;
+        .checkbox {
+          background-color: rgba(red(#203248), green(#203248), blue(#203248), 0.6);
+          border: solid 1px rgba(red(@text-light), green(@text-light), blue(@text-light), 0.6);
+          .border-radius(3px);
+          float: left;
+          height: 22px;
+          overflow: hidden;
+          width: 22px;
+          &.checked {
+            background-image: @sprite;
+            background-size: @sprite-background-size;
+            background-position: -48px -497px;
+          }
+          input {
+            margin-left: -99999px;
+          }
+        }
+        .label {
+          float: left;
+          margin: 2px 0 0 5px;
+        }
+        &:hover, &:focus {
+          .checkbox {
+            background-color: rgba(red(#203248), green(#203248), blue(#203248), 0.8);
+            border: solid 1px rgba(red(@off-white), green(@off-white), blue(@off-white), 0.8);
+          }
+        }
+      }
+    }
+
+    .right {
+      float: right;
+      width: 120px;
+      button {
+        width: 100%;
+      }
+    }
+
+  }
+
+  #remind-alert {
+    background-color: rgba(165, 13, 81, 0.6);
+    font-size: 13px;
+    font-style: italic;
+    line-height: 13px;
+    margin: 26px -20px -20px;
+    padding: 7px 20px 0;
+    text-align: left;
+    height: 44px;
+  }
+
+}
+
+
+/* web wrapper for extension panes inside browser window */
+&.web-wrap {
+  #logged-out {
+    background-image: none;
+    padding: 0px;
+    button, a.button {
+      font-family: @montserrat-bold;
+      line-height: 16px;
+      font-size: 16px;
+      letter-spacing: 3px;
+      padding: 14px 0px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    #logo {
+      height: auto;      
+    }
+    .sign-up {
+      border-bottom: none;
+      width: 250px;
+      margin: 20px auto;
+      position: relative;
+      text-align: left;
+      a {
+        margin-left: 15px;
+        text-decoration: underline;
+        font-family: @pt-sans-regular;
+        color: @text-light;
+        font-size: 16px;
+        text-transform: none;
+        letter-spacing: normal;
+      }
+    }
+    .error {
+      background-color: @quinary;
+      font-size: 12px;
+    }
+    .fields {
+      .field {
+        input {
+          background-color: white;
+          color: @text-dark;
+          .placeholder-color(@tertiary);
+          .border-radius(0px);
+          &:focus {
+            border: 1px solid @tertiary;
+          }
+        }
+      }
+    }
+    .actions {
+      margin-top: 5px;
+      .left {
+        float: none;
+      }
+      .right {
+        float: none;
+        width: 100%;
+        button {
+          margin-top: 15px;
+          background-color: @brand-color;
+          color: @text-light;
+          &:hover, &:focus {
+            .transition(background-color 100ms);
+            color: @text-light;
+            background-color: darken(@brand-color, 10%); 
+          }
+          &:active {
+            color: @text-light;
+            background-color: darken(@brand-color, 15%); 
+          }
+        }
+      }
+    }
+    #remind-alert {
+      background-color: @quinary;
+      color: @text-light;
+      margin: 20px auto 0px;
+      padding: 7px 20px 0;
+      text-align: center;
+    }
+
+    #tfa-code {
+      color: @text-light;
+      h1 {
+        font-size: 24px;
+      }
+    }
+
+  }
+}

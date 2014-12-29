@@ -1,0 +1,85 @@
+{{<primary-web-template}}
+{{$content}}
+<div class="banner">
+<h1>Location Autocomplete for Google Calendar&trade;</h1>
+</div>
+
+<div id="content-body-wrapper">
+    <div id="content-body">
+        <div class="row">
+            <div class="large-8">
+                <h3>What is Location Autocomplete?</h3>
+                <p>Mitro's Location Autocomplete is a Safari/Chrome extension (Firefox is hopefully coming soon) which autocompletes locations in the "Where" box of Google Calendar entries using <a href="http://www.foursquare.com"> Foursquare's venues API</a>.  If you like what we've done here, give our <a href="/"> login manager for teams</a> a try!
+                </p>
+                
+                <h3>How do I get it?</h3>
+                <p id="chrome-install" style="display:none"><button onclick="chrome.webstore.install('https://chrome.google.com/webstore/detail/kofcojkjfdobdmnijbkabkjijkdkpnla', function(){}, function(){})" id="install-button" class="button-light">Add to Chrome</button>
+                </p>
+
+                <div id="safari-install" style="display:none">
+                    <p><button onclick="window.location='/safari/downloads/autocomplete-safari-latest.safariextz'">Download Safari Extension.</button></p>
+                    <b>You should enable automatic updates for extensions as follows:</b>
+                    <p style="text-aligh: center;">
+                        <img width="800" src="/img/safari_enable_updates.png">
+                    </p>
+                </div>
+                <p id="other-install" style="display:none">
+                    Unfortunately, your browser is not yet supported. Use Chrome or Safari.
+                </p>
+
+                <h3>Why did you make this?</h3>
+                <p>
+                While building <a href="/">Mitro, a shared credential/password manager for teams,</a> we use Google Calendar to help coordinate everything form client meetings to <a href="/jobs.html">candidate interviews.</a> 
+                <br/>
+                We found we were constantly copying and pasting addresses from <a href="https://www.foursquare.com"> Foursquare</a> or <a href="https://maps.google.com">Google Maps.</a>  So we built this extension!
+                
+                </p>
+                <p style="text-align: center;"><img src="https://static.squarespace.com/static/511d2347e4b0bc0f6a782f48/t/511fdbcbe4b08a76158f51b1/1361042380675/screenshot_for_google.png?format=750w"></p>
+
+
+                <h3>Is something wrong?</h3>
+                <p>The <a href="https://github.com/mitro-co/gcal-autocomplete">code for Mitro Location Autocomplete for Google Calendar is on Github</a>; feel free to send a pull request.
+                Alternatively, email us at <a href="mailto:inbound@mitro.co">inbound@mitro.co</a> and we'll try to get back to you soon.
+                </p>
+                                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/content}}
+
+{{$js-includes}}
+<script>
+    $(function() {
+        // Copied from jquery since it was removed in jquery 1.9.
+        var getBrowser = function () {
+          var ua = navigator.userAgent.toLowerCase();
+
+          var match = /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
+            /(safari)[ \/]([\w.]+)/.exec( ua ) ||
+            /(opera)(?:.*version|)[ \/]([\w.]+)/.exec( ua ) ||
+            /(msie) ([\w.]+)/.exec( ua ) ||
+            /(firefox)[ \/]([\w.]+)/.exec( ua ) ||
+            ua.indexOf("compatible") < 0 && /(mozilla)(?:.*? rv:([\w.]+)|)/.exec( ua ) ||
+            [];
+
+          return {
+            browser: match[ 1 ] || "",
+            version: match[ 2 ] || "0"
+          };
+        };
+        var browser = getBrowser();
+        if (browser.browser === 'chrome') {
+            $('#chrome-install').show();
+        } else if (browser.browser === 'safari') {
+            $('#safari-install').show();
+        }  else {
+            $('#other-install').show();
+        }
+    });
+</script>
+{{/js-includes}}
+
+{{/primary-web-template}}
+

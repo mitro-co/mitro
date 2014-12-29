@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata></metadata>
+<defs>
+<font id="mitro-diamond" horiz-adv-x="500" >
+<font-face units-per-em="1000" ascent="750" descent="-250" />
+<missing-glyph horiz-adv-x="500" />
+<glyph unicode=" " />
+<glyph unicode="!" d="M254 80l-206 296l206 296l193 -296l-193 -296v0z" />
+<glyph unicode="A" d="M418 332l-164 -252l-180 259l46 -46l67 66l63 -61l51 52l-62 62l11 10l62 -63l57 58l-119 119l-185 -184l-17 24l206 296l193 -296l-15 -23l-53 53l-129 -129l-63 62l-57 -57l120 -119zM418 332l14 21l4 -3zM65 352l9 -13l-11 11z" />
+<glyph unicode="&#x2013;" d="M0 350l244 350l228 -350l-228 -350zM301 350l-51 -52l-63 61l-46 -45q7 -4 13 -8l33 33l63 -62l129 129l53 -53q8 12 15 23l-193 296l-206 -296q12 -9 23 -18l179 178l119 -119l-57 -58l-62 63l-11 -10zM371 285q-24 -14 -86 -13q-67 2 -119 28q-5 3 -12 6l-24 -24 l120 -119zM141 314q-32 18 -70 44l-8 -8l57 -57zM414 327q1 2 2 3l-45 -45l4 2q22 17 39 40zM432 353q-8 -11 -16 -23l20 20z" />
+<glyph unicode="&#x2014;" d="M418 332l-164 -252l-180 259l46 -46l67 66l63 -61l51 52l-62 62l11 10l62 -63l57 58l-119 119l-185 -184l-17 24l206 296l193 -296l-15 -23l-53 53l-129 -129l-63 62l-57 -57l120 -119zM418 332l14 21l4 -3zM65 352l9 -13l-11 11z" />
+<glyph unicode="&#x201d;" d="M244 0l-244 350l244 350l228 -350z" />
+<glyph unicode="&#x2022;" d="M244 0l-244 350l244 350l228 -350z" />
+<glyph unicode="&#x25fc;" d="M0 0v0v0v0v0z" />
+<glyph d="M418 332l-164 -252l-180 259l46 -46l67 66l63 -61l51 52l-62 62l11 10l62 -63l57 58l-119 119l-185 -184l-17 24l206 296l193 -296l-15 -23l-53 53l-129 -129l-63 62l-57 -57l120 -119zM418 332l14 21l4 -3zM65 352l9 -13l-11 11z" />
+</font>
+</defs></svg>

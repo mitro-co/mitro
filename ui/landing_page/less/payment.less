@@ -1,0 +1,118 @@
+#payment-form {
+  width: 960px;
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 50px 0;
+
+  .form-row {
+    margin-top: 15px;
+  }
+
+  input,
+  button {
+    font-size: 16px;
+  }
+
+  .plan-div {
+    float: left;
+    width: 500px;
+    height: 267px;
+    background-color: rgba(12, 37, 79, 0.1);
+    border-radius: 5px;
+    margin-right: 40px;
+    overflow:hidden;
+
+    div {
+      line-height: 28px;
+      font-size: 18px;
+    }
+
+    .plan-label {
+      width: 120px;
+      float: left;
+      font-weight: bold;
+      font-size: 16px;
+      font-family: 'Montserrat-Regular';
+      line-height: 28px;
+    }
+
+    .plan-total {
+      font-size: 24px;
+    }
+
+    .plan-total .plan-label {
+      font-size: 20px;
+      line-height: 30px;
+    }
+
+    .plan-header {
+      border-radius-top-left: 5px;
+      border-radius-top-right: 5px;
+      background-color: rgba(12, 37, 79, 0.5);
+      padding: 10px 20px;
+      h2 {
+        font-weight: bold;
+      } 
+
+      .org-name {
+        font-size: 18px;
+        color: rgba(19, 215, 236, 1.0);
+      }
+    }
+
+    .plan-details {
+      padding: 15px 20px;
+    }
+
+    hr {
+      margin: 0px 20px;
+    }
+
+    .plan-footer {
+      padding: 17px 20px 20px;
+    }
+  }
+
+  .cc-div {
+    float: left;
+    width: 360px;
+    background-color: rgba(12, 37, 79, 0.5);
+    padding: 10px 30px 20px 30px;
+    border-radius: 5px;
+  }
+
+  #cc-cvc-field {
+    float: left;
+    width: 30%;
+  }
+
+  #cc-expiration-field {
+    float: left;
+    width: 70%;
+    padding-left: 30px;
+  }
+
+  #cc-year,
+  #cc-month {
+    width: 40%;
+  }
+
+  #cc-year {
+    float: right; 
+  }
+
+  .separator {
+    margin-left: 10px;
+  }
+
+  .button {
+    font-weight: bold;
+    margin-top: 25px;
+    text-transform: uppercase;
+  }
+
+  .error {
+    color: #ff3;
+  }
+}

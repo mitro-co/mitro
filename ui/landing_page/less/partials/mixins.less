@@ -1,0 +1,42 @@
+// truncate text with ellipsis
+// .truncate;
+
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// filter
+// .grayscale;
+
+.grayscale {
+  filter: url(../svg/filters.svg#grayscale);
+  filter: gray;
+  -webkit-filter: grayscale(1);
+}
+
+// font smoothing
+// .font-smoothing;
+
+.font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+// vertical center alignment
+// .vertical-center;
+
+.vertical-center {
+  display: table;
+  height: 100%;
+  width: 100%;
+  .vertical-center-wrapper {
+    display: table-cell;
+    *display: inline-block;
+    vertical-align: middle;
+    .vertical-center-container {
+      /* empty */
+    }
+  }
+}

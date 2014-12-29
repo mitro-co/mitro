@@ -1,0 +1,86 @@
+/*general styles */
+body {font-size: 16px; color: #4c5961; background: #eee;}
+a { outline: none; color: #24abf8;}
+.link a {text-decoration: underline;}
+.link a:hover {text-decoration: none;}
+a:focus {outline: none;}
+h1 {font-size: 20px;}
+h2 {font-size: 20px; font-weight: normal;margin-bottom: 30px;}
+.relative {position: relative;}
+.mr20 {margin-right: 20px;}
+
+
+/* overwrite bootstrap classes */
+.form-control {border-radius: 0;height: 40px;border: solid 1px #e1e2e3;}
+.form-group {margin-bottom: 13px;}
+.has-success .form-control {background: url(../img/download-icons.png) no-repeat right -102px;border-color: #468847!important;}
+.has-error .form-control {background: url(../img/download-icons.png) no-repeat right -54px; border-color: #ee9595!important;}
+.form-control { -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.075),0 0 0 #ee9595!important;
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.075),0 0 0 #ee9595!important;}
+
+/* progress bar */
+.progress {height: 9px;box-shadow: none;background-color: #e8ebed; margin-bottom: 0;}
+.progress-bar-danger {background-color: #e24343;}
+.progress-bar-success {background-color: #20c71c;}
+.progress-msg {font-size: 14px;font-weight: bold;}
+.text-danger {color: #e24343;}
+.text-success {color: #20c71c;}
+
+
+/*icons */
+.ico {background: url(../img/download-icons.png) no-repeat; width: 20px; height: 18px; display: inline-block;position: relative;top: 3px;}
+.ico-beta {background-position: 0 0; position: absolute;top: -8px;right: -10px;width: 43px;}
+
+/*buttons */
+.btn {border: none;font-size: 20px;padding: 15px 44px;}
+.btn-primary {background: #24abf8;}
+.btn-primary:hover {background: #3d96da;}
+
+
+
+/* forms */
+input[type=checkbox].css-checkbox { position: absolute; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0;border:0;}
+input[type=checkbox].css-checkbox + label.css-label { padding-left:22px; display:inline-block; 
+    cursor:pointer; background: url(../img/download-icons.png) no-repeat 0 -204px; line-height: 20px; font-weight: normal; margin-bottom: 0;}
+input[type=checkbox].css-checkbox:checked + label.css-label { background-position: 0 -224px;}
+
+.checkbox {margin-top: 20px;padding-left: 0;}
+
+label {font-size: 14px;}
+label a {text-decoration: underline; font-weight: normal;display: inline-block;height: 22px;}
+.form-group.col {width: 202px;}
+
+/* header */
+.navbar {background: #4c5961; border-radius: 0; height: 44px;}
+.navbar-brand {padding: 0 20px;}
+
+/* main content */
+.rocket {position: absolute; bottom: 0; right: 0; width: 408px; height: 241px; display: block; background: url(../img/bkg.png) no-repeat;}
+.main {margin: 80px auto; width: 485px;}
+
+.panel {background-color: #fbfcfd; text-align: center; border: none;}
+.panel .btn {margin-bottom: 20px; margin-top: 10px; position: relative;}
+.panel .text {margin-bottom: 50px;}
+.panel .link, .panel .link-text {font-size: 14px;}
+.chrome .btn, .ff .btn {margin-top: -30px;}
+
+.panel .item {float: left; text-align: center; width: 33.3%; font-size: 16px;margin-bottom: 50px;}
+.panel .name {font-weight: bold; margin-top: 10px;}
+.panel .img {height: 80px;}
+
+.panel-register {text-align: left;}
+.panel-register .panel-heading {background: #44a9f8; color: #fff; font-size: 26px; font-weight: bold; padding: 13px 30px;}
+.panel-register .panel-body {padding: 30px;}
+.panel-register .panel-footer {padding: 15px 25px; background: #fff; }
+.panel-register .panel-footer .btn {margin: 0; padding: 10px 27px; font-size: 18px;}
+.panel-register .form-control {height: 32px;}
+
+.val-box {position: absolute;background: #4c5961; padding: 15px;color: #e3e4e5; font-size: 12px;left: -262px;top: -1px; width: 240px;}
+.val-box h3 {color: #fff; font-size: 16px;margin: 0 0 10px;}
+.val-box ul {margin: 0;padding: 0;}
+.val-box li {list-style: none; background: url(../img/download-icons.png) no-repeat 0 -76px; margin-bottom: 6px; padding-left: 30px; line-height: 18px;}
+.val-box li.selected {background-position: 0 -37px;}
+.val-box .arrow {position: absolute; width: 20px; height: 20px; background: url(../img/download-icons.png) no-repeat 0 -124px;top: 34px;right: -19px;z-index: 100;}
+
+.val-alert {background: #e24343; right: -262px; left: inherit; color: #f7d3d3; font-size: 14px;}
+.val-alert .arrow {background-position: 0 -164px; right: initial; left: -9px;}

@@ -1,0 +1,139 @@
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The easiest way to save and share passwords. Remember and share everything from web accounts, credit cards, 2-factor backup codes, security question answers, and WiFi passwords.">
+    <title>Mitro</title>
+
+    <!--[if lte IE 8]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" /> -->
+    <link href="../less/main-org.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header"></div>
+      <div id="wrapper">
+        <div id="sidebar">
+          <div class="sb-section" id="profile">
+            <a href="https://www.mitro.co" class="icon-logo"></a>
+            <div id="username">username</div>
+          </div>
+          <div class="sb-section" id="acct-nav">
+            <div class="acct">
+              <div class="acct-name">
+                <div class="acct-type icon-user"></div>Personal
+              </div>
+              <div class="acct-info">
+                  <div class="acct-secrets"><div class="nav-icon icon-vault"></div>Secrets</div>
+                  <div class="acct-teams"><div class="nav-icon icon-vault2"></div>Teams</div>
+                  <div class="acct-logs"><div class="nav-icon icon-bars"></div>Audit Logs</div>
+              </div>
+            </div>
+            <div class="acct selected">
+              <div class="acct-name">
+                <div class="acct-type icon-users"></div>Lectorius
+              </div>
+              <div class="acct-info">
+                  <a class="acct-secrets" href="main-org.html"><div class="nav-icon icon-vault"></div>Secrets</a>
+                  <a class="acct-members selected" href="org-members.html"><div class="nav-icon icon-usercircle"></div>Members</a>
+                  <a class="acct-teams" href="org-teams.html"><div class="nav-icon icon-vault2"></div>Teams</a>
+                  <a class="acct-logs" href="org-logs.html"><div class="nav-icon icon-bars"></div>Audit Logs</a>
+              </div>
+            </div>
+            <div class="acct">
+              <div class="acct-name">
+                <div class="acct-type icon-users"></div>Essence Digital
+              </div>
+              <div class="acct-info">
+                  <div class="acct-secrets"><div class="nav-icon icon-vault"></div>Secrets</div>
+                  <div class="acct-teams"></div>
+                  <div class="acct-logs"></div>
+              </div>
+            </div>
+            <div class="acct">
+              <div class="acct-name">
+                <div class="acct-type icon-users"></div>Stack Exchange
+              </div>
+              <div class="acct-info">
+                  <div class="acct-secrets"><div class="nav-icon icon-vault"></div>Secrets</div>
+                  <div class="acct-teams"></div>
+                  <div class="acct-logs"></div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-section" id="tool-nav">
+            <ul>
+              <li><div class="nav-icon icon-download"></div>Import Secrets</li>
+              <li><div class="nav-icon icon-wrench"></div>Tools</li>
+              <li><div class="nav-icon icon-gear"></div>Settings</li>
+              <li><div class="nav-icon icon-bubble"></div>Feedback</li>
+              <li><div class="nav-icon icon-question"></div>Help</li>
+              <li><div class="nav-icon icon-switch"></div>Sign Out</li>
+            </ul>
+          </div>
+        </div>
+        <div id="content">
+          <div id="content-header">
+            <div class="nav-icon icon-usercircle"></div>
+            <ul class="breadcrumb">
+              <li><a href="org-members.html">Members</a></li>
+              <li>Invite Members</li>
+            </ul>
+          </div>
+          <div id="content-body">
+            <div id="tabs">
+              <div id="tab-secrets">
+              </div> <!-- /#tab-secrets-->
+              <div id="tab-members">
+                <div class="tab-section">
+                  <form id="invite-members-form">
+                    <div class="form-group">
+                      <label>Emails of Members to Invite (comma separate multiple emails)</label>
+                      <input type="text" name="emails" placeholder="Emails">
+                    </div>
+                    <div class="form-group">
+                      <label>Message</label>
+                      <textarea name="message" placeholder="Message to invite member to Lectorius" rows="10"></textarea>
+                    </div>
+                    <button type="reset"><a href="org-members.html">Cancel</a></button>
+                    <button type="submit">Send Invites</button>
+                  </form>
+                </div>
+              </div> <!-- /#tab-members -->
+              <div id="tab-teams">
+              </div> <!-- /#tab-teams -->
+              <div id="tab-logs">
+              </div> <!-- /#tab-logs -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script>
+      $(function() {
+        $('#tabs').tabs();
+      });
+      $(document).ready(function() {
+        $('a[href="#tab-members"]').click();
+        $('a[href="#tab-members"]').click(function() {
+          window.location.href = 'org-members.html';
+        });
+        $('a[href="#tab-teams"]').click(function() {
+          window.location.href = 'org-teams.html';
+        });
+        $('a[href="#tab-logs"]').click(function() {
+          window.location.href = 'org-logs.html';
+        });
+        $('a[href="#tab-secrets"]').click(function() {
+          window.location.href = 'main-org.html';
+        });
+      });
+    </script>
+  </body>
+</html>

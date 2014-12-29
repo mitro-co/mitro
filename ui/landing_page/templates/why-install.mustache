@@ -1,0 +1,38 @@
+{{<basic-web-template}}
+
+{{$header}}
+    {{<header-basic-template}}
+    {{$header-title}}Wait!  Before you go...{{/header-title}}
+    {{/header-basic-template}}
+{{/header}}
+
+{{$content}}
+    <div class="simple-wide-container">
+        <h2>Why do I need to install an extension?</h2>
+        <div id="install-info">
+	        <div class="pull-left">
+	        	<img id="screenshot" src="/img/screenshot-extension.png">
+	        </div>
+	        <div class="pull-right">
+		        <p>Mitro helps you manage and share your passwords easily and securely.  Our browser extension asks to save your passwords when you log in to websites and will automatically log you in during your next visit, so you don't have to memorize or type in your passwords all the time.<p>
+		        <ul class="bulleted">
+		        	<li>Securely share your accounts with others</li>
+		        	<li>Works on multiple devices. Access your passwords anywhere</li>
+		        	<li>Save secure notes, for secrets like locker combinations</li>
+		        	<li>Protected with strong encryption on your computer</li>
+		        </ul>
+		    </div>
+	   	</div>
+        <a class="button install-extension" onclick="_gaq.push(['_trackEvent', 'Extension', 'Install', 'Why Install Page']);">
+          Install Mitro
+        </a>
+
+        <span id="report-install-issue">Have a problem installing the extension?  <a href="mailto:inbound@mitro.co" onclick="_gaq.push(['_trackEvent', 'Outbound', 'Click', 'mailto:inbound@mitro.co']);">Contact us!</a></span>
+    </div>
+{{/content}}
+
+{{$js-includes}}
+	{{> install-js-includes}}
+{{/js-includes}}
+
+{{/basic-web-template}}

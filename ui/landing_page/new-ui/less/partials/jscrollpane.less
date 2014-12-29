@@ -1,0 +1,110 @@
+.jspContainer {
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane {
+	position: absolute;
+}
+
+.jspVerticalBar,
+.jspHorizontalBar {
+	* {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.jspVerticalBar {
+	height: 100%;
+	position: absolute;
+	right: 0px;
+	top: 0;
+	.transition(width 100ms ease-in);
+	width: 5px;
+	&:hover {
+		width: 10px;
+		.jspTrack {
+			background-color: rgba(0, 0, 0, 0.05);
+		}
+		.jspDrag {
+			background-color: rgba(0, 0, 0, 0.2);
+		}
+	}
+}
+
+.jspHorizontalBar {
+	bottom: 0;
+	height: 5px;
+	left: 0;
+	position: absolute;
+	width: 100%;
+	.jspCap {
+		float: left;
+	}
+}
+
+.jspCap {
+	display: none;
+}
+
+.jspTrack {
+	position: relative;
+}
+
+.jspDrag {
+	background-color: rgba(0, 0, 0, 0.1);
+	// .border-radius(50px);
+	cursor: pointer;
+	left: 0;
+	position: relative;
+	top: 0;
+}
+
+.jspHorizontalBar {
+	.jspTrack,
+	.jspDrag {
+		float: left;
+		height: 100%;
+	}
+}
+
+.jspArrow {
+	background: #50506d;
+	cursor: pointer;
+	display: block;
+	text-indent: -20000px;
+	&.jspDisabled {
+		cursor: default;
+		background: #80808d;
+	}
+}
+
+.jspVerticalBar {
+	.jspArrow {
+		height: 5px;
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+.jspHorizontalBar {
+	.jspArrow {
+		float: left;
+		height: 100%;
+		width: 5px;
+	}
+}
+
+.jspCorner {
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+
+// hack for IE6 3 pixel bug
+
+* html .jspCorner {
+	margin: 0 -3px 0 0;
+}

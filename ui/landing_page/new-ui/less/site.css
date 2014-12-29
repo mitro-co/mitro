@@ -1,0 +1,1817 @@
+@font-face {
+  font-family: 'Mitro-Diamond';
+  src: url('../fonts/diamond.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PT-Sans-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/PTS55F-webfont.eot');
+  src: url('../fonts/PTS55F-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/PTS55F-webfont.woff') format('woff'), url('../fonts/PTS55F-webfont.ttf') format('truetype'), url('../fonts/PTS55F-webfont.svg#pt_sansregular') format('svg');
+}
+@font-face {
+  font-family: 'PT-Sans-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/PTS55F-webfont.eot');
+  src: url('../fonts/PTS55F-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/PTS55F-webfont.woff') format('woff'), url('../fonts/PTS55F-webfont.ttf') format('truetype'), url('../fonts/PTS55F-webfont.svg#pt_sansregular') format('svg');
+}
+@font-face {
+  font-family: 'Montserrat-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat-Regular'), url('../fonts/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Montserrat-Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat-Bold'), url('../fonts/Montserrat-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot?v83v18');
+  src: url('../fonts/icomoon.eot?#iefixv83v18') format('embedded-opentype'), url('../fonts/icomoon.woff?v83v18') format('woff'), url('../fonts/icomoon.ttf?v83v18') format('truetype'), url('../fonts/icomoon.svg?v83v18#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'mitro-icons';
+  src: url('fonts/mitro-icons.eot');
+}
+@font-face {
+  font-family: 'mitro-icons';
+  src: url(data:application/x-font-ttf;charset=utf-8;base64,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) format('truetype'), url(data:application/font-woff;charset=utf-8;base64,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) format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[class*="mitro-icon-"] {
+  font-family: 'mitro-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-crosslarge:before {
+  content: "\e600";
+}
+.icon-vault:before {
+  content: "\e60b";
+}
+.icon-arrowright:before {
+  content: "\e616";
+}
+.icon-arrowleft:before {
+  content: "\e615";
+}
+.icon-add:before {
+  content: "\e614";
+}
+.icon-users:before {
+  content: "\e613";
+}
+.icon-list:before {
+  content: "\e612";
+}
+.icon-safari:before {
+  content: "\e611";
+}
+.icon-chrome:before {
+  content: "\e610";
+}
+.icon-firefox:before {
+  content: "\e60f";
+}
+.icon-link:before {
+  content: "\e60e";
+}
+.icon-document:before {
+  content: "\e60d";
+}
+.icon-vault2:before {
+  content: "\e60c";
+}
+.icon-gear:before {
+  content: "\e60a";
+}
+.icon-cross:before {
+  content: "\e609";
+}
+.icon-check:before {
+  content: "\e608";
+}
+.icon-refresh:before {
+  content: "\e607";
+}
+.icon-logomini:before {
+  content: "\e606";
+}
+.icon-edit:before {
+  content: "\e605";
+}
+.icon-search:before {
+  content: "\e604";
+}
+.icon-invite:before {
+  content: "\e603";
+}
+.icon-logo:before {
+  content: "\e602";
+}
+.icon-minus:before {
+  content: "\e601";
+}
+.icon-info:before {
+  content: "\e619";
+}
+.icon-infosolo:before {
+  content: "\e618";
+}
+.icon-invitesolo:before {
+  content: "\e617";
+}
+.icon-usercircle:before {
+  content: "\e61a";
+}
+.icon-user:before {
+  content: "\e61b";
+}
+.icon-gplus:before {
+  content: "\e61e";
+}
+.icon-facebook:before {
+  content: "\e61d";
+}
+.icon-twitter:before {
+  content: "\e61c";
+}
+.icon-connect:before {
+  content: "\e620";
+}
+.icon-timer:before {
+  content: "\e61f";
+}
+.icon-lock:before {
+  content: "\e621";
+}
+.icon-earth:before {
+  content: "\e622";
+}
+.icon-home:before {
+  content: "\e626";
+}
+.icon-bullhorn:before {
+  content: "\e627";
+}
+.icon-download:before {
+  content: "\e632";
+}
+.icon-bubble:before {
+  content: "\e628";
+}
+.icon-user2:before {
+  content: "\e629";
+}
+.icon-wrench:before {
+  content: "\e62a";
+}
+.icon-bars:before {
+  content: "\e62c";
+}
+.icon-remove:before {
+  content: "\e631";
+}
+.icon-switch:before {
+  content: "\e62d";
+}
+.icon-eye:before {
+  content: "\e623";
+}
+.icon-eye-blocked:before {
+  content: "\e625";
+}
+.icon-bookmark:before {
+  content: "\e62f";
+}
+.icon-question:before {
+  content: "\e630";
+}
+.icon-close:before {
+  content: "\e62b";
+}
+.icon-checkmark:before {
+  content: "\e62e";
+}
+.icon-enter:before {
+  content: "\e624";
+}
+.mitro-icon-vault-2:before {
+  content: "\e600";
+}
+.mitro-icon-vault-1:before {
+  content: "\e601";
+}
+.mitro-icon-firefox:before {
+  content: "\e602";
+}
+.mitro-icon-edit:before {
+  content: "\e603";
+}
+.mitro-icon-document:before {
+  content: "\e604";
+}
+.mitro-icon-users:before {
+  content: "\e605";
+}
+.mitro-icon-search:before {
+  content: "\e606";
+}
+.mitro-icon-cross:before {
+  content: "\e607";
+}
+.mitro-icon-chrome:before {
+  content: "\e608";
+}
+.mitro-icon-check:before {
+  content: "\e609";
+}
+.mitro-icon-safari:before {
+  content: "\e60a";
+}
+.mitro-icon-refresh:before {
+  content: "\e60b";
+}
+.mitro-icon-logo-mini:before {
+  content: "\e60c";
+}
+.mitro-icon-logo:before {
+  content: "\e60d";
+}
+.mitro-icon-list:before {
+  content: "\e60e";
+}
+.mitro-icon-link:before {
+  content: "\e60f";
+}
+.mitro-icon-invite:before {
+  content: "\e610";
+}
+.mitro-icon-gear:before {
+  content: "\e611";
+}
+.mitro-icon-arrow-left:before {
+  content: "\e612";
+}
+.mitro-icon-arrow-right:before {
+  content: "\e613";
+}
+.mitro-icon-add:before {
+  content: "\e614";
+}
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.grayscale {
+  filter: url(../svg/filters.svg#grayscale);
+  filter: gray;
+  -webkit-filter: grayscale(1);
+}
+.font-smoothing {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+.vertical-center {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.vertical-center .vertical-center-wrapper {
+  display: table-cell;
+  *display: inline-block;
+  vertical-align: middle;
+}
+.vertical-center .vertical-center-wrapper .vertical-center-container {
+  /* empty */
+
+}
+.clear {
+  *zoom: 1;
+}
+.clear:before,
+.clear:after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.clear:after {
+  clear: both;
+}
+.container,
+.row {
+  *zoom: 1;
+}
+.container:before,
+.row:before,
+.container:after,
+.row:after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.container:after,
+.row:after {
+  clear: both;
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 940px;
+}
+.row {
+  margin-left: -20px;
+}
+[class*="span"] {
+  float: left;
+  margin-left: 20px;
+}
+.span1 {
+  width: 60px;
+}
+.span2 {
+  width: 140px;
+}
+.span3 {
+  width: 220px;
+}
+.span4 {
+  width: 300px;
+}
+.span5 {
+  width: 380px;
+}
+.span6 {
+  width: 460px;
+}
+.span7 {
+  width: 540px;
+}
+.span8 {
+  width: 620px;
+}
+.span9 {
+  width: 700px;
+}
+.span10 {
+  width: 780px;
+}
+.span11 {
+  width: 860px;
+}
+.span12 {
+  width: 940px;
+}
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
+.hidden {
+  display: none;
+}
+.button {
+  background-color: rgba(238, 243, 247, 0.8);
+  border: none;
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #203248;
+  cursor: pointer;
+  display: block;
+  font-family: 'PT-Sans-Regular';
+  font-size: 13px;
+  padding: 0;
+  text-decoration: none;
+  width: 100%;
+  height: 42px;
+  line-height: 42px;
+}
+.button:hover,
+.button:focus {
+  background-color: #eef3f7;
+}
+.button:active {
+  background-color: rgba(238, 243, 247, 0.95);
+  box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2);
+}
+.button.compact {
+  font-size: 11px;
+  height: 24px;
+  line-height: 24px;
+}
+#logged-out .field,
+[data-pane="settings"] .field,
+[data-pane="generate-password"] .field,
+#payment-form .field {
+  position: relative;
+}
+#logged-out .field .icon,
+[data-pane="settings"] .field .icon,
+[data-pane="generate-password"] .field .icon,
+#payment-form .field .icon {
+  background-image: url(../img/sprite@2x.png);
+  display: block;
+  height: 13px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@x)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  width: 13px;
+}
+#logged-out .field.error .icon,
+[data-pane="settings"] .field.error .icon,
+[data-pane="generate-password"] .field.error .icon,
+#payment-form .field.error .icon,
+#logged-out .field.success .icon,
+[data-pane="settings"] .field.success .icon,
+[data-pane="generate-password"] .field.success .icon,
+#payment-form .field.success .icon {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@x)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+}
+#logged-out .field.error input[type="text"],
+[data-pane="settings"] .field.error input[type="text"],
+[data-pane="generate-password"] .field.error input[type="text"],
+#payment-form .field.error input[type="text"],
+#logged-out .field.error input[type="email"],
+[data-pane="settings"] .field.error input[type="email"],
+[data-pane="generate-password"] .field.error input[type="email"],
+#payment-form .field.error input[type="email"],
+#logged-out .field.error input[type="password"],
+[data-pane="settings"] .field.error input[type="password"],
+[data-pane="generate-password"] .field.error input[type="password"],
+#payment-form .field.error input[type="password"] {
+  background-color: rgba(165, 13, 81, 0.6);
+}
+#logged-out .field.error .icon,
+[data-pane="settings"] .field.error .icon,
+[data-pane="generate-password"] .field.error .icon,
+#payment-form .field.error .icon {
+  background-position: -50px -628px;
+}
+#logged-out .field.success .icon,
+[data-pane="settings"] .field.success .icon,
+[data-pane="generate-password"] .field.success .icon,
+#payment-form .field.success .icon {
+  background-position: -50px -565px;
+}
+#logged-out .field input[type="text"],
+[data-pane="settings"] .field input[type="text"],
+[data-pane="generate-password"] .field input[type="text"],
+#payment-form .field input[type="text"],
+#logged-out .field input[type="email"],
+[data-pane="settings"] .field input[type="email"],
+[data-pane="generate-password"] .field input[type="email"],
+#payment-form .field input[type="email"],
+#logged-out .field input[type="password"],
+[data-pane="settings"] .field input[type="password"],
+[data-pane="generate-password"] .field input[type="password"],
+#payment-form .field input[type="password"] {
+  background-color: rgba(32, 50, 72, 0.6);
+  border: solid 1px rgba(238, 243, 247, 0.6);
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #eef3f7;
+  padding: 0;
+  text-align: center;
+  height: 44px;
+  width: 100%;
+}
+#logged-out .field input[type="text"]::input-placeholder,
+[data-pane="settings"] .field input[type="text"]::input-placeholder,
+[data-pane="generate-password"] .field input[type="text"]::input-placeholder,
+#payment-form .field input[type="text"]::input-placeholder,
+#logged-out .field input[type="email"]::input-placeholder,
+[data-pane="settings"] .field input[type="email"]::input-placeholder,
+[data-pane="generate-password"] .field input[type="email"]::input-placeholder,
+#payment-form .field input[type="email"]::input-placeholder,
+#logged-out .field input[type="password"]::input-placeholder,
+[data-pane="settings"] .field input[type="password"]::input-placeholder,
+[data-pane="generate-password"] .field input[type="password"]::input-placeholder,
+#payment-form .field input[type="password"]::input-placeholder {
+  color: rgba(238, 243, 247, 0.6);
+}
+#logged-out .field input[type="text"]::-webkit-input-placeholder,
+[data-pane="settings"] .field input[type="text"]::-webkit-input-placeholder,
+[data-pane="generate-password"] .field input[type="text"]::-webkit-input-placeholder,
+#payment-form .field input[type="text"]::-webkit-input-placeholder,
+#logged-out .field input[type="email"]::-webkit-input-placeholder,
+[data-pane="settings"] .field input[type="email"]::-webkit-input-placeholder,
+[data-pane="generate-password"] .field input[type="email"]::-webkit-input-placeholder,
+#payment-form .field input[type="email"]::-webkit-input-placeholder,
+#logged-out .field input[type="password"]::-webkit-input-placeholder,
+[data-pane="settings"] .field input[type="password"]::-webkit-input-placeholder,
+[data-pane="generate-password"] .field input[type="password"]::-webkit-input-placeholder,
+#payment-form .field input[type="password"]::-webkit-input-placeholder {
+  color: rgba(238, 243, 247, 0.6);
+}
+#logged-out .field input[type="text"]:-moz-placeholder,
+[data-pane="settings"] .field input[type="text"]:-moz-placeholder,
+[data-pane="generate-password"] .field input[type="text"]:-moz-placeholder,
+#payment-form .field input[type="text"]:-moz-placeholder,
+#logged-out .field input[type="email"]:-moz-placeholder,
+[data-pane="settings"] .field input[type="email"]:-moz-placeholder,
+[data-pane="generate-password"] .field input[type="email"]:-moz-placeholder,
+#payment-form .field input[type="email"]:-moz-placeholder,
+#logged-out .field input[type="password"]:-moz-placeholder,
+[data-pane="settings"] .field input[type="password"]:-moz-placeholder,
+[data-pane="generate-password"] .field input[type="password"]:-moz-placeholder,
+#payment-form .field input[type="password"]:-moz-placeholder {
+  color: rgba(238, 243, 247, 0.6);
+}
+#logged-out .field input[type="text"]::-moz-placeholder,
+[data-pane="settings"] .field input[type="text"]::-moz-placeholder,
+[data-pane="generate-password"] .field input[type="text"]::-moz-placeholder,
+#payment-form .field input[type="text"]::-moz-placeholder,
+#logged-out .field input[type="email"]::-moz-placeholder,
+[data-pane="settings"] .field input[type="email"]::-moz-placeholder,
+[data-pane="generate-password"] .field input[type="email"]::-moz-placeholder,
+#payment-form .field input[type="email"]::-moz-placeholder,
+#logged-out .field input[type="password"]::-moz-placeholder,
+[data-pane="settings"] .field input[type="password"]::-moz-placeholder,
+[data-pane="generate-password"] .field input[type="password"]::-moz-placeholder,
+#payment-form .field input[type="password"]::-moz-placeholder {
+  color: rgba(238, 243, 247, 0.6);
+}
+#logged-out .field input[type="text"]:-ms-input-placeholder,
+[data-pane="settings"] .field input[type="text"]:-ms-input-placeholder,
+[data-pane="generate-password"] .field input[type="text"]:-ms-input-placeholder,
+#payment-form .field input[type="text"]:-ms-input-placeholder,
+#logged-out .field input[type="email"]:-ms-input-placeholder,
+[data-pane="settings"] .field input[type="email"]:-ms-input-placeholder,
+[data-pane="generate-password"] .field input[type="email"]:-ms-input-placeholder,
+#payment-form .field input[type="email"]:-ms-input-placeholder,
+#logged-out .field input[type="password"]:-ms-input-placeholder,
+[data-pane="settings"] .field input[type="password"]:-ms-input-placeholder,
+[data-pane="generate-password"] .field input[type="password"]:-ms-input-placeholder,
+#payment-form .field input[type="password"]:-ms-input-placeholder {
+  color: rgba(238, 243, 247, 0.6);
+}
+#logged-out .field input[type="text"]:focus::input-placeholder,
+[data-pane="settings"] .field input[type="text"]:focus::input-placeholder,
+[data-pane="generate-password"] .field input[type="text"]:focus::input-placeholder,
+#payment-form .field input[type="text"]:focus::input-placeholder,
+#logged-out .field input[type="email"]:focus::input-placeholder,
+[data-pane="settings"] .field input[type="email"]:focus::input-placeholder,
+[data-pane="generate-password"] .field input[type="email"]:focus::input-placeholder,
+#payment-form .field input[type="email"]:focus::input-placeholder,
+#logged-out .field input[type="password"]:focus::input-placeholder,
+[data-pane="settings"] .field input[type="password"]:focus::input-placeholder,
+[data-pane="generate-password"] .field input[type="password"]:focus::input-placeholder,
+#payment-form .field input[type="password"]:focus::input-placeholder,
+#logged-out .field input[type="text"].focused::input-placeholder,
+[data-pane="settings"] .field input[type="text"].focused::input-placeholder,
+[data-pane="generate-password"] .field input[type="text"].focused::input-placeholder,
+#payment-form .field input[type="text"].focused::input-placeholder,
+#logged-out .field input[type="email"].focused::input-placeholder,
+[data-pane="settings"] .field input[type="email"].focused::input-placeholder,
+[data-pane="generate-password"] .field input[type="email"].focused::input-placeholder,
+#payment-form .field input[type="email"].focused::input-placeholder,
+#logged-out .field input[type="password"].focused::input-placeholder,
+[data-pane="settings"] .field input[type="password"].focused::input-placeholder,
+[data-pane="generate-password"] .field input[type="password"].focused::input-placeholder,
+#payment-form .field input[type="password"].focused::input-placeholder {
+  color: transparent;
+}
+#logged-out .field input[type="text"]:focus::-webkit-input-placeholder,
+[data-pane="settings"] .field input[type="text"]:focus::-webkit-input-placeholder,
+[data-pane="generate-password"] .field input[type="text"]:focus::-webkit-input-placeholder,
+#payment-form .field input[type="text"]:focus::-webkit-input-placeholder,
+#logged-out .field input[type="email"]:focus::-webkit-input-placeholder,
+[data-pane="settings"] .field input[type="email"]:focus::-webkit-input-placeholder,
+[data-pane="generate-password"] .field input[type="email"]:focus::-webkit-input-placeholder,
+#payment-form .field input[type="email"]:focus::-webkit-input-placeholder,
+#logged-out .field input[type="password"]:focus::-webkit-input-placeholder,
+[data-pane="settings"] .field input[type="password"]:focus::-webkit-input-placeholder,
+[data-pane="generate-password"] .field input[type="password"]:focus::-webkit-input-placeholder,
+#payment-form .field input[type="password"]:focus::-webkit-input-placeholder,
+#logged-out .field input[type="text"].focused::-webkit-input-placeholder,
+[data-pane="settings"] .field input[type="text"].focused::-webkit-input-placeholder,
+[data-pane="generate-password"] .field input[type="text"].focused::-webkit-input-placeholder,
+#payment-form .field input[type="text"].focused::-webkit-input-placeholder,
+#logged-out .field input[type="email"].focused::-webkit-input-placeholder,
+[data-pane="settings"] .field input[type="email"].focused::-webkit-input-placeholder,
+[data-pane="generate-password"] .field input[type="email"].focused::-webkit-input-placeholder,
+#payment-form .field input[type="email"].focused::-webkit-input-placeholder,
+#logged-out .field input[type="password"].focused::-webkit-input-placeholder,
+[data-pane="settings"] .field input[type="password"].focused::-webkit-input-placeholder,
+[data-pane="generate-password"] .field input[type="password"].focused::-webkit-input-placeholder,
+#payment-form .field input[type="password"].focused::-webkit-input-placeholder {
+  color: transparent;
+}
+#logged-out .field input[type="text"]:focus:-moz-placeholder,
+[data-pane="settings"] .field input[type="text"]:focus:-moz-placeholder,
+[data-pane="generate-password"] .field input[type="text"]:focus:-moz-placeholder,
+#payment-form .field input[type="text"]:focus:-moz-placeholder,
+#logged-out .field input[type="email"]:focus:-moz-placeholder,
+[data-pane="settings"] .field input[type="email"]:focus:-moz-placeholder,
+[data-pane="generate-password"] .field input[type="email"]:focus:-moz-placeholder,
+#payment-form .field input[type="email"]:focus:-moz-placeholder,
+#logged-out .field input[type="password"]:focus:-moz-placeholder,
+[data-pane="settings"] .field input[type="password"]:focus:-moz-placeholder,
+[data-pane="generate-password"] .field input[type="password"]:focus:-moz-placeholder,
+#payment-form .field input[type="password"]:focus:-moz-placeholder,
+#logged-out .field input[type="text"].focused:-moz-placeholder,
+[data-pane="settings"] .field input[type="text"].focused:-moz-placeholder,
+[data-pane="generate-password"] .field input[type="text"].focused:-moz-placeholder,
+#payment-form .field input[type="text"].focused:-moz-placeholder,
+#logged-out .field input[type="email"].focused:-moz-placeholder,
+[data-pane="settings"] .field input[type="email"].focused:-moz-placeholder,
+[data-pane="generate-password"] .field input[type="email"].focused:-moz-placeholder,
+#payment-form .field input[type="email"].focused:-moz-placeholder,
+#logged-out .field input[type="password"].focused:-moz-placeholder,
+[data-pane="settings"] .field input[type="password"].focused:-moz-placeholder,
+[data-pane="generate-password"] .field input[type="password"].focused:-moz-placeholder,
+#payment-form .field input[type="password"].focused:-moz-placeholder {
+  color: transparent;
+}
+#logged-out .field input[type="text"]:focus::-moz-placeholder,
+[data-pane="settings"] .field input[type="text"]:focus::-moz-placeholder,
+[data-pane="generate-password"] .field input[type="text"]:focus::-moz-placeholder,
+#payment-form .field input[type="text"]:focus::-moz-placeholder,
+#logged-out .field input[type="email"]:focus::-moz-placeholder,
+[data-pane="settings"] .field input[type="email"]:focus::-moz-placeholder,
+[data-pane="generate-password"] .field input[type="email"]:focus::-moz-placeholder,
+#payment-form .field input[type="email"]:focus::-moz-placeholder,
+#logged-out .field input[type="password"]:focus::-moz-placeholder,
+[data-pane="settings"] .field input[type="password"]:focus::-moz-placeholder,
+[data-pane="generate-password"] .field input[type="password"]:focus::-moz-placeholder,
+#payment-form .field input[type="password"]:focus::-moz-placeholder,
+#logged-out .field input[type="text"].focused::-moz-placeholder,
+[data-pane="settings"] .field input[type="text"].focused::-moz-placeholder,
+[data-pane="generate-password"] .field input[type="text"].focused::-moz-placeholder,
+#payment-form .field input[type="text"].focused::-moz-placeholder,
+#logged-out .field input[type="email"].focused::-moz-placeholder,
+[data-pane="settings"] .field input[type="email"].focused::-moz-placeholder,
+[data-pane="generate-password"] .field input[type="email"].focused::-moz-placeholder,
+#payment-form .field input[type="email"].focused::-moz-placeholder,
+#logged-out .field input[type="password"].focused::-moz-placeholder,
+[data-pane="settings"] .field input[type="password"].focused::-moz-placeholder,
+[data-pane="generate-password"] .field input[type="password"].focused::-moz-placeholder,
+#payment-form .field input[type="password"].focused::-moz-placeholder {
+  color: transparent;
+}
+#logged-out .field input[type="text"]:focus:-ms-input-placeholder,
+[data-pane="settings"] .field input[type="text"]:focus:-ms-input-placeholder,
+[data-pane="generate-password"] .field input[type="text"]:focus:-ms-input-placeholder,
+#payment-form .field input[type="text"]:focus:-ms-input-placeholder,
+#logged-out .field input[type="email"]:focus:-ms-input-placeholder,
+[data-pane="settings"] .field input[type="email"]:focus:-ms-input-placeholder,
+[data-pane="generate-password"] .field input[type="email"]:focus:-ms-input-placeholder,
+#payment-form .field input[type="email"]:focus:-ms-input-placeholder,
+#logged-out .field input[type="password"]:focus:-ms-input-placeholder,
+[data-pane="settings"] .field input[type="password"]:focus:-ms-input-placeholder,
+[data-pane="generate-password"] .field input[type="password"]:focus:-ms-input-placeholder,
+#payment-form .field input[type="password"]:focus:-ms-input-placeholder,
+#logged-out .field input[type="text"].focused:-ms-input-placeholder,
+[data-pane="settings"] .field input[type="text"].focused:-ms-input-placeholder,
+[data-pane="generate-password"] .field input[type="text"].focused:-ms-input-placeholder,
+#payment-form .field input[type="text"].focused:-ms-input-placeholder,
+#logged-out .field input[type="email"].focused:-ms-input-placeholder,
+[data-pane="settings"] .field input[type="email"].focused:-ms-input-placeholder,
+[data-pane="generate-password"] .field input[type="email"].focused:-ms-input-placeholder,
+#payment-form .field input[type="email"].focused:-ms-input-placeholder,
+#logged-out .field input[type="password"].focused:-ms-input-placeholder,
+[data-pane="settings"] .field input[type="password"].focused:-ms-input-placeholder,
+[data-pane="generate-password"] .field input[type="password"].focused:-ms-input-placeholder,
+#payment-form .field input[type="password"].focused:-ms-input-placeholder {
+  color: transparent;
+}
+#logged-out .field input[type="text"][type="password"],
+[data-pane="settings"] .field input[type="text"][type="password"],
+[data-pane="generate-password"] .field input[type="text"][type="password"],
+#payment-form .field input[type="text"][type="password"],
+#logged-out .field input[type="email"][type="password"],
+[data-pane="settings"] .field input[type="email"][type="password"],
+[data-pane="generate-password"] .field input[type="email"][type="password"],
+#payment-form .field input[type="email"][type="password"],
+#logged-out .field input[type="password"][type="password"],
+[data-pane="settings"] .field input[type="password"][type="password"],
+[data-pane="generate-password"] .field input[type="password"][type="password"],
+#payment-form .field input[type="password"][type="password"] {
+  font-family: 'Mitro-Diamond';
+  font-size: 16px;
+}
+#logged-out .field input[type="text"].compact,
+[data-pane="settings"] .field input[type="text"].compact,
+[data-pane="generate-password"] .field input[type="text"].compact,
+#payment-form .field input[type="text"].compact,
+#logged-out .field input[type="email"].compact,
+[data-pane="settings"] .field input[type="email"].compact,
+[data-pane="generate-password"] .field input[type="email"].compact,
+#payment-form .field input[type="email"].compact,
+#logged-out .field input[type="password"].compact,
+[data-pane="settings"] .field input[type="password"].compact,
+[data-pane="generate-password"] .field input[type="password"].compact,
+#payment-form .field input[type="password"].compact {
+  font-size: 11px;
+  padding: 5px;
+}
+#logged-out input[type="password"],
+[data-pane="settings"] input[type="password"],
+[data-pane="generate-password"] input[type="password"],
+#payment-form input[type="password"] {
+  font-family: verdana, geneva, sans-serif;
+  font-weight: bold;
+}
+#logged-out input[type="password"]::input-placeholder,
+[data-pane="settings"] input[type="password"]::input-placeholder,
+[data-pane="generate-password"] input[type="password"]::input-placeholder,
+#payment-form input[type="password"]::input-placeholder {
+  font-family: 'PT-Sans-Regular';
+  font-size: 13px;
+  font-weight: normal;
+}
+#logged-out input[type="password"]::-webkit-input-placeholder,
+[data-pane="settings"] input[type="password"]::-webkit-input-placeholder,
+[data-pane="generate-password"] input[type="password"]::-webkit-input-placeholder,
+#payment-form input[type="password"]::-webkit-input-placeholder {
+  font-family: 'PT-Sans-Regular';
+  font-size: 13px;
+  font-weight: normal;
+}
+#logged-out input[type="password"]:-moz-placeholder,
+[data-pane="settings"] input[type="password"]:-moz-placeholder,
+[data-pane="generate-password"] input[type="password"]:-moz-placeholder,
+#payment-form input[type="password"]:-moz-placeholder {
+  font-family: 'PT-Sans-Regular';
+  font-size: 13px;
+  font-weight: normal;
+}
+#logged-out input[type="password"]::-moz-placeholder,
+[data-pane="settings"] input[type="password"]::-moz-placeholder,
+[data-pane="generate-password"] input[type="password"]::-moz-placeholder,
+#payment-form input[type="password"]::-moz-placeholder {
+  font-family: 'PT-Sans-Regular';
+  font-size: 13px;
+  font-weight: normal;
+}
+#logged-out input[type="password"]:-ms-input-placeholder,
+[data-pane="settings"] input[type="password"]:-ms-input-placeholder,
+[data-pane="generate-password"] input[type="password"]:-ms-input-placeholder,
+#payment-form input[type="password"]:-ms-input-placeholder {
+  font-family: 'PT-Sans-Regular';
+  font-size: 13px;
+  font-weight: normal;
+}
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  line-height: normal;
+  margin: 0;
+  outline: none;
+  padding: 0;
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+html {
+  background: url(../img/bg2.png) no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+body {
+  color: #eef3f7;
+  font-family: 'PT-Sans-Regular';
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  min-height: 100%;
+  width: 100%;
+}
+a,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Montserrat-Regular';
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+p {
+  line-height: 1.6em;
+  margin-bottom: 1.25em;
+}
+p.error-msg {
+  margin: 20px;
+  color: red;
+}
+ul {
+  list-style-type: none;
+  margin-bottom: 1.25em;
+}
+ul li {
+  line-height: 1.5em;
+}
+ul.links {
+  font-size: 20px;
+}
+ul.links li {
+  margin: 15px 0px;
+}
+ul.bulleted {
+  margin: 15px 0px 15px 40px;
+  list-style-type: disc;
+  text-align: left;
+}
+ul.bulleted li {
+  margin: 5px 0px;
+}
+ol li {
+  text-align: justify;
+  line-height: 2em;
+}
+/* Form styles */
+input {
+  width: 100%;
+  height: 45px;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 0px 15px;
+  margin: 5px 0px;
+  text-align: center;
+  border: none;
+  font-family: 'PT-Sans-Regular';
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+input:focus {
+  border: 1px solid #b0bac4;
+}
+input[type="password"] {
+  font-family: 'Mitro-Diamond';
+  font-size: 20px;
+}
+input[type="password"]::input-placeholder {
+  font-family: 'PT-Sans-Regular';
+  font-size: 16px;
+  font-weight: lighter;
+}
+input[type="password"]::-webkit-input-placeholder {
+  font-family: 'PT-Sans-Regular';
+  font-size: 16px;
+  font-weight: lighter;
+}
+input[type="password"]:-moz-placeholder {
+  font-family: 'PT-Sans-Regular';
+  font-size: 16px;
+  font-weight: lighter;
+}
+input[type="password"]::-moz-placeholder {
+  font-family: 'PT-Sans-Regular';
+  font-size: 16px;
+  font-weight: lighter;
+}
+input[type="password"]:-ms-input-placeholder {
+  font-family: 'PT-Sans-Regular';
+  font-size: 16px;
+  font-weight: lighter;
+}
+textarea {
+  border: none;
+  width: 100%;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 10px 15px;
+  margin: 5px 0px;
+}
+select {
+  width: 100%;
+  margin: 5px 0px;
+}
+/* Button styles */
+button,
+a.button {
+  background-color: #1d96a4;
+  font-family: 'Montserrat-Bold';
+  color: #eef3f7;
+  cursor: pointer;
+  line-height: 16px;
+  font-size: 16px;
+  letter-spacing: 3px;
+  margin-top: 10px;
+  padding: 14px 0px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  border: none;
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  display: block;
+}
+button:hover,
+a.button:hover,
+button:focus,
+a.button:focus {
+  -webkit-transition: background-color 100ms;
+  -moz-transition: background-color 100ms;
+  -o-transition: background-color 100ms;
+  -ms-transition: background-color 100ms;
+  transition: background-color 100ms;
+  color: #eef3f7;
+  background-color: #156e79;
+}
+button:active,
+a.button:active {
+  color: #eef3f7;
+  background-color: #125b63;
+}
+button.button-light,
+a.button.button-light {
+  background-color: rgba(217, 226, 232, 0.9);
+  color: rgba(91, 110, 131, 0.8);
+}
+button.button-light:hover,
+a.button.button-light:hover {
+  -webkit-transition: background-color 100ms;
+  -moz-transition: background-color 100ms;
+  -o-transition: background-color 100ms;
+  -ms-transition: background-color 100ms;
+  transition: background-color 100ms;
+  background-color: #d9e2e8;
+  color: #5b6e83;
+}
+button.button-dark,
+a.button.button-dark {
+  background-color: #156e79;
+  color: #eef3f7;
+}
+button.button-dark:hover,
+a.button.button-dark:hover {
+  -webkit-transition: background-color 100ms;
+  -moz-transition: background-color 100ms;
+  -o-transition: background-color 100ms;
+  -ms-transition: background-color 100ms;
+  transition: background-color 100ms;
+  background-color: #125b63;
+  color: #eef3f7;
+}
+button.button-sm,
+a.button.button-sm {
+  width: 120px;
+  line-height: 12px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 10px 0px;
+  height: 30px;
+}
+button.button-med,
+a.button.button-med {
+  width: 180px;
+  line-height: 14px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 12px 0px;
+  height: 36px;
+}
+button.button-lg,
+a.button.button-lg {
+  width: 250px;
+  line-height: 14px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 14px 0px;
+  height: 40px;
+}
+button.install-extension,
+a.button.install-extension {
+  border: 2px #eef3f7 solid;
+  color: #fff;
+  background-color: rgba(12, 37, 79, 0.4);
+  font-family: 'Montserrat-Regular';
+  letter-spacing: 2px;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 35px 40px;
+  width: 380px;
+  height: auto;
+  margin: 45px auto;
+}
+button.install-extension:hover,
+a.button.install-extension:hover {
+  -webkit-transition: background-color 100ms;
+  -moz-transition: background-color 100ms;
+  -o-transition: background-color 100ms;
+  -ms-transition: background-color 100ms;
+  transition: background-color 100ms;
+  background-color: #0c254f;
+  cursor: pointer;
+}
+/* Text Styles */
+.hero {
+  font-size: 24px;
+}
+/* Custom checkbox (with Mitro icon) */
+.checkbox {
+  background-color: white;
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  width: 25px;
+  height: 25px;
+}
+.checkbox input[type="checkbox"] {
+  margin-left: -99999px;
+}
+.checkbox:focus {
+  border: 1px solid rgba(33, 50, 71, 0.5) !important;
+}
+.checkbox.checked {
+  border: 1px solid rgba(33, 50, 71, 0.2);
+}
+.checkbox.checked .checkbox-icon {
+  margin-top: 3px;
+}
+/* Alert div */
+.alert-box {
+  background-color: #a31451;
+  font-size: 16px;
+  padding: 8px 12px;
+  font-style: italic;
+  text-align: center;
+  color: #ffffff;
+}
+/* Box with arrow */
+.arrow-box {
+  position: absolute;
+  background: #213247;
+  padding: 15px;
+  color: #eef3f7;
+  font-size: 14px;
+  width: 240px;
+}
+.arrow-box h3 {
+  color: #fff;
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+.arrow-box ul {
+  margin: 0;
+  padding: 0;
+}
+.arrow-box ul li {
+  list-style: none;
+  background: url(../img/signup-icons.png) no-repeat 0 -76px;
+  margin-bottom: 6px;
+  padding-left: 30px;
+  line-height: 18px;
+  text-align: left;
+}
+.arrow-box ul li.selected {
+  background-position: 0 -37px;
+}
+.arrow-box.arrow-box-alert {
+  background: #a31451;
+  color: #ffffff;
+}
+.arrow-box.arrow-box-alert .arrow-left {
+  border-right: 12px solid #a31451;
+}
+.arrow-box.arrow-box-alert .arrow-right {
+  border-left: 12px solid #a31451;
+}
+.arrow-box .arrow-left {
+  position: absolute;
+  left: -12px;
+  top: 22px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-right: 12px solid #213247;
+}
+.arrow-box .arrow-right {
+  position: absolute;
+  right: -12px;
+  top: 22px;
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 12px solid #213247;
+}
+/* progress bar */
+#progress {
+  margin: 5px 0px 10px;
+  display: none;
+}
+.progress {
+  height: 10px;
+  overflow: hidden;
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background-color: rgba(176, 186, 196, 0.3);
+}
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: #b0bac4;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width 0.6s ease;
+  -moz-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  -ms-transition: width 0.6s ease;
+  transition: width 0.6s ease;
+}
+.progress-msg {
+  font-size: 14px;
+  text-align: left;
+}
+body {
+  height: 100%;
+}
+body #wrap {
+  min-height: 100%;
+  margin-bottom: -47px;
+}
+body #wrap:after {
+  content: "";
+  display: block;
+  height: 80px;
+}
+body #wrap #content {
+  padding-top: 60px;
+}
+body #wrap #content .banner {
+  text-align: center;
+  padding: 30px 0px;
+  background-color: rgba(10, 65, 94, 0.3);
+}
+body #wrap #content .banner h1 {
+  font-size: 32px;
+}
+body #wrap #content #content-body {
+  text-align: left;
+  width: 80%;
+  margin: 30px auto;
+}
+body #wrap #content #content-body h2 {
+  margin-bottom: 5px;
+}
+body #wrap #content #content-body a {
+  text-decoration: underline;
+}
+body #wrap #content #content-body a.button {
+  text-decoration: none;
+  margin: 0px auto;
+}
+body #wrap #content .bordered-content {
+  margin-top: 30px;
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background-color: #ffffff;
+  padding: 25px;
+  color: #5b6e83;
+}
+body #wrap #content .bordered-content h2 {
+  margin-bottom: 25px;
+}
+body #wrap #content .bordered-content h2 img {
+  margin: 0px 15px;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 6px;
+}
+body #wrap #content .bordered-content p {
+  text-align: left;
+  margin-top: 12px;
+}
+body #wrap #content .bordered-content button {
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border: 2px #5c6e82 solid;
+  color: #fff;
+  background-color: rgba(12, 37, 79, 0.7);
+  font-family: 'Montserrat-Regular';
+  letter-spacing: 2px;
+  font-size: 14px;
+  padding: 5px 10px;
+  width: 200px;
+  text-transform: uppercase;
+}
+body #wrap #content .bordered-content button:hover {
+  -webkit-transition: background-color 100ms;
+  -moz-transition: background-color 100ms;
+  -o-transition: background-color 100ms;
+  -ms-transition: background-color 100ms;
+  transition: background-color 100ms;
+  background-color: #0c254f;
+  cursor: pointer;
+}
+body #wrap #content .bordered-content ol {
+  margin: 0px 20px;
+}
+body #wrap #content .bordered-content ol li img {
+  display: block;
+}
+body #wrap #content .bordered-content input {
+  display: block;
+  border: 1px #5b6e83 solid;
+  color: #5b6e83;
+  font-size: 20px;
+  width: 198px;
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  height: 100%;
+  padding: 5px 15px;
+  margin: 10px 0px 20px;
+}
+body #wrap #content .bordered-content input::input-placeholder {
+  color: rgba(91, 110, 131, 0.6);
+}
+body #wrap #content .bordered-content input::-webkit-input-placeholder {
+  color: rgba(91, 110, 131, 0.6);
+}
+body #wrap #content .bordered-content input:-moz-placeholder {
+  color: rgba(91, 110, 131, 0.6);
+}
+body #wrap #content .bordered-content input::-moz-placeholder {
+  color: rgba(91, 110, 131, 0.6);
+}
+body #wrap #content .bordered-content input:-ms-input-placeholder {
+  color: rgba(91, 110, 131, 0.6);
+}
+body #wrap #content #two-factor {
+  padding: 20px;
+  width: 65%;
+  margin: 0 auto;
+}
+body #wrap #content #two-factor em {
+  display: block;
+  margin: 10px;
+}
+body #wrap #content #two-factor #qrcode {
+  margin: 1em;
+  height: 15em;
+}
+body #wrap #content form.centered {
+  margin: 20px auto 20px;
+}
+body #wrap #content form.centered p {
+  text-align: center;
+}
+body #wrap #content form.centered input {
+  margin: 10px auto 20px;
+}
+header.top-header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  background-color: #0a415e;
+  *zoom: 1;
+  height: 60px;
+}
+header.top-header:before,
+header.top-header:after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+header.top-header:after {
+  clear: both;
+}
+header.top-header .icon-logo {
+  font-size: 36px;
+  margin: 10px 40px;
+  float: left;
+}
+header.top-header #tagline {
+  font-size: 14px;
+  margin: 20px 0px;
+  float: left;
+}
+header.top-header .btn-sm {
+  float: right;
+  margin: 14px 16px;
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border: 2px #eef3f7 solid;
+  color: #fff;
+  background-color: rgba(12, 37, 79, 0.3);
+  font-family: 'Montserrat-Regular';
+  letter-spacing: 2px;
+  font-size: 14px;
+  padding: 5px 10px;
+  width: 250px;
+  text-transform: uppercase;
+}
+header.top-header .btn-sm:hover {
+  -webkit-transition: background-color 100ms;
+  -moz-transition: background-color 100ms;
+  -o-transition: background-color 100ms;
+  -ms-transition: background-color 100ms;
+  transition: background-color 100ms;
+  background-color: #0c254f;
+  cursor: pointer;
+}
+header.top-header .btn-sm span {
+  font-style: italic;
+  text-transform: none;
+  font-family: 'PT-Sans-Regular';
+  letter-spacing: 0px;
+}
+header.simple-header {
+  padding-top: 70px;
+}
+header.simple-header #logo {
+  width: 120px;
+  margin: 0px auto 30px;
+  font-size: 72px;
+  display: block;
+}
+header.simple-header h1 {
+  font-size: 32px;
+}
+footer {
+  position: relative;
+  background-color: rgba(12, 37, 79, 0.5);
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  color: rgba(19, 215, 236, 0.7);
+  *zoom: 1;
+}
+footer:before,
+footer:after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+footer:after {
+  clear: both;
+}
+footer a:hover {
+  cursor: pointer;
+  color: #13d7ec;
+}
+footer nav {
+  float: left;
+  padding: 16px 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Montserrat-Regular';
+  font-size: 12px;
+}
+footer nav a {
+  margin: 0px 12px;
+}
+footer #social {
+  padding: 12px 25px 8px;
+}
+footer #social li {
+  margin: 0px 10px;
+}
+.basic-form-container {
+  width: 456px;
+  margin: 15px auto;
+  padding: 6px;
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  background-color: rgba(33, 50, 71, 0.2);
+}
+.basic-form-container form {
+  width: 100%;
+  padding: 30px 40px;
+  background-color: #eef3f7;
+  color: #5b6e83;
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  position: relative;
+}
+.basic-form-container form .form-group label {
+  display: none;
+}
+.simple-container {
+  width: 500px;
+  margin: 50px auto 0px;
+}
+.simple-container .button {
+  margin: 0px auto;
+}
+.simple-wide-container {
+  width: 80%;
+  margin: 50px auto 0px;
+}
+/* Signup Page & Change Password Form */
+#signup-form input[type="email"],
+#change-password-form input[type="email"],
+#signup-form #old-password,
+#change-password-form #old-password {
+  margin-bottom: 15px;
+}
+#signup-form #show-password,
+#change-password-form #show-password {
+  position: absolute;
+  right: -25px;
+  top: 20px;
+  font-size: 18px;
+  color: rgba(91, 110, 131, 0.5);
+}
+#signup-form #show-password:hover,
+#change-password-form #show-password:hover {
+  color: #5b6e83;
+}
+#signup-form .form-group,
+#change-password-form .form-group {
+  position: relative;
+}
+#signup-form .form-group label[for="remember-me"],
+#change-password-form .form-group label[for="remember-me"] {
+  display: block;
+  position: absolute;
+  top: 2px;
+  right: 225px;
+}
+#signup-form .checkbox,
+#change-password-form .checkbox {
+  margin-bottom: 5px;
+}
+#signup-form .checkbox .checkbox-icon,
+#change-password-form .checkbox .checkbox-icon {
+  display: none;
+}
+#signup-form #password-hints-box,
+#change-password-form #password-hints-box {
+  display: none;
+  left: -270px;
+  top: 0px;
+}
+#signup-form #remember-password-alert,
+#change-password-form #remember-password-alert {
+  display: none;
+  right: -270px;
+  top: 0px;
+}
+#signup-form #remember-me,
+#change-password-form #remember-me {
+  margin-top: 5px;
+}
+#signup-form #remember-me #remember-me-icon,
+#change-password-form #remember-me #remember-me-icon {
+  display: none;
+}
+#signup-form #remember-me.checked #remember-me-icon,
+#change-password-form #remember-me.checked #remember-me-icon {
+  display: block;
+}
+#signup-form #remember-me-alert,
+#change-password-form #remember-me-alert {
+  display: none;
+}
+#signup-form #signup-error,
+#change-password-form #signup-error,
+#signup-form #password-error,
+#change-password-form #password-error {
+  display: none;
+  color: #ffffff;
+  width: 100%;
+  padding: 5px;
+  background-color: #a31451;
+  margin-bottom: 5px;
+}
+#signup-form #signup-error a.button,
+#change-password-form #signup-error a.button,
+#signup-form #password-error a.button,
+#change-password-form #password-error a.button {
+  margin: 8px auto 3px;
+}
+#signup-form .alert-box,
+#change-password-form .alert-box {
+  margin: 5px 0px;
+}
+#issue-form label {
+  display: block;
+  text-align: left;
+  margin-top: 5px;
+}
+#issue-form input,
+#issue-form textarea {
+  text-align: left;
+}
+#signin-existing-user {
+  width: 250px;
+  margin: 20px auto;
+  text-align: left;
+  font-size: 16px;
+  position: relative;
+}
+#signin-existing-user #signin-link {
+  margin-left: 15px;
+  text-decoration: underline;
+}
+/* About Page */
+#team {
+  margin-top: 50px;
+}
+#team h2 {
+  font-size: 30px;
+}
+#team #profiles {
+  margin: 30px 0px 10px;
+  *zoom: 1;
+}
+#team #profiles:before,
+#team #profiles:after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+#team #profiles:after {
+  clear: both;
+}
+#team #profiles .profile {
+  float: left;
+  margin: 0px 35px 20px 0px;
+  width: 45%;
+}
+#team #profiles .profile .profile-name {
+  margin: 10px 0px;
+}
+#team #profiles .profile .profile-img {
+  background-clip: padding-box;
+  -mox-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  border-radius: 120px;
+  -moz-border-radius: 120px;
+  -webkit-border-radius: 120px;
+  width: 120px;
+}
+#team #profiles .profile .profile-text {
+  margin-bottom: 0px;
+}
+#team #profiles .profile .social-list {
+  *zoom: 1;
+}
+#team #profiles .profile .social-list:before,
+#team #profiles .profile .social-list:after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+#team #profiles .profile .social-list:after {
+  clear: both;
+}
+/* Tutorial Page */
+#tutorial {
+  margin-top: 50px;
+}
+#tutorial #tutorial-picture {
+  width: 80%;
+}
+#tutorial #secure-why {
+  margin: 15px 0px 20px;
+  display: block;
+  text-decoration: underline;
+}
+#tutorial .button {
+  margin: 0px auto;
+}
+/* Why Install Page */
+#install-info {
+  margin: 30px auto;
+  width: 920px;
+  *zoom: 1;
+}
+#install-info:before,
+#install-info:after {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+#install-info:after {
+  clear: both;
+}
+#install-info #screenshot {
+  display: block;
+  margin: 15px auto;
+  width: 450px;
+}
+#install-info .pull-right {
+  text-align: left;
+  width: 50%;
+}
+/* Two Factor Pages */
+.no-padding .simple-header {
+  padding-top: 30px;
+}
+.no-padding #wrap #content {
+  padding-top: 20px;
+}
+#report-install-issue a {
+  text-decoration: underline;
+}
+/* Lists */
+.social-list {
+  list-style-type: none;
+  padding: 12px 25px 8px;
+  margin-bottom: 0px;
+}
+.social-list li {
+  float: left;
+  display: inline;
+  margin: 0px 10px;
+}
+@media only screen and (max-width: 1074px) {
+  
+}
+@media only screen and (max-width: 907px) {
+  
+}
+@media only screen and (max-width: 768px) {
+  
+}
+@media only screen and (max-width: 640px) {
+  body footer {
+    height: auto;
+  }
+  body footer nav {
+    float: none;
+    padding: 12px 10px;
+  }
+  body footer #social {
+    float: none;
+  }
+  body footer #social li {
+    float: none;
+  }
+  #habla_window_div {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 480px) {
+  ul.links {
+    font-size: 14px;
+  }
+  p.hero {
+    font-size: 14px;
+  }
+  header.top-header {
+    position: static;
+    height: 100%;
+  }
+  header.top-header .icon-logo {
+    margin: 10px 15px;
+    font-size: 30px;
+  }
+  header.top-header #tagline {
+    font-size: 10px;
+  }
+  header.top-header .install-extension {
+    display: none;
+  }
+  #sticky-header {
+    display: none !important;
+  }
+  footer nav {
+    padding: 10px;
+  }
+  footer nav a {
+    line-height: 2em;
+  }
+  footer #social {
+    padding: 0px 25px 8px;
+  }
+  body {
+    font-size: 12px;
+  }
+  body #wrap {
+    margin-bottom: -98px;
+  }
+  body #wrap #content {
+    padding-top: 0px;
+    padding-bottom: 15px;
+  }
+  body #wrap #content .banner {
+    padding: 15px;
+  }
+  body #wrap #content .banner h1 {
+    font-size: 20px;
+  }
+  body #wrap #content #content-body {
+    width: 85%;
+    margin: 20px auto;
+  }
+  .simple-container {
+    width: 100%;
+  }
+  #team #profiles .profile {
+    float: none;
+    margin: 0px auto 20px;
+    width: 90%;
+    text-align: center;
+  }
+  #team a.button {
+    font-size: 14px;
+    padding: 6px 0px;
+  }
+}
