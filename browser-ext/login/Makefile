@@ -299,30 +299,30 @@ $(1):
 endef
 
 define COPY_RULE
-$(2): $(1) | $(dir $(2))
+$(2): $(1) | $(patsubst %/,%,$(dir $(2)))
 	@echo $(2)
 	@cp $(1) $(2)
 endef
 
 define EXTRACT_SCRIPTS_RULE
-$(2): $(1) | $(dir $(2))
+$(2): $(1) | $(patsubst %/,%,$(dir $(2)))
 	@$(SCRIPTS_EXTRACTOR) extract $(1) $(2)
 endef
 
 define CLOSURE_COMPILER_RULE
-$(2): $(1) | $(dir $(2))
+$(2): $(1) | $(patsubst %/,%,$(dir $(2)))
 	@echo $(2)
 	@$(CLOSURE) --js $(1) --js_output_file $(2) || exit $$?
 endef
 
 define MUSTACHE_RENDERER_RULE
-$(2): $(1) $(dir $(2)) $(BASE_TEMPLATE_FILES)
+$(2): $(1) $(patsubst %/,%,$(dir $(2))) $(BASE_TEMPLATE_FILES)
 	@echo $(2)
 	@NODE_PATH=../third_party node $(MUSTACHE_RENDERER) $(1) $(abspath $(2))
 endef
 
 define MUSTACHE_COMPILER_RULE
-$(2): $(1) $(dir $(2))
+$(2): $(1) $(patsubst %/,%,$(dir $(2)))
 	@echo $(2)
 	@$(MUSTACHE_COMPILER) $(1) > $(abspath $(2))
 endef
