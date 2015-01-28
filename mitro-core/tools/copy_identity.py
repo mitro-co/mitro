@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 
-'''Deletes an identity and all related information.'''
+'''Prints an identity in SQL format. Copied from nuke_identity.py to undoing deleting.'''
 
 import random
 import sys
 import time
 
 import psycopg2
+import psycopg2.extensions
 
 
 def group_by_column0(rows):
@@ -71,6 +72,37 @@ def connect_to_mitro_db():
     cursor.execute('set transaction isolation level serializable')
     return connection
 
+
+def sqlbool(b):
+    if b:
+        't'
+    else:
+        'f'
+
+
+def sqlstr(s):
+    QuotedString(s).getquoted()
+
+
+def printTuples(cursor):
+    firstRow = True
+    for r in cursor:
+        if not firstRow:
+            sys.stdout.write(',\n')
+        else:
+            firstRow = False
+        sys.stdout.write('  (')
+
+        firstValue = True
+        for value in r:
+            if not firstValue:
+                sys.stdout.write(', ')
+            else:
+                firstValue = False
+            value = psycopg2.extensions.adapt(value)
+            print value.getquoted(),
+        sys.stdout.write(')')
+    sys.stdout.write(';\n')
 
 
 def nuke_identity(identity_name):
@@ -159,51 +191,57 @@ def nuke_identity(identity_name):
 
     prompt_description = 'identity %s; %d groups; %d secrets' % (
         identity_name, len(delete_groups), len(delete_secrets))
-    confirm_prompt_or_exit(prompt_description)
+    # confirm_prompt_or_exit(prompt_description)
 
-    cursor.execute('DELETE FROM secrets WHERE id = ANY(%s)', (list(delete_secrets),))
-    print 'Deleted %d secrets' % cursor.rowcount
+    cursor.execute('SELECT * FROM secrets WHERE id = ANY(%s)', (list(delete_secrets),))
+    print 'INSERT INTO secrets VALUES'
+    printTuples(cursor)
     assert cursor.rowcount == len(delete_secrets)
 
     # Remove dangling king references on shared secrets TODO: Set to another user?
-    cursor.execute('UPDATE secrets SET king = NULL WHERE king = %s', (identity_id,))
-    print 'Removed king from %d secrets' % cursor.rowcount
+    # cursor.execute('UPDATE secrets SET king = NULL WHERE king = %s', (identity_id,))
+    # print 'Removed king from %d secrets' % cursor.rowcount
 
-    cursor.execute('DELETE FROM group_secret WHERE id = ANY(%s)', (list(delete_group_secrets),))
-    print 'Deleted %d group_secrets' % cursor.rowcount
+    cursor.execute('SELECT * FROM group_secret WHERE id = ANY(%s)', (list(delete_group_secrets),))
+    print 'INSERT INTO group_secret VALUES'
+    printTuples(cursor)
     assert cursor.rowcount == len(delete_group_secrets)
-    cursor.execute('DELETE FROM acl WHERE id = ANY(%s)', (list(delete_acls),))
-    print 'Deleted %d acls' % cursor.rowcount
+
+    cursor.execute('SELECT * FROM acl WHERE id = ANY(%s)', (list(delete_acls),))
+    print 'INSERT INTO acl VALUES'
+    printTuples(cursor)
     assert cursor.rowcount == len(delete_acls)
 
-    cursor.execute('SELECT COUNT(*) FROM acl WHERE member_identity = %s', (identity_id,))
-    results = cursor.fetchall()
-    assert results[0][0] == 0
+    # cursor.execute('SELECT COUNT(*) FROM acl WHERE member_identity = %s', (identity_id,))
+    # results = cursor.fetchall()
+    # assert results[0][0] == 0
 
-    cursor.execute('DELETE FROM groups WHERE id = ANY(%s)', (list(delete_groups),))
-    print 'Deleted %d groups' % cursor.rowcount
+    cursor.execute('SELECT * FROM groups WHERE id = ANY(%s)', (list(delete_groups),))
+    print 'INSERT INTO groups VALUES'
+    printTuples(cursor)
     assert cursor.rowcount == len(delete_groups)
-    cursor.execute('DELETE FROM device_specific WHERE "user" = %s', (identity_id,))
-    print 'Deleted %d device_specific' % cursor.rowcount
-    cursor.execute('DELETE FROM username WHERE identity = %s', (identity_id,))
-    print 'Deleted %d aliases' % cursor.rowcount
-    cursor.execute('DELETE FROM identity WHERE id = %s', (identity_id,))
-    print 'Deleted %d identity' % cursor.rowcount
+
+    cursor.execute('SELECT * FROM device_specific WHERE "user" = %s', (identity_id,))
+    print 'INSERT INTO device_specific VALUES'
+    printTuples(cursor)
+
+    cursor.execute('SELECT * FROM username WHERE identity = %s', (identity_id,))
+    print 'INSERT INTO username VALUES'
+    printTuples(cursor)
+
+    cursor.execute('SELECT * FROM identity WHERE id = %s', (identity_id,))
+    print 'INSERT INTO identity VALUES'
+    printTuples(cursor)
     assert cursor.rowcount == 1
 
-    now_ms = long(time.time() * 1000 + 0.5)
-    cursor.execute('INSERT INTO processedaudit (actor, actor_name, action, timestamp_ms) VALUES ' +
-        '(%s, %s, %s, %s)', (identity_id, identity_name, _AUDIT_ACTION_DELETE, now_ms))
-
     cursor.close()
-    connection.commit()
-    print 'Committed'
+    connection.rollback()
     connection.close()
 
 
 def main():
     if len(sys.argv) != 2:
-        sys.stderr.write('nuke_identity.py (identity name)\n')
+        sys.stderr.write('copy_identity.py (identity name)\n')
         sys.exit(1)
     identity_name = sys.argv[1]
 
