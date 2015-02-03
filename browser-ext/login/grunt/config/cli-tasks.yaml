@@ -1,0 +1,30 @@
+# Responsible for build/closure
+# I have no f-ing clue what this is used for
+
+closureCompiler:
+  options:
+    compilerOpts:
+      language_in: ECMASCRIPT5_STRICT
+      warning_level: VERBOSE
+      compilation_level: ADVANCED_OPTIMIZATIONS
+      externs: externs_node.js
+      jscomp_error:
+        - missingProperties
+        - checkTypes
+        - checkRegExp
+        - accessControls
+        - const
+        - missingReturn
+  files:
+    build/closure/mitroclient_compiled.js:
+      - ../api/js/cli/kew.js
+      - ../api/js/cli/mitro_legacyapi.js
+      - ../api/js/cli/mitroclient.js
+    build/closure/password_generator_compiled:
+      - ../api/js/cli/password_generator.js
+    build/closure/userdata_compiled.js:
+      - frontend/static/js/background_interface.js
+      - ../api/js/cli/kew.js
+      - common/utils.js
+      - frontend/static/js/org-info.js
+      - frontend/static/js/userdata.js

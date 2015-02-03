@@ -1,0 +1,20 @@
+concat:
+  files:
+    build/webpage/release/data/config.js:
+      - build/common/config.release.js
+      - firefox/config/config.js
+    build/webpage/release/data/js/config.js:
+      - build/common/config.release.js
+      - firefox/config/config.js
+copy:
+  files:
+    - expand: yes
+      src:
+        - build/common/**/*.js
+        - "!<%= contentFiles %>"
+        - "!<%= minifiedFiles %>"
+      dest: build/webpage/release
+
+# define the "webpage" build task
+aliases:
+  - copy:webpage

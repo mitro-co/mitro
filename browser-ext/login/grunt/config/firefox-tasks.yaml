@@ -1,0 +1,51 @@
+closureCompiler:
+  files:
+    - expand: yes
+      flatten: yes
+      src:
+        - firefox/**/*.js
+        - "!<%= testFiles %>"
+        - "!**/config.js"
+      dest: build/firefox/release/data
+concat:
+  files:
+    build/firefox/release/data/config.js:
+      - build/common/config.release.js
+      - firefox/config/config.js
+    build/firefox/release/data/js/config.js:
+      - build/common/config.release.js
+      - firefox/config/config.js
+copy:
+  files:
+    - expand: yes
+      cwd: build/common
+      src: "**/*"
+      dest: build/firefox/release/data
+    - src: firefox/package.json
+      dest: build/firefox/release/package.json
+    - src: firefox/main.js
+      dest: build/firefox/release/lib/main.js
+    - expand: yes
+      cwd: ../third_party
+      src: toolbarwidget-jplib/**/*
+      dest: build/firefox/release/packages
+mozilla-addon-sdk:
+  options:
+    revision: "1.14"
+mozilla-cfx-xpi:
+  options:
+    mozilla-addon-sdk: firefox
+    extension_dir: build/firefox/release
+    dist_dir: build/firefox/release
+    cfx_args:
+      - "--update-link=https://www.mitro.co/firefox/downloads/mitro-login-latest.xpi"
+      - "--update-url=https://www.mitro.co/firefox/update_rdf"
+
+# define the "firefox" build task
+aliases:
+  - common
+  - closureCompiler:firefox
+  - concat:firefox
+  - copy:firefox
+  - mozilla-addon-sdk:firefox
+  - mozilla-cfx-xpi:firefox

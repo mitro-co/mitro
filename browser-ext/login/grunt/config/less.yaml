@@ -1,0 +1,4 @@
+options:
+  strictImports: yes
+  strictMath: yes
+  strictUnits: yes
