@@ -43,6 +43,7 @@ import os
 import re
 import sys
 import shutil
+import contextlib
 
 from tempfile import mkstemp
 from buildtools import compile_html_deps as comp
@@ -66,9 +67,10 @@ def extract_scripts(input_path, output_path):
     
     temp_filename = comp.make_temp_filename()
     
-    with open(temp_filename, 'w') as tempfile, \
-         open(input_path) as input_file, \
-         open(output_path, 'w') as output_file:
+    #with open(temp_filename, 'w') as tempfile, \
+    #     open(input_path) as input_file, \
+    #     open(output_path, 'w') as output_file:
+    with contextlib.nested(open(temp_filename, 'w'), open(input_path), open(output_path, 'w')) as (tempfile, input_file, output_file):
 
         html_source = input_file.read()
         

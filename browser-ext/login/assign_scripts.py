@@ -29,6 +29,7 @@ import os
 import json
 import plistlib
 import sys
+import contextlib
 from xml.dom.minidom import parseString
 
 CHROME_MANIFEST = 'manifest.json'
@@ -46,9 +47,10 @@ def chrome(manifest_path, build_dir):
     """
     resulting_manifest_path = os.path.join(build_dir, CHROME_MANIFEST)
     
-    with open(manifest_path, 'r+') as manifest_file, \
-            open(SCRIPTS_FILE, 'r') as scripts_file, \
-            open(resulting_manifest_path, 'w') as resulting_manifest:
+    #with open(manifest_path, 'r+') as manifest_file, \
+    #     open(SCRIPTS_FILE, 'r') as scripts_file, \
+    #     open(resulting_manifest_path, 'w') as resulting_manifest:
+    with contextlib.nested(open(manifest_path, 'r+'), open(SCRIPTS_FILE, 'r'), open(resulting_manifest_path, 'w')) as (manifest_file, scripts_file, resulting_manifest):
 
         # clean the manifest contents of the comments
         cleaned_contents = ''
@@ -82,8 +84,9 @@ def safari(manifest_path, build_dir):
     # Safari background.html file path
     background_path = os.path.join(build_dir, SAFARI_BACKGROUND_PAGE)
     
-    with open(SCRIPTS_FILE, 'r') as scripts_file, \
-        open(background_path, 'w') as background:
+    #with open(SCRIPTS_FILE, 'r') as scripts_file, \
+    #    open(background_path, 'w') as background:
+    with contextlib.nested(open(SCRIPTS_FILE, 'r'), open(background_path, 'w')) as (scripts_file, background):
         
         scripts = json.load(scripts_file)
         
