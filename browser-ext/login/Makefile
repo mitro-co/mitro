@@ -10,7 +10,10 @@ CFX=$(BUILD_DIR)/../../third_party/firefox-addon-sdk/bin/cfx
 
 CLOSURE_STRICT_FLAGS=--language_in ECMASCRIPT5_STRICT --warning_level VERBOSE --compilation_level ADVANCED_OPTIMIZATIONS --externs externs_node.js --jscomp_error missingProperties --jscomp_error checkTypes --jscomp_error checkRegExp --jscomp_error accessControls --jscomp_error const --jscomp_error missingReturn
 
-ifeq ($(shell uname),Darwin)
+ifneq ($(shell cat binary_name),)
+  GOOGLE_CHROME=$(shell cat binary_name)
+  $(info Found binary_name file; Setting $$GOOGLE_CHROME to [${GOOGLE_CHROME}])
+else ifeq ($(shell uname),Darwin)
   GOOGLE_CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 else
   GOOGLE_CHROME=google-chrome
