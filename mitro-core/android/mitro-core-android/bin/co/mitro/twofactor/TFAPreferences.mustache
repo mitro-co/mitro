@@ -1,0 +1,57 @@
+{{<TwoFactorTemplate}}
+{{$content}}
+        <div class="banner">
+          <h1 class="title-main">Two Factor Authentication Preferences</h1>
+        </div>
+        {{#enabledTwoFactorAuth}}
+         <div id="two-factor">
+          <div class="bordered-content"> 
+            <p class="error-msg">{{errorMessage}}</p>
+            <em>This feature ensures a more secure account. You will be asked for a verification code every time you sign into Mitro from a new device.</em>
+            <h2><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRIvKdQi2snjtMCmmLiIfufYZ4Jgl8pnEdqvfZ8lc3Wtdw0ut6uSA">Two Factor Authentication Enabled on {{date}}</h2>
+            <h3>You have {{numAvailableBackups}} backups left out of 10.</h3>
+            <form class="centered" action="./TFAPreferences">
+              <p>To reset your backup codes, enter your 6 digit verification code or 9 digit backup code:</p>
+              <input id="user" name="user" type="hidden" value="{{user}}">
+              <input id="code" name="code" type="text" placeholder="123456">
+              <input id="reset" name="reset" type="hidden" value="true">
+              <input id="token" name="token" type="hidden" value="{{token}}">
+              <input id="signature" name="signature" type="hidden" value="{{signature}}">
+              <button type="submit" value="Reset">Reset</button>
+            </form>
+            <form class="centered" action="./TFAPreferences">
+              <p>To disable two factor authentication, enter your 6 digit verification code or 9 digit backup code:</p>
+              <input id="user" name="user" type="hidden" value="{{user}}">
+              <input id="code" name="code" type="text" placeholder="123456">
+              <input id="disable" name="disable" type="hidden" value="true">
+              <input id="token" name="token" type="hidden" value="{{token}}">
+              <input id="signature" name="signature" type="hidden" value="{{signature}}">
+              <button type="submit" value="Disable">Disable</button>
+            </form>
+          </div>
+        </div>
+        {{/enabledTwoFactorAuth}}
+
+        {{^enabledTwoFactorAuth}}
+        <div id="two-factor">
+          <div class="bordered-content">
+            <h2><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRlxc9QT_om6ghEd_mhvzp_4VOJfrAOZhNjnb4nXLUMKljUkHLUjw">Two Factor Authentication Disabled</h2>
+            <h3>Why use two factor authentication?</h3>
+            <p>It is highly recommended that you enable two factor authentication as it adds another layer of security to your Mitro account.
+            With two step authentication, you will be asked for both your password and a verification code every time you sign into Mitro from a new device.
+            This feature takes just a few moments to set up and requires a smart phone.</p>
+            <h3>How it works:</h3>
+            <p>When you sign up for two factor authentication, a unique "secret" is generated and encrypted in a special QR code that can be read using the Google Authenticator application.  The application then uses your secret and a complex algorithm to generate new 6 digit verification codes every 30 seconds.</p>
+            <h3>What happens when you lose your phone or don't have access to it?</h3>
+            <p>When you first set up two factor authentication, ten backup codes are generated for you. Each code may only be used once, in the case of an emergency.</p>
+            <form method="post" action="./NewUser">
+              <input id="username" name="username" type="hidden" value="{{user}}">
+              <input id="token" name="token" type="hidden" value="{{token}}">
+              <input id="signature" name="signature" type="hidden" value="{{signature}}">
+              <button type="submit" value="Enable">Enable</button>
+            </form>         
+           </div>
+          </div>
+          {{/enabledTwoFactorAuth}}
+{{/content}}
+{{/TwoFactorTemplate}}

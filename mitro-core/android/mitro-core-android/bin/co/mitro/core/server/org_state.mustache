@@ -1,0 +1,32 @@
+Info for org  {{ orgName}} ({{orgId}})<br>
+	Number of admins: {{numAdmins}}<br>
+	Number of members: {{numMembers}}<br>
+	Number of groups: {{numGroups}} <br>
+	Number of secrets: {{numSecrets}}<br>
+<br>
+	Admins: {{#admins}}<a href="../users/{{.}}.html">{{.}}</a>, {{/admins}}<br>
+	Members: {{#members}}<a href="../users/{{.}}.html">{{.}}</a>, {{/members}}<br>
+<hr>
+
+<br>
+DETAILED GROUPS:<br>
+{{#groups}}<br>
+	Name: {{ name }}<br>
+	Top-level: {{ isTopLevelOrg }}<br>	
+	Group ID: {{ groupId }}<br>
+	AutoDelete: {{ autoDelete }}<br>
+	Org pvt: {{ isOrgPrivateGroup }}<br>
+	Pvt: {{ isNonOrgPrivateGroup }}<br>
+	Owned by: {{ owningOrgName }} ({{owningOrgId}})<br>
+	Users: {{#users}}<a href="../users/{{.}}.html">{{.}}</a>&nbsp;{{/users}}<br>
+{{/groups}}<br>
+	<br>
+DETAILED SECRETS:    <br>
+{{#secrets}}<br>
+	Secret ID: {{secretId}}<br>
+	Hostname: {{hostname}}<br>
+	Groups: {{#groups}}{{.}} {{/groups}}<br>
+	Hidden Groups: {{#hiddenGroups}}{{.}}&nbsp;{{/hiddenGroups}}<br>
+	Users: {{#users}}{{.}},{{/users}}<br>
+<br>
+{{/secrets}}<br>

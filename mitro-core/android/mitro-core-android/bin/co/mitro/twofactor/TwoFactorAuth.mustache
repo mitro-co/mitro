@@ -1,0 +1,29 @@
+{{<TwoFactorTemplate}}
+{{$content}}
+        {{#enabledTwoFactorAuth}}
+        <div class="banner">
+          {{^changePassword}}
+          <h1 class="title-main">Sign In Using Two Factor Authentication</h1>
+          {{/changePassword}}
+          {{#changePassword}}
+          <h1 class="title-main">Authenticate with Two Factor Authentication</h1>
+          {{/changePassword}}
+        </div>
+         <div id="two-factor">
+          <div class="bordered-content"> 
+            <form class="centered" method="post" action="/mitro-core/TwoFactorAuth/Verify">
+              <p class="error-msg">{{errorMessage}}</p>
+              <input id="token" name="token" type="hidden" value="{{token}}">
+              <input id="signature" name="signature" type="hidden" value="{{signature}}">
+              {{#changePassword}}
+              <input id="changePassword" name="changePassword" type="hidden" value="true">
+              {{/changePassword}}
+              <p><strong>Enter 6 digit verification code or 9 digit backup code:</strong></p>
+              <input id="code" name="code" type="text" placeholder="123456">
+              <button type="submit" value="Sign In">Sign In</button>
+            </form>
+          </div>
+        </div>
+        {{/enabledTwoFactorAuth}}
+{{/content}}
+{{/TwoFactorTemplate}}
