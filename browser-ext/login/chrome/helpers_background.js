@@ -104,11 +104,12 @@ helpers_background.BackgroundHelper = function() {
     };
     
     this.getClientIdentifier = function(){
+        var clientIdentifier;
         try {
-            var clientIdentifier = 'extension:[' + chrome.runtime.id + ',' + chrome.runtime.getManifest().version+']';
+            clientIdentifier = 'extension:[' + chrome.runtime.id + ',' + chrome.runtime.getManifest().version+']';
         } catch (e) {
             console.log('could not read chrome extension info');
-            var clientIdentifier = 'unknown';
+            clientIdentifier = 'unknown';
         }
         
         return clientIdentifier;
@@ -159,6 +160,6 @@ helpers_background.BackgroundHelper = function() {
             client.processIncoming(message);
         });
     };
-}
+};
 
 })();

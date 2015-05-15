@@ -181,7 +181,7 @@ Client.prototype.composeResponse = function(message, data) {
     // setting the response data
     for (var i in data) {
         message[i] = data[i];
-    };
+    }
     
     return message;
 };
@@ -461,19 +461,21 @@ Client.prototype.initApiCalls = function() {
  */
 Client.prototype.processCallbacks = function(message) {
     var args = message.data;
+    var argFunction = function() {
+        var callback_number = args[i].substr('_callback_'.length);
+            return function(data) {
+                message.sendResponse({
+                    data: {
+                        callback: callback_number,
+                        data: data
+                    }
+                });
+            };
+    };
+    
     for (var i=0; i<args.length; i++) {
         if (typeof(args[i]) === 'string' && args[i].indexOf('_callback_') === 0) {
-            args[i] = (function() {
-                var callback_number = args[i].substr('_callback_'.length);
-                return function(data) {
-                    message.sendResponse({
-                        data: {
-                            callback: callback_number,
-                            data: data
-                        }
-                    });
-                };
-            })();
+            args[i] = argFunction();
         }
     }
 
@@ -523,7 +525,7 @@ Client.prototype.setMethod = function(to, methodName) {
             
             that.sendMessage(message, invoke_callback);
         };
-    };
+    }
 };
 
 

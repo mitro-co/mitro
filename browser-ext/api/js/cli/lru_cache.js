@@ -86,10 +86,10 @@ var LRUCachePriority = {
 function LRUCache(maxSize) {
     this.items = {};
     this.count = 0;
-    if (maxSize == null)
+    if (maxSize === null)
         maxSize = -1;
     this.maxSize = maxSize;
-    this.fillFactor = .75;
+    this.fillFactor = 0.75;
     this.purgeSize = Math.round(this.maxSize * this.fillFactor);
     
     this.stats = {};
@@ -107,7 +107,7 @@ LRUCache.prototype.getItem = function(key) {
     // retrieve the item from the cache
     var item = this.items[key];
     
-    if (item != null) {
+    if (item !== null) {
         if (!this._isExpired(item)) {
             // if the item is not expired
             // update its last accessed date
@@ -121,7 +121,7 @@ LRUCache.prototype.getItem = function(key) {
     
     // return the item value (if it exists), or null
     var returnVal = null;
-    if (item != null) {
+    if (item !== null) {
         returnVal = item.value;
         this.stats.hits++;
     } else {
@@ -158,22 +158,22 @@ LRUCache.prototype.setItem = function(key, value, options) {
     @param {Object} o TODO: Implement options type
     */
     function LRUCacheItem(k, v, o) {
-        if ((k == null) || (k == ''))
+        if ((k === null) || (k === ''))
             throw new Error("key cannot be null or empty");
         this.key = k;
         this.value = v;
-        if (o == null)
+        if (o === null)
             o = {};
-        if (o.expirationAbsolute != null)
+        if (o.expirationAbsolute !== null)
             o.expirationAbsolute = o.expirationAbsolute.getTime();
-        if (o.priority == null)
+        if (o.priority === null)
             o.priority = LRUCachePriority.Normal;
         this.options = o;
         this.lastAccessed = new Date().getTime();
     }
 
     // add a new cache item to the cache
-    if (this.items[key] != null)
+    if (this.items[key] !== null)
         this._removeItem(key);
     this._addItem(new LRUCacheItem(key, value, options));
     
@@ -199,7 +199,7 @@ LRUCache.prototype.clear = function() {
 // remove old elements from the cache
 LRUCache.prototype._purge = function() {
     
-    var tmparray = new Array();
+    var tmparray = [];
     
     // loop through the cache, expire items that should be expired
     // otherwise, add the item to an array
@@ -248,7 +248,7 @@ LRUCache.prototype._removeItem = function(key) {
     this.count--;
     
     // if there is a callback function, call it at the end of execution
-    if (item.options.callback != null) {
+    if (item.options.callback !== null) {
         var callback = function() {
             item.options.callback(item.key, item.value);
         };
@@ -303,7 +303,7 @@ var makeKey = function() {
 // Decent hash function
 // TODO: think about security implications of using this in keys.
 var hash = function(s){
-  return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);              
+  return s.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a;},0);              
 };
 
 cache.LRUCache = LRUCache;

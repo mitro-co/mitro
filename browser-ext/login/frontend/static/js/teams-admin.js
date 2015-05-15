@@ -45,7 +45,7 @@ $(document).ready(function () {
             }
         }
         return secretCounts;
-    }
+    };
 
     mitro.loadOrganizationInfo(function (orgInfo) {
         var selOrgInfo = orgInfo.getSelectedOrganization();

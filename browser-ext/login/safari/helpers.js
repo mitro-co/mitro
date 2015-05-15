@@ -38,7 +38,7 @@
 function createTab(options, callback){
     var visibility = 'foreground'; //default value
     if(typeof(options.active) !== 'undefined'){
-        var visibility = options.active ? 'foreground' : 'background';
+        visibility = options.active ? 'foreground' : 'background';
     }
     var index = (typeof(options.index) !== 'undefined') ? options.index : undefined;
     

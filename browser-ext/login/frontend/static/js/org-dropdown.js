@@ -28,7 +28,7 @@ var initOrgDropdown;
 var getOrgDropdownId;
 var selectOrgDropdownId;
 (function () {
-    'use strict'
+    'use strict';
 
     var getOrgDropdownSelection = function ($orgDropdown) {
         return $orgDropdown.find('.select');
@@ -86,7 +86,7 @@ var selectOrgDropdownId;
             }
         });
 
-        if ($selOrgItem == null) {
+        if ($selOrgItem === null) {
             if (selOrgId) {
                 // Item belongs to an org that user is not a member of.
                 // Show the org id since we don't know its name.

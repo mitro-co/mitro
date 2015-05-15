@@ -205,16 +205,16 @@ helper.storage.sync.get(null, function(items){
     if ('highlightSelectedForms' in items) {
         highlightSelectedForms = items.highlightSelectedForms;
     }
-    if (items['hideNotLoggedInOnLoginPages']) {
+    if (items.hideNotLoggedInOnLoginPages) {
         hideNotLoggedInOnLoginPages = true;
     }
 
-    if (items['neverAskToSavePasswords']) {
+    if (items.neverAskToSavePasswords) {
         neverAskToSavePasswords = true;
     }
 
-    if (items['serverHostnameOverride']) {
-        MITRO_HOST = items['serverHostnameOverride'];
+    if (items.serverHostnameOverride) {
+        MITRO_HOST = items.serverHostnameOverride;
     }
 });
 
@@ -478,7 +478,7 @@ client.addListener(['content', 'extension'], function (message) {
             var host = getCanonicalHost(message.data.url);
             console.log('trying to find logins for ' , host);
             data = getLoginHintsForHost(host);
-            data['serverHints'] = getServerHintsForUrl(message.data.url);
+            data.serverHints = getServerHintsForUrl(message.data.url);
             data.frameId = message.data.frameId;
             message.sendResponse({data: data});
         }

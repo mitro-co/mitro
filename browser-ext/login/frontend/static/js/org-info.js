@@ -25,7 +25,7 @@
  */
 
 /** @suppress {duplicate} */
-var mitro = mitro || new Object();
+var mitro = mitro || {};
 /** @suppress {duplicate} */
 var kew = kew || require('../../../../api/js/cli/kew');
 /** @suppress{duplicate} */

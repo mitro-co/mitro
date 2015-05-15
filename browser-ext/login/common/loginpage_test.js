@@ -30,7 +30,7 @@ var jsdom = require('jsdom');
 var loginpage = require('./loginpage');
 
 var TEST_DIR = './testdata/';
-var TEST_FILE = TEST_DIR + 'loginpage.json'
+var TEST_FILE = TEST_DIR + 'loginpage.json';
 var JQUERY_PATH = './jquery.min.js';
 
 var ClassificationStats = function (name, numExamples) {

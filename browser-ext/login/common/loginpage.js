@@ -354,7 +354,7 @@ var getLoginForm = function (form, requireFieldVisibility) {
         }
     }
 
-    var goAhead = goAhead && (SERVER_HINTS.allow_empty_username || (usernameField !== null));
+    goAhead = goAhead && (SERVER_HINTS.allow_empty_username || (usernameField !== null));
     if (goAhead) {
         var submitField = guessSubmitField(fieldsRecord,
             true, usernameField && usernameField.pointer);
@@ -397,15 +397,16 @@ var loginSubmitButtonScoreFunc = function (field) {
     if (field && field.value) {
         var label = field.value.toLowerCase();
         var i;
+        var s;
 
         for (i = 0; i < LOGIN_BUTTON_LABELS.length; ++i) {
-            var s = LOGIN_BUTTON_LABELS[i];
+            s = LOGIN_BUTTON_LABELS[i];
             if (label.indexOf(s) !== -1) {
                 submitScore += 2;
             }
         }
         for (i = 0; i < SIGNUP_BUTTON_LABELS.length; ++i) {
-            var s = SIGNUP_BUTTON_LABELS[i];
+            s = SIGNUP_BUTTON_LABELS[i];
             if (label.indexOf(s) !== -1) {
                 submitScore -= LARGE_SCORE_VALUE;
             }
@@ -485,7 +486,7 @@ var guessLoginForm = function (hints) {
             score += usernameScoreFunc(formDict.usernameField);
         }
         if (!formDict.passwordField && formDict.usernameField.emptyPasswordPermitted) {
-            ;
+            
         } else {
             score += passwordScoreFunc(formDict.passwordField);
         }
@@ -703,7 +704,7 @@ __testing__.findAndSubmitLoginForm = function(username, password) {
     var data = {clientData:{loginUrl : document.URL, 'username' : username}, criticalData : {'password' : password}};
     console.log('sending data', data);
     return guessAndFillLoginForm(data);
-}
+};
 __testing__.guessLoginForm = function(username, password) {
     console.log('hello', document.URL, getCanonicalHost(document.URL));
     var data = {clientData:{loginUrl : document.URL, 'username' : username}, criticalData : {'password' : password}};
@@ -719,7 +720,7 @@ __testing__.guessLoginForm = function(username, password) {
     delete rval.formDict;
     delete rval.allFields;
     return rval;
-}
+};
 /* end testing code */
 
     // define node.js module for testing

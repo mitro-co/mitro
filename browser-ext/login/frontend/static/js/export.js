@@ -53,10 +53,11 @@
     servicesPromise.then(function(serviceInstances) {
       _.each(serviceInstances, processServiceInstanceForRendering);
 
+      var li;
       var container = document.getElementById('all-secrets');
       if (serviceInstances.length > 0) {
         for (var i = 0; i < serviceInstances.length; i++) {
-          var li = document.createElement('li');
+          li = document.createElement('li');
           li.textContent = serviceInstances[i].renderedTitle;
           if (serviceInstances[i].host) {
             li.textContent += ' (' + serviceInstances[i].host + ')';
@@ -64,7 +65,7 @@
           container.appendChild(li);
         }
       } else { // No secrets in the account - show no secrets message
-        var li = document.createElement('li');
+        li = document.createElement('li');
         li.textContent = 'No secrets to export';
         container.appendChild(li);
         $('#export-csv').hide(); // hide the export button

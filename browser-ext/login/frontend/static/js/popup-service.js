@@ -121,10 +121,11 @@ var populateServiceList = function(instances){
 var renderActiveSecret = function (secret, $element) {
     processServiceInstanceForRendering(secret);
     var $parentPane = $element.parent('.pane');
+    var html;
     if ($parentPane.length && ($parentPane.data('pane') === 'invite')) { // render invite template
-        var html = templates['popup-invite-member-template'].render(secret);
+        html = templates['popup-invite-member-template'].render(secret);
     } else {
-        var html = templates['popup-active-service-template'].render(secret);
+        html = templates['popup-active-service-template'].render(secret);
     }
     $element.html(html);
     replaceBlankImages($('.member-icon'));

@@ -40,7 +40,7 @@ function handleFileSelect(evt) {
   var reader = new FileReader();
 
   if (f.name.match('.html')) {
-    ;
+    
   } else {
     alert("Currently the tool only supports html uploads.");
     throw new Error("Unsupported file type");

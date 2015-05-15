@@ -28,7 +28,7 @@ $(function() {
 var logToHtml = function(text) {
   console.log(text);
   $('body').append($('<code>').text(text)).append('<br/>');
-}
+};
 var keycache = mitro.keycache.MakeKeyCache();
 logToHtml(Date.now() + " popping key");
 myKey = keycache.pop();
