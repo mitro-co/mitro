@@ -24,7 +24,8 @@
  * *****************************************************************************
  */
 
-var _CHROME_VERSION = parseInt(navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./)[2], 10);
+var _CHROME_VERSION = navigator.userAgent.match(/Chrom(e|ium)\/([0-9]+)\./);
+_CHROME_VERSION = _CHROME_VERSION && parseInt(_CHROME_VERSION[2], 10);
 
 var LAST_AUTOCOMPLETE_COMPLIANT_CHROME_VERSION = 33;
 
@@ -99,7 +100,7 @@ function ContentHelper() {
 
     this.preventAutoFill = function($passwordField, $form) {
         $form.attr('autocomplete', 'off');
-        if (_CHROME_VERSION > LAST_AUTOCOMPLETE_COMPLIANT_CHROME_VERSION) {
+        if (_CHROME_VERSION && _CHROME_VERSION > LAST_AUTOCOMPLETE_COMPLIANT_CHROME_VERSION) {
             console.log('using extreme measures to prevent browser form saving');
             var newInput = document.createElement('input');
             newInput.setAttribute('type', 'password');
