@@ -330,7 +330,7 @@ chrome: $(CHROME_BUILD_DIR)/$(TARGET_BASENAME).zip
 firefox: $(FIREFOX_RELEASE_DIR)/$(TARGET_BASENAME).xpi
 safari: $(SAFARI_RELEASE_DEPS)
 closure: $(CLOSURE_OUTPUTS)
-webpage: $(WEBPAGE_RELEASE_DEPS) 
+webpage: $(WEBPAGE_RELEASE_DEPS)
 
 clean:
 	rm -rf $(GEN_DIR)
@@ -362,8 +362,8 @@ $(CHROME_BUILD_DIR)/debug.crx: $(CHROME_DEBUG_DEPS)
 $(CHROME_BUILD_DIR)/test.crx: $(CHROME_DEBUG_DEPS) $(CHROME_CONFIG)
 	rm -rf $(CHROME_TEST_DIR)
 	cp -r $(CHROME_DEBUG_DIR) $(CHROME_TEST_DIR)
-	./concatfiles.py $(CHROME_TEST_DIR)/config.js $(TEST_CONFIG) $(CHROME_CONFIG)
-	./concatfiles.py $(CHROME_TEST_DIR)/js/config.js $(TEST_CONFIG) $(CHROME_CONFIG)
+	cat $(TEST_CONFIG) $(CHROME_CONFIG) > $(CHROME_TEST_DIR)/config.js
+	cat $(TEST_CONFIG) $(CHROME_CONFIG) > $(CHROME_TEST_DIR)/js/config.js
 	$(GOOGLE_CHROME) --pack-extension=$(CHROME_TEST_DIR)
 	rm -f $(CHROME_BUILD_DIR)/test.pem
 
@@ -403,16 +403,13 @@ $(foreach file,$(filter-out $(wildcard $(dir $(COMMON_SRCS))background.js $(dir 
 $(foreach file,$(filter-ort $(dir $(SAFARI_SRCS))helpers.js, $(SAFARI_HELPERS)),$(eval $(call COPY_RULE,$(file),$(SAFARI_TEST_DIR)/js/$(notdir $(file)))))
 
 $(SAFARI_TEST_DIR)/background.js:
-	echo concatfiles.py $(SAFARI_TEST_DIR)/backgorund.js $(dir $(COMMON_SRCS))background.js $(dir $(SAFARI_SRCS))background-test-specific.js
-	./concatfiles.py $(SAFARI_TEST_DIR)/backgorund.js $(dir $(COMMON_SRCS))background.js $(dir $(SAFARI_SRCS))background-test-specific.js
+	cat $(dir $(COMMON_SRCS))background.js $(dir $(SAFARI_SRCS))background-test-specific.js > $(SAFARI_TEST_DIR)/background.js
 
 $(SAFARI_TEST_DIR)/helpers.js:
-	echo concatfiles.py $(SAFARI_TEST_DIR)/helpers.js $(dir $(SAFARI_SRCS))helpers.js $(dir $(SAFARI_SRCS))helpers-test-specific.js
-	./concatfiles.py $(SAFARI_TEST_DIR)/helpers.js $(dir $(SAFARI_SRCS))helpers.js $(dir $(SAFARI_SRCS))helpers-test-specific.js
+	cat $(dir $(SAFARI_SRCS))helpers.js $(dir $(SAFARI_SRCS))helpers-test-specific.js > $(SAFARI_TEST_DIR)/helpers.js
 
 $(SAFARI_TEST_DIR)/js/helpers.js:
-	echo concatfiles.py $(SAFARI_TEST_DIR)/js/helpers.js $(dir $(SAFARI_SRCS))helpers.js $(dir $(SAFARI_SRCS))helpers-test-specific.js
-	./concatfiles.py $(SAFARI_TEST_DIR)/js/helpers.js $(dir $(SAFARI_SRCS))helpers.js $(dir $(SAFARI_SRCS))helpers-test-specific.js
+	cat $(dir $(SAFARI_SRCS))helpers.js $(dir $(SAFARI_SRCS))helpers-test-specific.js > $(SAFARI_TEST_DIR)/js/helpers.js
 
 # FIREFOX_JS_SRCS
 $(foreach file,$(filter-out $(MINIFIED_SRCS),$(FIREFOX_JS_SRCS)),$(eval $(call CLOSURE_COMPILER_RULE,$(file),$(FIREFOX_RELEASE_DIR)/data/$(notdir $(file)))))
@@ -557,45 +554,45 @@ $(WEBPAGE_TEST_DIR)/background.html:
 
 # Config files
 $(CHROME_RELEASE_DIR)/config.js: $(RELEASE_CONFIG) | $(CHROME_RELEASE_DIR)
-	./concatfiles.py $(CHROME_RELEASE_DIR)/config.js $(RELEASE_CONFIG) $(CHROME_CONFIG)
+	cat $(RELEASE_CONFIG) $(CHROME_CONFIG) > $(CHROME_RELEASE_DIR)/config.js
 $(CHROME_RELEASE_DIR)/js/config.js: $(RELEASE_CONFIG) | $(CHROME_RELEASE_DIR)/js
-	./concatfiles.py $(CHROME_RELEASE_DIR)/js/config.js $(RELEASE_CONFIG) $(CHROME_CONFIG)
+	cat $(RELEASE_CONFIG) $(CHROME_CONFIG) > $(CHROME_RELEASE_DIR)/js/config.js
 $(CHROME_DEBUG_DIR)/config.js: $(DEBUG_CONFIG) | $(CHROME_DEBUG_DIR)
-	./concatfiles.py $(CHROME_DEBUG_DIR)/config.js $(DEBUG_CONFIG) $(CHROME_CONFIG)
+	cat $(DEBUG_CONFIG) $(CHROME_CONFIG) > $(CHROME_DEBUG_DIR)/config.js
 $(CHROME_DEBUG_DIR)/js/config.js: $(DEBUG_CONFIG) | $(CHROME_DEBUG_DIR)/js
-	./concatfiles.py $(CHROME_DEBUG_DIR)/js/config.js $(DEBUG_CONFIG) $(CHROME_CONFIG)
+	cat $(DEBUG_CONFIG) $(CHROME_CONFIG) > $(CHROME_DEBUG_DIR)/js/config.js
 $(SAFARI_RELEASE_DIR)/config.js: $(RELEASE_CONFIG) | $(SAFARI_RELEASE_DIR)
-	./concatfiles.py $(SAFARI_RELEASE_DIR)/config.js $(RELEASE_CONFIG) $(SAFARI_CONFIG)
+	cat $(RELEASE_CONFIG) $(SAFARI_CONFIG) > $(SAFARI_RELEASE_DIR)/config.js
 $(SAFARI_RELEASE_DIR)/js/config.js: $(RELEASE_CONFIG) | $(SAFARI_RELEASE_DIR)/js
-	./concatfiles.py $(SAFARI_RELEASE_DIR)/js/config.js $(RELEASE_CONFIG) $(SAFARI_CONFIG)
+	cat $(RELEASE_CONFIG) $(SAFARI_CONFIG) > $(SAFARI_RELEASE_DIR)/js/config.js
 $(SAFARI_DEBUG_DIR)/config.js: $(DEBUG_CONFIG) | $(SAFARI_DEBUG_DIR)
-	./concatfiles.py $(SAFARI_DEBUG_DIR)/config.js $(DEBUG_CONFIG) $(SAFARI_CONFIG)
+	cat $(DEBUG_CONFIG) $(SAFARI_CONFIG) > $(SAFARI_DEBUG_DIR)/config.js
 $(SAFARI_DEBUG_DIR)/js/config.js: $(DEBUG_CONFIG) | $(SAFARI_DEBUG_DIR)/js
-	./concatfiles.py $(SAFARI_DEBUG_DIR)/js/config.js $(DEBUG_CONFIG) $(SAFARI_CONFIG)
+	cat $(DEBUG_CONFIG) $(SAFARI_CONFIG) > $(SAFARI_DEBUG_DIR)/js/config.js
 $(SAFARI_TEST_DIR)/config.js: $(TEST_CONFIG) | $(SAFARI_TEST_DIR)
-	./concatfiles.py $(SAFARI_TEST_DIR)/config.js $(TEST_CONFIG) $(SAFARI_CONFIG) $(SAFARI_TEST_CONFIG)
+	cat $(TEST_CONFIG) $(SAFARI_CONFIG) $(SAFARI_TEST_CONFIG) > $(SAFARI_TEST_DIR)/config.js
 $(SAFARI_TEST_DIR)/js/config.js: $(TEST_CONFIG) | $(SAFARI_TEST_DIR)/js
-	./concatfiles.py $(SAFARI_TEST_DIR)/js/config.js $(TEST_CONFIG) $(SAFARI_CONFIG) $(SAFARI_TEST_CONFIG)
+	cat $(TEST_CONFIG) $(SAFARI_CONFIG) $(SAFARI_TEST_CONFIG) > $(SAFARI_TEST_DIR)/js/config.js
 $(FIREFOX_RELEASE_DIR)/data/config.js: $(RELEASE_CONFIG) | $(FIREFOX_RELEASE_DIR)
-	./concatfiles.py $(FIREFOX_RELEASE_DIR)/data/config.js $(RELEASE_CONFIG) $(FIREFOX_CONFIG)
+	cat $(RELEASE_CONFIG) $(FIREFOX_CONFIG) > $(FIREFOX_RELEASE_DIR)/data/config.js
 $(FIREFOX_RELEASE_DIR)/data/js/config.js: $(RELEASE_CONFIG) | $(FIREFOX_RELEASE_DIR)
-	./concatfiles.py $(FIREFOX_RELEASE_DIR)/data/js/config.js $(RELEASE_CONFIG) $(FIREFOX_CONFIG)
+	cat $(RELEASE_CONFIG) $(FIREFOX_CONFIG) > $(FIREFOX_RELEASE_DIR)/data/js/config.js
 $(FIREFOX_DEBUG_DIR)/data/config.js: $(DEBUG_CONFIG) | $(FIREFOX_DEBUG_DIR)
-	./concatfiles.py $(FIREFOX_DEBUG_DIR)/data/config.js $(DEBUG_CONFIG) $(FIREFOX_CONFIG)
+	cat $(DEBUG_CONFIG) $(FIREFOX_CONFIG) > $(FIREFOX_DEBUG_DIR)/data/config.js
 $(FIREFOX_DEBUG_DIR)/data/js/config.js: $(DEBUG_CONFIG) | $(FIREFOX_DEBUG_DIR)
-	./concatfiles.py $(FIREFOX_DEBUG_DIR)/data/js/config.js $(DEBUG_CONFIG) $(FIREFOX_CONFIG)
+	cat $(DEBUG_CONFIG) $(FIREFOX_CONFIG) > $(FIREFOX_DEBUG_DIR)/data/js/config.js
 $(WEBPAGE_RELEASE_DIR)/config.js: $(RELEASE_CONFIG) | $(WEBPAGE_RELEASE_DIR)
-	./concatfiles.py $(WEBPAGE_RELEASE_DIR)/config.js $(RELEASE_CONFIG) $(WEBPAGE_CONFIG)
+	cat $(RELEASE_CONFIG) $(WEBPAGE_CONFIG) > $(WEBPAGE_RELEASE_DIR)/config.js
 $(WEBPAGE_RELEASE_DIR)/js/config.js: $(RELEASE_CONFIG) | $(WEBPAGE_RELEASE_DIR)/js
-	./concatfiles.py $(WEBPAGE_RELEASE_DIR)/js/config.js $(RELEASE_CONFIG) $(WEBPAGE_CONFIG)
+	cat $(RELEASE_CONFIG) $(WEBPAGE_CONFIG) > $(WEBPAGE_RELEASE_DIR)/js/config.js
 $(WEBPAGE_DEBUG_DIR)/config.js: $(DEBUG_CONFIG) | $(WEBPAGE_DEBUG_DIR)
-	./concatfiles.py $(WEBPAGE_DEBUG_DIR)/config.js $(DEBUG_CONFIG) $(WEBPAGE_CONFIG)
+	cat $(DEBUG_CONFIG) $(WEBPAGE_CONFIG) > $(WEBPAGE_DEBUG_DIR)/config.js
 $(WEBPAGE_DEBUG_DIR)/js/config.js: $(DEBUG_CONFIG) | $(WEBPAGE_DEBUG_DIR)/js
-	./concatfiles.py $(WEBPAGE_DEBUG_DIR)/js/config.js $(DEBUG_CONFIG) $(WEBPAGE_CONFIG)
+	cat $(DEBUG_CONFIG) $(WEBPAGE_CONFIG) > $(WEBPAGE_DEBUG_DIR)/js/config.js
 $(WEBPAGE_TEST_DIR)/config.js: $(TEST_CONFIG) | $(WEBPAGE_TEST_DIR)
-	./concatfiles.py $(WEBPAGE_TEST_DIR)/config.js $(TEST_CONFIG) $(WEBPAGE_CONFIG) $(WEBPAGE_TEST_CONFIG)
+	cat $(TEST_CONFIG) $(WEBPAGE_CONFIG) $(WEBPAGE_TEST_CONFIG) > $(WEBPAGE_TEST_DIR)/config.js
 $(WEBPAGE_TEST_DIR)/js/config.js: $(TEST_CONFIG) | $(WEBPAGE_TEST_DIR)/js
-	./concatfiles.py $(WEBPAGE_TEST_DIR)/js/config.js $(TEST_CONFIG) $(WEBPAGE_CONFIG) $(WEBPAGE_TEST_CONFIG)
+	cat $(TEST_CONFIG) $(WEBPAGE_CONFIG) $(WEBPAGE_TEST_CONFIG) > $(WEBPAGE_TEST_DIR)/js/config.js
 
 # Firefox main script
 $(FIREFOX_RELEASE_DIR)/data/package.json: $(FIREFOX_MAIN_SCRIPT_PATHS) | $(FIREFOX_RELEASE_DIR)/data

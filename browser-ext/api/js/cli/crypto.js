@@ -137,7 +137,7 @@ function loadFromJson(jsonString, password) {
 function decryptWith(json, otherKey) {
 	var str = otherKey.decrypt(json);
 	return loadFromJson(str);
-};
+}
 
 // converts a pair of keyczar keys into a single Mitro key object.
 function _makeKeyNoMemo(encryptionKey, signingKey) {
@@ -204,7 +204,7 @@ function _makeKeyNoMemo(encryptionKey, signingKey) {
 			var memoKey = mitro.cache.makeKey('decrypt', message);
 			var memoResult = cache.getItem(memoKey);
 			if (memoResult) {
-				;
+				
 			} else {
 				memoResult = key.decryptNoMemo(message);
 				cache.setItem(memoKey, memoResult);

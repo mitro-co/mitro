@@ -50,7 +50,7 @@ STATIC_RESULTS=$(filter $(STATIC_FILES), $(wildcard $(STATIC_SRCS)))
 COMMON_DEPS= \
   $(foreach file,$(wildcard $(STATIC_SERVER_FILES)),$(STATIC_SERVER_DIR)/$(notdir $(file))) \
   $(STATIC_SERVER_DIR)/scripts_extraction_test.html
-  
+
 
 CHROME_DEPS= \
   $(foreach file,$(wildcard $(COMMON_JS_SRCS) $(STATIC_RESULTS) \
@@ -59,7 +59,7 @@ CHROME_DEPS= \
   $(foreach file,$(wildcard $(CSS_SRCS)),$(CHROME_BUILD_DIR)/$(notdir $(file))) \
   $(CHROME_BUILD_DIR)/helpers.js \
   $(CHROME_BUILD_DIR)/manifest.json
-  
+
 
 SAFARI_DEPS= \
   $(foreach file,$(filter-out %/Info.plist,$(wildcard $(COMMON_JS_SRCS) $(STATIC_RESULTS) \
@@ -161,7 +161,7 @@ $(SAFARI_BUILD_DIR)/Info.plist:
 	$(ASSIGN_SCRIPTS) safari safari/Info.plist $(SAFARI_BUILD_DIR)
 
 $(FIREFOX_BUILD_DIR)/data/helpers.js: $(FIREFOX_BUILD_DIR)/data
-	$(EXTENSION_DIR)/concatfiles.py $(FIREFOX_BUILD_DIR)/data/helpers.js $(EXTENSION_DIR)/firefox/helpers.js firefox/helpers.concat.js
+	cat $(EXTENSION_DIR)/firefox/helpers.js firefox/helpers.concat.js > $(FIREFOX_BUILD_DIR)/data/helpers.js
 
 $(FIREFOX_BUILD_DIR)/package.json:
 	@cp firefox/package.json $(FIREFOX_BUILD_DIR)
@@ -173,7 +173,7 @@ $(SAFARI_BUILD_DIR)/mitro_logo_safari.png:
 	@cp $(EXTENSION_DIR)/safari/img/mitro_logo_safari.png $(SAFARI_BUILD_DIR)
 
 $(FIREFOX_BUILD_DIR)/lib/main.js: $(FIREFOX_BUILD_DIR)/lib
-	$(EXTENSION_DIR)/concatfiles.py $(FIREFOX_BUILD_DIR)/lib/main.js $(EXTENSION_DIR)/firefox/main.js firefox/main.concat.js
+	cat $(EXTENSION_DIR)/firefox/main.js firefox/main.concat.js > $(FIREFOX_BUILD_DIR)/lib/main.js
 
 $(FIREFOX_BUILD_DIR)/lib/client.js: $(FIREFOX_BUILD_DIR)/lib
 	@cp $(EXTENSION_DIR)/frontend/static/js/client.js $(FIREFOX_BUILD_DIR)/lib

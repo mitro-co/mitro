@@ -154,7 +154,7 @@ function bidrectionalSetDiffWithComparator(oldList, newList, addedList, deletedL
   for (; j < newList.length; ++j) {
     addedList.push(newList[j]);
   }
-  return (deletedList.length + addedList.length) != 0
+  return (deletedList.length + addedList.length) !== 0;
 }
 
 /** Converts the response from ListMySecretsAndGroups to the format expected by the extension. */
@@ -648,7 +648,7 @@ function _make(email, verified, unsignedToken, privateKey, changePwd, host, port
 
   obj.holdingTransaction.editServerSecret = function(transactionSpecificData, args, onSuccess, onError) {
     try {
-      var data = {};;
+      var data = {};
       assert (args.isViewable !== undefined);
       data.isViewable = args.isViewable;
       data.secretId = args.secretId;
@@ -658,7 +658,7 @@ function _make(email, verified, unsignedToken, privateKey, changePwd, host, port
     } catch (e) {
       onError(mitro.lib.makeLocalException(e));
     }
-  }
+  };
   obj.holdingTransaction.getPendingGroups = function(transactionSpecificData, scope, onSuccess, onError) {
     try {
       mitro.lib.PostToMitro({scope:scope}, _makeArgs(transactionSpecificData),
@@ -1084,11 +1084,11 @@ function _make(email, verified, unsignedToken, privateKey, changePwd, host, port
             }
           }
 
-
+          var targetPublicKey;
 
           // add new people
           for (var k in keysResponse.userIdToPublicKey) {
-            var targetPublicKey = crypto().loadFromJson(keysResponse.userIdToPublicKey[k]);
+            targetPublicKey = crypto().loadFromJson(keysResponse.userIdToPublicKey[k]);
 
             newacls.push(
             {
@@ -1102,7 +1102,7 @@ function _make(email, verified, unsignedToken, privateKey, changePwd, host, port
 
           // add org group if it needs to be added.
           if (!oldGroupAcl && newGroupIdList && newGroupIdList.length) {
-            var targetPublicKey = crypto().loadFromJson(keysResponse.groupIdToPublicKey[newGroupIdList[0]]);
+            targetPublicKey = crypto().loadFromJson(keysResponse.groupIdToPublicKey[newGroupIdList[0]]);
             newacls.push( {
               myPublicKey : keysResponse.groupIdToPublicKey[newGroupIdList[0]],
               level: 'ADMIN', // TODO: what should this be?
@@ -1680,8 +1680,8 @@ fe.workerInvokeOnIdentity = function() {
     var identityId = args.shift();
     var operation = args.shift();
 
-    // not sure what this should be set to:
-    var appliedThisPointer = undefined;
+    // Unnecessary to initialize to undefined
+    var appliedThisPointer;
     identities[identityId.identityId][operation].apply(appliedThisPointer, args);
     fe.getRandomness(function(data) {
       forge.random.collect(data.seed);

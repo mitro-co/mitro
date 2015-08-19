@@ -49,7 +49,7 @@ var mitro = mitro || {};
     mitro.rpc._PostToMitro = function(outdict, args, path, onSuccess, onError) {
       var url = 'https://' + args.server_host + ':' + args.server_port + path;
       outdict.clientIdentifier = helper.getClientIdentifier();
-      outdict['platform'] = PLATFORM;
+      outdict.platform = PLATFORM;
       
       var requestString = JSON.stringify(outdict);
       helper.ajax({

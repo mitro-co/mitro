@@ -41,16 +41,16 @@ var kew = kew || {};
  * @template T
  */
 kew.Promise = function(onSuccess, onFail) {
-  this.promise = this
-  this._isPromise = true
-  this._successFn = onSuccess
-  this._failFn = onFail
-  this._scope = this
-  this._boundArgs = null
-  this._hasContext = false
-  this._nextContext = undefined
-  this._currentContext = undefined
-}
+  this.promise = this;
+  this._isPromise = true;
+  this._successFn = onSuccess;
+  this._failFn = onFail;
+  this._scope = this;
+  this._boundArgs = null;
+  this._hasContext = false;
+  this._nextContext = undefined;
+  this._currentContext = undefined;
+};
 
 /**
  * Specify that the current promise should have a specified context
@@ -58,16 +58,16 @@ kew.Promise = function(onSuccess, onFail) {
  * @private
  */
 kew.Promise.prototype._useContext = function (context) {
-  this._nextContext = this._currentContext = context
-  this._hasContext = true
-  return this
-}
+  this._nextContext = this._currentContext = context;
+  this._hasContext = true;
+  return this;
+};
 
 kew.Promise.prototype.clearContext = function () {
-  this._hasContext = false
-  this._nextContext = undefined
-  return this
-}
+  this._hasContext = false;
+  this._nextContext = undefined;
+  return this;
+};
 
 /**
  * Set the context for all promise handlers to follow
@@ -79,18 +79,18 @@ kew.Promise.prototype.clearContext = function () {
  * @param {*} context An arbitrary context
  */
 kew.Promise.prototype.setContext = function (context) {
-  this._nextContext = context
-  this._hasContext = true
-  return this
-}
+  this._nextContext = context;
+  this._hasContext = true;
+  return this;
+};
 
 /**
  * Get the context for a promise
  * @return {*} the context set by setContext
  */
 kew.Promise.prototype.getContext = function () {
-  return this._nextContext
-}
+  return this._nextContext;
+};
 
 /**
  * Resolve this promise with a specified value
@@ -98,47 +98,47 @@ kew.Promise.prototype.getContext = function () {
  * @param {*} data
  */
 kew.Promise.prototype.resolve = function (data) {
-  if (this._error || this._hasData) throw new Error("Unable to resolve or reject the same promise twice")
+  if (this._error || this._hasData) throw new Error("Unable to resolve or reject the same promise twice");
 
-  var i
+  var i;
   if (data && isPromise(data)) {
-    this._child = data
+    this._child = data;
     if (this._promises) {
       for (i = 0; i < this._promises.length; i += 1) {
-        data._chainPromise(this._promises[i])
+        data._chainPromise(this._promises[i]);
       }
-      delete this._promises
+      delete this._promises;
     }
 
     if (this._onComplete) {
       for (i = 0; i < this._onComplete.length; i+= 1) {
-        data.fin(this._onComplete[i])
+        data.fin(this._onComplete[i]);
       }
-      delete this._onComplete
+      delete this._onComplete;
     }
   } else if (data && isPromiseLike(data)) {
     data.then(
-      function(data) { this.resolve(data) }.bind(this),
-      function(err) { this.reject(err) }.bind(this)
-    )
+      function(data) { this.resolve(data); }.bind(this),
+      function(err) { this.reject(err); }.bind(this)
+    );
   } else {
-    this._hasData = true
-    this._data = data
+    this._hasData = true;
+    this._data = data;
 
     if (this._onComplete) {
       for (i = 0; i < this._onComplete.length; i++) {
-        this._onComplete[i]()
+        this._onComplete[i]();
       }
     }
 
     if (this._promises) {
       for (i = 0; i < this._promises.length; i += 1) {
-        this._promises[i]._withInput(data)
+        this._promises[i]._withInput(data);
       }
-      delete this._promises
+      delete this._promises;
     }
   }
-}
+};
 
 /**
  * Reject this promise with an error
@@ -146,30 +146,30 @@ kew.Promise.prototype.resolve = function (data) {
  * @param {!Error} e
  */
 kew.Promise.prototype.reject = function (e) {
-  if (this._error || this._hasData) throw new Error("Unable to resolve or reject the same promise twice")
+  if (this._error || this._hasData) throw new Error("Unable to resolve or reject the same promise twice");
 
-  var i
-  this._error = e
+  var i;
+  this._error = e;
 
   if (this._ended) {
     setTimeout(function onPromiseThrow() {
-      throw e
-    }, 0)
+      throw e;
+    }, 0);
   }
 
   if (this._onComplete) {
     for (i = 0; i < this._onComplete.length; i++) {
-      this._onComplete[i]()
+      this._onComplete[i]();
     }
   }
 
   if (this._promises) {
     for (i = 0; i < this._promises.length; i += 1) {
-      this._promises[i]._withError(e)
+      this._promises[i]._withError(e);
     }
-    delete this._promises
+    delete this._promises;
   }
-}
+};
 
 /**
  * Provide a callback to be called whenever this promise successfully
@@ -183,14 +183,14 @@ kew.Promise.prototype.reject = function (e) {
  * @template RESULT
  */
 kew.Promise.prototype.then = function (onSuccess, onFail) {
-  var promise = new kew.Promise(onSuccess, onFail)
-  if (this._nextContext) promise._useContext(this._nextContext)
+  var promise = new kew.Promise(onSuccess, onFail);
+  if (this._nextContext) promise._useContext(this._nextContext);
 
-  if (this._child) this._child._chainPromise(promise)
-  else this._chainPromise(promise)
+  if (this._child) this._child._chainPromise(promise);
+  else this._chainPromise(promise);
 
-  return promise
-}
+  return promise;
+};
 
 /**
  * Provide a callback to be called whenever this promise successfully
@@ -203,20 +203,20 @@ kew.Promise.prototype.then = function (onSuccess, onFail) {
  * @template SCOPE, RESULT
  */
 kew.Promise.prototype.thenBound = function (onSuccess, scope, var_args) {
-  var promise = new kew.Promise(onSuccess)
-  if (this._nextContext) promise._useContext(this._nextContext)
+  var promise = new kew.Promise(onSuccess);
+  if (this._nextContext) promise._useContext(this._nextContext);
 
-  promise._scope = scope
+  promise._scope = scope;
   if (arguments.length > 2) {
-    promise._boundArgs = Array.prototype.slice.call(arguments, 2)
+    promise._boundArgs = Array.prototype.slice.call(arguments, 2);
   }
 
   // Chaining must happen after setting args and scope since it may fire callback.
-  if (this._child) this._child._chainPromise(promise)
-  else this._chainPromise(promise)
+  if (this._child) this._child._chainPromise(promise);
+  else this._chainPromise(promise);
 
-  return promise
-}
+  return promise;
+};
 
 /**
  * Provide a callback to be called whenever this promise is rejected
@@ -225,8 +225,8 @@ kew.Promise.prototype.thenBound = function (onSuccess, scope, var_args) {
  * @return {!kew.Promise.<T>} returns a new promise with the output of the onFail handler
  */
 kew.Promise.prototype.fail = function (onFail) {
-  return this.then(null, onFail)
-}
+  return this.then(null, onFail);
+};
 
 /**
  * Provide a callback to be called whenever this promise is rejected.
@@ -239,20 +239,20 @@ kew.Promise.prototype.fail = function (onFail) {
  * @template SCOPE
  */
 kew.Promise.prototype.failBound = function (onFail, scope, var_args) {
-  var promise = new kew.Promise(null, onFail)
-  if (this._nextContext) promise._useContext(this._nextContext)
+  var promise = new kew.Promise(null, onFail);
+  if (this._nextContext) promise._useContext(this._nextContext);
 
-  promise._scope = scope
+  promise._scope = scope;
   if (arguments.length > 2) {
-    promise._boundArgs = Array.prototype.slice.call(arguments, 2)
+    promise._boundArgs = Array.prototype.slice.call(arguments, 2);
   }
 
   // Chaining must happen after setting args and scope since it may fire callback.
-  if (this._child) this._child._chainPromise(promise)
-  else this._chainPromise(promise)
+  if (this._child) this._child._chainPromise(promise);
+  else this._chainPromise(promise);
 
-  return promise
-}
+  return promise;
+};
 
 /**
  * Provide a callback to be called whenever this promise is either resolved
@@ -263,19 +263,19 @@ kew.Promise.prototype.failBound = function (onFail, scope, var_args) {
  */
 kew.Promise.prototype.fin = function (onComplete) {
   if (this._hasData || this._error) {
-    onComplete()
-    return this
+    onComplete();
+    return this;
   }
 
   if (this._child) {
-    this._child.fin(onComplete)
+    this._child.fin(onComplete);
   } else {
-    if (!this._onComplete) this._onComplete = [onComplete]
-    else this._onComplete.push(onComplete)
+    if (!this._onComplete) this._onComplete = [onComplete];
+    else this._onComplete.push(onComplete);
   }
 
-  return this
-}
+  return this;
+};
 
 /**
  * Mark this promise as "ended". If the promise is rejected, this will throw an
@@ -285,9 +285,9 @@ kew.Promise.prototype.fin = function (onComplete) {
  * @deprecated Prefer done(), because it's consistent with Q.
  */
 kew.Promise.prototype.end = function () {
-  this._end()
-  return this
-}
+  this._end();
+  return this;
+};
 
 
 /**
@@ -296,11 +296,11 @@ kew.Promise.prototype.end = function () {
  */
 kew.Promise.prototype._end = function () {
   if (this._error) {
-    throw this._error
+    throw this._error;
   }
-  this._ended = true
-  return this
-}
+  this._ended = true;
+  return this;
+};
 
 /**
  * Close the promise. Any errors after this completes will be thrown to the global handler.
@@ -312,12 +312,12 @@ kew.Promise.prototype._end = function () {
  * @return {void}
  */
 kew.Promise.prototype.done = function (onSuccess, onFailure) {
-  var self = this
+  var self = this;
   if (onSuccess || onFailure) {
-    self = self.then(onSuccess, onFailure)
+    self = self.then(onSuccess, onFailure);
   }
-  self._end()
-}
+  self._end();
+};
 
 /**
  * Return a new promise that behaves the same as the current promise except
@@ -329,29 +329,29 @@ kew.Promise.prototype.done = function (onSuccess, onFailure) {
  * @return {!kew.Promise.<T>} a new promise with timeout
  */
  kew.Promise.prototype.timeout = function (timeoutMs, timeoutMsg) {
-  var deferred = new kew.Promise()
-  var isTimeout = false
+  var deferred = new kew.Promise();
+  var isTimeout = false;
 
   var timeout = setTimeout(function() {
-    deferred.reject(new Error(timeoutMsg || 'Promise timeout after ' + timeoutMs + ' ms.'))
-    isTimeout = true
-  }, timeoutMs)
+    deferred.reject(new Error(timeoutMsg || 'Promise timeout after ' + timeoutMs + ' ms.'));
+    isTimeout = true;
+  }, timeoutMs);
 
   this.then(function (data) {
     if (!isTimeout) {
-      clearTimeout(timeout)
-      deferred.resolve(data)
+      clearTimeout(timeout);
+      deferred.resolve(data);
     }
   },
   function (err) {
     if (!isTimeout) {
-      clearTimeout(timeout)
-      deferred.reject(err)
+      clearTimeout(timeout);
+      deferred.reject(err);
     }
-  })
+  });
 
-  return deferred.promise
-}
+  return deferred.promise;
+};
 
 /**
  * Attempt to resolve this promise with the specified input
@@ -361,15 +361,15 @@ kew.Promise.prototype.done = function (onSuccess, onFailure) {
 kew.Promise.prototype._withInput = function (data) {
   if (this._successFn) {
     try {
-      this.resolve(this._call(this._successFn, [data, this._currentContext]))
+      this.resolve(this._call(this._successFn, [data, this._currentContext]));
     } catch (e) {
-      this.reject(e)
+      this.reject(e);
     }
-  } else this.resolve(data)
+  } else this.resolve(data);
 
   // context is no longer needed
-  delete this._currentContext
-}
+  delete this._currentContext;
+};
 
 /**
  * Attempt to reject this promise with the specified error
@@ -380,15 +380,15 @@ kew.Promise.prototype._withInput = function (data) {
 kew.Promise.prototype._withError = function (e) {
   if (this._failFn) {
     try {
-      this.resolve(this._call(this._failFn, [e, this._currentContext]))
+      this.resolve(this._call(this._failFn, [e, this._currentContext]));
     } catch (thrown) {
-      this.reject(thrown)
+      this.reject(thrown);
     }
-  } else this.reject(e)
+  } else this.reject(e);
 
   // context is no longer needed
-  delete this._currentContext
-}
+  delete this._currentContext;
+};
 
 /**
  * Calls a function in the correct scope, and includes bound arguments.
@@ -399,10 +399,10 @@ kew.Promise.prototype._withError = function (e) {
  */
 kew.Promise.prototype._call = function (fn, args) {
   if (this._boundArgs) {
-    args = this._boundArgs.concat(args)
+    args = this._boundArgs.concat(args);
   }
-  return fn.apply(this._scope, args)
-}
+  return fn.apply(this._scope, args);
+};
 
 /**
  * Chain a promise to the current promise
@@ -411,21 +411,21 @@ kew.Promise.prototype._call = function (fn, args) {
  * @private
  */
 kew.Promise.prototype._chainPromise = function (promise) {
-  var i
-  if (this._hasContext) promise._useContext(this._nextContext)
+  var i;
+  if (this._hasContext) promise._useContext(this._nextContext);
 
   if (this._child) {
-    this._child._chainPromise(promise)
+    this._child._chainPromise(promise);
   } else if (this._hasData) {
-    promise._withInput(this._data)
+    promise._withInput(this._data);
   } else if (this._error) {
-    promise._withError(this._error)
+    promise._withError(this._error);
   } else if (!this._promises) {
-    this._promises = [promise]
+    this._promises = [promise];
   } else {
-    this._promises.push(promise)
+    this._promises.push(promise);
   }
-}
+};
 
 /**
  * Utility function used for creating a node-style resolver
@@ -436,8 +436,8 @@ kew.Promise.prototype._chainPromise = function (promise) {
  * @param {*=} data optional data
  */
 function resolver(deferred, err, data) {
-  if (err) deferred.reject(err)
-  else deferred.resolve(data)
+  if (err) deferred.reject(err);
+  else deferred.resolve(data);
 }
 
 /**
@@ -447,8 +447,8 @@ function resolver(deferred, err, data) {
  * @return {function(?Error, *)} node-style callback
  */
 kew.Promise.prototype.makeNodeResolver = function () {
-  return resolver.bind(null, this)
-}
+  return resolver.bind(null, this);
+};
 
 /**
  * Return true iff the given object is a promise of this library.
@@ -462,7 +462,7 @@ kew.Promise.prototype.makeNodeResolver = function () {
  * @return {boolean} Whether the object is a promise
  */
 function isPromise(obj) {
-  return !!obj._isPromise
+  return !!obj._isPromise;
 }
 
 /**
@@ -473,7 +473,7 @@ function isPromise(obj) {
  * @return {boolean} Whether the object is a promise-like object
  */
 function isPromiseLike(obj) {
-  return typeof obj === 'object' && typeof obj.then === 'function'
+  return typeof obj === 'object' && typeof obj.then === 'function';
 }
 
 /**
@@ -484,9 +484,9 @@ function isPromiseLike(obj) {
  * @template T
  */
 function resolve(data) {
-  var promise = new kew.Promise()
-  promise.resolve(data)
-  return promise
+  var promise = new kew.Promise();
+  promise.resolve(data);
+  return promise;
 }
 
 /**
@@ -496,9 +496,9 @@ function resolve(data) {
  * @return {!kew.Promise}
  */
 function reject(e) {
-  var promise = new kew.Promise()
-  promise.reject(e)
-  return promise
+  var promise = new kew.Promise();
+  promise.reject(e);
+  return promise;
 }
 
 /**
@@ -511,8 +511,8 @@ function reject(e) {
  * @return {*} the val that's being injected into the array
  */
 function replaceEl(arr, idx, val) {
-  arr[idx] = val
-  return val
+  arr[idx] = val;
+  return val;
 }
 
 /**
@@ -528,8 +528,8 @@ function replaceElFulfilled(arr, idx, value) {
   arr[idx] = {
     state: 'fulfilled',
     value: value
-  }
-  return value
+  };
+  return value;
 }
 
 /**
@@ -545,8 +545,8 @@ function replaceElRejected(arr, idx, reason) {
   arr[idx] = {
     state: 'rejected',
     reason: reason
-  }
-  return reason
+  };
+  return reason;
 }
 
 /**
@@ -558,43 +558,48 @@ function replaceElRejected(arr, idx, reason) {
  */
 kew.all = function(promises) {
   if (arguments.length != 1 || !Array.isArray(promises)) {
-    promises = Array.prototype.slice.call(arguments, 0)
+    promises = Array.prototype.slice.call(arguments, 0);
   }
-  if (!promises.length) return resolve([])
+  if (!promises.length) return resolve([]);
 
-  var outputs = []
-  var finished = false
-  var promise = new kew.Promise()
-  var counter = promises.length
+  var outputs = [];
+  var finished = false;
+  var promise = new kew.Promise();
+  var counter = promises.length;
+/*The below functions have been pulled out of the for loop to prevent 
+function creation in a loop*/
+  var decrement = function decrementAllCounter() {
+    counter--;
+    if (!finished && counter === 0) {
+          finished = true;
+          promise.resolve(outputs);
+    }
+  };
+
+  var anyError = function onAllError(e){
+    if (!finished) {
+      finished = true;
+      promise.reject(e);
+    }
+  };
 
   for (var i = 0; i < promises.length; i += 1) {
     if (!promises[i] || !isPromiseLike(promises[i])) {
-      outputs[i] = promises[i]
-      counter -= 1
+      outputs[i] = promises[i];
+      counter -= 1;
     } else {
       promises[i].then(replaceEl.bind(null, outputs, i))
-      .then(function decrementAllCounter() {
-        counter--
-        if (!finished && counter === 0) {
-          finished = true
-          promise.resolve(outputs)
-        }
-      }, function onAllError(e) {
-        if (!finished) {
-          finished = true
-          promise.reject(e)
-        }
-      })
+      .then(decrement,anyError);
     }
   }
 
   if (counter === 0 && !finished) {
-    finished = true
-    promise.resolve(outputs)
+    finished = true;
+    promise.resolve(outputs);
   }
 
-  return promise
-}
+  return promise;
+};
 
 /**
  * Takes in an array of promises or values and returns a promise that is
@@ -608,28 +613,29 @@ kew.all = function(promises) {
  */
 function allSettled(promises) {
   if (!Array.isArray(promises)) {
-    throw Error('The input to "allSettled()" should be an array of Promise or values')
+    throw Error('The input to "allSettled()" should be an array of Promise or values');
   }
-  if (!promises.length) return resolve([])
+  if (!promises.length) return resolve([]);
 
-  var outputs = []
-  var promise = new kew.Promise()
-  var counter = promises.length
+  var outputs = [];
+  var promise = new kew.Promise();
+  var counter = promises.length;
+  var resolution = function(){
+    if ((--counter) === 0) promise.resolve(outputs);
+  };
 
   for (var i = 0; i < promises.length; i += 1) {
     if (!promises[i] || !isPromiseLike(promises[i])) {
-      replaceElFulfilled(outputs, i, promises[i])
-      if ((--counter) === 0) promise.resolve(outputs)
+      replaceElFulfilled(outputs, i, promises[i]);
+      if ((--counter) === 0) promise.resolve(outputs);
     } else {
       promises[i]
         .then(replaceElFulfilled.bind(null, outputs, i), replaceElRejected.bind(null, outputs, i))
-        .then(function () {
-          if ((--counter) === 0) promise.resolve(outputs)
-        })
+        .then(resolution);
     }
   }
 
-  return promise
+  return promise;
 }
 
 /**
@@ -638,8 +644,8 @@ function allSettled(promises) {
  * @return {!kew.Promise}
  */
 kew.defer = function() {
-  return new kew.Promise()
-}
+  return new kew.Promise();
+};
 
 /**
  * Return a promise which will wait a specified number of ms to resolve
@@ -649,11 +655,11 @@ kew.defer = function() {
  * @return {!kew.Promise} returns returnVal
  */
 function delay(delayMs, returnVal) {
-  var defer = new kew.Promise()
+  var defer = new kew.Promise();
   setTimeout(function onDelay() {
-    defer.resolve(returnVal)
-  }, delayMs)
-  return defer
+    defer.resolve(returnVal);
+  }, delayMs);
+  return defer;
 }
 
 /**
@@ -665,12 +671,12 @@ function delay(delayMs, returnVal) {
  * @return {!kew.Promise}
  */
 function fcall(fn, var_args) {
-  var rootArgs = Array.prototype.slice.call(arguments, 1)
-  var defer = new kew.Promise()
+  var rootArgs = Array.prototype.slice.call(arguments, 1);
+  var defer = new kew.Promise();
   setTimeout(function onNextTick() {
-    defer.resolve(fn.apply(undefined, rootArgs))
-  }, 0)
-  return defer
+    defer.resolve(fn.apply(undefined, rootArgs));
+  }, 0);
+  return defer;
 }
 
 
@@ -684,9 +690,9 @@ function fcall(fn, var_args) {
  */
 function nfcall(fn, var_args) {
   // Insert an undefined argument for scope and let bindPromise() do the work.
-  var args = Array.prototype.slice.call(arguments, 0)
-  args.splice(1, 0, undefined)
-  return bindPromise.apply(undefined, args)()
+  var args = Array.prototype.slice.call(arguments, 0);
+  args.splice(1, 0, undefined);
+  return bindPromise.apply(undefined, args)();
 }
 
 
@@ -700,12 +706,12 @@ function nfcall(fn, var_args) {
  * @return {function(...)}: !kew.Promise}
  */
 function bindPromise(fn, scope, var_args) {
-  var rootArgs = Array.prototype.slice.call(arguments, 2)
+  var rootArgs = Array.prototype.slice.call(arguments, 2);
   return function onBoundPromise(var_args) {
-    var defer = new kew.Promise()
-    fn.apply(scope, rootArgs.concat(Array.prototype.slice.call(arguments, 0), defer.makeNodeResolver()))
-    return defer
-  }
+    var defer = new kew.Promise();
+    fn.apply(scope, rootArgs.concat(Array.prototype.slice.call(arguments, 0), defer.makeNodeResolver()));
+    return defer;
+  };
 }
 
 // If we are on node, export kew as module.exports

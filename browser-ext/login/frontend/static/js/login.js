@@ -142,7 +142,7 @@ var initLoginForm;
                     // #tfa-code in #logged-out; updateLoginState() makes it visible: focus after
                     $('#tfa-code input[type=text]').focus();
                 };
-                var tfaCode = undefined;
+                var tfaCode;
                 if ($('#tfa-code').is(':visible')) {
                     tfaCode = $('#tfa-code input[type=text]').val();
                 }

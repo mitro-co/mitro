@@ -27,7 +27,7 @@
 (function() {
 // define mitro
 if(typeof(window) !== 'undefined') {
-  if (typeof(mitro) === 'undefined') {mitro = window.mitro = window.mitro || {}};
+  if (typeof(mitro) === 'undefined') {mitro = window.mitro = window.mitro || {};}
   mitro.lib = {};
 }
 // define node.js module
@@ -331,8 +331,7 @@ var GetUserAndGroupPublicKeys = function(args, addMissingUsers, uids, gids, onSu
         //TODO: pass this back so we can prompt users
         assert (!r.missingUsers || r.missingUsers.length === 0);
         onSuccess(r);
-      }
-      , onError);
+      }, onError);
    } catch (e) {
     console.log(e.stack);
     onError(makeLocalException(e));
@@ -721,6 +720,15 @@ var AddSecrets = clearCacheAndCall(function(args, data, onSuccess, onError) {
       GetUserAndGroupPublicKeys(args, false, [], data.groupIds, function(keys) {
         var toRun = [];
         try {
+
+          //Used to prevent creating a function within a loop
+          var messageFunction = function(response, onSuccess, onError){
+            for (var j = 2; j < toRun.length; j++) {
+              toRun[j][1][0].secretId = response.secretId;
+            }
+            onSuccess();
+          };
+          
           for (var i = 0; i < data.groupIds.length; ++i) {
             var gid = data.groupIds[i];
             var publicKeyString = keys.groupIdToPublicKey[gid];
@@ -738,12 +746,7 @@ var AddSecrets = clearCacheAndCall(function(args, data, onSuccess, onError) {
             // if we are adding a new secret, set the secret id for the subsequent requests
             // TODO: Ideally this API should do this with one server request
             if (data.secretId === undefined && i === 0) {
-              toRun.push([function(response, onSuccess, onError) {
-                for (var j = 2; j < toRun.length; j++) {
-                  toRun[j][1][0].secretId = response.secretId;
-                }
-                onSuccess();
-              }, [undefined]]);
+              toRun.push([messageFunction, [undefined]]);
             }
           }
           series(toRun, clearCacheAndCall(onSuccess), onError);
@@ -890,7 +893,7 @@ var GetAuditLog = function (args, onSuccess, onError) {
     console.log('>> exception in get audit log');
     onError(makeLocalException(e));
   }
-}
+};
 
 var runCommandWithPrivateKey = function(cmdFcn, argv, unencryptedPrivateKey, onSuccessIn, onErrorIn) {
 

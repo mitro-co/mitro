@@ -232,7 +232,7 @@ Tester.prototype.addAction = function(func, timer) {
  * @param message {string} Error message
  */
 Tester.prototype.assertObjectsEqual = function(obj1, obj2, message) {
-    message = (message == undefined) ? 'Objects not equal' : message;
+    message = (message === undefined) ? 'Objects not equal' : message;
     
     if (JSON.stringify(obj1) !== JSON.stringify(obj2)) {
         throw message;

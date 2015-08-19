@@ -45,6 +45,7 @@ var BloomFilter;
 
     this.m = m;
     this.k = k;
+    var buckets;
     var n = Math.ceil(m / 32),
         i = -1;
 
@@ -56,12 +57,12 @@ var BloomFilter;
       if (a) while (++i < n) buckets[i] = a[i];
       this._locations = new array(kbuffer);
     } else {
-      var buckets = this.buckets = [];
+      buckets = this.buckets = [];
       if (a) while (++i < n) buckets[i] = a[i];
       else while (++i < n) buckets[i] = 0;
       this._locations = [];
     }
-  }
+  };
 
   // See http://willwhim.wordpress.com/2011/09/03/producing-n-hash-functions-by-hashing-only-once/
   BloomFilter.prototype.locations = function(v) {

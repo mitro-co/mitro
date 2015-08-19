@@ -72,7 +72,7 @@ var userIdsToUserMap = function (userIds) {
     userMap[userId] = makeUserFromUserId(userId);
   }
   return userMap;
-}
+};
 
 var nextCheckBoxId = 0;
 
