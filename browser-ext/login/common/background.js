@@ -32,7 +32,7 @@
 // once every 20 minutes.
 var SERVICE_LIST_REFRESH_PERIOD = 1000 * 60 * 20;
 
-var MITRO_SHUTDOWN_URL = "https://medium.com/@vijayp/mitro-s-shutting-down-security-is-a-full-time-job-96a861337d19";
+var MITRO_SHUTDOWN_URL = "https://www.mitro.co/shutdown.html";
 
 var helper = new helpers_background.BackgroundHelper();
 helper.bindClient(client);
