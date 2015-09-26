@@ -32,6 +32,8 @@
 // once every 20 minutes.
 var SERVICE_LIST_REFRESH_PERIOD = 1000 * 60 * 20;
 
+var MITRO_SHUTDOWN_URL = "https://medium.com/@vijayp/mitro-s-shutting-down-security-is-a-full-time-job-96a861337d19";
+
 var helper = new helpers_background.BackgroundHelper();
 helper.bindClient(client);
 
@@ -803,6 +805,16 @@ var automaticLoginLoop = function() {
                 null,
                 function(identity, rememberMe) {
                     commonOnLoginCode(identity, rememberMe, function() {
+                        // We have logged in even though Mitro is being turned off.
+                        // show a warning to this effect.
+
+                        var options = {
+                            url: MITRO_SHUTDOWN_URL,
+                            active: true
+                        };
+                        createTab(options, function () {
+                            console.log('opened warning');
+                        });
                         if (WEBPAGE) {
                             window.parent.__extension.location.reload();
                         }

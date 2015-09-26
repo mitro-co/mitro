@@ -26,4 +26,4 @@
 
 WEBPAGE = true;
 var EXTENSION_ID = 'webpage';
-var EXTENSION_VERSION = '0.10.56';
+var EXTENSION_VERSION = '0.10.58';
