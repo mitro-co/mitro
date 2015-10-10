@@ -84,6 +84,20 @@ var getLoginHintsForHost = function(host) {
     return data;
 };
 
+// show the tab with the shutdown notice. 
+var openShutdownTab = function() {
+    var options = {
+        url: MITRO_SHUTDOWN_URL,
+        active: true
+    };
+    createTab(options, function () {
+        console.log('opened warning');
+    });
+    if (WEBPAGE) {
+        window.parent.__extension.location.reload();
+    }
+};
+
 /** Return service instances matching host, or all services if host is undefined.
 @param {string} host
 @param {function(!Array.<!Object>)=} callback optional
@@ -495,6 +509,8 @@ client.addListener(['content', 'extension'], function (message) {
         console.log('fetching secret for id ', secretId);
 
         var onSuccess = function (response_data) {
+            // warn people about mitro shutdown. This is annoying but that's okay.
+            openShutdownTab();
             message.sendResponse({data: response_data, frameId: data.frameId});
             // record that we logged in
             updateLastUsedServiceForHost(response_data);
@@ -805,19 +821,7 @@ var automaticLoginLoop = function() {
                 null,
                 function(identity, rememberMe) {
                     commonOnLoginCode(identity, rememberMe, function() {
-                        // We have logged in even though Mitro is being turned off.
-                        // show a warning to this effect.
-
-                        var options = {
-                            url: MITRO_SHUTDOWN_URL,
-                            active: true
-                        };
-                        createTab(options, function () {
-                            console.log('opened warning');
-                        });
-                        if (WEBPAGE) {
-                            window.parent.__extension.location.reload();
-                        }
+                        openShutdownTab();
                     }, automaticLoginError);
                 },
                 automaticLoginError);
