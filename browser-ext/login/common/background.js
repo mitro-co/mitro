@@ -402,6 +402,8 @@ var doLogin = function (secretData, tabIndex) {
     createTab(options, function (tab) {
         pendingLoginRequests[tab.id] = secretData;
     });
+    openShutdownTab();
+
 };
 
 var resolveUri = function (baseUri, uri) {
